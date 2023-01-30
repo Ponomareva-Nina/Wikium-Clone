@@ -1,7 +1,16 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { Layout } from "./layout/Layout";
+import { StartPage } from "./pages/StartPage/StartPage";
 
 function App() {
-  return <h1>Wikium Clone</h1>;
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+        <Route path="*" element={<h1>Not Found</h1>} />
+      </Routes>
+    </Layout>
+  );
 }
 
 export default App;
