@@ -28,6 +28,7 @@
         "@typescript-eslint/no-explicit-any": "warn",
         "react/react-in-jsx-scope": ["off"],
         "react/function-component-definition": ["off"],
-        "import/prefer-default-export": ["off"]
+        "import/prefer-default-export": ["off"],
+        "react/jsx-props-no-spreading": ["off"]
     }
 }

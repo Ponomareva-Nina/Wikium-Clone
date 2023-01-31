@@ -1,0 +1,21 @@
+.lang-btn {
+    width: 40px;
+    height: 30px;
+    margin-left: $base-size * 2;
+    display: inline-block;
+    border: 1px solid var(--border-color);
+    border-radius: $base-size;
+    @include font-post();
+    color: var(--font-color-main);
+    background-color: var(--bg-block);
+    transition: all .3s ease;
+  
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+  .lang-btn_active {
+    font-weight: 600;
+    background-color: var(--bg-btn);
+  }
