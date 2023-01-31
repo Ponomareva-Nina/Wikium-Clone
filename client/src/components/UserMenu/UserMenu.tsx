@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { ClassNames } from "../../constants/classNames";
-import { Button } from "../UI/Button/Button";
+import { Button } from "../UI";
 import { LANGUAGES } from "./types";
 
 export const UserMenu = () => {
