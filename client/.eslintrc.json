@@ -4,7 +4,7 @@
         "es2021": true
     },
     "extends": [
-        "react-app",
+        "plugin:react/recommended",
         "airbnb",
         "airbnb-typescript",
         "plugin:import/typescript",
@@ -28,6 +28,8 @@
         "@typescript-eslint/no-explicit-any": "warn",
         "react/react-in-jsx-scope": ["off"],
         "react/function-component-definition": ["off"],
-        "import/prefer-default-export": ["off"]
+        "import/prefer-default-export": ["off"],
+        "react/jsx-props-no-spreading": ["off"],
+        "react/require-default-props": ["off"]
     }
 }

@@ -1,3 +1,13 @@
+import { useTranslation } from "react-i18next";
+import { UserMenu } from "../../components/UserMenu/UserMenu";
+
 export const StartPage = () => {
-  return <h1>Start Page</h1>;
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <h1>{t("startPage.title")}</h1>
+      <UserMenu />
+    </>
+  );
 };
