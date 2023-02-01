@@ -1,14 +1,25 @@
 .btn {
-   outline: none;
-   cursor: pointer;
-   transition: 0.2s;
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.standart {
+  min-width: 5rem;
+}
+
+.small {
+  min-width: 2.5rem;
+}
+
+.outline {
 
 }
 
-.btn_standart {
-    min-width: 5rem;
+.success {
+
 }
 
-.btn_small {
-    min-width: 2.5rem;
+.error {
+  
 }
