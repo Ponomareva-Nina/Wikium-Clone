@@ -113,7 +113,7 @@ main {
 }
 
 :disabled {
-  background-color: var(--ivactive-color);
+  background-color: var(--inactive-bg-color);
   color: var(--font-main-color);
   cursor: auto;
   pointer-events: none

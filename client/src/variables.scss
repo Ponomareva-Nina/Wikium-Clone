@@ -4,8 +4,8 @@
   --font-main-color: black;
   --font-secondary-color: white;
   --bg-btn-color: #6039aa;
-  --auxiliary-color: #616161;
-  --ivactive-color: #aaaaaa;
+  --auxiliary-color: #797979;
+  --inactive-bg-color: #aaaaaa;
  }
 
 :root[class="dark"] {
@@ -14,6 +14,6 @@
   --font-main-color: white;
   --font-secondary-color: black;
   --bg-btn-color: #fdc10a;
-  --auxiliary-color: #616161;
-  --ivactive-color: #aaaaaa;
+  --auxiliary-color: #b3b3b3;
+  --inactive-bg-color: #aaaaaa;
 }

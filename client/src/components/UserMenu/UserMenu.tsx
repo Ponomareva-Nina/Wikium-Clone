@@ -24,10 +24,18 @@ export const UserMenu = () => {
     <div className={styles.container}>
       <div className={styles.item}>
         <p>{t("menu.language")}:</p>
-        <Button btnSize="small" onClick={() => i18n.changeLanguage(LANGUAGES.EN)}>
+        <Button
+          btnSize="small"
+          onClick={() => i18n.changeLanguage(LANGUAGES.EN)}
+          appearance={i18n.resolvedLanguage === LANGUAGES.EN ? "normal" : "inactive"}
+        >
           {LANGUAGES.EN}
         </Button>
-        <Button btnSize="small" onClick={() => i18n.changeLanguage(LANGUAGES.RU)}>
+        <Button
+          btnSize="small"
+          onClick={() => i18n.changeLanguage(LANGUAGES.RU)}
+          appearance={i18n.resolvedLanguage === LANGUAGES.RU ? "normal" : "inactive"}
+        >
           {LANGUAGES.RU}
         </Button>
       </div>
@@ -37,7 +45,7 @@ export const UserMenu = () => {
         <Button btnSize="standart" onClick={() => setThemeLight()}>
           {THEME.LIGHT}
         </Button>
-        <Button btnSize="small" onClick={() => setThemeDark()}>
+        <Button btnSize="standart" onClick={() => setThemeDark()}>
           {THEME.DARK}
         </Button>
       </div>

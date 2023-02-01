@@ -1,25 +1,29 @@
 .btn {
-  outline: none;
-  cursor: pointer;
   transition: 0.2s;
+  white-space: nowrap;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  text-transform: capitalize;
+  border: 2px solid var(--bg-btn-color);
 }
 
 .standart {
-  min-width: 5rem;
+  width: 12rem
 }
 
 .small {
   min-width: 2.5rem;
 }
 
-.outline {
-
+.normal {
+  background-color: var(--bg-btn-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-secondary-color);
 }
 
-.success {
-
-}
-
-.error {
-  
+.inactive {
+  background-color: transparent;
+  color: var(--auxiliary-color);
 }

@@ -5,13 +5,13 @@ import styles from "./Button.module.scss";
 interface ButtonProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   btnSize?: "small" | "standart";
-  appearance?: "outline" | "success" | "error";
+  appearance?: "normal" | "inactive";
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   children,
   btnSize = "standart",
-  appearance = "outline",
+  appearance = "normal",
   ...rest
 }) => {
   return (
