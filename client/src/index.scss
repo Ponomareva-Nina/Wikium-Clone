@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+ font-size: 10px;
+}
+
+@mixin font-main($size: 1.7rem) {
+  font-family: "Montserrat", sans-serif;
+  font-size: $size;
+  line-height: 140%;
+}
+
+body {
+  @include font-main();
+  background-color: var(--bg-page);
+  color: var(--font-main-color);
+}
