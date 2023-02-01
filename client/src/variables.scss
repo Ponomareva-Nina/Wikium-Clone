@@ -1,0 +1,19 @@
+:root[class="light"] {
+  --bg-page: #f7f5fa;
+  --accent-color: #8f4af9;
+  --font-main-color: black;
+  --font-secondary-color: white;
+  --bg-btn-color: #6039aa;
+  --auxiliary-color: #797979;
+  --inactive-bg-color: #aaaaaa;
+ }
+
+:root[class="dark"] {
+  --bg-page: #2a282c;
+  --accent-color: #8f4af9;
+  --font-main-color: white;
+  --font-secondary-color: black;
+  --bg-btn-color: #fdc10a;
+  --auxiliary-color: #b3b3b3;
+  --inactive-bg-color: #aaaaaa;
+}
