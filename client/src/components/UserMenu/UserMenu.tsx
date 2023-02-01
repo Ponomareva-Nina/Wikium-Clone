@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "../UI";
 import { LANGUAGES, THEME } from "./types";
+import styles from "./UserMenu.module.scss";
 
 const root = document.querySelector(":root") as HTMLElement;
 const currentTheme = localStorage.getItem("theme");
@@ -20,22 +21,26 @@ export const UserMenu = () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <>
-      <div>{t("menu.language")}:</div>
-      <Button btnSize="small" onClick={() => i18n.changeLanguage(LANGUAGES.EN)}>
-        {LANGUAGES.EN}
-      </Button>
-      <Button btnSize="small" onClick={() => i18n.changeLanguage(LANGUAGES.RU)}>
-        {LANGUAGES.RU}
-      </Button>
+    <div className={styles.container}>
+      <div className={styles.item}>
+        <p>{t("menu.language")}:</p>
+        <Button btnSize="small" onClick={() => i18n.changeLanguage(LANGUAGES.EN)}>
+          {LANGUAGES.EN}
+        </Button>
+        <Button btnSize="small" onClick={() => i18n.changeLanguage(LANGUAGES.RU)}>
+          {LANGUAGES.RU}
+        </Button>
+      </div>
 
-      <div>{t("menu.theme")}:</div>
-      <Button btnSize="small" onClick={() => setThemeLight()}>
-        {THEME.LIGHT}
-      </Button>
-      <Button btnSize="small" onClick={() => setThemeDark()}>
-        {THEME.DARK}
-      </Button>
-    </>
+      <div className={styles.item}>
+        <p>{t("menu.theme")}:</p>
+        <Button btnSize="standart" onClick={() => setThemeLight()}>
+          {THEME.LIGHT}
+        </Button>
+        <Button btnSize="small" onClick={() => setThemeDark()}>
+          {THEME.DARK}
+        </Button>
+      </div>
+    </div>
   );
 };

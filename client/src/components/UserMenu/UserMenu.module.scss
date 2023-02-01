@@ -1,0 +1,9 @@
+@import "../../common.scss";
+
+.container {
+  @include flex-column();
+}
+
+.item {
+  @include flex-row();
+}
