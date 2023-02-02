@@ -20,7 +20,7 @@ export class User {
   level: number;
   @Prop()
   neurons: number;
-  @Prop()
+  @Prop({ unique: true })
   email: string;
   @Prop()
   password: string;

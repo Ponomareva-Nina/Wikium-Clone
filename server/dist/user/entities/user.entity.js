@@ -46,7 +46,7 @@ __decorate([
     __metadata("design:type", Number)
 ], User.prototype, "neurons", void 0);
 __decorate([
-    (0, mongoose_1.Prop)(),
+    (0, mongoose_1.Prop)({ unique: true }),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
