@@ -1,28 +1,46 @@
+import { CreateUserDto } from './dto/create-user.dto';
 import { User, UserDocument } from './entities/user.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 
 @Injectable()
 export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
-  create(createUserDto: CreateUserDto) {
-    return this.userModel.create(createUserDto);
+  async createUser(createUserDto: CreateUserDto) {
+    const newUser: User = {
+      ...createUserDto,
+      name: '',
+      surname: '',
+      birthDay: '',
+      gender: '',
+      education: '',
+      avatar: '',
+      level: 0,
+      neurons: 0,
+      refreshToken: '',
+    };
+    return this.userModel.create(newUser);
   }
 
   findAll() {
     return `This action returns all user`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(dto: Partial<User>) {
+    return this.userModel.findOne(dto).exec();
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async findOneByEmail(email: string) {
+    return this.userModel.findOne({ email }).exec();
+  }
+
+  update(id: string, updateUserDto: Partial<UpdateUserDto>) {
+    return this.userModel
+      .findOneAndUpdate(new Types.ObjectId(id), updateUserDto, { new: true })
+      .exec();
   }
 
   remove(id: number) {
