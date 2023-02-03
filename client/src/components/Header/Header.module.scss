@@ -8,9 +8,12 @@
     background-color: var(--accent-color);
 
     &__wrapper {
-        width: 1216px;
-        padding: 0 2rem;
         @include flex-row();
         justify-content: space-between;
     }
+}
+
+.header_container {
+    @include flex-row();
+    gap: 4rem;
 }

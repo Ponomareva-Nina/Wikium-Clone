@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "../UI";
-import { LANGUAGES, THEME } from "./types";
+import { LANGUAGES } from "../../translation/types";
+import { THEME } from "./types";
 import styles from "./UserMenu.module.scss";
 
 const root = document.querySelector(":root") as HTMLElement;

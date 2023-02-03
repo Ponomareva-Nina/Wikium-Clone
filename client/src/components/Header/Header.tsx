@@ -17,9 +17,11 @@ export const Header = () => {
 
   return (
     <header className={cn(styles.header)}>
-      <div className={cn(styles.header__wrapper)}>
-        <Logo />
-        {auth && <NavigationList />}
+      <div className={cn(styles.header__wrapper, styles.wrapper)}>
+        <div className={cn(styles.header_container)}>
+          <Logo />
+          {auth && <NavigationList />}
+        </div>
         <Avatar onClick={hadleAccountClick} isOpen={isOpenAccPopup} />
       </div>
     </header>

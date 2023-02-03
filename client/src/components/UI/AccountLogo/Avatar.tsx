@@ -1,5 +1,5 @@
 import cn from "classnames";
-import noneAvatar from "./none_avatar.svg";
+import noneAvatar from "../../../assets/images/Avatar/none_avatar.svg";
 import styles from "./Avatar.module.scss";
 
 type AvatarProps = {

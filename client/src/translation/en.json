@@ -13,5 +13,9 @@
       "course": "Courses",
       "stat": "Stats",
       "achievement": "Achievements"
+    },
+    "logo": {
+      "lang": "en",
+      "alt": "Wikium - train brains"
     }
 }
