@@ -5,5 +5,13 @@
     "menu": {
       "language": "Изменить язык",
       "theme": "Изменить тему"
+    },
+    "authPage": {
+      "username": "Эл.почта",
+      "password": "Пароль"
+    },
+    "registerPage": {
+      "username": "Эл.почта",
+      "password": "Пароль"
     }
 }

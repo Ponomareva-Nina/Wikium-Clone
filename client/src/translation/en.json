@@ -5,5 +5,13 @@
     "menu": {
       "language": "Change language",
       "theme": "Change theme"
+    },
+    "authPage": {
+      "username": "Email",
+      "password": "Password"
+    },
+    "registerPage": {
+      "username": "Email",
+      "password": "Password"
     }
 }
