@@ -1,13 +1,13 @@
 import cn from "classnames";
 import noneAvatar from "../../../assets/images/Avatar/none_avatar.svg";
-import styles from "./Avatar.module.scss";
+import styles from "./AccountLogo.module.scss";
 
-type AvatarProps = {
+type AccountLogoProps = {
   onClick: () => void;
   isOpen: boolean;
 };
 
-export const Avatar = ({ onClick, isOpen }: AvatarProps) => {
+export const AccountLogo = ({ onClick, isOpen }: AccountLogoProps) => {
   return (
     <button
       type="button"

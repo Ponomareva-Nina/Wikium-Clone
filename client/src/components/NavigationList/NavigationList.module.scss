@@ -1,7 +1,25 @@
 @import "../../common.scss";
 
+.navigation {
+    @media screen and (max-width:800px) {
+        display: none;
+    }
+}
+
 .nav_list {
     @include flex-row();
     gap: 2rem;
     text-transform: uppercase;
 }
+
+.menu_nav {
+    display: block;
+}
+
+.menu_nav_list {
+    @include flex-column();
+    padding: 1.7rem 0 3.5rem;
+    gap: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+

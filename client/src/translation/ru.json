@@ -12,7 +12,9 @@
       "duel": "Соревнования",
       "course": "Курсы",
       "stat": "Статистика",
-      "achievement": "Достижения"
+      "achievement": "Достижения",
+      "account": "Личный кабинет",
+      "logout": "Выйти"
     },
     "logo": {
       "lang": "ru",

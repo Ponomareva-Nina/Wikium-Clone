@@ -1,18 +1,28 @@
-import { Link, useMatch } from "react-router-dom";
+import { NavLink, useMatch } from "react-router-dom";
 import cn from "classnames";
 import styles from "./NavigationItem.module.scss";
 
-export const NavigationItem = ({ children, to }: { children: string; to: string }) => {
+export const NavigationItem = ({
+  children,
+  to,
+  onClick,
+}: {
+  children: string;
+  to: string;
+  onClick: () => void;
+}) => {
   const match = useMatch(to);
+
   return (
     <li>
-      <Link
+      <NavLink
         to={to}
         className={cn(styles.nav_item)}
+        onClick={onClick}
         style={{ color: match ? "var(--font-secondary-color)" : "" }}
       >
         {children}
-      </Link>
+      </NavLink>
     </li>
   );
 };

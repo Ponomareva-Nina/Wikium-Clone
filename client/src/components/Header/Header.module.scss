@@ -10,6 +10,10 @@
     &__wrapper {
         @include flex-row();
         justify-content: space-between;
+
+        @media screen and (max-width: 800px) {
+            flex-direction: row-reverse;
+        }
     }
 }
 

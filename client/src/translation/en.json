@@ -12,7 +12,9 @@
       "duel": "Duels",
       "course": "Courses",
       "stat": "Stats",
-      "achievement": "Achievements"
+      "achievement": "Achievements",
+      "account": "Account settings",
+      "logout": "Log out"
     },
     "logo": {
       "lang": "en",
