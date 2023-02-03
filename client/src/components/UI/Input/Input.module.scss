@@ -1,11 +1,18 @@
-.normal {
+.input {
   width: 100%;
+  padding: 1rem;
+  background-color: var(--input-bg-color);
+  border-radius: .5rem;
+}
+
+.normal {
+  border: 1px solid var(--auxiliary-color);
 }
 
 .success {
-
+  border: 1px solid var(--success-color);
 }
 
 .error {
-
+  border: 1px solid var(--error-color);
 }

@@ -21,5 +21,7 @@ export const Input: FC<PropsWithChildren<InputProps>> = ({
   value = "",
   ...rest
 }) => {
-  return <input {...rest} type={type} value={value} className={cn(styles[appearance])} />;
+  return (
+    <input {...rest} type={type} value={value} className={cn(styles.input, styles[appearance])} />
+  );
 };
