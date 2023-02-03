@@ -19,6 +19,9 @@
       "title": "Registration",
       "username": "Email",
       "password": "Password",
-      "submitBtnText": "Register"
+      "submitBtnText": "Register",
+      "loginLink": "Log in",
+      "haveAccount": "Already have an account? ",
+      "loginSugguestionText": " and continue training your brain right now."
     }
 }

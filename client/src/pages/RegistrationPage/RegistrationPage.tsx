@@ -4,32 +4,32 @@ import { Link } from "react-router-dom";
 import { Button, Input } from "../../components/UI";
 import { Form } from "../../components";
 
-export const AuthPage = () => {
+export const RegistrationPage = () => {
   const { t } = useTranslation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <Form title={t("authPage.title") || ""}>
+    <Form title={t("registerPage.title") || ""}>
       <Input
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         autoComplete="on"
-        placeholder={t("authPage.username") || ""}
+        placeholder={t("registerPage.username") || ""}
       />
       <Input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         autoComplete="on"
-        placeholder={t("authPage.password") || ""}
+        placeholder={t("registerPage.password") || ""}
       />
-      <Button btnSize="large">{t("authPage.submitBtnText")}</Button>
+      <Button btnSize="large">{t("registerPage.submitBtnText")}</Button>
       <p style={{ textAlign: "center" }}>
-        {t("authPage.newUserText")}
+        {t("registerPage.haveAccount")}
         <br />
-        <Link to="/register">{t("authPage.registerLink")}</Link>
-        {t("authPage.registerSugguestionText")}
+        <Link to="/auth">{t("registerPage.loginLink")}</Link>
+        {t("registerPage.loginSugguestionText")}
       </p>
     </Form>
   );
