@@ -1,0 +1,7 @@
+@import "../../common.scss";
+
+.nav_list {
+    @include flex-row();
+    gap: 2rem;
+    text-transform: uppercase;
+}

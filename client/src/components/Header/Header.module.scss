@@ -1,0 +1,16 @@
+@import "../../common.scss";
+
+.header {
+    width: 100%;
+    height: 6rem;
+    @include flex-row();
+    justify-content: center;
+    background-color: var(--accent-color);
+
+    &__wrapper {
+        width: 1216px;
+        padding: 0 2rem;
+        @include flex-row();
+        justify-content: space-between;
+    }
+}

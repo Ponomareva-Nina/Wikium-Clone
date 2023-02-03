@@ -5,5 +5,13 @@
     "menu": {
       "language": "Change language",
       "theme": "Change theme"
+    },
+    "navigation": {
+      "program": "Training program",
+      "game": "Brain games",
+      "duel": "Duels",
+      "course": "Courses",
+      "stat": "Stats",
+      "achievement": "Achievements"
     }
 }
