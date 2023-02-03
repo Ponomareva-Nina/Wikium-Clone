@@ -12,6 +12,7 @@ export const AuthPage = () => {
   return (
     <Form title={t("authPage.title") || ""}>
       <Input
+        type="email"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         autoComplete="on"

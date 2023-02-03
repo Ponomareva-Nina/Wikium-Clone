@@ -12,6 +12,7 @@ export const RegistrationPage = () => {
   return (
     <Form title={t("registerPage.title") || ""}>
       <Input
+        type="email"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         autoComplete="on"
