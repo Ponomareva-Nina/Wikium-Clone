@@ -7,10 +7,12 @@
       "theme": "Изменить тему"
     },
     "authPage": {
+      "title": "Вход на сайт",
       "username": "Эл.почта",
       "password": "Пароль"
     },
     "registerPage": {
+      "title": "Регистрация",
       "username": "Эл.почта",
       "password": "Пароль"
     }

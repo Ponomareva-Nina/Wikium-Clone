@@ -9,7 +9,7 @@ export const AuthPage = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <Form>
+    <Form title={t("authPage.title") || ""}>
       <div className="form-container">
         <Input
           value={username}

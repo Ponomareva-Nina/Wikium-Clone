@@ -7,10 +7,12 @@
       "theme": "Change theme"
     },
     "authPage": {
+      "title": "Log In",
       "username": "Email",
       "password": "Password"
     },
     "registerPage": {
+      "title": "Registration",
       "username": "Email",
       "password": "Password"
     }
