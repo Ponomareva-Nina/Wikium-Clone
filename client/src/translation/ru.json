@@ -9,11 +9,16 @@
     "authPage": {
       "title": "Вход на сайт",
       "username": "Эл.почта",
-      "password": "Пароль"
+      "password": "Пароль",
+      "submitBtnText": "Войти",
+      "registerLink": "Зарегистрируйтесь",
+      "newUserText": "Новый пользователь? ",
+      "registerSugguestionText": " и начните заниматься своим мозгом сейчас."
     },
     "registerPage": {
       "title": "Регистрация",
       "username": "Эл.почта",
-      "password": "Пароль"
+      "password": "Пароль",
+      "submitBtnText": "Зарегистрироваться"
     }
 }

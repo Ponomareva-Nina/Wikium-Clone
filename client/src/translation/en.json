@@ -9,11 +9,16 @@
     "authPage": {
       "title": "Log In",
       "username": "Email",
-      "password": "Password"
+      "password": "Password",
+      "submitBtnText": "Log in",
+      "registerLink": "Register",
+      "newUserText": "New user? ",
+      "registerSugguestionText": " and start training your brain right now."
     },
     "registerPage": {
       "title": "Registration",
       "username": "Email",
-      "password": "Password"
+      "password": "Password",
+      "submitBtnText": "Register"
     }
 }
