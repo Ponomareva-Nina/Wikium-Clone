@@ -1,6 +1,7 @@
 @import "../../common.scss";
 
 .menu {
+    display: none;
     transform: translateX(-200vw);
 
     &__open {

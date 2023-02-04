@@ -1,35 +1,50 @@
 import cn from "classnames";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu } from "../Menu/Menu";
 import { NavigationList } from "../NavigationList/NavigationList";
 import { Logo, AccountLogo, Burger } from "../UI";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
+  // TODO: add function to check if user login
   const auth = true;
 
   const [isOpenAccPopup, setIsOpenAccPopup] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const hadleAccountClick = (): void => {
-    console.log("toogle Account Popup");
     setIsOpenAccPopup((prev) => !prev);
   };
 
   const toogleBurgerClick = (): void => {
-    console.log("burger");
     setIsMenuOpen((prev) => !prev);
   };
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handler = (event: MouseEvent) => {
+      const target = event.target as HTMLDivElement;
+      if (menuRef.current) {
+        if (!menuRef.current.contains(target)) setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  });
 
   return (
     <header className={cn(styles.header)}>
       {!auth && <Logo />}
-      <Menu
-        onClickAcc={hadleAccountClick}
-        isOpenAcc={isOpenAccPopup}
-        onClickMenu={toogleBurgerClick}
-        isOpenMenu={isMenuOpen}
-      />
+      <div ref={menuRef}>
+        <Menu
+          onClickAcc={hadleAccountClick}
+          isOpenAcc={isOpenAccPopup}
+          onClickMenu={toogleBurgerClick}
+          isOpenMenu={isMenuOpen}
+        />
+      </div>
       {auth && (
         <div className={cn(styles.header__wrapper, styles.wrapper)}>
           <div className={cn(styles.header_container)}>
