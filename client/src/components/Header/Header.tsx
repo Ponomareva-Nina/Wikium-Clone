@@ -30,8 +30,8 @@ export const Header = () => {
       }
     };
 
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.body.addEventListener("mousedown", handler);
+    return () => document.body.removeEventListener("mousedown", handler);
   });
 
   return (
@@ -50,9 +50,9 @@ export const Header = () => {
           <div className={cn(styles.header_container)}>
             <Logo />
             <Burger onClick={toogleBurgerClick} isOpen={isMenuOpen} />
-            <NavigationList onClick={toogleBurgerClick} isOpen={isOpenAccPopup} />
+            {!isMenuOpen && <NavigationList />}
           </div>
-          <AccountLogo onClick={hadleAccountClick} isOpen={isOpenAccPopup} />
+          {!isMenuOpen && <AccountLogo onClick={hadleAccountClick} isOpen={isOpenAccPopup} />}
         </div>
       )}
     </header>

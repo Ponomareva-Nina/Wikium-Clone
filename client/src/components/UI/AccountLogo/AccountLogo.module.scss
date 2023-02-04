@@ -1,3 +1,19 @@
+@import "../../../common.scss";
+
+.account_container {
+    @include flex-row;
+
+    @media screen and (max-width: 800px) {
+        display: none;
+    }
+}
+
+.account_descr {
+    @include font-main(1.1rem);
+    text-align: right;
+    color: #FFFFFF;
+}
+
 .account_btn {
     width: 6.3rem;
     display: inline-flex;
@@ -24,10 +40,6 @@
         transition: transform 0.2s;
         transform: rotate(180deg);
     }
-
-    @media screen and (max-width: 800px) {
-        display: none;
-    }
 }
 
 .avatar_photo {
@@ -46,4 +58,18 @@
     &::after {
         transform: rotate(360deg);
     }
+}
+
+
+.menu_acc {
+    width: 100%;
+    padding-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem
+}
+
+.account_btn_menu {
+    background: transparent;
 }

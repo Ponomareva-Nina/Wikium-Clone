@@ -9,7 +9,7 @@ export const NavigationItem = ({
 }: {
   children: string;
   to: string;
-  onClick: () => void;
+  onClick?: () => void;
 }) => {
   const match = useMatch(to);
 

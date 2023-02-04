@@ -1,12 +1,11 @@
-// import styles from "./NavigationList.module.scss";
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import { NavigationItem } from "./NavigationItem/NavigationItem";
 import styles from "./NavigationList.module.scss";
 
 type NavListProps = {
-  isOpen: boolean;
-  onClick: () => void;
+  isOpen?: boolean;
+  onClick?: () => void;
 };
 
 export const NavigationList = ({ isOpen, onClick }: NavListProps) => {
