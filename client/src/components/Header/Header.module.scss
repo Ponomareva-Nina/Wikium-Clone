@@ -20,4 +20,8 @@
 .header_container {
     @include flex-row();
     gap: 4rem;
+
+    @media screen and (max-width: 800px) {
+        gap: 0;
+    }
 }

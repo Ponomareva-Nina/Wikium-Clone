@@ -21,12 +21,14 @@ export const Header = () => {
   };
 
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const burgerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handler = (event: MouseEvent) => {
       const target = event.target as HTMLDivElement;
-      if (menuRef.current) {
-        if (!menuRef.current.contains(target)) setIsMenuOpen(false);
+      if (menuRef.current && burgerRef.current) {
+        if (!menuRef.current.contains(target) && !burgerRef.current.contains(target))
+          setIsMenuOpen(false);
       }
     };
 
@@ -49,7 +51,9 @@ export const Header = () => {
         <div className={cn(styles.header__wrapper, styles.wrapper)}>
           <div className={cn(styles.header_container)}>
             <Logo />
-            <Burger onClick={toogleBurgerClick} isOpen={isMenuOpen} />
+            <div ref={burgerRef}>
+              <Burger onClick={toogleBurgerClick} isOpen={isMenuOpen} />
+            </div>
             {!isMenuOpen && <NavigationList />}
           </div>
           {!isMenuOpen && <AccountLogo onClick={hadleAccountClick} isOpen={isOpenAccPopup} />}
