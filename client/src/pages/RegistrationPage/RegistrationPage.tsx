@@ -10,7 +10,7 @@ export const RegistrationPage = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <Form title={t("registerPage.title") || ""}>
+    <Form title={t("registerPage.title") || ""} appearance="fit-width">
       <Input
         type="email"
         value={username}
