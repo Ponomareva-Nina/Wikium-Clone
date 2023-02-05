@@ -1,14 +1,18 @@
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
+import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
 import { NavigationItem } from "./NavigationItem/NavigationItem";
 import styles from "./NavigationList.module.scss";
 
-type NavListProps = {
+interface NavListProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   isOpen?: boolean;
   onClick?: () => void;
-};
+}
 
-export const NavigationList = ({ isOpen, onClick }: NavListProps) => {
+export const NavigationList: FC<PropsWithChildren<NavListProps>> = ({
+  isOpen,
+  onClick,
+}: NavListProps) => {
   const { t } = useTranslation();
 
   return (
