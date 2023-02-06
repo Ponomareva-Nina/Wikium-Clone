@@ -1,7 +1,9 @@
+/* eslint-disable import/no-cycle */
 import cn from "classnames";
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC, PropsWithChildren, useState } from "react";
 import { useTranslation } from "react-i18next";
 import noneAvatar from "../../../assets/images/Avatar/none_avatar.svg";
+import { UserMenu } from "../../UserMenu/UserMenu";
 import styles from "./AccountLogo.module.scss";
 
 interface AccountLogoProps
@@ -32,11 +34,12 @@ export const AccountLogo: FC<PropsWithChildren<AccountLogoProps>> = ({
           !isOpenMenu ? styles.account_btn : styles.account_btn_menu,
           isOpenAccPopup && styles.account_btn__active
         )}
-        onClick={hadleAccountClick}
+        onClick={isOpenMenu ? () => {} : hadleAccountClick}
         {...rest}
       >
         <img className={cn(styles.avatar_photo)} src={noneAvatar} alt={`${t("user.avatar")}`} />
       </button>
+      <UserMenu isOpenAccPopup={isOpenAccPopup} />
     </div>
   );
 };

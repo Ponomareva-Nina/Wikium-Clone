@@ -1,9 +1,9 @@
 @import "../../../common.scss";
 
 .nav_item {
-    @include font-main(1.1rem);
+    @include font-main(1.4rem);
     font-weight: 600;
-    color: rgba(255,255,255, 0.6);
+    color: var(--color-link-inactive);
 
     &:hover {
         color: var(--font-secondary-color);

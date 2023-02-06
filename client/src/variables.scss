@@ -6,6 +6,7 @@
   --bg-btn-color: #6039aa;
   --auxiliary-color: #797979;
   --inactive-bg-color: #aaaaaa;
+  --color-link-inactive: rgba(255,255,255, 0.6);
  }
 
 :root[class="dark"] {
@@ -17,3 +18,5 @@
   --auxiliary-color: #b3b3b3;
   --inactive-bg-color: #aaaaaa;
 }
+
+

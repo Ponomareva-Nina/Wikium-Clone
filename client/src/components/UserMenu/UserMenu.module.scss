@@ -1,7 +1,31 @@
 @import "../../common.scss";
 
 .container {
-  @include flex-column();
+  display: none;
+
+  &__open {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    height: auto;
+    min-height: 133px;
+    margin: 0;
+    margin-left: 45px;
+    padding: 0;
+    padding-top: 17px;
+    list-style: none;
+    background-color: transparent;
+    contain: layout;
+
+    top: 63px;
+    right: 0;
+    width: 248px;
+    margin-left: 45px;
+    padding-top: 10px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 8px 8px 0 rgb(0 0 0 / 24%), 0 2px 8px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 8px 8px 0 rgb(0 0 0 / 24%), 0 2px 8px 0 rgb(0 0 0 / 10%);
+  }
 }
 
 .item {

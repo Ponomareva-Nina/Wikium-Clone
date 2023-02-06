@@ -1,6 +1,7 @@
 @import "../../../common.scss";
 
 .account_container {
+    position: relative;
     @include flex-row;
 
     @media screen and (max-width: 800px) {

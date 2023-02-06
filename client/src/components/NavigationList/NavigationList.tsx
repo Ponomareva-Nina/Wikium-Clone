@@ -3,6 +3,7 @@ import cn from "classnames";
 import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
 import { NavigationItem } from "./NavigationItem/NavigationItem";
 import styles from "./NavigationList.module.scss";
+import { AccountNav } from "../UI/AccountNav/AccountNav";
 
 interface NavListProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   isOpen?: boolean;
@@ -25,14 +26,15 @@ export const NavigationList: FC<PropsWithChildren<NavListProps>> = ({
           {t("navigation.stat")}
         </NavigationItem>
         {isOpen && (
-          <>
-            <NavigationItem to="/account" onClick={onClick}>
-              {t("navigation.account")}
-            </NavigationItem>
-            <NavigationItem to="/" onClick={onClick}>
-              {t("navigation.logout")}
-            </NavigationItem>
-          </>
+          <AccountNav onClick={onClick} />
+          // <>
+          //   <NavigationItem to="/account" onClick={onClick}>
+          //     {t("navigation.account")}
+          //   </NavigationItem>
+          //   <NavigationItem to="/" onClick={onClick}>
+          //     {t("navigation.logout")}
+          //   </NavigationItem>
+          // </>
         )}
       </ul>
     </nav>
