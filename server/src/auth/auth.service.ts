@@ -16,7 +16,7 @@ export class AuthService {
   ) {}
 
   async register(dto: AuthDto) {
-    const oldUser = await this.userService.findOneByEmail(dto.email);
+    const oldUser = await this.userService.findOne({ email: dto.email });
 
     if (oldUser) {
       throw new BadRequestException('User already registered');
@@ -35,9 +35,12 @@ export class AuthService {
       newUser.email,
     );
 
-    await this.userService.update(String(newUser._id), {
-      refreshToken: tokens.refreshToken,
-    });
+    await this.userService.update(
+      { _id: newUser._id },
+      {
+        refreshToken: tokens.refreshToken,
+      },
+    );
 
     return {
       user: { email: newUser.email },
@@ -49,13 +52,23 @@ export class AuthService {
     const user = await this.validateUser(dto);
 
     const tokens = await this.issueTokenPair(String(user._id), user.email);
-    await this.userService.update(String(user._id), {
-      refreshToken: tokens.refreshToken,
-    });
+    await this.userService.update(
+      { _id: user._id },
+      {
+        refreshToken: tokens.refreshToken,
+      },
+    );
     return {
       user: { email: user.email },
       ...tokens,
     };
+  }
+
+  async logout(refreshToken: string) {
+    return await this.userService.update(
+      { refreshToken },
+      { refreshToken: '' },
+    );
   }
 
   async refreshTokens({ refreshToken }: RefreshAuthDto) {
@@ -72,9 +85,12 @@ export class AuthService {
       }
 
       const tokens = await this.issueTokenPair(String(user._id), user.email);
-      await this.userService.update(String(user._id), {
-        refreshToken: tokens.refreshToken,
-      });
+      await this.userService.update(
+        { _id: user._id },
+        {
+          refreshToken: tokens.refreshToken,
+        },
+      );
 
       return {
         user: { email: user.email },
@@ -100,7 +116,7 @@ export class AuthService {
   }
 
   async validateUser(dto: AuthDto) {
-    const user = await this.userService.findOneByEmail(dto.email);
+    const user = await this.userService.findOne({ email: dto.email });
 
     if (!user) {
       throw new UnauthorizedException('User not found');

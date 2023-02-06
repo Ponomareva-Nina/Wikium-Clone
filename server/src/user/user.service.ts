@@ -10,10 +10,7 @@ export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
   async createUser(createUserDto: CreateUserDto) {
-    const newUser = {
-      ...createUserDto,
-    };
-    return this.userModel.create(newUser);
+    return this.userModel.create(createUserDto);
   }
 
   findAll() {
@@ -24,17 +21,12 @@ export class UserService {
     return this.userModel.findOne(dto).exec();
   }
 
-  async findOneByEmail(email: string) {
-    return this.userModel.findOne({ email }).exec();
-  }
-
-  update(id: string, updateUserDto: Partial<UpdateUserDto>) {
+  update(
+    dto: Partial<User> & { _id?: Types.ObjectId },
+    updateUserDto: Partial<UpdateUserDto>,
+  ) {
     return this.userModel
-      .findOneAndUpdate(new Types.ObjectId(id), updateUserDto, { new: true })
+      .findOneAndUpdate(dto, updateUserDto, { new: true })
       .exec();
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
   }
 }
