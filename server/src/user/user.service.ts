@@ -14,11 +14,19 @@ export class UserService {
   }
 
   findAll() {
-    return `This action returns all user`;
+    return this.userModel.find();
   }
 
   findOne(dto: Partial<User>) {
     return this.userModel.findOne(dto).exec();
+  }
+
+  findById(id: string) {
+    return this.userModel.findById(id);
+  }
+
+  updateById(id: string, updateUserDto: UpdateUserDto) {
+    return this.userModel.findByIdAndUpdate(id, updateUserDto);
   }
 
   update(
