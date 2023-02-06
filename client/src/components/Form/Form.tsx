@@ -18,11 +18,7 @@ export const Form: FC<PropsWithChildren<FormProps>> = ({
   ...rest
 }) => {
   return (
-    <form
-      {...rest}
-      className={cn(styles.container, styles[appearance])}
-      onSubmit={(e) => submitHandler(e)}
-    >
+    <form {...rest} className={cn(styles.container, styles[appearance])} onSubmit={submitHandler}>
       <h2 className={styles.title}> {title} </h2>
       {children}
     </form>
