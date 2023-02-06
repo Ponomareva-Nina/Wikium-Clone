@@ -30,8 +30,11 @@
       "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
       "memoryTitle": "Memorization",
       "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
-      "logicsTitle" : "Logics and thinking", 
-      "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
+      "logicsTitle" : "Logics and thinking",
+      "logicsDescription": "The ability to think logically, analyze, and find consistent patterns.",
+      "colorMatchGame": "Color match",
+      "comparisonGame": "More and less",
+      "penaltyGame": "Penalty"
     },
     "navigation": {
       "program": "Training program",
