@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import cn from "classnames";
 import { GameCategory } from "../../components/GameCategory/GameCategory";
 import styles from "./GamePage.module.scss";
 
@@ -6,7 +7,7 @@ export const GamePage = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="wrapper">
+    <div className={cn("wrapper", styles.page)}>
       <h1 className={styles.page_title}>{t("gamePage.title")}</h1>
       <GameCategory
         title={t("gamePage.concentrationTitle")}
