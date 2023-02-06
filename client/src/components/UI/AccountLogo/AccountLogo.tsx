@@ -1,5 +1,6 @@
 import cn from "classnames";
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC, PropsWithChildren, useState } from "react";
+import { useTranslation } from "react-i18next";
 import noneAvatar from "../../../assets/images/Avatar/none_avatar.svg";
 import styles from "./AccountLogo.module.scss";
 
@@ -14,6 +15,7 @@ export const AccountLogo: FC<PropsWithChildren<AccountLogoProps>> = ({
   ...rest
 }: AccountLogoProps) => {
   const [isOpenAccPopup, setIsOpenAccPopup] = useState(false);
+  const { t } = useTranslation();
 
   const hadleAccountClick = (): void => {
     setIsOpenAccPopup((prev) => !prev);
@@ -33,7 +35,7 @@ export const AccountLogo: FC<PropsWithChildren<AccountLogoProps>> = ({
         onClick={hadleAccountClick}
         {...rest}
       >
-        <img className={cn(styles.avatar_photo)} src={noneAvatar} alt="Имя аккаунта" />
+        <img className={cn(styles.avatar_photo)} src={noneAvatar} alt={`${t("user.avatar")}`} />
       </button>
     </div>
   );

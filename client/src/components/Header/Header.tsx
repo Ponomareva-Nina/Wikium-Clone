@@ -12,15 +12,17 @@ export const Header: FC<PropsWithChildren> = () => {
   return (
     <header className={cn(styles.header)}>
       {!auth && <Logo />}
-      {auth && <BurgerMenu />}
       {auth && (
-        <div className={cn(styles.header__wrapper, styles.wrapper)}>
-          <div className={cn(styles.header_container)}>
-            <Logo />
-            <NavigationList />
+        <>
+          <BurgerMenu />
+          <div className={cn(styles.header__wrapper, styles.wrapper)}>
+            <div className={cn(styles.header_container)}>
+              <Logo />
+              <NavigationList />
+            </div>
+            <AccountLogo />
           </div>
-          <AccountLogo />
-        </div>
+        </>
       )}
     </header>
   );

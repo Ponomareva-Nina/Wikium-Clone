@@ -19,5 +19,8 @@
     "logo": {
       "lang": "en",
       "alt": "Wikium - train brains"
+    },
+    "account": {
+      "avatar": "user photo"
     }
 }

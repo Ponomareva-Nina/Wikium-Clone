@@ -15,7 +15,7 @@ export const Logo: FC<PropsWithChildren> = () => {
         <img
           className={cn(styles.img_link)}
           src={t("logo.lang") === LANGUAGES.RU ? logoRu : logoEn}
-          alt="Викиум тренажёры для мозга"
+          alt={`${t("logo.alt")}`}
         />
       </Link>
     </div>

@@ -25,7 +25,7 @@ export const BurgerMenu: FC<PropsWithChildren> = () => {
 
     document.body.addEventListener("mousedown", handler);
     return () => document.body.removeEventListener("mousedown", handler);
-  });
+  }, []);
 
   return (
     <div ref={menuRef}>
