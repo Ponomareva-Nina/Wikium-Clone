@@ -1,10 +1,14 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, FormEvent, PropsWithChildren } from "react";
 import cn from "classnames";
 import styles from "./Form.module.scss";
 
 interface FormProps {
   title?: string;
   appearance?: "fit-width" | "full-width";
+}
+
+function submitHandler(e: FormEvent) {
+  e.preventDefault();
 }
 
 export const Form: FC<PropsWithChildren<FormProps>> = ({
@@ -17,7 +21,7 @@ export const Form: FC<PropsWithChildren<FormProps>> = ({
     <form
       {...rest}
       className={cn(styles.container, styles[appearance])}
-      onSubmit={(e) => e.preventDefault()}
+      onSubmit={(e) => submitHandler(e)}
     >
       <h2 className={styles.title}> {title} </h2>
       {children}
