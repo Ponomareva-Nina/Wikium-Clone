@@ -1,7 +1,7 @@
-@import "../../common.scss";
-
 .title {
-  @include font-title();
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 160%;
 }
 
 .games {
@@ -12,6 +12,15 @@
 }
 
 .category__container {
-  @include flex-column($gap: 2rem);
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 850px) {
+  .games {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -15,7 +15,7 @@ export const Header: FC<PropsWithChildren> = () => {
       {auth && (
         <>
           <BurgerMenu />
-          <div className={cn(styles.header__wrapper, styles.wrapper)}>
+          <div className={cn("wrapper", styles.header__wrapper, styles.wrapper)}>
             <div className={cn(styles.header_container)}>
               <Logo />
               <NavigationList />

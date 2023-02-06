@@ -1,7 +1,9 @@
-@import "../../../common.scss";
-
 .account_container {
-    @include flex-row;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
 
     @media screen and (max-width: 800px) {
         display: none;
@@ -9,7 +11,7 @@
 }
 
 .account_descr {
-    @include font-main(1.1rem);
+   font-size: 1.1rem;
     text-align: right;
     color: #FFFFFF;
 }

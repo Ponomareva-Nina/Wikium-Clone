@@ -1,8 +1,10 @@
-@import "../../common.scss";
-
 .container {
   background-color: var(--bg-popup-color);
-  @include flex-column($gap: 2rem, $align: center);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   box-shadow: 0 2px 4px var(--popup-shadow-color);
   padding: 2rem;
   border-radius: .5rem;
@@ -20,7 +22,7 @@
 }
 
 .title {
-  @include font-main($size: 2.3rem);
+  font-size: 2.3rem;
   color: var(--popup-contrast-color);
   width: 100%;
   text-align: center;

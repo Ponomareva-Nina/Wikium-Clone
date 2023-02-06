@@ -1,5 +1,3 @@
-@import "../../common.scss";
-
 .card {
   background-color: var(--bg-popup-color);
   color: var(--popup-contrast-color);
@@ -15,11 +13,10 @@
 }
 
 .title {
-  @include font-main($size: 2rem);
+  font-size: 2rem;
 }
 
 .category {
-  @include font-main();
   color: var(--auxiliary-color)
 }
 
