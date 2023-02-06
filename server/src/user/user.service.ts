@@ -10,17 +10,8 @@ export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
   async createUser(createUserDto: CreateUserDto) {
-    const newUser: User = {
+    const newUser = {
       ...createUserDto,
-      name: '',
-      surname: '',
-      birthDay: '',
-      gender: '',
-      education: '',
-      avatar: '',
-      level: 0,
-      neurons: 0,
-      refreshToken: '',
     };
     return this.userModel.create(newUser);
   }
