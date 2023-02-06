@@ -30,6 +30,7 @@ export class UserController {
     return this.userService.findById(id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @UseInterceptors(FilesInterceptor('files[]'))
   @Post('avatar/:id')
   updateAvatar(

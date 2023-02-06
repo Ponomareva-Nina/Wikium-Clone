@@ -20,7 +20,7 @@ export class UserService {
   }
 
   findAll() {
-    return this.userModel.find();
+    return this.userModel.find({}, { password: 0, refreshToken: 0 });
   }
 
   findOne(dto: Partial<User>) {
@@ -36,16 +36,17 @@ export class UserService {
   }
 
   async updateAvatar(id: string, files: Express.Multer.File[]) {
-    const ROOT_PATH = `${this.configService.get('SERVER_HOST')}/static`;
+    const rootPath = `${this.configService.get('SERVER_HOST')}/static`;
     const userData = await this.findById(id);
     const oldAvatarLink = userData?.avatar;
 
     if (oldAvatarLink) {
-      const serverPath = `/uploads` + oldAvatarLink.replace(ROOT_PATH, '');
+      const serverPath = `/uploads` + oldAvatarLink.replace(rootPath, '');
       await this.fileService.remove(serverPath);
     }
+
     const filesPaths = await this.fileService.saveFiles(files, 'avatars');
-    const filePath = ROOT_PATH + filesPaths?.[0]?.url;
+    const filePath = rootPath + filesPaths?.[0]?.url;
     await this.updateById(id, { avatar: filePath });
     return filePath;
   }
