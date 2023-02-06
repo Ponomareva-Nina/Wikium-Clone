@@ -6,7 +6,7 @@ export const GamePage = () => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <div className="wrapper">
       <h1 className={styles.page_title}>{t("gamePage.title")}</h1>
       <GameCategory
         title={t("gamePage.concentrationTitle")}
@@ -22,6 +22,6 @@ export const GamePage = () => {
       <GameCategory title={t("gamePage.logicsTitle")} description={t("gamePage.logicsDescription")}>
         <span>delete this span after you add GameTeaserCard</span>
       </GameCategory>
-    </>
+    </div>
   );
 };

@@ -18,7 +18,7 @@ export const NavigationList: FC<PropsWithChildren<NavListProps>> = ({
   return (
     <nav className={cn(!isOpen ? styles.navigation : styles.menu_nav)}>
       <ul className={cn(!isOpen ? styles.nav_list : styles.menu_nav_list)}>
-        <NavigationItem to="/game" onClick={onClick}>
+        <NavigationItem to="/games" onClick={onClick}>
           {t("navigation.game")}
         </NavigationItem>
         <NavigationItem to="/stats" onClick={onClick}>
