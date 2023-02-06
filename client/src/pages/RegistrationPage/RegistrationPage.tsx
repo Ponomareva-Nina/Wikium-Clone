@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button, Input } from "../../components/UI";
 import { Form } from "../../components";
+import { inputHandler } from "../../utils/inputHandler";
 
 export const RegistrationPage = () => {
   const { t } = useTranslation();
@@ -14,14 +15,17 @@ export const RegistrationPage = () => {
       <Input
         type="email"
         value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        required
+        onChange={(e) => inputHandler(e, setUsername)}
         autoComplete="on"
         placeholder={t("registerPage.username") || ""}
       />
       <Input
         type="password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        required
+        minLength={6}
+        onChange={(e) => inputHandler(e, setPassword)}
         autoComplete="on"
         placeholder={t("registerPage.password") || ""}
       />

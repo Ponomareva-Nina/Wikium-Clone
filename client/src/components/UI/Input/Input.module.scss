@@ -9,10 +9,12 @@
   border: 1px solid var(--auxiliary-color);
 }
 
-.success {
+.success,
+:valid {
   border: 1px solid var(--success-color);
 }
 
-.error {
+.error,
+:invalid {
   border: 1px solid var(--error-color);
 }

@@ -1,13 +1,9 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button, Input } from "../../components/UI";
 import { Form } from "../../components";
-
-function inputHandler(e: ChangeEvent, callback: (value: string) => void) {
-  const input = e.target as HTMLInputElement;
-  callback(input.value);
-}
+import { inputHandler } from "../../utils/inputHandler";
 
 export const AuthPage = () => {
   const { t } = useTranslation();
@@ -19,6 +15,7 @@ export const AuthPage = () => {
       <Input
         type="email"
         value={username}
+        required
         onChange={(e) => inputHandler(e, setUsername)}
         autoComplete="on"
         placeholder={t("authPage.username") || ""}
@@ -26,6 +23,7 @@ export const AuthPage = () => {
       <Input
         type="password"
         value={password}
+        required
         onChange={(e) => inputHandler(e, setPassword)}
         autoComplete="on"
         placeholder={t("authPage.password") || ""}
