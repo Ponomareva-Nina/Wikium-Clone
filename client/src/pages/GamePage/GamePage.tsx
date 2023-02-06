@@ -3,6 +3,7 @@ import cn from "classnames";
 import { GameCategory } from "../../components/GameCategory/GameCategory";
 import styles from "./GamePage.module.scss";
 import { GameTeaserCard } from "../../components";
+import colorMatchImg from "../../assets/images/GamePage/color-match.svg";
 
 export const GamePage = () => {
   const { t } = useTranslation();
@@ -14,17 +15,15 @@ export const GamePage = () => {
         title={t("gamePage.concentrationTitle")}
         description={t("gamePage.concentrationDescription")}
       >
-        <GameTeaserCard id={0} title="Some Game" category="category" />
-        <GameTeaserCard id={1} title="Some Game 2" category="category" />
-        <GameTeaserCard id={2} title="Some Game 3" category="category" />
+        <GameTeaserCard id={0} title="Some Game" category="category" imgSrc={colorMatchImg} />
       </GameCategory>
 
       <GameCategory title={t("gamePage.memoryTitle")} description={t("gamePage.memoryDescription")}>
-        <span>delete this span after you add GameTeaserCard</span>
+        <GameTeaserCard id={1} title="Some Game 2" category="category" imgSrc="" />
       </GameCategory>
 
       <GameCategory title={t("gamePage.logicsTitle")} description={t("gamePage.logicsDescription")}>
-        <span>delete this span after you add GameTeaserCard</span>
+        <GameTeaserCard id={2} title="Some Game 3" category="category" imgSrc="" />
       </GameCategory>
     </div>
   );

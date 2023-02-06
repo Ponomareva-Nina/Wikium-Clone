@@ -1,7 +1,6 @@
 @import "../../common.scss";
 
 .card {
-  border: 1px solid red;
   background-color: var(--bg-popup-color);
   color: var(--popup-contrast-color);
   padding: 2rem;
@@ -22,4 +21,8 @@
 .category {
   @include font-main();
   color: var(--auxiliary-color)
+}
+
+.image {
+
 }
