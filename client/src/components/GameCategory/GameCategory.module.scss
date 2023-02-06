@@ -5,7 +5,13 @@
 }
 
 .games {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
+}
+
+.category__container {
+  @include flex-column($gap: 2rem);
+  width: 100%;
 }

@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import { GameCategory } from "../../components/GameCategory/GameCategory";
 import styles from "./GamePage.module.scss";
+import { GameTeaserCard } from "../../components";
 
 export const GamePage = () => {
   const { t } = useTranslation();
@@ -13,7 +14,9 @@ export const GamePage = () => {
         title={t("gamePage.concentrationTitle")}
         description={t("gamePage.concentrationDescription")}
       >
-        <span>TO DO: delete this span after you add GameTeaserCard</span>
+        <GameTeaserCard id={0} title="Some Game" category="category" />
+        <GameTeaserCard id={1} title="Some Game 2" category="category" />
+        <GameTeaserCard id={2} title="Some Game 3" category="category" />
       </GameCategory>
 
       <GameCategory title={t("gamePage.memoryTitle")} description={t("gamePage.memoryDescription")}>

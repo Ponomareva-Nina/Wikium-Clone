@@ -95,7 +95,7 @@ body {
 
 #root {
   scroll-behavior: smooth;
-  height: 100vh;
+  min-height: 100vh;
   @include flex-column($gap: 3rem);
   margin: 0 auto;
 }

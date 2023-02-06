@@ -1,0 +1,25 @@
+@import "../../common.scss";
+
+.card {
+  border: 1px solid red;
+  background-color: var(--bg-popup-color);
+  color: var(--popup-contrast-color);
+  padding: 2rem;
+  border-radius: .5rem;
+  border: none;
+  box-shadow: 0 2px 3px var(--popup-shadow-color);
+  transition: all .5s ease;
+
+  &:hover {
+    box-shadow: 3px 4px 8px var(--popup-shadow-color);
+  }
+}
+
+.title {
+  @include font-main($size: 2rem);
+}
+
+.category {
+  @include font-main();
+  color: var(--auxiliary-color)
+}
