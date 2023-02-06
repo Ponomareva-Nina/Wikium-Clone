@@ -1,0 +1,11 @@
+@import "../../../common.scss";
+
+.nav_item {
+    @include font-main(1.1rem);
+    font-weight: 600;
+    color: rgba(255,255,255, 0.6);
+
+    &:hover {
+        color: var(--font-secondary-color);
+    }
+}

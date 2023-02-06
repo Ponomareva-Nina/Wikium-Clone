@@ -32,5 +32,22 @@
       "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
       "logicsTitle" : "Logics and thinking", 
       "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
+    },
+    "navigation": {
+      "program": "Training program",
+      "game": "Brain games",
+      "duel": "Duels",
+      "course": "Courses",
+      "stat": "Stats",
+      "achievement": "Achievements",
+      "account": "Account settings",
+      "logout": "Log out"
+    },
+    "logo": {
+      "lang": "en",
+      "alt": "Wikium - train brains"
+    },
+    "account": {
+      "avatar": "user photo"
     }
 }
