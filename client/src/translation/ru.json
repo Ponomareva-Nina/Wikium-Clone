@@ -5,5 +5,23 @@
     "menu": {
       "language": "Изменить язык",
       "theme": "Изменить тему"
+    },
+    "authPage": {
+      "title": "Вход на сайт",
+      "username": "Эл.почта",
+      "password": "Пароль",
+      "submitBtnText": "Войти",
+      "registerLink": "Зарегистрируйтесь",
+      "newUserText": "Новый пользователь? ",
+      "registerSugguestionText": " и начните заниматься своим мозгом сейчас."
+    },
+    "registerPage": {
+      "title": "Регистрация",
+      "username": "Эл.почта",
+      "password": "Пароль",
+      "submitBtnText": "Зарегистрироваться",
+      "loginLink": "Войдите в аккаунт",
+      "haveAccount": "Уже зарегистрированы? ",
+      "loginSugguestionText": " и продолжите заниматься своим мозгом сейчас."
     }
 }
