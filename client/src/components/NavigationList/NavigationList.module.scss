@@ -1,0 +1,30 @@
+.navigation {
+    @media screen and (max-width:800px) {
+        display: none;
+    }
+}
+
+.nav_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    text-transform: uppercase;
+}
+
+.menu_nav {
+    display: block;
+}
+
+.menu_nav_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.7rem 0 3.5rem;
+    gap: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+

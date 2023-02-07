@@ -23,5 +23,40 @@
       "loginLink": "Log in",
       "haveAccount": "Already have an account? ",
       "loginSugguestionText": " and continue training your brain right now."
+    },
+    "gamesPage": {
+      "title": "Games by categories",
+      "concentrationTitle": "Concentration",
+      "memoryTitle": "Memorization",
+      "logicsTitle": "Logics and thinking",
+      "todayGame": "Game of the day",
+      "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
+      "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
+      "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
+    },
+    "navigation": {
+      "program": "Training program",
+      "game": "Brain games",
+      "duel": "Duels",
+      "course": "Courses",
+      "stat": "Stats",
+      "achievement": "Achievements",
+      "account": "Account settings",
+      "logout": "Log out"
+    },
+    "logo": {
+      "lang": "en",
+      "alt": "Wikium - train brains"
+    },
+    "account": {
+      "avatar": "user photo"
+    },
+    "gamesData": {
+      "concentration": "Concentration",
+      "memory": "Memorization",
+      "logics" : "Logics and thinking",
+      "colorMatch": "Color match",
+      "lessOrMore": "Less or More",
+      "penalty": "Penalty"
     }
 }

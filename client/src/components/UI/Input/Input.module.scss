@@ -10,11 +10,11 @@
 }
 
 .success,
-:valid {
+input:valid {
   border: 1px solid var(--success-color);
 }
 
 .error,
-:invalid {
+input:invalid {
   border: 1px solid var(--error-color);
 }
