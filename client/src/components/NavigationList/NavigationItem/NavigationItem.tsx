@@ -7,12 +7,14 @@ interface NavItemProps
   extends DetailedHTMLProps<LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement> {
   children: string;
   to: string;
+  isOpenAccPopup?: boolean;
   onClick?: () => void;
 }
 
 export const NavigationItem: FC<PropsWithChildren<NavItemProps>> = ({
   children,
   to,
+  isOpenAccPopup,
   onClick,
 }: NavItemProps) => {
   const match = useMatch(to);
@@ -21,9 +23,9 @@ export const NavigationItem: FC<PropsWithChildren<NavItemProps>> = ({
     <li>
       <Link
         to={to}
-        className={cn(styles.nav_item)}
+        className={cn(!isOpenAccPopup ? styles.nav_item : styles.nav_item_menu)}
         onClick={onClick}
-        style={{ color: match ? "var(--font-secondary-color)" : "" }}
+        style={{ color: match && isOpenAccPopup ? "var(--popup-contrast-color)" : "" }}
       >
         {children}
       </Link>

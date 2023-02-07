@@ -3,39 +3,29 @@ import cn from "classnames";
 import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
 import { NavigationItem } from "./NavigationItem/NavigationItem";
 import styles from "./NavigationList.module.scss";
-import { AccountNav } from "../UI/AccountNav/AccountNav";
+import { useViewport } from "../../utils/useViewport";
 
 interface NavListProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
-  isOpen?: boolean;
+  isOpenAccPopup?: boolean;
   onClick?: () => void;
 }
 
 export const NavigationList: FC<PropsWithChildren<NavListProps>> = ({
-  isOpen,
   onClick,
+  isOpenAccPopup,
 }: NavListProps) => {
   const { t } = useTranslation();
+  const { width } = useViewport();
 
   return (
-    <nav className={cn(!isOpen ? styles.navigation : styles.menu_nav)}>
-      <ul className={cn(!isOpen ? styles.nav_list : styles.menu_nav_list)}>
-        <NavigationItem to="/games" onClick={onClick}>
+    <nav className={cn(width > 800 ? styles.navigation : styles.menu_navigation)}>
+      <ul className={cn(width > 800 ? styles.nav_list : styles.nav_list_menu)}>
+        <NavigationItem to="/games" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
           {t("navigation.game")}
         </NavigationItem>
-        <NavigationItem to="/stats" onClick={onClick}>
+        <NavigationItem to="/stats" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
           {t("navigation.stat")}
         </NavigationItem>
-        {isOpen && (
-          <AccountNav onClick={onClick} />
-          // <>
-          //   <NavigationItem to="/account" onClick={onClick}>
-          //     {t("navigation.account")}
-          //   </NavigationItem>
-          //   <NavigationItem to="/" onClick={onClick}>
-          //     {t("navigation.logout")}
-          //   </NavigationItem>
-          // </>
-        )}
       </ul>
     </nav>
   );

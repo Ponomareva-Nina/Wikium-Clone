@@ -6,6 +6,15 @@
     color: inherit;
 
     &:hover {
+        color: var(--font-secondary-color);
+    }
+}
+
+.nav_item_menu {
+    @include font-main(1.4rem);
+    font-weight: 600;
+    color: inherit;
+    &:hover {
         color: var(--popup-contrast-color);
     }
 }

@@ -3,18 +3,18 @@ import { useTranslation } from "react-i18next";
 import { NavigationItem } from "../../NavigationList/NavigationItem/NavigationItem";
 
 interface AccountNavProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
+  isOpenAccPopup?: boolean;
   onClick?: () => void;
 }
 
-export const AccountNav: FC<PropsWithChildren<AccountNavProps>> = ({ onClick }) => {
+export const AccountNav: FC<PropsWithChildren<AccountNavProps>> = ({ onClick, isOpenAccPopup }) => {
   const { t } = useTranslation();
   return (
     <div>
-      <NavigationItem to="/account" onClick={onClick}>
+      <NavigationItem to="/account" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
         {t("navigation.account")}
       </NavigationItem>
-      <AccountNav />
-      <NavigationItem to="/" onClick={onClick}>
+      <NavigationItem to="/" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
         {t("navigation.logout")}
       </NavigationItem>
     </div>

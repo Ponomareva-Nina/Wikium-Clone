@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { FC, PropsWithChildren } from "react";
 import logo from "../../../assets/images/Logo/logo.png";
 import styles from "./Logo.module.scss";
-// import { LANGUAGES } from "../../../translation/types";
 
 export const Logo: FC<PropsWithChildren> = () => {
   const { t } = useTranslation();

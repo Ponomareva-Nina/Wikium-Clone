@@ -2,9 +2,10 @@
 
 .navigation {
     color: var(--color-link-inactive);
-    @media screen and (max-width:800px) {
-        display: none;
-    }
+}
+
+.menu_navigation {
+    color: inherit;
 }
 
 .nav_list {
@@ -13,8 +14,9 @@
     text-transform: uppercase;
 }
 
-.menu_nav {
-    display: block;
+.nav_list_menu {
+    @include flex-column();
+    gap: 0;
 }
 
 .menu_nav_list {
