@@ -7,6 +7,7 @@ import { THEME } from "./types";
 import styles from "./UserMenu.module.scss";
 import { NavigationList } from "../NavigationList/NavigationList";
 import { useViewport } from "../../utils/useViewport";
+import { BREAKPOINT } from "../../constants/constants";
 
 const root = document.querySelector(":root") as HTMLElement;
 const currentTheme = localStorage.getItem("theme");
@@ -33,7 +34,7 @@ export const UserMenu: FC<PropsWithChildren<UserMenuProps>> = ({ isOpenAccPopup,
 
   return (
     <div className={isOpenAccPopup ? styles.container__open : styles.container}>
-      {width <= 800 && <NavigationList onClick={onClick} isOpenAccPopup={isOpenAccPopup} />}
+      {width <= BREAKPOINT && <NavigationList onClick={onClick} isOpenAccPopup={isOpenAccPopup} />}
       <AccountNav onClick={onClick} isOpenAccPopup={isOpenAccPopup} />
       <div className={styles.item}>
         <p className={cn(styles.btn_description)}>{t("menu.language")}:</p>
