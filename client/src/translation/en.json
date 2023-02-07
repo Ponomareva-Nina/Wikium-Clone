@@ -26,16 +26,13 @@
     },
     "gamesPage": {
       "title": "Games by categories",
-      "todayGame": "Game of the day",
       "concentrationTitle": "Concentration",
-      "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
       "memoryTitle": "Memorization",
+      "logicsTitle": "Logics and thinking",
+      "todayGame": "Game of the day",
+      "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
       "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
-      "logicsTitle" : "Logics and thinking",
-      "logicsDescription": "The ability to think logically, analyze, and find consistent patterns.",
-      "colorMatchGame": "Color match",
-      "comparisonGame": "More and less",
-      "penaltyGame": "Penalty"
+      "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
     },
     "navigation": {
       "program": "Training program",
@@ -53,5 +50,13 @@
     },
     "account": {
       "avatar": "user photo"
+    },
+    "gamesData": {
+      "concentration": "Concentration",
+      "memory": "Memorization",
+      "logics" : "Logics and thinking",
+      "colorMatch": "Color match",
+      "lessOrMore": "Less or More",
+      "penalty": "Penalty"
     }
 }

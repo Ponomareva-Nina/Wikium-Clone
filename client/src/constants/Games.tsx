@@ -2,9 +2,9 @@ import { ColorMatchGame } from "../games/ColorMatchGame/ColorMatchGame";
 import { PenaltyGame } from "../games/PenaltyGame/PenaltyGame";
 import { LessOrMoreGame } from "../games/LessOrMoreGame/LessOrMoreGame";
 import { GameInterface } from "../interfaces/GameInterface";
-import colorMatchImg from "../../assets/images/GamesPage/color-match.svg";
-import penaltyImg from "../../assets/images/GamesPage/penalty.svg";
-import moreAndLessImg from "../../assets/images/GamesPage/more-and-less.svg";
+import colorMatchImg from "../assets/images/GamesPage/color-match.svg";
+import penaltyImg from "../assets/images/GamesPage/penalty.svg";
+import moreAndLessImg from "../assets/images/GamesPage/more-and-less.svg";
 
 export const Games: Array<GameInterface> = [
   {

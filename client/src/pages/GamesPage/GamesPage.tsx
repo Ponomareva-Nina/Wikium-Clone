@@ -3,12 +3,10 @@ import cn from "classnames";
 import { GameCategory } from "../../components/GameCategory/GameCategory";
 import styles from "./GamesPage.module.scss";
 import { GameTeaserCard } from "../../components";
-import colorMatchImg from "../../assets/images/GamesPage/color-match.svg";
-import penaltyImg from "../../assets/images/GamesPage/penalty.svg";
-import moreAndLessImg from "../../assets/images/GamesPage/more-and-less.svg";
 import concentration from "../../assets/images/GamesPage/concentration.svg";
 import logics from "../../assets/images/GamesPage/logics.svg";
 import memory from "../../assets/images/GamesPage/memory.svg";
+import { Games } from "../../constants/Games";
 
 export const GamesPage = () => {
   const { t } = useTranslation();
@@ -21,12 +19,7 @@ export const GamesPage = () => {
         icon={concentration}
         description={t("gamesPage.concentrationDescription")}
       >
-        <GameTeaserCard
-          id={1}
-          title={t("gamesPage.colorMatchGame")}
-          category={t("gamesPage.concentrationTitle")}
-          imgSrc={colorMatchImg}
-        />
+        <GameTeaserCard game={Games.find((game) => game.id === 1)} />
       </GameCategory>
 
       <GameCategory
@@ -34,12 +27,7 @@ export const GamesPage = () => {
         icon={memory}
         description={t("gamesPage.memoryDescription")}
       >
-        <GameTeaserCard
-          id={2}
-          title={t("gamesPage.penaltyGame")}
-          category={t("gamesPage.memoryTitle")}
-          imgSrc={penaltyImg}
-        />
+        <GameTeaserCard game={Games.find((game) => game.id === 2)} />
       </GameCategory>
 
       <GameCategory
@@ -47,12 +35,7 @@ export const GamesPage = () => {
         icon={logics}
         description={t("gamesPage.logicsDescription")}
       >
-        <GameTeaserCard
-          id={3}
-          title={t("gamesPage.comparisonGame")}
-          category={t("gamesPage.logicsTitle")}
-          imgSrc={moreAndLessImg}
-        />
+        <GameTeaserCard game={Games.find((game) => game.id === 3)} />
       </GameCategory>
     </div>
   );
