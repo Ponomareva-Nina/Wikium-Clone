@@ -95,7 +95,7 @@ body {
 
 #root {
   scroll-behavior: smooth;
-  height: 100vh;
+  min-height: 100vh;
   @include flex-column($gap: 3rem);
   margin: 0 auto;
 }
@@ -119,6 +119,7 @@ main {
 }
 
 .wrapper {
-  width: 1216px;
+  max-width: 110rem;
   padding: 0 2rem;
+  margin: 0 auto;
 }

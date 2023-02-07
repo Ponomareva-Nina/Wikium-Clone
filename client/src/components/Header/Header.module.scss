@@ -8,6 +8,7 @@
     background-color: var(--accent-color);
 
     &__wrapper {
+        width: 100%;
         @include flex-row();
         justify-content: space-between;
 

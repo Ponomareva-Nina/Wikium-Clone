@@ -1,4 +1,4 @@
-import { NavLink, useMatch } from "react-router-dom";
+import { Link, useMatch } from "react-router-dom";
 import cn from "classnames";
 import { DetailedHTMLProps, FC, LinkHTMLAttributes, PropsWithChildren } from "react";
 import styles from "./NavigationItem.module.scss";
@@ -19,14 +19,14 @@ export const NavigationItem: FC<PropsWithChildren<NavItemProps>> = ({
 
   return (
     <li>
-      <NavLink
+      <Link
         to={to}
         className={cn(styles.nav_item)}
         onClick={onClick}
         style={{ color: match ? "var(--font-secondary-color)" : "" }}
       >
         {children}
-      </NavLink>
+      </Link>
     </li>
   );
 };

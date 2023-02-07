@@ -6,6 +6,33 @@
       "language": "Change language",
       "theme": "Change theme"
     },
+    "authPage": {
+      "title": "Log In",
+      "username": "Email",
+      "password": "Password",
+      "submitBtnText": "Log in",
+      "registerLink": "Register",
+      "newUserText": "New user? ",
+      "registerSugguestionText": " and start training your brain right now."
+    },
+    "registerPage": {
+      "title": "Registration",
+      "username": "Email",
+      "password": "Password",
+      "submitBtnText": "Register",
+      "loginLink": "Log in",
+      "haveAccount": "Already have an account? ",
+      "loginSugguestionText": " and continue training your brain right now."
+    },
+    "gamePage": {
+      "title": "Games by categories",
+      "concentrationTitle": "Concentration",
+      "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
+      "memoryTitle": "Memorization",
+      "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
+      "logicsTitle" : "Logics and thinking", 
+      "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
+    },
     "navigation": {
       "program": "Training program",
       "game": "Brain games",
