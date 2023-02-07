@@ -1,47 +1,25 @@
-import { useTranslation } from "react-i18next";
-import cn from "classnames";
-import { GameCategory } from "../../components/GameCategory/GameCategory";
-import styles from "./GamePage.module.scss";
-import { GameTeaserCard } from "../../components";
-import colorMatchImg from "../../assets/images/GamePage/color-match.svg";
-import penaltyImg from "../../assets/images/GamePage/penalty.svg";
-import moreAndLessImg from "../../assets/images/GamePage/more-and-less.svg";
+import { useParams } from "react-router-dom";
+import { ColorMatchGame } from "../../games/ColorMatchGame/ColorMatchGame";
+import { PenaltyGame } from "../PenaltyGame/PenaltyGame";
+import { LessOrMoreGame } from "../../games/LessOrMoreGame/LessOrMoreGame";
+
+const GameRoutes = [
+  {
+    gameId: 1,
+    gamePage: <ColorMatchGame />,
+  },
+  {
+    gameId: 2,
+    gamePage: <PenaltyGame />,
+  },
+  {
+    gameId: 3,
+    gamePage: <LessOrMoreGame />,
+  },
+];
 
 export const GamePage = () => {
-  const { t } = useTranslation();
-
-  return (
-    <div className={cn("wrapper", styles.page)}>
-      <h1 className={styles.page_title}>{t("gamePage.title")}</h1>
-      <GameCategory
-        title={t("gamePage.concentrationTitle")}
-        description={t("gamePage.concentrationDescription")}
-      >
-        <GameTeaserCard
-          id={1}
-          title={t("gamePage.colorMatchGame")}
-          category={t("gamePage.concentrationTitle")}
-          imgSrc={colorMatchImg}
-        />
-      </GameCategory>
-
-      <GameCategory title={t("gamePage.memoryTitle")} description={t("gamePage.memoryDescription")}>
-        <GameTeaserCard
-          id={2}
-          title={t("gamePage.penaltyGame")}
-          category={t("gamePage.memoryTitle")}
-          imgSrc={penaltyImg}
-        />
-      </GameCategory>
-
-      <GameCategory title={t("gamePage.logicsTitle")} description={t("gamePage.logicsDescription")}>
-        <GameTeaserCard
-          id={3}
-          title={t("gamePage.comparisonGame")}
-          category={t("gamePage.logicsTitle")}
-          imgSrc={moreAndLessImg}
-        />
-      </GameCategory>
-    </div>
-  );
+  const { id } = useParams();
+  const currentGame = GameRoutes.find((game) => game.gameId === Number(id));
+  return currentGame ? currentGame.gamePage : <h1>Game not found</h1>;
 };
