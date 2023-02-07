@@ -10,7 +10,7 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 import noneAvatar from "../../../assets/images/Avatar/none_avatar.svg";
-import { UserMenu } from "../../UserMenu/UserMenu";
+import { UserMenu } from "../UserMenu";
 import styles from "./Account.module.scss";
 
 interface AccountProps

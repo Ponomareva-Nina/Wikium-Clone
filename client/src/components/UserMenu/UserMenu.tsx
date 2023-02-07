@@ -1,12 +1,11 @@
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
-import { Button } from "../UI";
+import { Button, AccountNav } from "../UI";
 import { LANGUAGES } from "../../translation/types";
 import { THEME } from "./types";
 import styles from "./UserMenu.module.scss";
 import { NavigationList } from "../NavigationList/NavigationList";
-import { AccountNav } from "../UI/AccountNav/AccountNav";
 import { useViewport } from "../../utils/useViewport";
 
 const root = document.querySelector(":root") as HTMLElement;

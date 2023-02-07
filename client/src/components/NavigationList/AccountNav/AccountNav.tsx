@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
-import { NavigationItem } from "../../NavigationList/NavigationItem/NavigationItem";
+import { NavigationItem } from "../NavigationItem/NavigationItem";
 
 interface AccountNavProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   isOpenAccPopup?: boolean;

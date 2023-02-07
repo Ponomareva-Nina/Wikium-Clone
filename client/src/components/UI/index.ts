@@ -1,2 +1,5 @@
 export { Button } from "./Button/Button";
 export { Input } from "./Input/Input";
+export { Logo } from "./Logo/Logo";
+// export { Account } from "./Account/Account";
+export { AccountNav } from "../NavigationList/AccountNav/AccountNav";

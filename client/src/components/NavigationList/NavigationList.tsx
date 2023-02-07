@@ -4,6 +4,7 @@ import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react"
 import { NavigationItem } from "./NavigationItem/NavigationItem";
 import styles from "./NavigationList.module.scss";
 import { useViewport } from "../../utils/useViewport";
+import { BREAKPOINT } from "../../constants/constants";
 
 interface NavListProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   isOpenAccPopup?: boolean;
@@ -16,10 +17,11 @@ export const NavigationList: FC<PropsWithChildren<NavListProps>> = ({
 }: NavListProps) => {
   const { t } = useTranslation();
   const { width } = useViewport();
+  const isDesktopView = width > BREAKPOINT;
 
   return (
-    <nav className={cn(width > 800 ? styles.navigation : styles.menu_navigation)}>
-      <ul className={cn(width > 800 ? styles.nav_list : styles.nav_list_menu)}>
+    <nav className={cn(isDesktopView ? styles.navigation : styles.menu_navigation)}>
+      <ul className={cn(isDesktopView ? styles.nav_list : styles.nav_list_menu)}>
         <NavigationItem to="/games" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
           {t("navigation.game")}
         </NavigationItem>
