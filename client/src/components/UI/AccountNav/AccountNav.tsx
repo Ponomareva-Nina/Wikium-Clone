@@ -13,6 +13,7 @@ export const AccountNav: FC<PropsWithChildren<AccountNavProps>> = ({ onClick }) 
       <NavigationItem to="/account" onClick={onClick}>
         {t("navigation.account")}
       </NavigationItem>
+      <AccountNav />
       <NavigationItem to="/" onClick={onClick}>
         {t("navigation.logout")}
       </NavigationItem>

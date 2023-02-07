@@ -2,7 +2,8 @@ import cn from "classnames";
 import { FC, PropsWithChildren } from "react";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { NavigationList } from "../NavigationList/NavigationList";
-import { Logo, AccountLogo } from "../UI";
+import { Logo } from "../UI/Logo/Logo";
+import { AccountLogo } from "../UI/AccountLogo/AccountLogo";
 import styles from "./Header.module.scss";
 
 export const Header: FC<PropsWithChildren> = () => {

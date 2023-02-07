@@ -3,9 +3,9 @@
 .nav_item {
     @include font-main(1.4rem);
     font-weight: 600;
-    color: var(--color-link-inactive);
+    color: inherit;
 
     &:hover {
-        color: var(--font-secondary-color);
+        color: var(--popup-contrast-color);
     }
 }

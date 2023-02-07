@@ -5,7 +5,9 @@ import { Button } from "../UI";
 import { LANGUAGES } from "../../translation/types";
 import { THEME } from "./types";
 import styles from "./UserMenu.module.scss";
+import { NavigationList } from "../NavigationList/NavigationList";
 import { AccountNav } from "../UI/AccountNav/AccountNav";
+import { AccountLogo } from "../UI/AccountLogo/AccountLogo";
 // import { NavigationList } from "../NavigationList/NavigationList";
 
 const root = document.querySelector(":root") as HTMLElement;
@@ -29,7 +31,8 @@ export const UserMenu: FC<PropsWithChildren<UserMenuProps>> = ({ isOpenAccPopup 
 
   return (
     <div className={isOpenAccPopup ? styles.container__open : styles.container}>
-      {/* <AccountLogo /> */}
+      <AccountLogo />
+      {document.body.clientWidth <= 800 ? <NavigationList /> : <> </>}
       <AccountNav />
       <div className={styles.item}>
         <p>{t("menu.language")}:</p>

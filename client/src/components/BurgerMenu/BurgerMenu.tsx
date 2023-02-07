@@ -1,7 +1,8 @@
 import cn from "classnames";
 import { FC, PropsWithChildren, useEffect, useRef, useState } from "react";
 import { NavigationList } from "../NavigationList/NavigationList";
-import { AccountLogo, Burger } from "../UI";
+import { Burger } from "../UI/Burger/Burger";
+import { AccountLogo } from "../UI/AccountLogo/AccountLogo";
 import styles from "./BurgerMenu.module.scss";
 
 export const BurgerMenu: FC<PropsWithChildren> = () => {
