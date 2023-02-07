@@ -6,29 +6,37 @@ import colorMatchImg from "../assets/images/GamesPage/color-match.svg";
 import penaltyImg from "../assets/images/GamesPage/penalty.svg";
 import moreAndLessImg from "../assets/images/GamesPage/more-and-less.svg";
 
-export const Games: Array<GameInterface> = [
+export const enum GamesId {
+  FIRST,
+  SECOND,
+  THIRD,
+}
+
+const INITIAL_NEURONS_NUMBER = 5;
+
+export const games: Array<GameInterface> = [
   {
-    id: 1,
+    id: GamesId.FIRST,
     title: "colorMatch",
     gamePage: <ColorMatchGame />,
     teaserImg: colorMatchImg,
     category: "concentration",
-    neurons: 5,
+    neurons: INITIAL_NEURONS_NUMBER,
   },
   {
-    id: 2,
+    id: GamesId.SECOND,
     title: "penalty",
     gamePage: <PenaltyGame />,
     teaserImg: penaltyImg,
     category: "memory",
-    neurons: 5,
+    neurons: INITIAL_NEURONS_NUMBER,
   },
   {
-    id: 3,
+    id: GamesId.THIRD,
     title: "lessOrMore",
     gamePage: <LessOrMoreGame />,
     teaserImg: moreAndLessImg,
     category: "logics",
-    neurons: 5,
+    neurons: INITIAL_NEURONS_NUMBER,
   },
 ];
