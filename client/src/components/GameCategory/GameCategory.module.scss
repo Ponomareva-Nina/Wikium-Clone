@@ -1,7 +1,18 @@
 .title {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: flex-start;
   font-size: 2.2rem;
   font-weight: 600;
   line-height: 160%;
+  color: var(--accent-color);
+  
+  & svg {
+    width: 3.5rem;
+    fill: var(--accent-color);
+    vertical-align: middle;
+  }
 }
 
 .games {
@@ -14,7 +25,7 @@
 .category__container {
   display: flex;
   flex-direction: column;
-  gap:2rem;
+  gap: 1.5rem;
   justify-content: center;
   align-items: flex-start;
 }

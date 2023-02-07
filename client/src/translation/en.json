@@ -24,8 +24,9 @@
       "haveAccount": "Already have an account? ",
       "loginSugguestionText": " and continue training your brain right now."
     },
-    "gamePage": {
+    "gamesPage": {
       "title": "Games by categories",
+      "todayGame": "Game of the day",
       "concentrationTitle": "Concentration",
       "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
       "memoryTitle": "Memorization",
