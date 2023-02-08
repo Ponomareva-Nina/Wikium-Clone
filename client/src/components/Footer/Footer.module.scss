@@ -24,13 +24,9 @@
 }
 
 .logo {
-    // width: 6rem;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-
     & svg {
         width: 6rem;
+        height: auto;
         fill: var(--font-secondary-color);
         vertical-align: middle;
     }
