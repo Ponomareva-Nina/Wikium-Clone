@@ -6,10 +6,11 @@ import concentration from "../../assets/images/GamesPage/concentration.svg";
 import logics from "../../assets/images/GamesPage/logics.svg";
 import memory from "../../assets/images/GamesPage/memory.svg";
 import { games } from "../../constants/games";
+import { GameCategories } from "../../interfaces/Categories";
 
-const concentrationGames = games.filter((game) => game.category === "concentration");
-const memoryGames = games.filter((game) => game.category === "memory");
-const logicsGames = games.filter((game) => game.category === "logics");
+const concentrationGames = games.filter((game) => game.category === GameCategories.CONCENTRATION);
+const memoryGames = games.filter((game) => game.category === GameCategories.MEMORY);
+const logicsGames = games.filter((game) => game.category === GameCategories.LOGICS);
 
 const categories = [
   {

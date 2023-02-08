@@ -1,8 +1,10 @@
+import { GameCategories } from "./Categories";
+
 export interface GameInterface {
   id: number;
   title: string;
   gamePage: JSX.Element;
-  category: "memory" | "logics" | "concentration";
+  category: GameCategories;
   teaserImg: "string";
   neurons: number;
 }
