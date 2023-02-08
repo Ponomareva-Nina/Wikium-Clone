@@ -6,6 +6,9 @@ import colorMatchImg from "../assets/images/GamesPage/color-match.svg";
 import penaltyImg from "../assets/images/GamesPage/penalty.svg";
 import moreAndLessImg from "../assets/images/GamesPage/more-and-less.svg";
 import { GameCategories } from "../interfaces/Categories";
+import schemeIcon from "../assets/images/GamesIcons/scheme-icon.svg";
+import pictureIcon from "../assets/images/GamesIcons/picture-icon.svg";
+import searchIcon from "../assets/images/GamesIcons/search-icon.svg";
 
 export const enum GamesId {
   FIRST,
@@ -23,6 +26,8 @@ export const games: Array<GameInterface> = [
     teaserImg: colorMatchImg,
     category: GameCategories.CONCENTRATION,
     neurons: INITIAL_NEURONS_NUMBER,
+    description: "",
+    skills: [],
   },
   {
     id: GamesId.SECOND,
@@ -31,6 +36,12 @@ export const games: Array<GameInterface> = [
     teaserImg: penaltyImg,
     category: GameCategories.MEMORY,
     neurons: INITIAL_NEURONS_NUMBER,
+    description: "description",
+    skills: [
+      { memorySkill: "memorySkillDescription", iconSrc: schemeIcon },
+      { shortMemorySkill: "shortMemorySkillDescription", iconSrc: pictureIcon },
+      { attentionSkill: "attentionSkillDescription", iconSrc: searchIcon },
+    ],
   },
   {
     id: GamesId.THIRD,
@@ -39,5 +50,7 @@ export const games: Array<GameInterface> = [
     teaserImg: moreAndLessImg,
     category: GameCategories.LOGICS,
     neurons: INITIAL_NEURONS_NUMBER,
+    description: "",
+    skills: [],
   },
 ];

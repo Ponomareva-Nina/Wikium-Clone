@@ -7,4 +7,6 @@ export interface GameInterface {
   category: GameCategories;
   teaserImg: "string";
   neurons: number;
+  description: string;
+  skills: Array<{}>;
 }
