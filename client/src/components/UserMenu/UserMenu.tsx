@@ -1,8 +1,6 @@
-import { useTranslation } from "react-i18next";
-import cn from "classnames";
 import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
-import { Button, AccountNav } from "../UI";
-import { LANGUAGES } from "../../translation/types";
+import { AccountNav } from "../UI";
+
 import { THEME } from "./types";
 import styles from "./UserMenu.module.scss";
 import { NavigationList } from "../NavigationList/NavigationList";
@@ -18,25 +16,14 @@ interface UserMenuProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>
   onClick?: () => void;
 }
 
-const setThemeLight = () => {
-  localStorage.setItem("theme", THEME.LIGHT);
-  root.className = THEME.LIGHT;
-};
-
-const setThemeDark = () => {
-  localStorage.setItem("theme", THEME.DARK);
-  root.className = THEME.DARK;
-};
-
 export const UserMenu: FC<PropsWithChildren<UserMenuProps>> = ({ isOpenAccPopup, onClick }) => {
-  const { t, i18n } = useTranslation();
   const { width } = useViewport();
 
   return (
     <div className={isOpenAccPopup ? styles.container__open : styles.container}>
       {width <= BREAKPOINT && <NavigationList onClick={onClick} isOpenAccPopup={isOpenAccPopup} />}
       <AccountNav onClick={onClick} isOpenAccPopup={isOpenAccPopup} />
-      <div className={styles.item}>
+      {/* <div className={styles.item}>
         <p className={cn(styles.btn_description)}>{t("menu.language")}:</p>
         <Button
           btnSize="small"
@@ -62,7 +49,7 @@ export const UserMenu: FC<PropsWithChildren<UserMenuProps>> = ({ isOpenAccPopup,
         <Button btnSize="standart" onClick={() => setThemeDark()}>
           {THEME.DARK}
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

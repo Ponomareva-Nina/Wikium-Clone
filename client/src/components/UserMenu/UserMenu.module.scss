@@ -1,12 +1,12 @@
-@import "../../common.scss";
-
 .container {
   display: none;
 
   &__open {
-    display: block;
     width: 28rem;
     padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     z-index: 3;
     list-style: none;
     background-color: transparent;
@@ -27,11 +27,3 @@
   }
 }
 
-.item {
-  @include flex-row();
-}
-
-.btn_description {
-  @include font-main(1.4rem);
-  font-weight: 600;
-}
