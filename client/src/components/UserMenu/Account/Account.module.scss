@@ -2,7 +2,11 @@
 
 .account_container {
     position: relative;
-    @include flex-row;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .account_descr {

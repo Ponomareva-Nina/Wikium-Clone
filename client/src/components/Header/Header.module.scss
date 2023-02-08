@@ -1,4 +1,10 @@
-@import "../../common.scss";
+@mixin flex-row($gap: 1rem, $justify: flex-start, $align: center) {
+    display: flex;
+    flex-direction: row;
+    gap: $gap;
+    justify-content: $justify;
+    align-items: $align;
+}
 
 .header {
     width: 100%;
@@ -26,3 +32,9 @@
         gap: 0;
     }
 }
+
+.wrapper {
+    max-width: 110rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+  }

@@ -1,7 +1,8 @@
-@import "../../../common.scss";
-
 .logo_link {
-    @include flex-row;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-start;
     align-items: center;
 
     @media screen and (max-width: 800px) {
