@@ -58,5 +58,9 @@
       "colorMatch": "Color match",
       "lessOrMore": "Less or More",
       "penalty": "Penalty"
+    },
+    "footer": {
+      "about": "About Team",
+      "rsLogoAlt": "Link to RSSchool"
     }
 }

@@ -1,3 +1,5 @@
+import { ConfigService } from '@nestjs/config';
+import { FileService } from './../file/file.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User, UserDocument } from './entities/user.entity';
 import { Injectable } from '@nestjs/common';
@@ -7,43 +9,54 @@ import { Model, Types } from 'mongoose';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
+  constructor(
+    @InjectModel(User.name) private userModel: Model<UserDocument>,
+    private readonly fileService: FileService,
+    private readonly configService: ConfigService,
+  ) {}
 
   async createUser(createUserDto: CreateUserDto) {
-    const newUser: User = {
-      ...createUserDto,
-      name: '',
-      surname: '',
-      birthDay: '',
-      gender: '',
-      education: '',
-      avatar: '',
-      level: 0,
-      neurons: 0,
-      refreshToken: '',
-    };
-    return this.userModel.create(newUser);
+    return this.userModel.create(createUserDto);
   }
 
   findAll() {
-    return `This action returns all user`;
+    return this.userModel.find({}, { password: 0, refreshToken: 0 });
   }
 
   findOne(dto: Partial<User>) {
     return this.userModel.findOne(dto).exec();
   }
 
-  async findOneByEmail(email: string) {
-    return this.userModel.findOne({ email }).exec();
+  findById(id: string) {
+    return this.userModel.findById(id);
   }
 
-  update(id: string, updateUserDto: Partial<UpdateUserDto>) {
+  updateById(id: string, updateUserDto: UpdateUserDto) {
+    return this.userModel.findByIdAndUpdate(id, updateUserDto);
+  }
+
+  async updateAvatar(id: string, files: Express.Multer.File[]) {
+    const rootPath = `${this.configService.get('SERVER_HOST')}/static`;
+    const userData = await this.findById(id);
+    const oldAvatarLink = userData?.avatar;
+
+    if (oldAvatarLink) {
+      const serverPath = `/uploads` + oldAvatarLink.replace(rootPath, '');
+      await this.fileService.remove(serverPath);
+    }
+
+    const filesPaths = await this.fileService.saveFiles(files, 'avatars');
+    const filePath = rootPath + filesPaths?.[0]?.url;
+    await this.updateById(id, { avatar: filePath });
+    return filePath;
+  }
+
+  update(
+    dto: Partial<User> & { _id?: Types.ObjectId },
+    updateUserDto: Partial<UpdateUserDto>,
+  ) {
     return this.userModel
-      .findOneAndUpdate(new Types.ObjectId(id), updateUserDto, { new: true })
+      .findOneAndUpdate(dto, updateUserDto, { new: true })
       .exec();
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
   }
 }

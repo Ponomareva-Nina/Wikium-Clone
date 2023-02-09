@@ -1,4 +1,16 @@
-import { Controller, Post, HttpCode, Body, Get } from '@nestjs/common';
+import { JwtAuthGuard } from './guards/jwt.guard';
+import { REFRESH_TOKEN_EXPIRE } from './auth.constants';
+import {
+  Controller,
+  Post,
+  HttpCode,
+  Body,
+  Get,
+  Res,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
+import { Response, Request } from 'express';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
 
@@ -7,23 +19,65 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('register')
-  async register(@Body() dto: AuthDto) {
-    return this.authService.register(dto);
+  async register(
+    @Body() dto: AuthDto,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    const data = await this.authService.register(dto);
+    response.cookie('refreshToken', data.refreshToken, {
+      maxAge: REFRESH_TOKEN_EXPIRE,
+      httpOnly: true,
+    });
+    return {
+      user: data.user,
+      accessToken: data.accessToken,
+    };
   }
 
   @HttpCode(200)
   @Post('login')
-  async login(@Body() dto: AuthDto) {
-    return this.authService.login(dto);
+  async login(
+    @Body() dto: AuthDto,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    const data = await this.authService.login(dto);
+    response.cookie('refreshToken', data.refreshToken, {
+      maxAge: REFRESH_TOKEN_EXPIRE,
+      httpOnly: true,
+    });
+    return {
+      user: data.user,
+      accessToken: data.accessToken,
+    };
   }
 
   @Get('logout')
-  async logout() {
-    return null;
+  async logout(
+    @Req() request: Request,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    const { refreshToken } = request.cookies;
+    this.authService.logout(refreshToken);
+    response.clearCookie('refreshToken');
   }
 
+  @UseGuards(JwtAuthGuard)
+  @HttpCode(200)
   @Get('refresh')
-  async refresh() {
-    return null;
+  async refresh(
+    @Req() request: Request,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    const { refreshToken } = request.cookies;
+    const data = await this.authService.refreshTokens({ refreshToken });
+    response.clearCookie('refreshToken');
+    response.cookie('refreshToken', data.refreshToken, {
+      maxAge: REFRESH_TOKEN_EXPIRE,
+      httpOnly: true,
+    });
+    return {
+      user: data.user,
+      accessToken: data.accessToken,
+    };
   }
 }

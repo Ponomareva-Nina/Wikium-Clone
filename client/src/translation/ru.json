@@ -58,5 +58,9 @@
       "colorMatch": "Цветовод",
       "lessOrMore": "Логическое сравнение",
       "penalty": "Пенальти"
+    },
+    "footer": {
+      "about": "О команде",
+      "rsLogoAlt": "Ссылка на RSSchool"
     }
 }
