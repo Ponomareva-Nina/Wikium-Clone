@@ -52,10 +52,10 @@ export const AccountNav: FC<PropsWithChildren<AccountNavProps>> = ({ onClick, is
 
       <div className={styles.item}>
         <p className={cn(styles.btn_description)}>{t("menu.theme")}:</p>
-        <Button btnSize="standart" onClick={() => setThemeLight()}>
+        <Button btnSize="standart" onClick={setThemeLight}>
           {THEME.LIGHT}
         </Button>
-        <Button btnSize="standart" onClick={() => setThemeDark()}>
+        <Button btnSize="standart" onClick={setThemeDark}>
           {THEME.DARK}
         </Button>
       </div>

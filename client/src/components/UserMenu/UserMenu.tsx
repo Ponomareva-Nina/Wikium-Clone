@@ -23,33 +23,6 @@ export const UserMenu: FC<PropsWithChildren<UserMenuProps>> = ({ isOpenAccPopup,
     <div className={isOpenAccPopup ? styles.container__open : styles.container}>
       {width <= BREAKPOINT && <NavigationList onClick={onClick} isOpenAccPopup={isOpenAccPopup} />}
       <AccountNav onClick={onClick} isOpenAccPopup={isOpenAccPopup} />
-      {/* <div className={styles.item}>
-        <p className={cn(styles.btn_description)}>{t("menu.language")}:</p>
-        <Button
-          btnSize="small"
-          onClick={() => i18n.changeLanguage(LANGUAGES.EN)}
-          appearance={i18n.resolvedLanguage === LANGUAGES.EN ? "normal" : "inactive"}
-        >
-          {LANGUAGES.EN}
-        </Button>
-        <Button
-          btnSize="small"
-          onClick={() => i18n.changeLanguage(LANGUAGES.RU)}
-          appearance={i18n.resolvedLanguage === LANGUAGES.RU ? "normal" : "inactive"}
-        >
-          {LANGUAGES.RU}
-        </Button>
-      </div>
-
-      <div className={styles.item}>
-        <p className={cn(styles.btn_description)}>{t("menu.theme")}:</p>
-        <Button btnSize="standart" onClick={() => setThemeLight()}>
-          {THEME.LIGHT}
-        </Button>
-        <Button btnSize="standart" onClick={() => setThemeDark()}>
-          {THEME.DARK}
-        </Button>
-      </div> */}
     </div>
   );
 };
