@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
+import { Button } from "../../../../components/UI";
 import styles from "./Rules.module.scss";
 
 interface RulesProps {
@@ -11,9 +12,9 @@ export const RememberOrderRules: FC<PropsWithChildren<RulesProps>> = ({ startGam
   return (
     <>
       <p className={styles.text}>{t("rememberOrder.rules")}</p>
-      <button type="button" onClick={startGameHandler}>
+      <Button type="button" onClick={startGameHandler}>
         {t("gamesData.startGame")}
-      </button>
+      </Button>
     </>
   );
 };
