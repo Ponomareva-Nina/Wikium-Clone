@@ -28,7 +28,10 @@
 }
 
 .menu_nav_list {
-    @include flex-column();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     padding: 1.7rem 0 3.5rem;
     gap: 1rem;
 }

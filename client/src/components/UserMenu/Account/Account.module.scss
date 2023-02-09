@@ -1,5 +1,3 @@
-@import "../../../common.scss";
-
 .account_container {
     position: relative;
     display: flex;
@@ -10,7 +8,7 @@
 }
 
 .account_descr {
-    @include font-main(1.1rem);
+   font-size: 1.1rem;
     text-align: right;
     color: #FFFFFF;
 }

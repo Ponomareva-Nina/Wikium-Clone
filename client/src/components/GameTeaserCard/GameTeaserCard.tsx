@@ -1,31 +1,31 @@
 import cn from "classnames";
 import { FC, PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { GameInterface } from "../../interfaces/GameInterface";
 import styles from "./GameTeaserCard.module.scss";
 
 interface GameTeaserCardProps {
-  id: number;
-  imgSrc: string;
-  title: string;
-  category: string;
+  game?: GameInterface;
 }
 
 export const GameTeaserCard: FC<PropsWithChildren<GameTeaserCardProps>> = ({
-  id,
-  title,
-  imgSrc,
-  category,
+  game,
   children,
   ...rest
 }) => {
-  return (
-    <Link to={`/games/${id}`}>
-      <div {...rest} className={cn(styles.card)}>
-        <img src={imgSrc} className={cn(styles.image)} alt={title} />
-        <h3 className={cn(styles.title)}>{title}</h3>
-        <p className={cn(styles.category)}>{category}</p>
-        {children}
-      </div>
-    </Link>
-  );
+  const { t } = useTranslation();
+  if (game) {
+    return (
+      <Link to={`/games/${game.id}`}>
+        <div {...rest} className={cn(styles.card)}>
+          <img src={game.teaserImg} className={cn(styles.image)} alt="" />
+          <h3 className={cn(styles.title)}>{t(`gamesData.${game.title}`)}</h3>
+          <p className={cn(styles.category)}>{t(`gamesData.${game.category}`)}</p>
+          {children}
+        </div>
+      </Link>
+    );
+  }
+  return <h1>Game in progress</h1>;
 };

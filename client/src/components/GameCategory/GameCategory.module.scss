@@ -1,7 +1,18 @@
-@import "../../common.scss";
-
 .title {
-  @include font-title();
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 160%;
+  color: var(--accent-color);
+  
+  & svg {
+    width: 3.5rem;
+    fill: var(--accent-color);
+    vertical-align: middle;
+  }
 }
 
 .games {
@@ -12,6 +23,15 @@
 }
 
 .category__container {
-  @include flex-column($gap: 2rem);
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 850px) {
+  .games {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
