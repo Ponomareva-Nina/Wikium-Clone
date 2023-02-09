@@ -1,0 +1,19 @@
+import { FC, PropsWithChildren } from "react";
+import { useTranslation } from "react-i18next";
+import styles from "./Rules.module.scss";
+
+interface RulesProps {
+  startGameHandler: () => void;
+}
+
+export const RememberOrderRules: FC<PropsWithChildren<RulesProps>> = ({ startGameHandler }) => {
+  const { t } = useTranslation();
+  return (
+    <>
+      <p className={styles.text}>{t("rememberOrder.rules")}</p>
+      <button type="button" onClick={startGameHandler}>
+        {t("gamesData.startGame")}
+      </button>
+    </>
+  );
+};
