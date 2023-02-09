@@ -3,37 +3,31 @@ import cn from "classnames";
 import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
 import { NavigationItem } from "./NavigationItem/NavigationItem";
 import styles from "./NavigationList.module.scss";
+import { useViewport } from "../../utils/useViewport";
+import { BREAKPOINT } from "../../constants/constants";
 
 interface NavListProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
-  isOpen?: boolean;
+  isOpenAccPopup?: boolean;
   onClick?: () => void;
 }
 
 export const NavigationList: FC<PropsWithChildren<NavListProps>> = ({
-  isOpen,
   onClick,
+  isOpenAccPopup,
 }: NavListProps) => {
   const { t } = useTranslation();
+  const { width } = useViewport();
+  const isDesktopView = width > BREAKPOINT;
 
   return (
-    <nav className={cn(!isOpen ? styles.navigation : styles.menu_nav)}>
-      <ul className={cn(!isOpen ? styles.nav_list : styles.menu_nav_list)}>
-        <NavigationItem to="/games" onClick={onClick}>
+    <nav className={cn(isDesktopView ? styles.navigation : styles.menu_navigation)}>
+      <ul className={cn(isDesktopView ? styles.nav_list : styles.nav_list_menu)}>
+        <NavigationItem to="/games" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
           {t("navigation.game")}
         </NavigationItem>
-        <NavigationItem to="/stats" onClick={onClick}>
+        <NavigationItem to="/stats" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
           {t("navigation.stat")}
         </NavigationItem>
-        {isOpen && (
-          <>
-            <NavigationItem to="/account" onClick={onClick}>
-              {t("navigation.account")}
-            </NavigationItem>
-            <NavigationItem to="/" onClick={onClick}>
-              {t("navigation.logout")}
-            </NavigationItem>
-          </>
-        )}
       </ul>
     </nav>
   );

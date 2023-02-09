@@ -1,19 +1,16 @@
 .account_container {
+    position: relative;
     display: flex;
     flex-direction: row;
     gap: 1rem;
     justify-content: flex-start;
     align-items: center;
-
-    @media screen and (max-width: 800px) {
-        display: none;
-    }
 }
 
 .account_descr {
    font-size: 1.1rem;
     text-align: right;
-    color: #FFFFFF;
+    color: var(--font-secondary-color);
 }
 
 .account_btn {
