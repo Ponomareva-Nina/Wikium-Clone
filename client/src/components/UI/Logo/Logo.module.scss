@@ -1,8 +1,24 @@
 .logo_link {
     display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-start;
     align-items: center;
+
+    @media screen and (max-width: 800px) {
+        flex-direction: row-reverse;
+    }
 }
 
 .img_link {
-    width: 10rem;
+    width: 4.5rem;
+}
+
+.title {
+    width: min-content;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 100%;
+    color: var(--font-secondary-color);
 }

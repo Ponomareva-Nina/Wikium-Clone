@@ -45,7 +45,7 @@
       "logout": "Log out"
     },
     "logo": {
-      "lang": "en",
+      "title": "Wikium clone",
       "alt": "Wikium - train brains"
     },
     "account": {
@@ -59,5 +59,9 @@
       "lessOrMore": "Less or More",
       "penalty": "Penalty",
       "startGame": "Start game"
+    },
+    "footer": {
+      "about": "About Team",
+      "rsLogoAlt": "Link to RSSchool"
     }
 }
