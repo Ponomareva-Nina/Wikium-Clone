@@ -57,6 +57,7 @@
       "logics" : "Logics and thinking",
       "colorMatch": "Color match",
       "lessOrMore": "Less or More",
-      "penalty": "Penalty"
+      "penalty": "Penalty",
+      "startGame": "Start game"
     }
 }

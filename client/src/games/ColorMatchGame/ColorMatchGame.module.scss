@@ -1,0 +1,20 @@
+.wrapper {
+    max-width: 110rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.game_container {
+    max-width: 80rem;
+    min-height: 50rem;
+    margin: 0 auto;
+    background-image: url("./images/color-match-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 3rem;
+  }
