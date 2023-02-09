@@ -57,15 +57,17 @@
       "logics" : "Logics and thinking",
       "colorMatch": "Color match",
       "lessOrMore": "Less or More",
-      "penalty": "Penalty"
+      "rememberOrder": "Remember the order",
+      "startGame": "Start game"
     },
-    "penalty": {
+    "rememberOrder": {
       "description": "This simulator is aimed at the formation of memory function. During training, the amount of attention increases and the accuracy and speed of memorization improves; increases the duration of information storage and noise immunity. Such skills can be useful in consciously remembering something in everyday life in a time-limited environment. For example, driving theory, speech for public speaking, remembering the names of strangers during business acquaintances or the necessary information at conferences, etc.",
       "memorySkill": "Memory function",
       "memorySkillDescription": "Eliminate the phrase 'I forgot' from your vocabulary",
       "shortMemorySkill": "Short-term memorization",
       "shortMemorySkillDescription": "You can quickly memorize any amount of information",
       "attentionSkill": "Attention function",
-      "attentionSkillDescription": "Stop making mistakes caused by distraction"
+      "attentionSkillDescription": "Stop making mistakes caused by distraction",
+      "rules": "Remember the numbers and click on them in ascending order"
     }
 }

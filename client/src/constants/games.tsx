@@ -1,14 +1,14 @@
 import { ColorMatchGame } from "../games/ColorMatchGame/ColorMatchGame";
-import { PenaltyGame } from "../games/PenaltyGame/PenaltyGame";
 import { LessOrMoreGame } from "../games/LessOrMoreGame/LessOrMoreGame";
 import { GameInterface } from "../interfaces/GameInterface";
 import colorMatchImg from "../assets/images/GamesPage/color-match.svg";
-import penaltyImg from "../assets/images/GamesPage/penalty.svg";
+import rememberImg from "../assets/images/GamesPage/remember-order.svg";
 import moreAndLessImg from "../assets/images/GamesPage/more-and-less.svg";
 import { GameCategories } from "../interfaces/Categories";
 import schemeIcon from "../assets/images/GamesIcons/scheme-icon.svg";
 import pictureIcon from "../assets/images/GamesIcons/picture-icon.svg";
 import searchIcon from "../assets/images/GamesIcons/search-icon.svg";
+import { RememberOrderGame } from "../games/RememberOrderGame/RememberOrder";
 
 export const enum GamesId {
   FIRST,
@@ -31,9 +31,9 @@ export const games: Array<GameInterface> = [
   },
   {
     id: GamesId.SECOND,
-    title: "penalty",
-    gamePage: <PenaltyGame />,
-    teaserImg: penaltyImg,
+    title: "rememberOrder",
+    gamePage: <RememberOrderGame />,
+    teaserImg: rememberImg,
     category: GameCategories.MEMORY,
     neurons: INITIAL_NEURONS_NUMBER,
     description: "description",
