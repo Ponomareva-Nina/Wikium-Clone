@@ -1,25 +1,40 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+@Schema()
+export class Statistic {
+  @Prop()
+  gameId: number;
+  @Prop()
+  category: 'memory' | 'logic' | 'attention';
+  @Prop()
+  level: number;
+  @Prop()
+  countNeurons: number;
+  @Prop([Date])
+  attempts: Date[];
+}
 
 export type UserDocument = HydratedDocument<User>;
 @Schema({ timestamps: true })
 export class User {
-  @Prop()
+  @Prop({ default: '' })
   name: string;
-  @Prop()
+  @Prop({ default: '' })
   surname: string;
-  @Prop()
+  @Prop({ default: '' })
   birthDay: string;
-  @Prop()
+  @Prop({ default: '' })
   gender: string;
-  @Prop()
+  @Prop({ default: '' })
   education: string;
-  @Prop()
+  @Prop({ default: '' })
   avatar: string;
-  @Prop()
+  @Prop({ default: 0 })
   level: number;
-  @Prop()
+  @Prop({ default: 0 })
   neurons: number;
+  @Prop([Statistic])
+  statistics: Statistic[];
   @Prop({ unique: true })
   email: string;
   @Prop()
