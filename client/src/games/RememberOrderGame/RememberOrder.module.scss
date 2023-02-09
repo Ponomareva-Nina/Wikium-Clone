@@ -1,6 +1,14 @@
 .game_container {
+  max-width: 80rem;
+  min-height: 50rem;
+  margin: 0 auto;
   background-image: url("./images/order-game-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem;
 }
