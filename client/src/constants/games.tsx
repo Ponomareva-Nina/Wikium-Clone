@@ -9,6 +9,8 @@ import schemeIcon from "../assets/images/GamesIcons/scheme-icon.svg";
 import pictureIcon from "../assets/images/GamesIcons/picture-icon.svg";
 import searchIcon from "../assets/images/GamesIcons/search-icon.svg";
 import { RememberOrderGame } from "../games/RememberOrderGame/RememberOrder";
+import eyeIcon from "../assets/images/GamesIcons/eye-icon.svg";
+import lampIcon from "../assets/images/GamesIcons/lamp-icon.svg";
 
 export const enum GamesId {
   FIRST,
@@ -26,8 +28,12 @@ export const games: Array<GameInterface> = [
     teaserImg: colorMatchImg,
     category: GameCategories.CONCENTRATION,
     neurons: INITIAL_NEURONS_NUMBER,
-    description: "",
-    skills: [],
+    description: "description",
+    skills: [
+      { attentionSkill: "attentionSkillDescription", iconSrc: searchIcon },
+      { visualPerceptionSkill: "visualPerceptionSkillDescription", iconSrc: eyeIcon },
+      { creativeThinkSkill: "creativeThinkSkillDescription", iconSrc: lampIcon },
+    ],
   },
   {
     id: GamesId.SECOND,

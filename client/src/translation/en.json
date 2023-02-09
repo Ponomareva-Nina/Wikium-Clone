@@ -73,5 +73,16 @@
       "attentionSkill": "Attention function",
       "attentionSkillDescription": "Stop making mistakes caused by distraction",
       "rules": "Remember the numbers and click on them in ascending order"
+    },
+    "colorMatch": {
+      "description": "The simulator helps to develop visual thinking and attention. These skills will be useful in sports, work and even in problematic situations, when it is important to keep calm. Training develops creativity, helping to create bright projects.",
+      "attentionSkill": "Attention function",
+      "attentionSkillDescription": "Stop making mistakes caused by distraction",
+      "visualPerceptionSkill": "Visual perception",
+      "visualPerceptionSkillDescription": "You can quickly find the main ideas in texts",
+      "creativeThinkSkill": "Visual and imaginative thinking",
+      "creativeThinkSkillDescription": "Can come up with outlandish ideas",
+      "rules": "Does the name of the color on the left card match the color of the text on the right card?"
     }
+
 }
