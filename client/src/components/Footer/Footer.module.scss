@@ -24,10 +24,15 @@
 }
 
 .logo {
+
     & svg {
         width: 6rem;
         height: auto;
-        fill: var(--font-secondary-color);
+        fill: rgba($color: #FFFFFF, $alpha: 0.6);
         vertical-align: middle;
+
+        &:hover {
+            fill: var(--font-secondary-color);
+        }
     }
 }
