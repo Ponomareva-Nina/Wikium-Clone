@@ -1,0 +1,27 @@
+.disabled {
+  pointer-events: none;
+}
+
+.card {
+  border: 1px solid var(--auxiliary-color);
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: #a35e26;
+  height: 5rem;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color:  #301e10;
+  cursor: pointer;
+}
+
+.cards_container {
+  border-radius: .5rem;
+  background-color: rgba(41, 28, 17, 0.5);
+  padding: 2rem;
+  display: grid;
+  gap: .5rem;
+}

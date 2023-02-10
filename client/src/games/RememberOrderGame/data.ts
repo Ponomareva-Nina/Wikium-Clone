@@ -1,6 +1,22 @@
-export const LEVELS = [
+export enum Levels {
+  FIRST,
+  SECOND,
+  THIRD,
+  FOURTH,
+  FIFTH,
+  LAST,
+}
+
+export interface LevelInterface {
+  level: number;
+  arrayWidth: number;
+  arrayHeight: number;
+  cards: number;
+}
+
+export const levelsData: LevelInterface[] = [
   {
-    level: 0,
+    level: Levels.FIRST,
     arrayWidth: 2,
     arrayHeight: 2,
     cards: 2,

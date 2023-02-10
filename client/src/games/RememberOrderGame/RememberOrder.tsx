@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { GameField } from "./components/GameField/GameField";
 import styles from "./RememberOrder.module.scss";
-import { LEVELS } from "./data";
+import { Levels, levelsData } from "./data";
 import { RememberOrderRules } from "./components/Rules/Rules";
 
-const firstLevel = LEVELS[0].level;
-const lastLevel = LEVELS[LEVELS.length - 1].level;
+const firstLevel = levelsData[Levels.FIRST].level;
+const lastLevel = levelsData[Levels.LAST].level;
 
 export const RememberOrderGame = () => {
   const [gameField, setGameField] = useState(<div />);
@@ -20,7 +20,7 @@ export const RememberOrderGame = () => {
       currentLevel += 1;
       console.log(`currentLevel: ${currentLevel}`);
     }
-    console.log(answers);
+    console.log(`correct answers: ${answers}`);
   };
 
   const registerMistake = () => {
@@ -28,14 +28,15 @@ export const RememberOrderGame = () => {
     if (currentLevel > firstLevel) {
       currentLevel -= 1;
     }
-    console.log(mistakes);
+    console.log(`currentLevel: ${currentLevel}`);
+    console.log(`mistakes: ${mistakes}`);
   };
 
   const startGame = () => {
     setGameStarted(true);
     setGameField(
       <GameField
-        level={currentLevel}
+        gameLevel={currentLevel}
         registerCorrectAnswer={registerCorectAnswer}
         registerMistake={registerMistake}
       />
