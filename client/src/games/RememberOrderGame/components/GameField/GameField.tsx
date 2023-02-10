@@ -1,7 +1,10 @@
 import { FC, PropsWithChildren } from "react";
+import cn from "classnames";
+import { useTranslation } from "react-i18next";
 import { createCardsArray } from "./utils";
 import styles from "./GameField.module.scss";
 import { Levels, levelsData } from "../../data";
+import { Button } from "../../../../components/UI";
 
 interface GameFieldProps {
   gameLevel: number;
@@ -14,6 +17,7 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
   registerCorrectAnswer,
   registerMistake,
 }) => {
+  const { t } = useTranslation();
   const levelData = levelsData.find(({ level }) => level === gameLevel) || levelsData[Levels.FIRST];
   const cards = createCardsArray(levelData);
   let currentAnswerNumber = 1;
@@ -35,21 +39,24 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
   };
 
   return (
-    <div className={styles.cards_container} style={templateStyle}>
-      {cards.map((card) => {
-        return (
-          <div
-            key={card.id}
-            role="textbox"
-            tabIndex={-1}
-            onClick={handleClick}
-            onKeyDown={handleClick}
-            className={styles.card}
-          >
-            {card.value}
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <div className={styles.cards_container} style={templateStyle}>
+        {cards.map((card) => {
+          return (
+            <div
+              key={card.id}
+              role="textbox"
+              tabIndex={-1}
+              onClick={handleClick}
+              onKeyDown={handleClick}
+              className={card.value ? cn(styles.card, styles.card_active) : styles.card}
+            >
+              {card.value ? card.value : ""}
+            </div>
+          );
+        })}
+      </div>
+      <Button appearance="neutral">{t("rememberOrder.rememberedBtn")}</Button>
+    </>
   );
 };

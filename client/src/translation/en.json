@@ -68,7 +68,8 @@
       "shortMemorySkillDescription": "You can quickly memorize any amount of information",
       "attentionSkill": "Attention function",
       "attentionSkillDescription": "Stop making mistakes caused by distraction",
-      "rules": "Remember the numbers and click on them in ascending order"
+      "rules": "Remember the numbers and click on them in ascending order",
+      "rememberedBtn": "I remembered"
     },
     "footer": {
       "about": "About Team",
