@@ -83,6 +83,13 @@
       "creativeThinkSkill": "Visual and imaginative thinking",
       "creativeThinkSkillDescription": "Can come up with outlandish ideas",
       "rules": "Does the name of the color on the left card match the color of the text on the right card?"
+    },
+    "colorMatchData": {
+      "red": "Red",
+      "blue": "Blue",
+      "green": "Green",
+      "black": "Black",
+      "yellow": "Yellow"
     }
 
 }

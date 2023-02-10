@@ -7,7 +7,9 @@
 .game_container {
     max-width: 80rem;
     min-height: 50rem;
+    height: 1px;
     margin: 0 auto;
+    padding: 3rem;
     background-image: url("./images/color-match-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,5 +18,4 @@
     align-items: center;
     justify-content: center;
     gap: 3rem;
-    padding: 3rem;
   }
