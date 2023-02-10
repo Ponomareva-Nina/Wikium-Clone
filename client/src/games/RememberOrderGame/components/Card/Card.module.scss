@@ -1,0 +1,23 @@
+.card {
+  border: 1px solid var(--auxiliary-color);
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: #a35e26;
+  height: 5rem;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color:  #301e10;
+  cursor: pointer;
+}
+
+.card_active {
+  background-color: #cab32f;
+}
+
+.disabled {
+  pointer-events: none;
+}

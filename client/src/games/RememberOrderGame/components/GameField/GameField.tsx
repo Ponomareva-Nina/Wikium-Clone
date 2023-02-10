@@ -1,10 +1,11 @@
 import { FC, PropsWithChildren } from "react";
-import cn from "classnames";
 import { useTranslation } from "react-i18next";
 import { createCardsArray } from "./utils";
 import styles from "./GameField.module.scss";
 import { Levels, levelsData } from "../../data";
 import { Button } from "../../../../components/UI";
+import { Card } from "../Card/Card";
+import { CardInterface } from "../types/types";
 
 interface GameFieldProps {
   gameLevel: number;
@@ -22,16 +23,16 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
   const cards = createCardsArray(levelData);
   let currentAnswerNumber = 1;
 
-  function handleClick(e: React.MouseEvent | React.KeyboardEvent) {
-    const clickedElement = e.target as HTMLDivElement;
-    if (Number(clickedElement.textContent) === currentAnswerNumber) {
+  const handleChoice = (card: CardInterface) => {
+    const clickedCard = card;
+    if (Number(card.value) === currentAnswerNumber) {
       registerCorrectAnswer();
       currentAnswerNumber += 1;
+      clickedCard.matched = true;
     } else {
       registerMistake();
     }
-    clickedElement.classList.add(styles.disabled);
-  }
+  };
 
   const templateStyle = {
     gridTemplateColumns: `repeat(${levelData.arrayWidth}, 1fr)`,
@@ -43,16 +44,7 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
       <div className={styles.cards_container} style={templateStyle}>
         {cards.map((card) => {
           return (
-            <div
-              key={card.id}
-              role="textbox"
-              tabIndex={-1}
-              onClick={handleClick}
-              onKeyDown={handleClick}
-              className={card.value ? cn(styles.card, styles.card_active) : styles.card}
-            >
-              {card.value ? card.value : ""}
-            </div>
+            <Card key={card.id} clickHandler={handleChoice} card={card} flipped={card.matched} />
           );
         })}
       </div>

@@ -1,12 +1,13 @@
 import { LevelInterface } from "../../data";
+import { CardInterface } from "../types/types";
 
-export function randomizeCards(arr: Array<number>, cardsNumber: number) {
+export function randomizeCards(arr: Array<number>, cardsNumber: number): Array<CardInterface> {
   return arr
     .map((item, index) => {
       if (index < cardsNumber) {
-        return { value: index + 1, id: index };
+        return { value: index + 1, id: index, matched: false };
       }
-      return { value: item, id: index };
+      return { value: item, id: index, matched: false };
     })
     .sort(() => Math.random() - 0.5);
 }
