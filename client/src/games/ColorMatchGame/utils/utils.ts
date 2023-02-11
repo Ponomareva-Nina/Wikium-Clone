@@ -1,25 +1,14 @@
-import { LEVEL } from "../date";
+import { Colors, LEVEL } from "../data";
 
-export const randomizer = (arr: Array<string>): number => {
+export const randomizer = (arr: Array<Colors>): number => {
   const min = 0;
   const max = arr.length - 1;
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-export const getRandomWord = (level: number) => {
-  const ArrCurrentWords = LEVEL[level - 1].words;
-  console.log(ArrCurrentWords);
-  const wordInx = randomizer(ArrCurrentWords);
-  const word = ArrCurrentWords[wordInx];
-  console.log(word);
-  return word;
-};
-
-export const getRandomColor = (level: number) => {
-  const ArrCurrentColors = LEVEL[level - 1].colors;
-  console.log(ArrCurrentColors);
-  const colorInx = randomizer(ArrCurrentColors);
-  const color = ArrCurrentColors[colorInx];
-  console.log(color);
-  return color;
+export const getRandom = (level: number): Colors => {
+  const ArrColorsCurrentLevel = LEVEL[level - 1].colors;
+  const index = randomizer(ArrColorsCurrentLevel);
+  const result = ArrColorsCurrentLevel[index];
+  return result;
 };

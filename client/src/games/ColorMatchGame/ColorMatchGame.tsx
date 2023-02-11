@@ -1,33 +1,29 @@
 import cn from "classnames";
-// import { t } from "i18next";
 import { FC, PropsWithChildren, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { Button } from "../../components/UI";
-// import { useTranslation } from "react-i18next";
 import styles from "./ColorMatchGame.module.scss";
 import { GameField } from "./components/GameField/GameField";
 import { Rules } from "./components/Rules/Rules";
-import { LEVEL, LevelNumber } from "./date";
-import { getRandomWord, getRandomColor } from "./utils/utils";
+import { LEVEL, LevelNumber } from "./data";
 
 export const ColorMatchGame: FC<PropsWithChildren> = () => {
-  const { t } = useTranslation();
   const [isGameStarted, setIsGameStarted] = useState(false);
 
   const startLevel = LEVEL[LevelNumber.ONE].level;
   const finishLevel = LEVEL[LevelNumber.THREE].level;
-  let currentLevel = 0;
+  // eslint-disable-next-line prefer-const
+  let [currentLevel, setCurrentLevel] = useState(startLevel);
 
   let answers = 0;
   let correctAnswers = 0;
   let correctAnswersSubsequence = 0;
 
-  const handleCorrectAnswers = () => {
+  const handleCorrectAnswers = (): void => {
     answers += 1;
     correctAnswers += 1;
     correctAnswersSubsequence += 1;
     if (currentLevel === startLevel && correctAnswersSubsequence === 3) {
-      currentLevel += 1;
+      setCurrentLevel((currentLevel += 1));
       correctAnswersSubsequence = 0;
     }
     if (
@@ -36,7 +32,7 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
       correctAnswersSubsequence % 10 === 0 &&
       correctAnswersSubsequence !== 0
     ) {
-      currentLevel += 1;
+      setCurrentLevel((currentLevel += 1));
     }
     console.log("Correct Answers Subsequence: ", correctAnswersSubsequence);
     console.log("Current Level: ", currentLevel);
@@ -44,7 +40,7 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     console.log("Correct answers: ", correctAnswers);
   };
 
-  const handleErrorAnswers = () => {
+  const handleErrorAnswers = (): void => {
     answers += 1;
     correctAnswersSubsequence = 0;
     if (correctAnswers > 0) {
@@ -54,7 +50,7 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     }
 
     if (currentLevel > startLevel) {
-      currentLevel -= 1;
+      setCurrentLevel((currentLevel -= 1));
     }
     console.log("Correct Answers Subsequence: ", correctAnswersSubsequence);
     console.log("Current Level: ", currentLevel);
@@ -62,15 +58,8 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     console.log("Correct answers: ", correctAnswers);
   };
 
-  const getWord = () => {
-    return (
-      <span style={{ color: getRandomColor(currentLevel) }}>{t(getRandomWord(currentLevel))}</span>
-    );
-  };
-
-  const playNext = () => {
+  const playNext = (): void => {
     setIsGameStarted(true);
-    currentLevel = startLevel;
   };
 
   return (
@@ -79,13 +68,10 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
         <Rules onClick={playNext} isGameStarted={isGameStarted} />
         {isGameStarted && (
           <>
-            <GameField />
+            <GameField currentLevel={currentLevel} />
             <div style={{ display: "flex" }}>
               <Button onClick={handleCorrectAnswers}>Correct answer</Button>
               <Button onClick={handleErrorAnswers}>Mistake</Button>
-              <Button onClick={() => getRandomColor(1)}>Color</Button>
-              <Button onClick={() => getRandomWord(1)}>Word</Button>
-              <Button onClick={getWord}>GET WORD</Button>
             </div>
           </>
         )}
@@ -93,8 +79,3 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     </div>
   );
 };
-
-// {LEVEL.map((item) => {
-//   // console.log(t(item.words[0]));
-//   return item.words.map((word) => t(word));
-// })}
