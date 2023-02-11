@@ -31,6 +31,7 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
       clickedCard.matched = true;
     } else {
       registerMistake();
+      clickedCard.matched = false;
     }
   };
 
@@ -43,9 +44,7 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
     <>
       <div className={styles.cards_container} style={templateStyle}>
         {cards.map((card) => {
-          return (
-            <Card key={card.id} clickHandler={handleChoice} card={card} flipped={card.matched} />
-          );
+          return <Card key={card.id} clickHandler={handleChoice} card={card} />;
         })}
       </div>
       <Button appearance="neutral">{t("rememberOrder.rememberedBtn")}</Button>
