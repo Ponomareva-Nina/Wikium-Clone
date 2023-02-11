@@ -20,7 +20,7 @@ export const GameTeaserCard: FC<PropsWithChildren<GameTeaserCardProps>> = ({
       <Link to={`/games/${game.id}`}>
         <div {...rest} className={cn(styles.card)}>
           <img src={game.teaserImg} className={cn(styles.image)} alt="" />
-          <h3 className={cn(styles.title)}>{t(`gamesData.${game.title}`)}</h3>
+          <h3 className={cn(styles.title)}>{t(game.title)}</h3>
           <p className={cn(styles.category)}>{t(`gamesData.${game.category}`)}</p>
           {children}
         </div>

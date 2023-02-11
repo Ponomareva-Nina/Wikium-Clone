@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  .top {
+    width: 100%;
+
+    .game-info {
+      width: 100%;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      background: rgba($color: #000000, $alpha: 0.4);
+    }
+  }
+}
