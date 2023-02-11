@@ -10,14 +10,14 @@ interface CardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HT
 }
 
 export const Card: FC<PropsWithChildren<CardProps>> = ({ card, clickHandler, ...rest }) => {
-  const [flipped, setFlipped] = useState(false);
+  const [flipped, setFlipped] = useState(card.matched);
   const [mistake, setMistake] = useState(card.error);
   const [isSolved, setSolved] = useState(card.solved);
   const handleClick = () => {
     clickHandler(card);
     setFlipped(card.matched);
-    setMistake(card.error || false);
-    setSolved(card.solved || false);
+    setMistake(card.error);
+    setSolved(card.solved);
   };
 
   return (
@@ -26,20 +26,20 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({ card, clickHandler, ...
       role="textbox"
       tabIndex={-1}
       className={
-        flipped && card.value
+        isSolved
+          ? cn(styles.card, styles.card_solved, styles.disabled)
+          : flipped && card.value
           ? cn(styles.card, styles.card_active, styles.disabled)
           : flipped
           ? cn(styles.card, styles.disabled)
           : mistake
           ? cn(styles.card, styles.card_mistake)
-          : isSolved
-          ? cn(styles.card, styles.card_solved)
           : styles.card
       }
       onClick={handleClick}
       onKeyDown={handleClick}
     >
-      {card.value ? card.value : ""}
+      {flipped && card.value ? card.value : ""}
     </div>
   );
 };

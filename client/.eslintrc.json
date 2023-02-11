@@ -30,6 +30,13 @@
         "react/function-component-definition": ["off"],
         "import/prefer-default-export": ["off"],
         "react/jsx-props-no-spreading": ["off"],
-        "react/require-default-props": ["off"]
+        "react/require-default-props": ["off"],
+        "no-param-reassign": ["off"],
+        "@typescript-eslint/no-use-before-define": ["warn", {
+            "functions": false,
+            "classes": true,
+            "variables": true,
+            "allowNamedExports": false
+        }]
     }
 }

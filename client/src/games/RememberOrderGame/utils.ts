@@ -1,5 +1,5 @@
-import { LevelInterface } from "../../data";
-import { CardInterface } from "../types/types";
+import { LevelInterface } from "./data";
+import { CardInterface } from "./components/types/types";
 
 export function randomizeCards(arr: Array<number>, cardsNumber: number): Array<CardInterface> {
   return arr
