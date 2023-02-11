@@ -70,7 +70,13 @@
   },
   "lessOrMoreGame": {
     "description": "This game helps to develop quick counting skills, improves the speed of analysis and quick decision making.",
-    "title": "Less or More"
+    "title": "Less or More",
+    "firstSkillTitle": "Counting and Boolean Operations",
+    "firstSkillDescription": "Making calculations in your head will be easier",
+    "secondSkillTitle": "Verbal logic",
+    "secondSkillDescription": "It will become easier to navigate texts",
+    "thirdSkillTitle": "Attention",
+    "thirdSkillDescription": "It will make it easier for you to finish what you started"
   },
   "penaltyGame": {
     "description": "to do description",
