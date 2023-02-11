@@ -7,20 +7,12 @@ import styles from "./Card.module.scss";
 interface CardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   card: CardInterface;
   clickHandler: (card: CardInterface) => void;
-  solved?: boolean;
-  error?: boolean;
 }
 
-export const Card: FC<PropsWithChildren<CardProps>> = ({
-  card,
-  clickHandler,
-  solved = false,
-  error = false,
-  ...rest
-}) => {
+export const Card: FC<PropsWithChildren<CardProps>> = ({ card, clickHandler, ...rest }) => {
   const [flipped, setFlipped] = useState(false);
-  const [mistake, setMistake] = useState(error);
-  const [isSolved, setSolved] = useState(solved);
+  const [mistake, setMistake] = useState(card.error);
+  const [isSolved, setSolved] = useState(card.solved);
   const handleClick = () => {
     clickHandler(card);
     setFlipped(card.matched);
@@ -36,6 +28,8 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({
       className={
         flipped && card.value
           ? cn(styles.card, styles.card_active, styles.disabled)
+          : flipped
+          ? cn(styles.card, styles.disabled)
           : mistake
           ? cn(styles.card, styles.card_mistake)
           : isSolved
