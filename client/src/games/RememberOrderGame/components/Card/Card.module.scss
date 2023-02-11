@@ -24,9 +24,9 @@
 }
 
 .card_mistake {
-  background-color: red;
+  background-color: var(--error-color);
 }
 
 .card_solved {
-  background-color: green;
+  background-color: var(--success-color);
 }
