@@ -20,4 +20,13 @@
 
 .disabled {
   pointer-events: none;
+  cursor: auto;
+}
+
+.card_mistake {
+  background-color: red;
+}
+
+.card_solved {
+  background-color: green;
 }

@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { createCardsArray } from "./utils";
 import styles from "./GameField.module.scss";
@@ -20,7 +20,7 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
 }) => {
   const { t } = useTranslation();
   const levelData = levelsData.find(({ level }) => level === gameLevel) || levelsData[Levels.FIRST];
-  const cards = createCardsArray(levelData);
+  const [cards] = useState(createCardsArray(levelData));
   let currentAnswerNumber = 1;
 
   const handleChoice = (card: CardInterface) => {
@@ -31,7 +31,8 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
       clickedCard.matched = true;
     } else {
       registerMistake();
-      clickedCard.matched = false;
+      clickedCard.error = true;
+      console.log(clickedCard);
     }
   };
 
