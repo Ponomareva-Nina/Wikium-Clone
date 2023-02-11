@@ -1,23 +1,26 @@
 import cn from "classnames";
 // import { t } from "i18next";
 import { FC, PropsWithChildren, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "../../components/UI";
 // import { useTranslation } from "react-i18next";
 import styles from "./ColorMatchGame.module.scss";
+import { GameField } from "./components/GameField/GameField";
 import { Rules } from "./components/Rules/Rules";
 import { LEVEL, LevelNumber } from "./date";
+import { getRandomWord, getRandomColor } from "./utils/utils";
 
 export const ColorMatchGame: FC<PropsWithChildren> = () => {
+  const { t } = useTranslation();
   const [isGameStarted, setIsGameStarted] = useState(false);
 
   const startLevel = LEVEL[LevelNumber.ONE].level;
   const finishLevel = LEVEL[LevelNumber.THREE].level;
-  let currentLevel = startLevel;
+  let currentLevel = 0;
 
   let answers = 0;
   let correctAnswers = 0;
   let correctAnswersSubsequence = 0;
-  // const mistakes = 0;
 
   const handleCorrectAnswers = () => {
     answers += 1;
@@ -59,20 +62,32 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     console.log("Correct answers: ", correctAnswers);
   };
 
+  const getWord = () => {
+    return (
+      <span style={{ color: getRandomColor(currentLevel) }}>{t(getRandomWord(currentLevel))}</span>
+    );
+  };
+
   const playNext = () => {
     setIsGameStarted(true);
+    currentLevel = startLevel;
   };
 
   return (
     <div className={cn(styles.container, styles.wrapper)}>
       <div className={cn(styles.game_container)}>
-        {!isGameStarted ? (
-          <Rules onClick={playNext} />
-        ) : (
-          <div>
-            <Button onClick={handleCorrectAnswers}>Correct answer</Button>
-            <Button onClick={handleErrorAnswers}>Mistake</Button>
-          </div>
+        <Rules onClick={playNext} isGameStarted={isGameStarted} />
+        {isGameStarted && (
+          <>
+            <GameField />
+            <div style={{ display: "flex" }}>
+              <Button onClick={handleCorrectAnswers}>Correct answer</Button>
+              <Button onClick={handleErrorAnswers}>Mistake</Button>
+              <Button onClick={() => getRandomColor(1)}>Color</Button>
+              <Button onClick={() => getRandomWord(1)}>Word</Button>
+              <Button onClick={getWord}>GET WORD</Button>
+            </div>
+          </>
         )}
       </div>
     </div>

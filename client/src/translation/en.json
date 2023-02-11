@@ -89,7 +89,9 @@
       "blue": "Blue",
       "green": "Green",
       "black": "Black",
-      "yellow": "Yellow"
+      "yellow": "Yellow",
+      "color": "Color",
+      "value": "Value"
     }
 
 }
