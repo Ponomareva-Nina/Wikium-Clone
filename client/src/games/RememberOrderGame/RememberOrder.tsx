@@ -4,10 +4,11 @@ import styles from "./RememberOrder.module.scss";
 import { Levels, levelsData } from "./data";
 import { RememberOrderRules } from "./components/Rules/Rules";
 import { createCardsArray } from "./utils";
-import { CardInterface } from "./components/types/types";
+import { CardInterface, CardProps } from "./components/types/types";
 
 const firstLevel = levelsData[Levels.FIRST].level;
 const lastLevel = levelsData[Levels.LAST].level;
+const firstAnswer = 1;
 
 export const RememberOrderGame = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -15,9 +16,19 @@ export const RememberOrderGame = () => {
   const [cardsData, setCardsData] = useState<CardInterface[]>([]);
   const [totalAnswersCount, setTotalAnswersCount] = useState<number>(0);
   const mistakesCountRef = useRef<number>(0);
-  const currentLevelAnswersRef = useRef<number>(0);
-  const currentAnswerNumberRef = useRef<number>(1);
+  const matchedAnswersOnLevelRef = useRef<number>(0);
+  const correctAnswerRef = useRef<number>(firstAnswer);
   const levelTimeoutIdRef = useRef<NodeJS.Timer | null>(null);
+
+  const generateNewCards = () => {
+    const cards = createCardsArray(levelsData[level]);
+    setCardsData(cards);
+  };
+
+  const resetCurrentLevelProgress = () => {
+    matchedAnswersOnLevelRef.current = 0;
+    correctAnswerRef.current = firstAnswer;
+  };
 
   const registerMistake = () => {
     mistakesCountRef.current += 1;
@@ -29,17 +40,21 @@ export const RememberOrderGame = () => {
         setLevel((prev) => prev - 1);
       }, 1000);
     } else {
-      const cards = createCardsArray(levelsData[level]);
-      setCardsData(cards);
+      if (levelTimeoutIdRef.current) {
+        clearTimeout(levelTimeoutIdRef.current);
+      }
+      levelTimeoutIdRef.current = setTimeout(() => {
+        generateNewCards();
+      }, 1000);
     }
-    currentLevelAnswersRef.current = 0;
-    currentAnswerNumberRef.current = 1;
+    resetCurrentLevelProgress();
   };
 
   const registerCorrectAnswer = () => {
-    currentLevelAnswersRef.current += 1;
+    matchedAnswersOnLevelRef.current += 1;
+    correctAnswerRef.current += 1;
     setTotalAnswersCount((prev) => prev + 1);
-    if (currentLevelAnswersRef.current === levelsData[level].cards) {
+    if (matchedAnswersOnLevelRef.current === levelsData[level].cards) {
       if (level < lastLevel) {
         if (levelTimeoutIdRef.current) {
           clearTimeout(levelTimeoutIdRef.current);
@@ -47,14 +62,15 @@ export const RememberOrderGame = () => {
         levelTimeoutIdRef.current = setTimeout(() => {
           setLevel((prev) => prev + 1);
         }, 1000);
+      } else {
+        generateNewCards();
       }
-      currentLevelAnswersRef.current = 0;
+      resetCurrentLevelProgress();
     }
   };
 
   useEffect(() => {
-    const cards = createCardsArray(levelsData[level]);
-    setCardsData(cards);
+    generateNewCards();
   }, [level]);
 
   const flipCards = () => {
@@ -68,49 +84,27 @@ export const RememberOrderGame = () => {
     );
   };
 
+  const updateCardProperty = (cardId: number, key: CardProps) => {
+    setCardsData(
+      cardsData.map((item) => {
+        if (item.id === cardId) {
+          item[key] = true;
+        }
+        return item;
+      })
+    );
+  };
+
   const handleChoice = (card: CardInterface) => {
-    if (card.value === currentAnswerNumberRef.current) {
+    if (card.value === correctAnswerRef.current) {
       registerCorrectAnswer();
-      currentAnswerNumberRef.current += 1;
-      setCardsData(
-        cardsData.map((item) => {
-          if (item.value === card.value) {
-            return {
-              ...item,
-              matched: true,
-            };
-          }
-          return item;
-        })
-      );
+      updateCardProperty(card.id, CardProps.MATCHED);
       if (card.value === levelsData[level].cards) {
-        setCardsData(
-          cardsData.map((item) => {
-            if (item.value === card.value) {
-              return {
-                ...item,
-                matched: true,
-                solved: true,
-              };
-            }
-            return item;
-          })
-        );
-        currentLevelAnswersRef.current = 0;
-        currentAnswerNumberRef.current = 1;
+        updateCardProperty(card.id, CardProps.SOLVED);
       }
     } else {
-      setCardsData(
-        cardsData.map((item) => {
-          if (item.value === card.value) {
-            return {
-              ...item,
-              error: true,
-            };
-          }
-          return item;
-        })
-      );
+      // updateCardProperty(card.id, CardProps.MATCHED);
+      updateCardProperty(card.id, CardProps.ERROR);
       registerMistake();
     }
   };

@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useRef, useState } from "react";
+import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./GameField.module.scss";
 import { LevelInterface } from "../../data";

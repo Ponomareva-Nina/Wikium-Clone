@@ -5,3 +5,9 @@ export interface CardInterface {
   error?: boolean;
   solved?: boolean;
 }
+
+export enum CardProps {
+  MATCHED = "matched",
+  ERROR = "error",
+  SOLVED = "solved",
+}
