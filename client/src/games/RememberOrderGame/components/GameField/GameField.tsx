@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useState } from "react";
+import { FC, PropsWithChildren, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./GameField.module.scss";
 import { LevelInterface } from "../../data";
@@ -9,58 +9,26 @@ import { CardInterface } from "../types/types";
 interface GameFieldProps {
   gameCards: CardInterface[];
   level: LevelInterface;
-  registerCorrectAnswer: () => void;
-  registerMistake: () => void;
+  flipCards: () => void;
+  handleChoice: (card: CardInterface) => void;
 }
 
-export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
-  gameCards,
-  level,
-  registerCorrectAnswer,
-  registerMistake,
-}) => {
+export const GameField: FC<GameFieldProps> = ({ gameCards, level, flipCards, handleChoice }) => {
   const { t } = useTranslation();
-  const [flipped, setFlipped] = useState(true);
-  let currentAnswerNumber = 1;
-
-  const handleChoice = (card: CardInterface) => {
-    if (Number(card.value) === currentAnswerNumber) {
-      registerCorrectAnswer();
-      currentAnswerNumber += 1;
-      card.matched = true;
-      if (Number(card.value) === level.cards) {
-        card.solved = true;
-      }
-    } else {
-      registerMistake();
-      card.error = true;
-    }
-  };
 
   const templateStyle = {
     gridTemplateColumns: `repeat(${level.arrayWidth}, 1fr)`,
     gridTemplateRows: `repeat(${level.arrayHeight}, 1fr)`,
   };
 
-  const hideCards = () => {
-    setFlipped(false);
-  };
-
   return (
     <>
       <div className={styles.cards_container} style={templateStyle}>
-        {flipped &&
-          gameCards.map((card) => {
-            card.matched = flipped;
-            return <Card key={card.id} clickHandler={handleChoice} card={card} />;
-          })}
-        {!flipped &&
-          gameCards.map((card) => {
-            card.matched = false;
-            return <Card key={card.id} clickHandler={handleChoice} card={card} />;
-          })}
+        {gameCards.map((card) => {
+          return <Card key={card.id} clickHandler={handleChoice} card={card} />;
+        })}
       </div>
-      <Button onClick={hideCards} appearance="neutral">
+      <Button onClick={flipCards} appearance="neutral">
         {t("rememberOrder.rememberedBtn")}
       </Button>
     </>

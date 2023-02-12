@@ -1,81 +1,139 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GameField } from "./components/GameField/GameField";
 import styles from "./RememberOrder.module.scss";
 import { Levels, levelsData } from "./data";
 import { RememberOrderRules } from "./components/Rules/Rules";
 import { createCardsArray } from "./utils";
+import { CardInterface } from "./components/types/types";
 
 const firstLevel = levelsData[Levels.FIRST].level;
 const lastLevel = levelsData[Levels.LAST].level;
 
 export const RememberOrderGame = () => {
-  const [gameField, setGameField] = useState(<div />);
-  const [gameStarted, setGameStarted] = useState(false);
-  let currentLevel = firstLevel;
-  const [level, setLevel] = useState(currentLevel);
-  let currentLevelAnswers = 0;
-  const [mistakes, setMistakes] = useState(0);
-  const [totalAnswers, setTotalAnswers] = useState(0);
-  let cards = createCardsArray(levelsData[currentLevel]);
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [level, setLevel] = useState(firstLevel);
+  const [cardsData, setCardsData] = useState<CardInterface[]>([]);
+  const [totalAnswersCount, setTotalAnswersCount] = useState<number>(0);
+  const mistakesCountRef = useRef<number>(0);
+  const currentLevelAnswersRef = useRef<number>(0);
+  const currentAnswerNumberRef = useRef<number>(1);
+  const levelTimeoutIdRef = useRef<NodeJS.Timer | null>(null);
 
   const registerMistake = () => {
-    setMistakes(mistakes + 1);
+    mistakesCountRef.current += 1;
     if (level > firstLevel) {
-      currentLevel += 1;
-      setLevel(currentLevel);
-    }
-    currentLevelAnswers = 0;
-    nextField();
-    console.log(cards);
-  };
-
-  const registerCorectAnswer = () => {
-    currentLevelAnswers += 1;
-    setTotalAnswers(totalAnswers + 1);
-    if (currentLevelAnswers === levelsData[currentLevel].cards) {
-      if (level < lastLevel) {
-        currentLevel += 1;
-        setLevel(currentLevel);
+      if (levelTimeoutIdRef.current) {
+        clearTimeout(levelTimeoutIdRef.current);
       }
-      currentLevelAnswers = 0;
-      nextField();
+      levelTimeoutIdRef.current = setTimeout(() => {
+        setLevel((prev) => prev - 1);
+      }, 1000);
+    } else {
+      const cards = createCardsArray(levelsData[level]);
+      setCardsData(cards);
     }
-    console.log(cards);
+    currentLevelAnswersRef.current = 0;
+    currentAnswerNumberRef.current = 1;
   };
 
-  function nextField() {
-    cards = createCardsArray(levelsData[currentLevel]);
-    const newGameField = (
-      <GameField
-        level={levelsData[currentLevel]}
-        gameCards={cards}
-        registerCorrectAnswer={registerCorectAnswer}
-        registerMistake={registerMistake}
-      />
+  const registerCorrectAnswer = () => {
+    currentLevelAnswersRef.current += 1;
+    setTotalAnswersCount((prev) => prev + 1);
+    if (currentLevelAnswersRef.current === levelsData[level].cards) {
+      if (level < lastLevel) {
+        if (levelTimeoutIdRef.current) {
+          clearTimeout(levelTimeoutIdRef.current);
+        }
+        levelTimeoutIdRef.current = setTimeout(() => {
+          setLevel((prev) => prev + 1);
+        }, 1000);
+      }
+      currentLevelAnswersRef.current = 0;
+    }
+  };
+
+  useEffect(() => {
+    const cards = createCardsArray(levelsData[level]);
+    setCardsData(cards);
+  }, [level]);
+
+  const flipCards = () => {
+    setCardsData(
+      cardsData.map((card) => {
+        return {
+          ...card,
+          matched: false,
+        };
+      })
     );
-    setGameField(newGameField);
-  }
+  };
+
+  const handleChoice = (card: CardInterface) => {
+    if (card.value === currentAnswerNumberRef.current) {
+      registerCorrectAnswer();
+      currentAnswerNumberRef.current += 1;
+      setCardsData(
+        cardsData.map((item) => {
+          if (item.value === card.value) {
+            return {
+              ...item,
+              matched: true,
+            };
+          }
+          return item;
+        })
+      );
+      if (card.value === levelsData[level].cards) {
+        setCardsData(
+          cardsData.map((item) => {
+            if (item.value === card.value) {
+              return {
+                ...item,
+                matched: true,
+                solved: true,
+              };
+            }
+            return item;
+          })
+        );
+        currentLevelAnswersRef.current = 0;
+        currentAnswerNumberRef.current = 1;
+      }
+    } else {
+      setCardsData(
+        cardsData.map((item) => {
+          if (item.value === card.value) {
+            return {
+              ...item,
+              error: true,
+            };
+          }
+          return item;
+        })
+      );
+      registerMistake();
+    }
+  };
 
   const startGame = () => {
-    setGameStarted(true);
-    const newGameField = (
-      <GameField
-        level={levelsData[currentLevel]}
-        gameCards={cards}
-        registerCorrectAnswer={registerCorectAnswer}
-        registerMistake={registerMistake}
-      />
-    );
-    setGameField(newGameField);
+    setIsGameStarted(true);
   };
 
   return (
     <div className={styles.game_container}>
-      {gameStarted && (
-        <div>{`level: ${level}, mistakes: ${mistakes}, answers: ${totalAnswers}`}</div>
+      {isGameStarted ? (
+        <>
+          <div>{`level: ${level}, mistakes: ${mistakesCountRef.current}, answers: ${totalAnswersCount}`}</div>
+          <GameField
+            level={levelsData[level]}
+            gameCards={cardsData}
+            flipCards={flipCards}
+            handleChoice={handleChoice}
+          />
+        </>
+      ) : (
+        <RememberOrderRules startGameHandler={startGame} />
       )}
-      {!gameStarted && <RememberOrderRules startGameHandler={startGame} />}
-      {gameField}
     </div>
   );
 };
