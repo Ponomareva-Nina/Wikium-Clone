@@ -71,7 +71,9 @@ export const RememberOrderGame = () => {
 
   return (
     <div className={styles.game_container}>
-      <div>{`level: ${level}, mistakes: ${mistakes}, answers: ${totalAnswers}`}</div>
+      {gameStarted && (
+        <div>{`level: ${level}, mistakes: ${mistakes}, answers: ${totalAnswers}`}</div>
+      )}
       {!gameStarted && <RememberOrderRules startGameHandler={startGame} />}
       {gameField}
     </div>
