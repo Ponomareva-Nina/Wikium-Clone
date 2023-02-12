@@ -28,7 +28,7 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({ card, clickHandler, ...
       onClick={handleClick}
       onKeyDown={() => {}}
     >
-      {(card.value && card.matched) || card.error ? card.value : ""}
+      {card.value && (card.matched || card.error) ? card.value : ""}
     </div>
   );
 };
