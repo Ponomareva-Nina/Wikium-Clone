@@ -19,24 +19,16 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({ card, clickHandler, ...
       {...rest}
       role="textbox"
       tabIndex={-1}
-      // className={
-      //     ? cn(styles.card, styles.card_solved, styles.disabled)
-      //     : flipped && card.value
-      //     ? cn(styles.card, styles.card_active, styles.disabled)
-      //     : flipped
-      //     ? cn(styles.card, styles.disabled)
-      //     : mistake
-      //     ? cn(styles.card, styles.card_mistake)
-      //     : styles.card
-      // }
       className={cn(styles.card, {
         [styles.card_active]: card.value && card.matched,
         [styles.disabled]: card.matched,
+        [styles.card_mistake]: card.error,
+        [styles.card_solved]: card.solved,
       })}
       onClick={handleClick}
       onKeyDown={() => {}}
     >
-      {card.matched && card.value ? card.value : ""}
+      {(card.value && card.matched) || card.error ? card.value : ""}
     </div>
   );
 };
