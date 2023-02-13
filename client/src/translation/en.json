@@ -29,7 +29,6 @@
       "concentrationTitle": "Concentration",
       "memoryTitle": "Memorization",
       "logicsTitle": "Logics and thinking",
-      "todayGame": "Game of the day",
       "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
       "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
       "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
@@ -58,21 +57,35 @@
       "colorMatch": "Color match",
       "lessOrMore": "Less or More",
       "rememberOrder": "Remember the order",
-      "startGame": "Start game"
-    },
-    "rememberOrder": {
-      "description": "This simulator is aimed at the formation of memory function. During training, the amount of attention increases and the accuracy and speed of memorization improves; increases the duration of information storage and noise immunity. Such skills can be useful in consciously remembering something in everyday life in a time-limited environment. For example, driving theory, speech for public speaking, remembering the names of strangers during business acquaintances or the necessary information at conferences, etc.",
-      "memorySkill": "Memory function",
-      "memorySkillDescription": "Eliminate the phrase 'I forgot' from your vocabulary",
-      "shortMemorySkill": "Short-term memorization",
-      "shortMemorySkillDescription": "You can quickly memorize any amount of information",
-      "attentionSkill": "Attention function",
-      "attentionSkillDescription": "Stop making mistakes caused by distraction",
-      "rules": "Remember the numbers and click on them in ascending order",
-      "rememberedBtn": "I remembered"
+      "startGame": "Start game",
+      "skillsTitle": "Trains:"
     },
     "footer": {
       "about": "About Team",
       "rsLogoAlt": "Link to RSSchool"
-    }
+    },
+  "gameLayout": {
+    "startExercise": "Start exercise",
+    "descriptionTitle": "But in practice?"
+  },
+  "lessOrMoreGame": {
+    "description": "This game helps to develop quick counting skills, improves the speed of analysis and quick decision making.",
+    "title": "Less or More"
+  },
+  "rememberOrder": {
+    "description": "This simulator is aimed at the formation of memory function. During training, the amount of attention increases and the accuracy and speed of memorization improves; increases the duration of information storage and noise immunity. Such skills can be useful in consciously remembering something in everyday life in a time-limited environment. For example, driving theory, speech for public speaking, remembering the names of strangers during business acquaintances or the necessary information at conferences, etc.",
+    "title": "Remember the order",
+    "memorySkill": "Memory function",
+    "memorySkillDescription": "Eliminate the phrase 'I forgot' from your vocabulary",
+    "shortMemorySkill": "Short-term memorization",
+    "shortMemorySkillDescription": "You can quickly memorize any amount of information",
+    "attentionSkill": "Attention function",
+    "attentionSkillDescription": "Stop making mistakes caused by distraction",
+    "rules": "Remember the numbers and click on them in ascending order",
+    "rememberedBtn": "I remembered"
+  },
+  "colorMatchGame": {
+    "description": "to do description",
+    "title": "Color match"
+  }
 }

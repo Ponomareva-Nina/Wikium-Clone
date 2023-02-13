@@ -1,12 +1,18 @@
+import { FC } from "react";
 import { GameCategories } from "./Categories";
 
+export interface Skill {
+  title: string;
+  description: string;
+  icon: string;
+}
 export interface GameInterface {
   id: number;
   title: string;
-  gamePage: JSX.Element;
+  gamePage: FC;
   category: GameCategories;
-  teaserImg: "string";
+  teaserImg: string;
   neurons: number;
   description: string;
-  skills: Array<{}>;
+  skills: Skill[];
 }
