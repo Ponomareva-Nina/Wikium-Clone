@@ -1,0 +1,59 @@
+.button_container {
+  min-width: 7rem;
+  height: 4rem;
+  padding: 1rem 0;
+  background-color: transparent
+}
+
+.button {
+  min-width: 7rem;
+  height: 4rem;
+  padding: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  vertical-align: top;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.5);
+  border-radius: 0;
+  background: #1a171b;
+  background: hsla(0,0%,100%,.3);
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+.right {
+  text-align: left;
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+}
+
+.left {
+  text-align: right;
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+}
+
+.arrow {
+  width: 1rem;
+  height: 2.5rem;
+  display: inline-flex;
+  background-repeat: no-repeat;
+  background-size: 1.2rem;
+  background-position: 50%;
+  border-radius: 4px;
+  transition: .3s;
+  background-image: url("../../../assets/images/AnswerButton/ans_btn.svg");
+
+  &_right {
+    transform: rotate(90deg);
+  }
+
+  &_left {
+    transform: rotate(-90deg);
+    order: -1;
+  }
+}

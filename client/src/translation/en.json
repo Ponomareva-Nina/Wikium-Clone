@@ -92,6 +92,10 @@
       "orange": "Orange",
       "color": "Color",
       "value": "Value"
+    },
+    "answerBurrons": {
+      "yes": "Yes",
+      "no": "No"
     }
 
 }
