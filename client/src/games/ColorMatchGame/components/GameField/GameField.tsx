@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { FC, PropsWithChildren, useState } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { AnswerButton } from "../../../../components/UI";
@@ -9,9 +9,15 @@ import styles from "./GameFiels.module.scss";
 
 interface GameFieldProps {
   currentLevel: number;
+  handleCorrectAnswers?: () => void;
+  handleErrorAnswers?: () => void;
 }
 
-export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({ currentLevel }) => {
+export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
+  currentLevel,
+  handleCorrectAnswers,
+  handleErrorAnswers,
+}) => {
   const [fieldValue, setFieldValue] = useState(<span />);
   const [fieldColor, setFieldColor] = useState(<span />);
   const { t } = useTranslation();
@@ -33,12 +39,26 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({ currentLevel 
     );
   };
 
-  const checkAnswer = (): boolean => {
+  const checkAnswer = (buttonValue: boolean): boolean => {
     const answer = fieldValue.props.id === fieldColor.props.id;
-    console.log(answer);
+    console.log("Check result: ", answer);
+    console.log("Pressed button: ", buttonValue);
+    console.log("Ответ верный? ", answer === buttonValue);
+    if (handleCorrectAnswers && handleErrorAnswers) {
+      if (answer === buttonValue) {
+        handleCorrectAnswers();
+      } else {
+        handleErrorAnswers();
+      }
+    }
     getWord();
     return answer;
   };
+
+  useEffect(() => {
+    console.log("Вызов useEffect");
+    getWord();
+  }, []);
 
   return (
     <>
@@ -47,15 +67,13 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({ currentLevel 
         <Field description={t("colorMatchData.color")}>{fieldColor}</Field>
       </div>
       <div className={cn(styles.answer_buttons)}>
-        <AnswerButton left onClick={checkAnswer}>
+        <AnswerButton left onClick={() => checkAnswer(false)}>
           {t("answerBurrons.no")}
         </AnswerButton>
-        <AnswerButton left={false} onClick={checkAnswer}>
+        <AnswerButton left={false} onClick={() => checkAnswer(true)}>
           {t("answerBurrons.yes")}
         </AnswerButton>
       </div>
-      {/* <Button onClick={getWord}>Game</Button>
-      <Button onClick={checkAnswer}>Check answer</Button> */}
     </>
   );
 };
