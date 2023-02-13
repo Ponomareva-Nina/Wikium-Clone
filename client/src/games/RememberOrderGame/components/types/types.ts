@@ -4,6 +4,7 @@ export interface CardInterface {
   matched: boolean;
   error?: boolean;
   solved?: boolean;
+  disabled?: boolean;
 }
 
 export enum CardProps {

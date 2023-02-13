@@ -21,7 +21,7 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({ card, clickHandler, ...
       tabIndex={-1}
       className={cn(styles.card, {
         [styles.card_active]: card.value && card.matched,
-        [styles.disabled]: card.matched,
+        [styles.disabled]: card.matched || card.disabled,
         [styles.card_mistake]: card.error,
         [styles.card_solved]: card.solved,
       })}

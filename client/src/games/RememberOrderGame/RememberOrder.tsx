@@ -32,21 +32,16 @@ export const RememberOrderGame = () => {
 
   const registerMistake = () => {
     mistakesCountRef.current += 1;
-    if (level > firstLevel) {
-      if (levelTimeoutIdRef.current) {
-        clearTimeout(levelTimeoutIdRef.current);
-      }
-      levelTimeoutIdRef.current = setTimeout(() => {
-        setLevel((prev) => prev - 1);
-      }, 1000);
-    } else {
-      if (levelTimeoutIdRef.current) {
-        clearTimeout(levelTimeoutIdRef.current);
-      }
-      levelTimeoutIdRef.current = setTimeout(() => {
-        generateNewCards();
-      }, 1000);
+    if (levelTimeoutIdRef.current) {
+      clearTimeout(levelTimeoutIdRef.current);
     }
+    levelTimeoutIdRef.current = setTimeout(() => {
+      if (level > firstLevel) {
+        setLevel((prev) => prev - 1);
+      } else {
+        generateNewCards();
+      }
+    }, 700);
     resetCurrentLevelProgress();
   };
 
@@ -55,16 +50,16 @@ export const RememberOrderGame = () => {
     correctAnswerRef.current += 1;
     setTotalAnswersCount((prev) => prev + 1);
     if (matchedAnswersOnLevelRef.current === levelsData[level].cards) {
-      if (level < lastLevel) {
-        if (levelTimeoutIdRef.current) {
-          clearTimeout(levelTimeoutIdRef.current);
-        }
-        levelTimeoutIdRef.current = setTimeout(() => {
-          setLevel((prev) => prev + 1);
-        }, 1000);
-      } else {
-        generateNewCards();
+      if (levelTimeoutIdRef.current) {
+        clearTimeout(levelTimeoutIdRef.current);
       }
+      levelTimeoutIdRef.current = setTimeout(() => {
+        if (level < lastLevel) {
+          setLevel((prev) => prev + 1);
+        } else {
+          generateNewCards();
+        }
+      }, 700);
       resetCurrentLevelProgress();
     }
   };
@@ -79,6 +74,18 @@ export const RememberOrderGame = () => {
         return {
           ...card,
           matched: false,
+          disabled: false,
+        };
+      })
+    );
+  };
+
+  const disableCards = () => {
+    setCardsData(
+      cardsData.map((item) => {
+        return {
+          ...item,
+          disabled: true,
         };
       })
     );
@@ -101,10 +108,11 @@ export const RememberOrderGame = () => {
       updateCardProperty(card.id, CardProps.MATCHED);
       if (card.value === levelsData[level].cards) {
         updateCardProperty(card.id, CardProps.SOLVED);
+        disableCards();
       }
     } else {
-      // updateCardProperty(card.id, CardProps.MATCHED);
       updateCardProperty(card.id, CardProps.ERROR);
+      disableCards();
       registerMistake();
     }
   };

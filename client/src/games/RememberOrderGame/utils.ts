@@ -5,9 +5,9 @@ export function randomizeCards(arr: Array<number>, cardsNumber: number): Array<C
   return arr
     .map((item, index) => {
       if (index < cardsNumber) {
-        return { value: index + 1, id: index, matched: true };
+        return { value: index + 1, id: index, matched: true, disabled: true };
       }
-      return { value: item, id: index, matched: true };
+      return { value: item, id: index, matched: true, disabled: true };
     })
     .sort(() => Math.random() - 0.5);
 }
