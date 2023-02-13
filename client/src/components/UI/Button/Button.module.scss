@@ -7,6 +7,7 @@
   min-width: fit-content;
   text-transform: capitalize;
   transition: all .3s ease;
+  user-select: none;
 
   &:hover {
     transform: translateY(-2px);
