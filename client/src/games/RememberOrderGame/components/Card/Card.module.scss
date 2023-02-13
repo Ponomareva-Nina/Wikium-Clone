@@ -30,3 +30,10 @@
 .card_solved {
   background-color: var(--success-color);
 }
+
+@media screen and (max-width: 400px) {
+  .card {
+    height: 4rem;
+    width: 4rem;
+  }
+}
