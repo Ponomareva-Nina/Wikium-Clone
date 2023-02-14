@@ -63,7 +63,9 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
   return (
     <>
       <div className={cn(styles.container)}>
-        <Field description={t("colorMatchData.value")}>{fieldValue}</Field>
+        <div>
+          <Field description={t("colorMatchData.value")}>{fieldValue}</Field>
+        </div>
         <Field description={t("colorMatchData.color")}>{fieldColor}</Field>
       </div>
       <div className={cn(styles.answer_buttons)}>

@@ -1,12 +1,15 @@
 import cn from "classnames";
 import { FC, PropsWithChildren, useState } from "react";
+import { ScreenSaver } from "../../components/UI/ScreenSaver/ScreenSaver";
 import styles from "./ColorMatchGame.module.scss";
 import { GameField } from "./components/GameField/GameField";
 import { Rules } from "./components/Rules/Rules";
 import { LEVEL, LevelNumber } from "./data";
+import img from "./images/color-match-bg.png";
 
 export const ColorMatchGame: FC<PropsWithChildren> = () => {
   const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
+  const [count, setCount] = useState<number>(1);
 
   const startLevel = LEVEL[LevelNumber.ONE].level;
   const finishLevel = LEVEL[LevelNumber.THREE].level;
@@ -72,11 +75,20 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
           isGameStarted={isGameStarted}
         />
         {isGameStarted && (
-          <GameField
-            currentLevel={currentLevel}
-            handleCorrectAnswers={handleCorrectAnswers}
-            handleErrorAnswers={handleErrorAnswers}
-          />
+          // eslint-disable-next-line react/jsx-no-useless-fragment
+          <>
+            {count <= 3 ? (
+              <ScreenSaver count={count} setCount={setCount}>
+                {img}
+              </ScreenSaver>
+            ) : (
+              <GameField
+                currentLevel={currentLevel}
+                handleCorrectAnswers={handleCorrectAnswers}
+                handleErrorAnswers={handleErrorAnswers}
+              />
+            )}
+          </>
         )}
       </div>
     </div>

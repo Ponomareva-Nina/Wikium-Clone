@@ -15,9 +15,19 @@
   font-weight: 600;
   background-color: white;
   border-radius: 0.5rem;
+  animation: createBox .5s;
 }
 
 .field_description {
   text-align: center;
   color: var(--font-secondary-color);
+}
+
+@keyframes createBox {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
 }
