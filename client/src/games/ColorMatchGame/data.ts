@@ -37,8 +37,8 @@ export const LEVEL: Array<LevelsInterface> = [
         word: "colorMatchData.green",
       },
     ],
-    points: 200,
-    pointsOneNeuron: 50,
+    points: 20,
+    pointsOneNeuron: 20,
   },
   {
     level: 2,
@@ -64,8 +64,8 @@ export const LEVEL: Array<LevelsInterface> = [
         word: "colorMatchData.black",
       },
     ],
-    points: 205,
-    pointsOneNeuron: 45,
+    points: 20,
+    pointsOneNeuron: 20,
   },
   {
     level: 3,
@@ -96,7 +96,7 @@ export const LEVEL: Array<LevelsInterface> = [
         word: "colorMatchData.orange",
       },
     ],
-    points: 210,
-    pointsOneNeuron: 40,
+    points: 20,
+    pointsOneNeuron: 20,
   },
 ];

@@ -18,10 +18,12 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
   let correctAnswers = 0;
   let correctAnswersSubsequence = 0;
   let currentLevel = startLevel;
+  let points = 0;
 
   const handleCorrectAnswers = (): void => {
     answers += 1;
     correctAnswers += 1;
+    points += LEVEL[currentLevel - 1].points * currentLevel;
     correctAnswersSubsequence += 1;
     if (currentLevel === startLevel && correctAnswersSubsequence === 3) {
       currentLevel += 1;
@@ -39,11 +41,19 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     console.log("Current Level: ", currentLevel);
     console.log("All answers: ", answers);
     console.log("Correct answers: ", correctAnswers);
+    console.log("Points: ", points, "Neurons: ", points / 20);
   };
 
   const handleErrorAnswers = (): void => {
     answers += 1;
     correctAnswersSubsequence = 0;
+
+    if (points > 0) {
+      points += LEVEL[currentLevel - 1].points * currentLevel;
+    } else {
+      points = 0;
+    }
+
     if (correctAnswers > 0) {
       correctAnswers -= 1;
     } else {
@@ -59,6 +69,7 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     console.log("Current Level: ", currentLevel);
     console.log("All answers: ", answers);
     console.log("Correct answers: ", correctAnswers);
+    console.log("Points: ", points, "Neurons: ", points / 20);
   };
 
   const playNext = (): void => {
