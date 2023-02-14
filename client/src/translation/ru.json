@@ -58,7 +58,10 @@
       "lessOrMore": "Логическое сравнение",
       "rememberOrder": "Запомни порядок",
       "startGame": "Начать игру",
-      "skillsTitle": "Тренирует:"
+      "skillsTitle": "Тренирует:",
+      "time": "Время",
+      "level": "Уровень",
+      "score": "Очки"
     },
     "footer": {
       "about": "О команде",

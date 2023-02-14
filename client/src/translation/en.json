@@ -58,7 +58,10 @@
       "lessOrMore": "Less or More",
       "rememberOrder": "Remember the order",
       "startGame": "Start game",
-      "skillsTitle": "Trains:"
+      "skillsTitle": "Trains:",
+      "time": "Time",
+      "level": "Level",
+      "score": "Score"
     },
     "footer": {
       "about": "About Team",
