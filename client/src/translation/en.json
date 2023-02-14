@@ -61,7 +61,8 @@
       "skillsTitle": "Trains:",
       "time": "Time",
       "level": "Level",
-      "score": "Score"
+      "score": "Score",
+      "playAgain": "Play again"
     },
     "footer": {
       "about": "About Team",

@@ -61,7 +61,8 @@
       "skillsTitle": "Тренирует:",
       "time": "Время",
       "level": "Уровень",
-      "score": "Очки"
+      "score": "Очки",
+      "playAgain": "Играть заново"
     },
     "footer": {
       "about": "О команде",
