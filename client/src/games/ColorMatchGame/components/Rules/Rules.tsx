@@ -14,7 +14,7 @@ export const Rules: FC<PropsWithChildren<RulesProps>> = ({ isGameStarted, onClic
 
   return (
     <div className={cn(styles.container)}>
-      <p className={cn(styles.description)}>{t("colorMatch.rules")}</p>
+      <p className={cn(styles.description)}>{t("ColorMatchGame.rules")}</p>
       {!isGameStarted && <Button onClick={onClick}>{t("gamesData.startGame")}</Button>}
     </div>
   );
