@@ -1,17 +1,26 @@
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
+
 import { Button } from "../../../../../../components/UI";
+import { AnswerVars } from "../../../../types/game-data.interface";
+
 import styles from "./ControlPanel.module.scss";
 
 interface ControlPanelProps {
-  setAnswerHandler: (answer: "left" | "equal" | "right") => void;
+  setAnswerHandler: (answer: AnswerVars) => void;
 }
 
 export const ControlPanel: FC<ControlPanelProps> = ({ setAnswerHandler }) => {
+  const { t } = useTranslation();
   return (
     <div className={styles.wrapper}>
-      <Button onClick={() => setAnswerHandler("left")}>Левое</Button>
-      <Button onClick={() => setAnswerHandler("equal")}>Равны</Button>
-      <Button onClick={() => setAnswerHandler("right")}>Правое</Button>
+      <Button onClick={() => setAnswerHandler(AnswerVars.LEFT)}>{t("lessOrMoreGame.left")}</Button>
+      <Button onClick={() => setAnswerHandler(AnswerVars.EQUAL)}>
+        {t("lessOrMoreGame.equal")}
+      </Button>
+      <Button onClick={() => setAnswerHandler(AnswerVars.RIGHT)}>
+        {t("lessOrMoreGame.right")}
+      </Button>
     </div>
   );
 };

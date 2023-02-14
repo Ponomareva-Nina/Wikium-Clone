@@ -1,31 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 import { useCounter } from "../../../../../hooks/useCounter";
-import { getRandomExpressionsByLevel } from "../../../utils/randomizer.util";
+
 import { ControlPanel } from "./ControlPanel/ControlPanel";
 import { ExpressionCard } from "./ExpressionCard/ExpressionCard";
-import styles from "./GameField.module.scss";
 import { TopPanel } from "./TopPanel/TopPanel";
-import CorrectIcon from "../../../../../assets/images/LessOrMoreIcons/correct.svg";
-import IncorrectIcon from "../../../../../assets/images/LessOrMoreIcons/incorrect.svg";
 
-const checkIcons = {
-  correct: CorrectIcon,
-  incorrect: IncorrectIcon,
-};
-interface Expressions {
-  left: string;
-  right: string;
-}
+import {
+  MAX_CORRECT_ANSWER,
+  COUNT_POINT,
+  MIN_CORRECT_ANSWER,
+  initialExpressionsValue,
+  checkIcons,
+} from "../../../constants/initial.constants";
 
-const initialExpressionsValue: Expressions = {
-  left: "",
-  right: "",
-};
+import { AnswerVars, Expressions } from "../../../types/game-data.interface";
+
+import { getRandomExpressionsByLevel } from "../../../utils/randomizer.util";
+
+import styles from "./GameField.module.scss";
 
 export const GameField = () => {
   const timer = useCounter({ isReverse: true, initialValue: 60 });
   const [level, setLevel] = useState<number>(1);
-
+  const [points, setPoint] = useState<number>(0);
   const [expressions, setExpressions] = useState<Expressions>(initialExpressionsValue);
   const [answerCheck, setAnswerCheck] = useState<"correct" | "incorrect" | null>(null);
   const correctAnswerRef = useRef<string>("");
@@ -33,15 +30,21 @@ export const GameField = () => {
   const answerCountRef = useRef<number>(0);
   const timeoutIdRef = useRef<NodeJS.Timer | null>(null);
 
-  const setAnswerHandler = (answer: "left" | "equal" | "right") => {
+  const setAnswerHandler = (answer: AnswerVars) => {
     if (timeoutIdRef.current) {
       clearTimeout(timeoutIdRef.current);
     }
 
     if (answer === correctAnswerRef.current) {
-      correctAnswerCountRef.current += 1;
+      if (correctAnswerCountRef.current < MAX_CORRECT_ANSWER) {
+        correctAnswerCountRef.current += 1;
+      }
+      setPoint((prevValue) => prevValue + level * COUNT_POINT);
       setAnswerCheck("correct");
     } else {
+      if (correctAnswerCountRef.current > MIN_CORRECT_ANSWER) {
+        correctAnswerCountRef.current -= 1;
+      }
       setAnswerCheck("incorrect");
     }
 
@@ -51,11 +54,16 @@ export const GameField = () => {
 
     answerCountRef.current += 1;
 
-    const gameData = getRandomExpressionsByLevel(level);
+    const newLevel = Math.ceil((correctAnswerCountRef.current + 1) / 5);
+    setLevel(newLevel);
+
+    const gameData = getRandomExpressionsByLevel(newLevel);
+
     setExpressions({
       left: gameData.left,
       right: gameData.right,
     });
+
     correctAnswerRef.current = gameData.correctAnswer;
   };
 
@@ -70,7 +78,7 @@ export const GameField = () => {
 
   return (
     <div className={styles.wrapper}>
-      <TopPanel timer={timer} />
+      <TopPanel timer={timer} points={points} level={level} />
       <div className={styles.contents}>
         {answerCheck && (
           <img className={styles["check-icon"]} src={checkIcons[answerCheck]} alt="checkIcon" />

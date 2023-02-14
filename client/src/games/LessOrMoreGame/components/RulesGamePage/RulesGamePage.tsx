@@ -1,5 +1,8 @@
 import { FC } from "react";
+import { useTranslation } from "react-i18next";
+
 import { Button } from "../../../../components/UI";
+
 import styles from "./RulesGamePage.module.scss";
 
 interface RulesGamePageProps {
@@ -7,14 +10,11 @@ interface RulesGamePageProps {
 }
 
 export const RulesGamePage: FC<RulesGamePageProps> = ({ startTrainHandler }) => {
+  const { t } = useTranslation();
   return (
     <div className={styles.wrapper}>
-      <div>
-        Необходимо определить, какое число больше и нажать на кнопку с правильным ответом: «левое»,
-        «правое» или «равны». По мере прохождения вам будут продемонстрированы арифметические
-        выражения. Вам необходимо сравнить их и указать, какое из них больше.
-      </div>
-      <Button onClick={startTrainHandler}>Начать тренировку</Button>
+      <div>{t("lessOrMoreGame.rules")}</div>
+      <Button onClick={startTrainHandler}>{t("gameLayout.startExercise")}</Button>
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import { useCallback, useState } from "react";
+
 import GamePage from "./components/GamePage/GamePage";
 import { RulesGamePage } from "./components/RulesGamePage/RulesGamePage";
+
 import styles from "./LessOrMoreGame.module.scss";
 
 export const LessOrMoreGame = () => {
