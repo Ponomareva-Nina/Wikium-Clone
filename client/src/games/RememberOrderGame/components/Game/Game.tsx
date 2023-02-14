@@ -146,9 +146,7 @@ export const Game = () => {
     <div className={styles.container}>
       {isGameStarted ? (
         <>
-          <div>
-            <InfoPanel timer={timer} level={level} score={scoreCount} />
-          </div>
+          <InfoPanel timer={timer} level={level} score={scoreCount} />
           <GameField
             level={levelsData[level]}
             gameCards={cardsData}
