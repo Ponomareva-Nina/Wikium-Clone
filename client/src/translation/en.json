@@ -1,73 +1,81 @@
 {
-    "startPage": {
-      "title": "Start Page"
-    },
-    "menu": {
-      "language": "Change language",
-      "theme": "Change theme"
-    },
-    "authPage": {
-      "title": "Log In",
-      "username": "Email",
-      "password": "Password",
-      "submitBtnText": "Log in",
-      "registerLink": "Register",
-      "newUserText": "New user? ",
-      "registerSugguestionText": " and start training your brain right now."
-    },
-    "registerPage": {
-      "title": "Registration",
-      "username": "Email",
-      "password": "Password",
-      "submitBtnText": "Register",
-      "loginLink": "Log in",
-      "haveAccount": "Already have an account? ",
-      "loginSugguestionText": " and continue training your brain right now."
-    },
-    "gamesPage": {
-      "title": "Games by categories",
-      "concentrationTitle": "Concentration",
-      "memoryTitle": "Memorization",
-      "logicsTitle": "Logics and thinking",
-      "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
-      "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
-      "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
-    },
-    "navigation": {
-      "program": "Training program",
-      "game": "Brain games",
-      "duel": "Duels",
-      "course": "Courses",
-      "stat": "Stats",
-      "achievement": "Achievements",
-      "account": "Account settings",
-      "logout": "Log out"
-    },
-    "logo": {
-      "title": "Wikium clone",
-      "alt": "Wikium - train brains"
-    },
-    "account": {
-      "avatar": "user photo"
-    },
-    "gamesData": {
-      "concentration": "Concentration",
-      "memory": "Memorization",
-      "logics" : "Logics and thinking",
-      "colorMatch": "Color match",
-      "lessOrMore": "Less or More",
-      "rememberOrder": "Remember the order",
-      "startGame": "Start game",
-      "skillsTitle": "Trains:",
-      "time": "Time",
-      "level": "Level",
-      "score": "Score",
-      "playAgain": "Play again"
-    },
-    "footer": {
-      "about": "About Team",
-      "rsLogoAlt": "Link to RSSchool"
-    },
+  "startPage": {
+    "title": "Start Page"
+  },
+  "menu": {
+    "language": "Change language",
+    "theme": "Change theme"
+  },
+  "authPage": {
+    "title": "Log In",
+    "username": "Email",
+    "password": "Password",
+    "submitBtnText": "Log in",
+    "registerLink": "Register",
+    "newUserText": "New user? ",
+    "registerSugguestionText": " and start training your brain right now."
+  },
+  "registerPage": {
+    "title": "Registration",
+    "username": "Email",
+    "password": "Password",
+    "submitBtnText": "Register",
+    "loginLink": "Log in",
+    "haveAccount": "Already have an account? ",
+    "loginSugguestionText": " and continue training your brain right now."
+  },
+  "gamesPage": {
+    "title": "Games by categories",
+    "concentrationTitle": "Concentration",
+    "memoryTitle": "Memorization",
+    "logicsTitle": "Logics and thinking",
+    "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
+    "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
+    "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
+  },
+  "navigation": {
+    "program": "Training program",
+    "game": "Brain games",
+    "duel": "Duels",
+    "course": "Courses",
+    "stat": "Stats",
+    "achievement": "Achievements",
+    "account": "Account settings",
+    "logout": "Log out"
+  },
+  "logo": {
+    "title": "Wikium clone",
+    "alt": "Wikium - train brains"
+  },
+  "account": {
+    "avatar": "user photo"
+  },
+  "gamesData": {
+    "concentration": "Concentration",
+    "memory": "Memorization",
+    "logics" : "Logics and thinking",
+    "colorMatch": "Color match",
+    "lessOrMore": "Less or More",
+    "rememberOrder": "Remember the order",
+    "startGame": "Start game",
+    "skillsTitle": "Trains:",
+    "time": "Time",
+    "level": "Level",
+    "score": "Score"
+  },
+  "gameResults": {
+    "playAgain": "Play again",
+    "results": "Your results",
+    "score": "Current score",
+    "correctAnswers": "Correct answers",
+    "from": "from",
+    "accuracy": "Accuracy of answers",
+    "neurons": "Neurons created"
+  },
+  "footer": {
+    "about": "About Team",
+    "rsLogoAlt": "Link to RSSchool"
+  },
   "gameLayout": {
     "startExercise": "Start exercise",
     "descriptionTitle": "But in practice?"

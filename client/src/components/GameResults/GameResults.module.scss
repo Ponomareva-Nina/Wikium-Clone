@@ -1,5 +1,49 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4rem;
+  background-color: var(--bg-popup-color);
+  color: var(--popup-contrast-color);
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0;
+}
+
+.header {
+  width: 100%;
+  height: 10rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   gap: 2rem;
+}
+
+.result {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.result__item {
+  width: 40%; 
+  color: var(--auxiliary-color);
+}
+
+.result__value {
+  width: 60%;
+  font-weight: bold;
 }

@@ -25,6 +25,7 @@ export const Game = () => {
   const correctAnswerRef = useRef<number>(firstAnswer);
   const timer = useCounter({ isReverse: true, initialValue: 60 });
   const levelTimeoutIdRef = useRef<NodeJS.Timer | null>(null);
+  const neuronsRef = useRef<number>(0);
 
   const startNewGame = () => {
     setIsGameStarted(true);
@@ -158,6 +159,7 @@ export const Game = () => {
           correctAnswers={totalAnswersCountRef.current}
           mistakes={mistakesCountRef.current}
           score={scoreCount}
+          neurons={neuronsRef.current}
           newGameHandler={startNewGame}
         />
       )}
