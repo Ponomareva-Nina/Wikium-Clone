@@ -1,3 +1,13 @@
 .text {
   color: white;
+  text-align: center;
+}
+
+.container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }

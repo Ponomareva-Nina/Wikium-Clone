@@ -7,6 +7,7 @@ import { CardInterface, CardProps } from "../types/types";
 import { InfoPanel } from "../InfoPanel/InfoPanel";
 import { SCORE_INITIAL_VALUE } from "../../../../constants/constants";
 import { useCounter } from "../../../../hooks/useCounter";
+import { GameResults } from "../../../../components";
 
 const firstLevel = levelsData[Levels.FIRST].level;
 const lastLevel = levelsData[Levels.LAST].level;
@@ -25,9 +26,9 @@ export const Game = () => {
   const timer = useCounter({ isReverse: true, initialValue: 60 });
   const levelTimeoutIdRef = useRef<NodeJS.Timer | null>(null);
 
-  // const startGame = () => {
-  //   setIsGameStarted(true);
-  // };
+  const startNewGame = () => {
+    setIsGameStarted(true);
+  };
 
   const endGame = () => {
     setIsGameStarted(false);
@@ -126,7 +127,6 @@ export const Game = () => {
         disableCards();
         if (timer === 0) {
           endGame();
-          console.log("time is over");
           console.log(totalAnswersCountRef.current, mistakesCountRef.current, scoreCount);
         }
       }
@@ -136,7 +136,6 @@ export const Game = () => {
       registerMistake();
       if (timer === 0) {
         endGame();
-        console.log("time is over");
         console.log(totalAnswersCountRef.current, mistakesCountRef.current, scoreCount);
       }
     }
@@ -155,7 +154,12 @@ export const Game = () => {
           />
         </>
       ) : (
-        <div>End Game</div>
+        <GameResults
+          correctAnswers={totalAnswersCountRef.current}
+          mistakes={mistakesCountRef.current}
+          score={scoreCount}
+          newGameHandler={startNewGame}
+        />
       )}
     </div>
   );

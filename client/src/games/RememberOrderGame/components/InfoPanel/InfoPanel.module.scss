@@ -1,15 +1,14 @@
 .wrapper {
   min-width: 70%;
   max-width: 100%;
-  position: relative;
-  top: -2.1rem;
   background: var(--bg-neutral);
   padding: 1rem 2rem;
   box-shadow: 0 2px 3px var(--popup-shadow-color);
+  flex: 0 0 auto;
   display: flex;
   gap: 3rem;
-  margin-left: auto;
   justify-content: space-between;
+  margin-left: auto;
 
   .item {
     display: flex;

@@ -22,7 +22,7 @@ export const GameField: FC<GameFieldProps> = ({ gameCards, level, flipCards, han
   };
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <div className={styles.cards_container} style={templateStyle}>
         {gameCards.map((card) => {
           return <Card key={card.id} clickHandler={handleChoice} card={card} />;
@@ -31,6 +31,6 @@ export const GameField: FC<GameFieldProps> = ({ gameCards, level, flipCards, han
       <Button onClick={flipCards} appearance="neutral">
         {t("rememberOrder.rememberedBtn")}
       </Button>
-    </>
+    </div>
   );
 };
