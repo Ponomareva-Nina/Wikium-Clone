@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Skill } from "../../../../../interfaces/GameInterface";

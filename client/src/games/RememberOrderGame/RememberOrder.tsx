@@ -5,6 +5,8 @@ import { Levels, levelsData } from "./data";
 import { RememberOrderRules } from "./components/Rules/Rules";
 import { createCardsArray } from "./utils";
 import { CardInterface, CardProps } from "./components/types/types";
+import { useCounter } from "../../hooks/useCounter";
+import { InfoPanel } from "./components/InfoPanel/InfoPanel";
 
 const firstLevel = levelsData[Levels.FIRST].level;
 const lastLevel = levelsData[Levels.LAST].level;
@@ -14,10 +16,12 @@ export const RememberOrderGame = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [level, setLevel] = useState(firstLevel);
   const [cardsData, setCardsData] = useState<CardInterface[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [totalAnswersCount, setTotalAnswersCount] = useState<number>(0);
   const mistakesCountRef = useRef<number>(0);
   const matchedAnswersOnLevelRef = useRef<number>(0);
   const correctAnswerRef = useRef<number>(firstAnswer);
+  const timer = useCounter({ isReverse: true, initialValue: 60 });
   const levelTimeoutIdRef = useRef<NodeJS.Timer | null>(null);
 
   const generateNewCards = () => {
@@ -125,7 +129,9 @@ export const RememberOrderGame = () => {
     <div className={styles.game_container}>
       {isGameStarted ? (
         <>
-          <div>{`level: ${level}, mistakes: ${mistakesCountRef.current}, answers: ${totalAnswersCount}`}</div>
+          <div>
+            <InfoPanel timer={timer} level={level} />
+          </div>
           <GameField
             level={levelsData[level]}
             gameCards={cardsData}

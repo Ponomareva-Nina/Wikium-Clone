@@ -1,0 +1,28 @@
+.wrapper {
+  min-width: 70%;
+  max-width: 100%;
+  background: rgba($color: white, $alpha: 0.7);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 3px var(--popup-shadow-color);
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+    .value {
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+  }
+}
