@@ -6,11 +6,12 @@ import styles from "./InfoPanel.module.scss";
 interface InfoPanelProps {
   timer: number;
   level: number;
+  score: number;
 }
 
 const lastLevel = levelsData[Levels.LAST].level;
 
-export const InfoPanel: FC<InfoPanelProps> = ({ timer, level }) => {
+export const InfoPanel: FC<InfoPanelProps> = ({ timer, level, score }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.item}>
@@ -25,7 +26,7 @@ export const InfoPanel: FC<InfoPanelProps> = ({ timer, level }) => {
       </div>
       <div className={styles.item}>
         <div className={styles.title}>Очки:</div>
-        <div className={styles.value}>20</div>
+        <div className={styles.value}>{score}</div>
       </div>
     </div>
   );

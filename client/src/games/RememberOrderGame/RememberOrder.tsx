@@ -7,6 +7,7 @@ import { createCardsArray } from "./utils";
 import { CardInterface, CardProps } from "./components/types/types";
 import { useCounter } from "../../hooks/useCounter";
 import { InfoPanel } from "./components/InfoPanel/InfoPanel";
+import { SCORE_INITIAL_VALUE } from "../../constants/constants";
 
 const firstLevel = levelsData[Levels.FIRST].level;
 const lastLevel = levelsData[Levels.LAST].level;
@@ -16,13 +17,22 @@ export const RememberOrderGame = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [level, setLevel] = useState(firstLevel);
   const [cardsData, setCardsData] = useState<CardInterface[]>([]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [totalAnswersCount, setTotalAnswersCount] = useState<number>(0);
+  const [scoreCount, setScoreCount] = useState<number>(0);
+  const totalAnswersCountRef = useRef<number>(0);
   const mistakesCountRef = useRef<number>(0);
   const matchedAnswersOnLevelRef = useRef<number>(0);
+  const scoreConstantRef = useRef<number>(SCORE_INITIAL_VALUE);
   const correctAnswerRef = useRef<number>(firstAnswer);
   const timer = useCounter({ isReverse: true, initialValue: 60 });
   const levelTimeoutIdRef = useRef<NodeJS.Timer | null>(null);
+
+  const startGame = () => {
+    setIsGameStarted(true);
+  };
+
+  const endGame = () => {
+    setIsGameStarted(false);
+  };
 
   const generateNewCards = () => {
     const cards = createCardsArray(levelsData[level]);
@@ -52,7 +62,7 @@ export const RememberOrderGame = () => {
   const registerCorrectAnswer = () => {
     matchedAnswersOnLevelRef.current += 1;
     correctAnswerRef.current += 1;
-    setTotalAnswersCount((prev) => prev + 1);
+    totalAnswersCountRef.current += 1;
     if (matchedAnswersOnLevelRef.current === levelsData[level].cards) {
       if (levelTimeoutIdRef.current) {
         clearTimeout(levelTimeoutIdRef.current);
@@ -70,6 +80,7 @@ export const RememberOrderGame = () => {
 
   useEffect(() => {
     generateNewCards();
+    scoreConstantRef.current = level > 0 ? level * SCORE_INITIAL_VALUE : SCORE_INITIAL_VALUE;
   }, [level]);
 
   const flipCards = () => {
@@ -110,19 +121,26 @@ export const RememberOrderGame = () => {
     if (card.value === correctAnswerRef.current) {
       registerCorrectAnswer();
       updateCardProperty(card.id, CardProps.MATCHED);
+      setScoreCount((prev) => prev + scoreConstantRef.current);
       if (card.value === levelsData[level].cards) {
         updateCardProperty(card.id, CardProps.SOLVED);
         disableCards();
+        if (timer === 0) {
+          endGame();
+          console.log("time is over");
+          console.log(totalAnswersCountRef, scoreCount, mistakesCountRef);
+        }
       }
     } else {
       updateCardProperty(card.id, CardProps.ERROR);
       disableCards();
       registerMistake();
+      if (timer === 0) {
+        endGame();
+        console.log("time is over");
+        console.log(totalAnswersCountRef, scoreCount, mistakesCountRef);
+      }
     }
-  };
-
-  const startGame = () => {
-    setIsGameStarted(true);
   };
 
   return (
@@ -130,7 +148,7 @@ export const RememberOrderGame = () => {
       {isGameStarted ? (
         <>
           <div>
-            <InfoPanel timer={timer} level={level} />
+            <InfoPanel timer={timer} level={level} score={scoreCount} />
           </div>
           <GameField
             level={levelsData[level]}
