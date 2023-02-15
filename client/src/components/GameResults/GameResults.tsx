@@ -48,8 +48,8 @@ export const GameResults: FC<GameResultsProps> = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>{t("gameResults.results")}</div>
-      {results.map((result) => {
-        return <ResultItem resultTitle={t(result.title)} resultValue={result.value} />;
+      {results.map((result, index) => {
+        return <ResultItem key={index} resultTitle={t(result.title)} resultValue={result.value} />;
       })}
       <Button onClick={newGameHandler}>{t("gameResults.playAgain")}</Button>
     </div>

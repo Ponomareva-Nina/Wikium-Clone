@@ -38,6 +38,7 @@
             "classes": true,
             "variables": true,
             "allowNamedExports": false
-        }]
+        }],
+        "react/no-array-index-key": ["off"]
     }
 }
