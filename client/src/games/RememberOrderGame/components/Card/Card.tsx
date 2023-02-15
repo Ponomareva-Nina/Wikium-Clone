@@ -26,7 +26,7 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({ card, clickHandler, ...
         [styles.card_solved]: card.solved,
       })}
       onClick={handleClick}
-      onKeyDown={() => {}}
+      onKeyDown={handleClick}
     >
       {card.value && (card.matched || card.error) ? card.value : ""}
     </div>
