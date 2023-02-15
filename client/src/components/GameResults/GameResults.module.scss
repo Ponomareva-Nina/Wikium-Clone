@@ -31,19 +31,3 @@
   align-items: center;
   gap: 2rem;
 }
-
-.result {
-  width: 100%;
-  display: flex;
-  gap: 2rem;
-}
-
-.result__item {
-  width: 40%; 
-  color: var(--auxiliary-color);
-}
-
-.result__value {
-  width: 60%;
-  font-weight: bold;
-}
