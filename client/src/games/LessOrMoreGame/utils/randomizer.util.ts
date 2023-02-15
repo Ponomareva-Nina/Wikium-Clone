@@ -26,8 +26,8 @@ export const getRandomExpressionsByLevel = (level: number) => {
       };
     }
     case 2: {
-      const firstLeftValue = getRandomIntInclusive(MIN_VALUE, 50);
-      const secondLeftValue = getRandomIntInclusive(MIN_VALUE, 50);
+      const firstLeftValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE / 2);
+      const secondLeftValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE / 2);
       const leftValue = `${firstLeftValue} + ${secondLeftValue}`;
       const rightValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE);
       const correctAnswer = getCorrectAnswer(firstLeftValue + secondLeftValue, rightValue);
@@ -38,9 +38,9 @@ export const getRandomExpressionsByLevel = (level: number) => {
       };
     }
     case 3: {
-      const firstRightValue = getRandomIntInclusive(20, MAX_VALUE);
-      const secondRightValue = getRandomIntInclusive(MIN_VALUE, 80);
-      const leftValue = getRandomIntInclusive(MIN_VALUE, 70);
+      const firstRightValue = getRandomIntInclusive(MAX_VALUE ** 0.5, MAX_VALUE);
+      const secondRightValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE);
+      const leftValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE);
       const rightValue = `${firstRightValue} - ${secondRightValue}`;
       const correctAnswer = getCorrectAnswer(leftValue, firstRightValue - secondRightValue);
       return {
@@ -50,8 +50,8 @@ export const getRandomExpressionsByLevel = (level: number) => {
       };
     }
     case 4: {
-      const firstLeftValue = getRandomIntInclusive(MIN_VALUE, 10);
-      const secondLeftValue = getRandomIntInclusive(MIN_VALUE, 10);
+      const firstLeftValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE ** 0.5);
+      const secondLeftValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE ** 0.5);
       const leftValue = `${firstLeftValue} × ${secondLeftValue}`;
       const rightValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE);
       const correctAnswer = getCorrectAnswer(firstLeftValue * secondLeftValue, rightValue);
@@ -62,10 +62,10 @@ export const getRandomExpressionsByLevel = (level: number) => {
       };
     }
     case 5: {
-      const firstLeftValue = getRandomIntInclusive(50, MAX_VALUE);
-      const secondLeftValue = getRandomIntInclusive(MIN_VALUE, 10);
+      const firstLeftValue = getRandomIntInclusive(MAX_VALUE / 2, MAX_VALUE);
+      const secondLeftValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE ** 0.5);
       const leftValue = `${firstLeftValue} ÷ ${secondLeftValue}`;
-      const rightValue = getRandomIntInclusive(MIN_VALUE, 50);
+      const rightValue = getRandomIntInclusive(MIN_VALUE, MAX_VALUE / 2);
       const correctAnswer = getCorrectAnswer(firstLeftValue / secondLeftValue, rightValue);
       return {
         left: String(leftValue),
