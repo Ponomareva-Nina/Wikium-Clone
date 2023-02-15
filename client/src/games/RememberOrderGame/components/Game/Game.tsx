@@ -43,13 +43,16 @@ export const Game = () => {
 
   const endGame = () => {
     neuronsRef.current = scoreCount / SCORE_INITIAL_VALUE;
+
+    // TO DO: send statistics info to server
+
     const statistics = {
       id: 1,
       category: GameCategories.MEMORY,
       countAttempt: new Date(),
       neurons: neuronsRef.current,
     };
-    console.log(statistics);
+
     setIsGameStarted(false);
   };
 
