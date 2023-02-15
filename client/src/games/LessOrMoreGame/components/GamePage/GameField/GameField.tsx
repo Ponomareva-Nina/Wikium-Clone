@@ -78,7 +78,7 @@ export const GameField = () => {
 
   return (
     <div className={styles.wrapper}>
-      <TopPanel timer={timer} points={points} level={level} />
+      <TopPanel timer={timer.count} points={points} level={level} />
       <div className={styles.contents}>
         {answerCheck && (
           <img className={styles["check-icon"]} src={checkIcons[answerCheck]} alt="checkIcon" />
