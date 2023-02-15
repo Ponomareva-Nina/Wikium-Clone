@@ -3,31 +3,40 @@ import { FC, PropsWithChildren, useState } from "react";
 import { ScreenSaver } from "../../components/UI/ScreenSaver/ScreenSaver";
 import styles from "./ColorMatchGame.module.scss";
 import { GameField } from "./components/GameField/GameField";
+import { InfoPanel } from "./components/InfoPanel/InfoPanel";
 import { Rules } from "./components/Rules/Rules";
 import { LEVEL, LevelNumber } from "./data";
 import img from "./images/color-match-bg.png";
 
 export const ColorMatchGame: FC<PropsWithChildren> = () => {
-  const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
-  const [count, setCount] = useState<number>(1);
-
   const startLevel = LEVEL[LevelNumber.ONE].level;
   const finishLevel = LEVEL[LevelNumber.THREE].level;
 
-  let answers = 0;
-  let correctAnswers = 0;
-  let correctAnswersSubsequence = 0;
-  let currentLevel = startLevel;
-  let points = 0;
+  const [isGameStarted, setIsGameStarted] = useState<boolean>(false);
+  const [count, setCount] = useState<number>(1);
+  const [points, setPoints] = useState<number>(0);
+  const [answers, setAnswers] = useState<number>(0);
+  const [correctAnswers, setCorrectAnswers] = useState<number>(0);
+  const [correctAnswersSubsequence, setCorrectAnswersSubsequence] = useState<number>(0);
+  const [currentLevel, setCurrentLevel] = useState(startLevel);
+
+  console.log("count", count);
+  console.log("points", points);
+  console.log("answers", answers);
+  console.log("correctAnswers", correctAnswers);
+  console.log("correctAnswersSubsequence", correctAnswersSubsequence);
+  console.log("currentLevel", currentLevel);
+
+  const timer = 1;
 
   const handleCorrectAnswers = (): void => {
-    answers += 1;
-    correctAnswers += 1;
-    points += LEVEL[currentLevel - 1].points * currentLevel;
-    correctAnswersSubsequence += 1;
+    setAnswers(answers + 1);
+    setCorrectAnswers(correctAnswers + 1);
+    setPoints(points + LEVEL[currentLevel - 1].points * currentLevel);
+    setCorrectAnswersSubsequence(correctAnswersSubsequence + 1);
     if (currentLevel === startLevel && correctAnswersSubsequence === 3) {
-      currentLevel += 1;
-      correctAnswersSubsequence = 0;
+      setCurrentLevel(currentLevel + 1);
+      setCorrectAnswersSubsequence(0);
     }
     if (
       currentLevel > startLevel &&
@@ -35,41 +44,41 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
       correctAnswersSubsequence % 10 === 0 &&
       correctAnswersSubsequence !== 0
     ) {
-      currentLevel += 1;
+      setCurrentLevel(currentLevel + 1);
     }
-    console.log("CORRECT Correct Answers Subsequence: ", correctAnswersSubsequence);
-    console.log("Current Level: ", currentLevel);
-    console.log("All answers: ", answers);
-    console.log("Correct answers: ", correctAnswers);
-    console.log("Points: ", points, "Neurons: ", points / 20);
+    // console.log("CORRECT Correct Answers Subsequence: ", correctAnswersSubsequence);
+    // console.log("Current Level: ", currentLevel);
+    // console.log("All answers: ", answers);
+    // console.log("Correct answers: ", correctAnswers);
+    // console.log("Points: ", points, "Neurons: ", points / 20);
   };
 
   const handleErrorAnswers = (): void => {
-    answers += 1;
-    correctAnswersSubsequence = 0;
+    setAnswers(answers + 1);
+    setCorrectAnswersSubsequence(0);
 
     if (points > 0) {
-      points += LEVEL[currentLevel - 1].points * currentLevel;
+      setPoints(points - LEVEL[currentLevel - 1].points * currentLevel);
     } else {
-      points = 0;
+      setPoints(0);
     }
 
     if (correctAnswers > 0) {
-      correctAnswers -= 1;
+      setCorrectAnswers(correctAnswers - 1);
     } else {
-      correctAnswers = 0;
+      setCorrectAnswers(0);
     }
 
     if (currentLevel > startLevel) {
-      currentLevel -= 1;
+      setCurrentLevel(currentLevel - 1);
     } else {
-      currentLevel = startLevel;
+      setCurrentLevel(startLevel);
     }
-    console.log("ERROR Correct Answers Subsequence: ", correctAnswersSubsequence);
-    console.log("Current Level: ", currentLevel);
-    console.log("All answers: ", answers);
-    console.log("Correct answers: ", correctAnswers);
-    console.log("Points: ", points, "Neurons: ", points / 20);
+    // console.log("ERROR Correct Answers Subsequence: ", correctAnswersSubsequence);
+    // console.log("Current Level: ", currentLevel);
+    // console.log("All answers: ", answers);
+    // console.log("Correct answers: ", correctAnswers);
+    // console.log("Points: ", points, "Neurons: ", points / 20);
   };
 
   const playNext = (): void => {
@@ -93,11 +102,14 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
                 {img}
               </ScreenSaver>
             ) : (
-              <GameField
-                currentLevel={currentLevel}
-                handleCorrectAnswers={handleCorrectAnswers}
-                handleErrorAnswers={handleErrorAnswers}
-              />
+              <>
+                <InfoPanel timer={timer} currentLevel={currentLevel} points={points} />
+                <GameField
+                  currentLevel={currentLevel}
+                  handleCorrectAnswers={handleCorrectAnswers}
+                  handleErrorAnswers={handleErrorAnswers}
+                />
+              </>
             )}
           </>
         )}

@@ -1,6 +1,5 @@
 import cn from "classnames";
 import { FC, PropsWithChildren, useEffect, useState } from "react";
-
 import { useTranslation } from "react-i18next";
 import { AnswerButton } from "../../../../components/UI";
 import { getRandom } from "../../utils/utils";
@@ -44,15 +43,16 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
     console.log("Check result: ", answer);
     console.log("Pressed button: ", buttonValue);
     console.log("Ответ верный? ", answer === buttonValue);
+    const isCorrect = answer === buttonValue;
     if (handleCorrectAnswers && handleErrorAnswers) {
-      if (answer === buttonValue) {
+      if (isCorrect) {
         handleCorrectAnswers();
       } else {
         handleErrorAnswers();
       }
     }
     getWord();
-    return answer;
+    return isCorrect;
   };
 
   useEffect(() => {
@@ -63,16 +63,24 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
   return (
     <>
       <div className={cn(styles.container)}>
-        <div>
-          <Field description={t("colorMatchData.value")}>{fieldValue}</Field>
-        </div>
+        <Field description={t("colorMatchData.value")}>{fieldValue}</Field>
         <Field description={t("colorMatchData.color")}>{fieldColor}</Field>
       </div>
       <div className={cn(styles.answer_buttons)}>
-        <AnswerButton left onClick={() => checkAnswer(false)}>
+        <AnswerButton
+          left
+          onClick={() => {
+            checkAnswer(false);
+          }}
+        >
           {t("answerBurrons.no")}
         </AnswerButton>
-        <AnswerButton left={false} onClick={() => checkAnswer(true)}>
+        <AnswerButton
+          left={false}
+          onClick={() => {
+            checkAnswer(true);
+          }}
+        >
           {t("answerBurrons.yes")}
         </AnswerButton>
       </div>
