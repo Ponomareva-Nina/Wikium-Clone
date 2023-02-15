@@ -7,6 +7,7 @@ import { Field } from "./Field/Field";
 import styles from "./GameFiels.module.scss";
 import incorrectIcon from "../../images/incorrect-icon.svg";
 import correctIcon from "../../images/correct-icon.svg";
+import { TIMEOUT_HALF_SECOND } from "../../../../constants/constants";
 
 interface GameFieldProps {
   currentLevel: number;
@@ -38,14 +39,12 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
     toogleAlert();
     setTimeout(() => {
       toogleAlert();
-    }, 500);
+    }, TIMEOUT_HALF_SECOND);
   };
 
   const getWord = (): void => {
     const resultValue = getRandom(currentLevel);
-    console.log("Value", resultValue);
     const resultColor = getRandom(currentLevel);
-    console.log("Color", resultColor);
     setTimeout(() => {
       setFieldValue(
         <span
@@ -65,19 +64,15 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
           {t(getRandom(currentLevel).word)}
         </span>
       );
-    }, 500);
+    }, TIMEOUT_HALF_SECOND);
   };
 
   const checkAnswer = (buttonValue: boolean) => {
     const answer = fieldValue.props.id === fieldColor.props.id;
-    console.log("Check result: ", answer);
-    console.log("Pressed button: ", buttonValue);
-    const test = answer === buttonValue;
-    console.log("Answer is correct? ", test);
-    toogleCorrectAnswer(test);
-    console.log(isCorrectAnswer);
+    const userAnswer = answer === buttonValue;
+    toogleCorrectAnswer(userAnswer);
     if (handleCorrectAnswers && handleErrorAnswers) {
-      if (isCorrectAnswer) {
+      if (userAnswer) {
         handleCorrectAnswers();
       } else {
         handleErrorAnswers();

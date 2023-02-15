@@ -109,5 +109,10 @@
     "answerBurrons": {
       "yes": "Yes",
       "no": "No"
+    },
+    "infoPanel": {
+      "time": "time",
+      "level": "level",
+      "score": "score"
     }
 }

@@ -108,5 +108,10 @@
     "answerBurrons": {
       "yes": "Да",
       "no": "Нет"
+    },
+    "infoPanel": {
+      "time": "время",
+      "level": "уровень",
+      "score": "очки"
     }
 }
