@@ -4,11 +4,11 @@ import styles from "./Game.module.scss";
 import { Levels, levelsData } from "../../data";
 import { createCardsArray } from "../../utils";
 import { CardInterface, CardProps } from "../types/types";
-import { InfoPanel } from "../InfoPanel/InfoPanel";
 import { SCORE_INITIAL_VALUE } from "../../../../constants/constants";
 import { useCounter } from "../../../../hooks/useCounter";
 import { GameResults } from "../../../../components";
 import { GameCategories } from "../../../../interfaces/Categories";
+import { GameInfoPanel } from "../../../../components/GameInfoPanel/GameInfoPanel";
 
 const firstLevel = levelsData[Levels.FIRST].level;
 const lastLevel = levelsData[Levels.LAST].level;
@@ -167,7 +167,14 @@ export const Game = () => {
     <div className={styles.container}>
       {isGameStarted ? (
         <>
-          <InfoPanel timer={timer.count} level={level} score={scoreCount} />
+          <GameInfoPanel
+            timer={timer.count}
+            currentLevel={level}
+            maxLevel={lastLevel}
+            score={scoreCount}
+            mistakes={false}
+            bonus={false}
+          />
           <GameField
             level={levelsData[level]}
             gameCards={cardsData}
