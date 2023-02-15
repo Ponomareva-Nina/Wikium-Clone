@@ -8,6 +8,7 @@ import { InfoPanel } from "../InfoPanel/InfoPanel";
 import { SCORE_INITIAL_VALUE } from "../../../../constants/constants";
 import { useCounter } from "../../../../hooks/useCounter";
 import { GameResults } from "../../../../components";
+import { GameCategories } from "../../../../interfaces/Categories";
 
 const firstLevel = levelsData[Levels.FIRST].level;
 const lastLevel = levelsData[Levels.LAST].level;
@@ -29,9 +30,25 @@ export const Game = () => {
 
   const startNewGame = () => {
     setIsGameStarted(true);
+    setLevel(firstLevel);
+    setScoreCount(0);
+    totalAnswersCountRef.current = 0;
+    mistakesCountRef.current = 0;
+    matchedAnswersOnLevelRef.current = 0;
+    scoreConstantRef.current = SCORE_INITIAL_VALUE;
+    correctAnswerRef.current = firstAnswer;
+    neuronsRef.current = 0;
   };
 
   const endGame = () => {
+    neuronsRef.current = scoreCount / SCORE_INITIAL_VALUE;
+    const statistics = {
+      id: 1,
+      category: GameCategories.MEMORY,
+      countAttempt: new Date(),
+      neurons: neuronsRef.current,
+    };
+    console.log(statistics);
     setIsGameStarted(false);
   };
 
@@ -128,7 +145,6 @@ export const Game = () => {
         disableCards();
         if (timer === 0) {
           endGame();
-          console.log(totalAnswersCountRef.current, mistakesCountRef.current, scoreCount);
         }
       }
     } else {
@@ -137,7 +153,6 @@ export const Game = () => {
       registerMistake();
       if (timer === 0) {
         endGame();
-        console.log(totalAnswersCountRef.current, mistakesCountRef.current, scoreCount);
       }
     }
   };
