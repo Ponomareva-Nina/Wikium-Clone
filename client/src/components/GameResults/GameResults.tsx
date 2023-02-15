@@ -48,9 +48,17 @@ export const GameResults: FC<GameResultsProps> = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>{t("gameResults.results")}</div>
-      {results.map((result, index) => {
-        return <ResultItem key={index} resultTitle={t(result.title)} resultValue={result.value} />;
-      })}
+      <div className={styles.info}>
+        {results.map((result) => {
+          return (
+            <ResultItem
+              key={result.title}
+              resultTitle={t(result.title)}
+              resultValue={result.value}
+            />
+          );
+        })}
+      </div>
       <Button onClick={newGameHandler}>{t("gameResults.playAgain")}</Button>
     </div>
   );
