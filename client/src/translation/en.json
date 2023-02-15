@@ -32,7 +32,11 @@
     "todayGame": "Game of the day",
     "concentrationDescription": "The ability to stay focused on what is important and not be distracted by extraneous factors.",
     "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
-    "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
+    "logicsDescription": "The ability to think logically, analyze, and find consistent patterns.",
+    "time": "Time",
+    "level": "Level",
+    "points": "Points",
+    "bonus": "Bonus"
   },
   "navigation": {
     "program": "Training program",
@@ -70,7 +74,17 @@
   },
   "lessOrMoreGame": {
     "description": "This game helps to develop quick counting skills, improves the speed of analysis and quick decision making.",
-    "title": "Less or More"
+    "title": "Less or More",
+    "firstSkillTitle": "Counting and Boolean Operations",
+    "firstSkillDescription": "Making calculations in your head will be easier",
+    "secondSkillTitle": "Verbal logic",
+    "secondSkillDescription": "It will become easier to navigate texts",
+    "thirdSkillTitle": "Attention",
+    "thirdSkillDescription": "It will make it easier for you to finish what you started",
+    "rules": "You must determine which number is greater and click on the button with the correct answer: «left», «right» or «equal». As you go through, arithmetic expressions will be shown to you. You need to compare them and indicate which one more.",
+    "left": "Left",
+    "right": "Right",
+    "equal": "Equal"
   },
   "penaltyGame": {
     "description": "to do description",
