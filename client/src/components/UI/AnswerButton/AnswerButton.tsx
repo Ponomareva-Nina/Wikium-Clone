@@ -6,15 +6,18 @@ interface AnswerButtonProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   onClick?: () => void;
   left?: boolean;
+  isAlert?: boolean;
 }
 
 export const AnswerButton: FC<PropsWithChildren<AnswerButtonProps>> = ({
   onClick,
   children,
   left,
+  isAlert,
 }) => {
   return (
     <button
+      disabled={isAlert}
       onClick={onClick}
       type="button"
       className={cn(styles.button, left ? styles.left : styles.right)}

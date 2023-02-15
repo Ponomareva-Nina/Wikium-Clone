@@ -6,7 +6,32 @@
   position: relative;
 }
 
+.text {
+  animation: appear 1s;
+}
+
+.answer_icon {
+  width: 7rem;
+  height: 7rem;
+  position: absolute;
+  top: 30%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+
 .answer_buttons {
   display: flex;
   gap: 0.5rem
+}
+
+@keyframes appear {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
 }

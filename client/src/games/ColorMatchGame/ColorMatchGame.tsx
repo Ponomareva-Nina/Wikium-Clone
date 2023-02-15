@@ -46,11 +46,6 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     ) {
       setCurrentLevel(currentLevel + 1);
     }
-    // console.log("CORRECT Correct Answers Subsequence: ", correctAnswersSubsequence);
-    // console.log("Current Level: ", currentLevel);
-    // console.log("All answers: ", answers);
-    // console.log("Correct answers: ", correctAnswers);
-    // console.log("Points: ", points, "Neurons: ", points / 20);
   };
 
   const handleErrorAnswers = (): void => {
@@ -74,11 +69,6 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     } else {
       setCurrentLevel(startLevel);
     }
-    // console.log("ERROR Correct Answers Subsequence: ", correctAnswersSubsequence);
-    // console.log("Current Level: ", currentLevel);
-    // console.log("All answers: ", answers);
-    // console.log("Correct answers: ", correctAnswers);
-    // console.log("Points: ", points, "Neurons: ", points / 20);
   };
 
   const playNext = (): void => {

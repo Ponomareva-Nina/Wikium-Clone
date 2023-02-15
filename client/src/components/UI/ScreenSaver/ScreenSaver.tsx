@@ -12,8 +12,6 @@ export const ScreenSaver: FC<PropsWithChildren<ScreenSaverProps>> = ({
   count,
   setCount,
 }) => {
-  // const [count, setCount] = useState<number>(1);
-
   useEffect(() => {
     let TimerId: null | NodeJS.Timer = null;
     if (count < 4) {
