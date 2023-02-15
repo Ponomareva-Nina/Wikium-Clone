@@ -102,15 +102,17 @@ export const Game = () => {
   }, [level]);
 
   const flipCards = () => {
-    setCardsData(
-      cardsData.map((card) => {
-        return {
-          ...card,
-          matched: false,
-          disabled: false,
-        };
-      })
-    );
+    if (correctAnswerRef.current === firstAnswer) {
+      setCardsData(
+        cardsData.map((card) => {
+          return {
+            ...card,
+            matched: false,
+            disabled: false,
+          };
+        })
+      );
+    }
   };
 
   const disableCards = () => {
