@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+  }
+
+  .content {
+    .title {
+      font-weight: 600;
+    }
+    .description {
+      font-size: 1.6rem;
+    }
+  }
+}

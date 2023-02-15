@@ -1,0 +1,21 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.left {
+  background-color: var(--bg-popup-color);
+  color: var(--popup-contrast-color);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 2px 3px var(--popup-shadow-color);
+  aspect-ratio: 2/1.5;
+}
+
+.right {
+  .description {
+    color: var(--auxiliary-color);
+  }
+}

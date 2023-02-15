@@ -1,66 +1,83 @@
 {
-    "startPage": {
-      "title": "Стартовая страница"
-    },
-    "menu": {
-      "language": "Изменить язык",
-      "theme": "Изменить тему"
-    },
-    "authPage": {
-      "title": "Вход на сайт",
-      "username": "Эл.почта",
-      "password": "Пароль",
-      "submitBtnText": "Войти",
-      "registerLink": "Зарегистрируйтесь",
-      "newUserText": "Новый пользователь? ",
-      "registerSugguestionText": " и начните заниматься своим мозгом сейчас."
-    },
-    "registerPage": {
-      "title": "Регистрация",
-      "username": "Эл.почта",
-      "password": "Пароль",
-      "submitBtnText": "Зарегистрироваться",
-      "loginLink": "Войдите в аккаунт",
-      "haveAccount": "Уже зарегистрированы? ",
-      "loginSugguestionText": " и продолжите заниматься своим мозгом сейчас."
-    },
-    "gamesPage": {
-      "title": "Все тренажеры по категориям",
-      "concentrationTitle": "Внимание",
-      "memoryTitle": "Память",
-      "logicsTitle": "Логика и мышление",
-      "todayGame": "Тренажер дня",
-      "concentrationDescription" : "Способность сохранять концентрацию на важном и не отвлекаться при посторонних факторах.",
-      "memoryDescription": "Способность воспроизводить в памяти изображения и образы, запоминать смысл и соотношение элементов информации.",
-      "logicsDescription": "Способность логически мыслить и рассуждать, анализировать, и находить закономерности."
-    },
-    "navigation": {
-      "program": "Программа развития",
-      "game": "Тренажеры",
-      "duel": "Соревнования",
-      "course": "Курсы",
-      "stat": "Статистика",
-      "achievement": "Достижения",
-      "account": "Личный кабинет",
-      "logout": "Выйти"
-    },
-    "logo": {
-      "title": "Викиум клон",
-      "alt": "Викиум тренажёры для мозга"
-    },
-    "account": {
-      "avatar": "Фотография пользователя"
-    },
-    "gamesData": {
-      "concentration": "Внимание",
-      "memory": "Память",
-      "logics" : "Логика и мышление",
-      "colorMatch": "Цветовод",
-      "lessOrMore": "Логическое сравнение",
-      "penalty": "Пенальти"
-    },
-    "footer": {
-      "about": "О команде",
-      "rsLogoAlt": "Ссылка на RSSchool"
-    }
+  "startPage": {
+    "title": "Стартовая страница"
+  },
+  "menu": {
+    "language": "Изменить язык",
+    "theme": "Изменить тему"
+  },
+  "authPage": {
+    "title": "Вход на сайт",
+    "username": "Эл.почта",
+    "password": "Пароль",
+    "submitBtnText": "Войти",
+    "registerLink": "Зарегистрируйтесь",
+    "newUserText": "Новый пользователь? ",
+    "registerSugguestionText": " и начните заниматься своим мозгом сейчас."
+  },
+  "registerPage": {
+    "title": "Регистрация",
+    "username": "Эл.почта",
+    "password": "Пароль",
+    "submitBtnText": "Зарегистрироваться",
+    "loginLink": "Войдите в аккаунт",
+    "haveAccount": "Уже зарегистрированы? ",
+    "loginSugguestionText": " и продолжите заниматься своим мозгом сейчас."
+  },
+  "gamesPage": {
+    "title": "Все тренажеры по категориям",
+    "concentrationTitle": "Внимание",
+    "memoryTitle": "Память",
+    "logicsTitle": "Логика и мышление",
+    "todayGame": "Тренажер дня",
+    "concentrationDescription": "Способность сохранять концентрацию на важном и не отвлекаться при посторонних факторах.",
+    "memoryDescription": "Способность воспроизводить в памяти изображения и образы, запоминать смысл и соотношение элементов информации.",
+    "logicsDescription": "Способность логически мыслить и рассуждать, анализировать, и находить закономерности."
+  },
+  "navigation": {
+    "program": "Программа развития",
+    "game": "Тренажеры",
+    "duel": "Соревнования",
+    "course": "Курсы",
+    "stat": "Статистика",
+    "achievement": "Достижения",
+    "account": "Личный кабинет",
+    "logout": "Выйти"
+  },
+  "logo": {
+    "title": "Викиум клон",
+    "alt": "Викиум тренажёры для мозга"
+  },
+  "account": {
+    "avatar": "Фотография пользователя"
+  },
+  "gamesData": {
+    "concentration": "Внимание",
+    "memory": "Память",
+    "logics": "Логика и мышление",
+    "colorMatch": "Цветовод",
+    "lessOrMore": "Логическое сравнение",
+    "penalty": "Пенальти",
+    "skillsTitle": "Тренирует:"
+  },
+  "footer": {
+    "about": "О команде",
+    "rsLogoAlt": "Ссылка на RSSchool"
+  },
+  "gameLayout": {
+    "startExercise": "Начать упражнение",
+    "descriptionTitle": "А на практике?"
+  },
+  "lessOrMoreGame": {
+    "description": "Данная игра помогает развить навыки быстрого счета, улучшает скорость анализа и быстрого принятия решения.",
+    "title": "Логическое сравнение"
+  },
+  "penaltyGame": {
+    "description": "Добавить описание",
+    "title": "Пенальти"
+  },
+  "colorMatchGame": {
+    "description": "Добавить описание",
+    "title": "Цветовод"
+  }
 }
