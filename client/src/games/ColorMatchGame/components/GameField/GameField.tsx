@@ -22,13 +22,22 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
   const [fieldValue, setFieldValue] = useState(<span />);
   const [fieldColor, setFieldColor] = useState(<span />);
   const [isAlert, setIsAlert] = useState(false);
-  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean>(false);
   const { t } = useTranslation();
 
+  const toogleAlert = () => {
+    setIsAlert((prev) => !prev);
+  };
+
+  const toogleCorrectAnswer = (value: boolean) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    value ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false);
+  };
+
   const showAlert = () => {
-    setIsAlert(true);
+    toogleAlert();
     setTimeout(() => {
-      setIsAlert(false);
+      toogleAlert();
     }, 500);
   };
 
@@ -63,8 +72,10 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
     const answer = fieldValue.props.id === fieldColor.props.id;
     console.log("Check result: ", answer);
     console.log("Pressed button: ", buttonValue);
-    console.log("Ответ верный? ", answer === buttonValue);
-    setIsCorrectAnswer(answer === buttonValue);
+    const test = answer === buttonValue;
+    console.log("Answer is correct? ", test);
+    toogleCorrectAnswer(test);
+    console.log(isCorrectAnswer);
     if (handleCorrectAnswers && handleErrorAnswers) {
       if (isCorrectAnswer) {
         handleCorrectAnswers();

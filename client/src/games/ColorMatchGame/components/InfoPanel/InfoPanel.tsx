@@ -4,7 +4,7 @@ import { LEVEL, LevelNumber } from "../../data";
 import styles from "./InfoPanel.module.scss";
 
 interface InfoPanelProps {
-  timer: any;
+  timer: number;
   currentLevel: number;
   points: number;
 }
@@ -18,7 +18,9 @@ export const InfoPanel: FC<PropsWithChildren<InfoPanelProps>> = ({
     <div className={cn(styles.info_container)}>
       <div className={cn(styles.item_container)}>
         <span className={cn(styles.item_title)}>время</span>
-        <span className={cn(styles.item_content)}>{timer}</span>
+        <span className={cn(styles.item_content)}>{`00:${
+          timer && timer >= 10 ? timer : `0${timer}`
+        }`}</span>
       </div>
       <div className={cn(styles.item_container)}>
         <span className={cn(styles.item_title)}>уровень</span>
