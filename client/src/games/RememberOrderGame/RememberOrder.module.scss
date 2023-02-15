@@ -1,6 +1,7 @@
 .game_container {
   max-width: 80rem;
   height: 100%;
+  max-height: max-content;
   margin: 0 auto;
   background-image: url("./images/order-game-bg.svg");
   background-repeat: no-repeat;
