@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../UI";
+import { ResultItem } from "./ResultItem.tsx/ResultItem";
 import styles from "./GameResults.module.scss";
 
 interface GameResultsProps {
@@ -9,6 +10,11 @@ interface GameResultsProps {
   score: number;
   neurons: number;
   newGameHandler: () => void;
+}
+
+interface Result {
+  title: string;
+  value: string | number;
 }
 
 export const GameResults: FC<GameResultsProps> = ({
@@ -20,34 +26,31 @@ export const GameResults: FC<GameResultsProps> = ({
 }) => {
   const { t } = useTranslation();
   const totalAnswers = mistakes + correctAnswers;
+  const results: Result[] = [
+    {
+      title: "gameResults.score",
+      value: score,
+    },
+    {
+      title: "gameResults.correctAnswers",
+      value: `${correctAnswers} ${t("gameResults.from")} ${totalAnswers}`,
+    },
+    {
+      title: "gameResults.accuracy",
+      value: `${((correctAnswers / totalAnswers) * 100).toFixed(2)}%`,
+    },
+    {
+      title: "gameResults.neurons",
+      value: neurons,
+    },
+  ];
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>{t("gameResults.results")}</div>
-
-      <div className={styles.info}>
-        <div className={styles.result}>
-          <span className={styles.result__item}>{t("gameResults.score")}</span>
-          <span className={styles.result__value}>{score}</span>
-        </div>
-        <div className={styles.result}>
-          <span className={styles.result__item}>{t("gameResults.correctAnswers")}</span>
-          <span className={styles.result__value}>
-            {correctAnswers} {t("gameResults.from")} {totalAnswers}
-          </span>
-        </div>
-        <div className={styles.result}>
-          <span className={styles.result__item}>{t("gameResults.accuracy")}</span>
-          <span className={styles.result__value}>
-            {((correctAnswers / totalAnswers) * 100).toFixed(2)}%
-          </span>
-        </div>
-        <div className={styles.result}>
-          <span className={styles.result__item}>{t("gameResults.neurons")}</span>
-          <span className={styles.result__value}>{neurons}</span>
-        </div>
-      </div>
-
+      {results.map((result) => {
+        return <ResultItem resultTitle={t(result.title)} resultValue={result.value} />;
+      })}
       <Button onClick={newGameHandler}>{t("gameResults.playAgain")}</Button>
     </div>
   );
