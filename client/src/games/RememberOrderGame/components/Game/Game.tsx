@@ -38,6 +38,7 @@ export const Game = () => {
     scoreConstantRef.current = SCORE_INITIAL_VALUE;
     correctAnswerRef.current = firstAnswer;
     neuronsRef.current = 0;
+    timer.reset();
   };
 
   const endGame = () => {
@@ -145,7 +146,7 @@ export const Game = () => {
       if (card.value === levelsData[level].cards) {
         updateCardProperty(card.id, CardProps.SOLVED);
         disableCards();
-        if (timer === 0) {
+        if (timer.count === 0) {
           endGame();
         }
       }
@@ -153,7 +154,7 @@ export const Game = () => {
       updateCardProperty(card.id, CardProps.ERROR);
       disableCards();
       registerMistake();
-      if (timer === 0) {
+      if (timer.count === 0) {
         endGame();
       }
     }
@@ -163,7 +164,7 @@ export const Game = () => {
     <div className={styles.container}>
       {isGameStarted ? (
         <>
-          <InfoPanel timer={timer} level={level} score={scoreCount} />
+          <InfoPanel timer={timer.count} level={level} score={scoreCount} />
           <GameField
             level={levelsData[level]}
             gameCards={cardsData}
