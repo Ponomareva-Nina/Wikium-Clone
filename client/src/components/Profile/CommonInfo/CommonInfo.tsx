@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Input } from "../../UI";
-import { Option, Select } from "../../UI/Select/Select";
+import { Button, Input, Select } from "../../UI";
+import { Option } from "../../UI/Select/Select";
 import styles from "./CommonInfo.module.scss";
 
 interface FormData {
@@ -44,6 +44,10 @@ export const CommonInfo = () => {
   const genderTitle = genderOptions.find((option) => option.value === formData.gender)?.title;
 
   const editOrSaveHandler = () => {
+    if (!isEdit) {
+      setIsEdit((prev) => !prev);
+      return;
+    }
     setIsEdit((prev) => !prev);
   };
 
@@ -95,7 +99,7 @@ export const CommonInfo = () => {
           {!isEdit ? (
             <span>{formData.birthday || t("accountPage.notIndicated")}</span>
           ) : (
-            <Input value={formData.birthday} name="birthday" onChange={changeHandler} />
+            <Input value={formData.birthday} name="birthday" type="date" onChange={changeHandler} />
           )}
         </li>
         <li>

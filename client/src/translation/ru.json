@@ -99,6 +99,10 @@
     "average": "Среднее",
     "higher": "Высшее",
     "candidateOfSciences": "Кандидат наук",
-    "doctorDegree": "Докторская степень"
+    "doctorDegree": "Докторская степень",
+    "download": "Загрузить",
+    "newPassword": "Новый пароль",
+    "password": "Пароль",
+    "newPasswordRepeat": "Новый пароль еще раз"
   }
 }

@@ -99,6 +99,10 @@
     "average": "Average",
     "higher": "Higher",
     "candidateOfSciences": "Candidate of sciences",
-    "doctorDegree": "Doctor degree"
+    "doctorDegree": "Doctor degree",
+    "download": "Download",
+    "newPassword": "New password",
+    "password": "Password",
+    "newPasswordRepeat": "New password repeat"
   }
 }
