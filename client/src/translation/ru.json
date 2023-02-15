@@ -79,5 +79,19 @@
   "colorMatchGame": {
     "description": "Добавить описание",
     "title": "Цветовод"
+  },
+  "accountPage": {
+    "levelInfoDesc": "Наберите [number] нейронов чтобы перейти на следующий уровень",
+    "level": "Уровень",
+    "neurons": "Нейронов",
+    "name": "Имя",
+    "surname": "Фамилия",
+    "gender": "Пол",
+    "birthday": "Дата рождения",
+    "education": "Образование",
+    "commonInfo": "Основная информация",
+    "edit": "Редактировать",
+    "save": "Сохранить",
+    "notIndicated": "Не указано"
   }
 }

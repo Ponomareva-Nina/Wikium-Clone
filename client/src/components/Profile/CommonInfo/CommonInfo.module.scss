@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    li {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      color: var(--auxiliary-color);
+      font-size: 1.5rem;
+
+      span:last-child {
+        color: var(--font-main-color);
+      }
+    }
+  }
+}

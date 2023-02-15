@@ -79,5 +79,19 @@
   "colorMatchGame": {
     "description": "to do description",
     "title": "Color match"
+  },
+  "accountPage": {
+    "levelInfoDesc": "Dial [number] neurons to go to the next level",
+    "level": "Level",
+    "neurons": "Neurons",
+    "name": "Name",
+    "surname": "Surname",
+    "gender": "Gender",
+    "birthday": "Birthday",
+    "education": "Education",
+    "commonInfo": "Common information",
+    "edit": "Edit",
+    "save": "Save",
+    "notIndicated": "No indicated"
   }
 }
