@@ -92,6 +92,13 @@
     "commonInfo": "Основная информация",
     "edit": "Редактировать",
     "save": "Сохранить",
-    "notIndicated": "Не указано"
+    "notIndicated": "Не указано",
+    "male": "Мужской",
+    "female": "Женский",
+    "initial": "Начальное",
+    "average": "Среднее",
+    "higher": "Высшее",
+    "candidateOfSciences": "Кандидат наук",
+    "doctorDegree": "Докторская степень"
   }
 }

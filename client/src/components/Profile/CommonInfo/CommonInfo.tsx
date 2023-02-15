@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Input } from "../../UI";
+import { Option, Select } from "../../UI/Select/Select";
 import styles from "./CommonInfo.module.scss";
 
 interface FormData {
@@ -19,10 +20,28 @@ const initialData: FormData = {
   education: "",
 };
 
+const genderOptions: Option[] = [
+  { value: "male", title: "accountPage.male" },
+  { value: "female", title: "accountPage.female" },
+];
+
+const educationOptions: Option[] = [
+  { value: "initial", title: "accountPage.initial" },
+  { value: "average", title: "accountPage.average" },
+  { value: "higher", title: "accountPage.higher" },
+  { value: "candidateOfSciences", title: "accountPage.candidateOfSciences" },
+  { value: "doctorDegree", title: "accountPage.doctorDegree" },
+];
+
 export const CommonInfo = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [formData, setFormData] = useState<FormData>(initialData);
   const { t } = useTranslation();
+
+  const educationTitle = educationOptions.find(
+    (option) => option.value === formData.education
+  )?.title;
+  const genderTitle = genderOptions.find((option) => option.value === formData.gender)?.title;
 
   const editOrSaveHandler = () => {
     setIsEdit((prev) => !prev);
@@ -36,7 +55,7 @@ export const CommonInfo = () => {
     <div className={styles.wrapper}>
       <div className={styles.head}>
         <h2>{t("accountPage.commonInfo")}</h2>
-        <Button onClick={editOrSaveHandler}>
+        <Button onClick={editOrSaveHandler} appearance="ghost">
           {!isEdit ? t("accountPage.edit") : t("accountPage.save")}
         </Button>
       </div>
@@ -60,9 +79,15 @@ export const CommonInfo = () => {
         <li>
           <span>{t("accountPage.gender")}</span>
           {!isEdit ? (
-            <span>{formData.gender || t("accountPage.notIndicated")}</span>
+            <span>{t(genderTitle || "") || t("accountPage.notIndicated")}</span>
           ) : (
-            <Input value={formData.gender} name="gender" onChange={changeHandler} />
+            <Select
+              options={genderOptions}
+              placeholder={t("accountPage.notIndicated") || ""}
+              value={formData.gender}
+              name="gender"
+              onChange={changeHandler}
+            />
           )}
         </li>
         <li>
@@ -76,9 +101,15 @@ export const CommonInfo = () => {
         <li>
           <span>{t("accountPage.education")}</span>
           {!isEdit ? (
-            <span>{formData.education || t("accountPage.notIndicated")}</span>
+            <span>{t(educationTitle || "") || t("accountPage.notIndicated")}</span>
           ) : (
-            <Input value={formData.education} name="education" onChange={changeHandler} />
+            <Select
+              options={educationOptions}
+              placeholder={t("accountPage.notIndicated") || ""}
+              value={formData.education}
+              name="education"
+              onChange={changeHandler}
+            />
           )}
         </li>
       </ul>

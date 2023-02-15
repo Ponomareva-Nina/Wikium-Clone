@@ -92,6 +92,13 @@
     "commonInfo": "Common information",
     "edit": "Edit",
     "save": "Save",
-    "notIndicated": "No indicated"
+    "notIndicated": "No indicated",
+    "male": "Male",
+    "female": "Female",
+    "initial": "Initial",
+    "average": "Average",
+    "higher": "Higher",
+    "candidateOfSciences": "Candidate of sciences",
+    "doctorDegree": "Doctor degree"
   }
 }

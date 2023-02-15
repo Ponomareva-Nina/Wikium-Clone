@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap");
 
 :root {
- font-size: 10px;
+  font-size: 10px;
 }
 
-@mixin font-main($size: 1.8rem) {
+@mixin font-main($size: 1.6rem) {
   font-family: "Montserrat", sans-serif;
   font-size: $size;
   font-weight: 400;
@@ -67,7 +67,7 @@ h6 {
 
 ul,
 ol {
-	list-style: none;
+  list-style: none;
 }
 
 a {
@@ -115,7 +115,7 @@ main {
   background-color: var(--inactive-bg-color);
   color: var(--font-main-color);
   cursor: auto;
-  pointer-events: none
+  pointer-events: none;
 }
 
 .wrapper {
