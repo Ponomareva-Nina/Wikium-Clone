@@ -7,3 +7,4 @@ export const TIMEOUT_HALF_SECOND = 500;
 export const TIMEOUT_ONE_SECOND = 1000;
 export const NUMBER_ZERO = 0;
 export const NUMBER_ONE = 1;
+export const SCORE_INITIAL_VALUE = 20;

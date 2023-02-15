@@ -10,11 +10,11 @@ interface RulesProps {
 export const RememberOrderRules: FC<PropsWithChildren<RulesProps>> = ({ startGameHandler }) => {
   const { t } = useTranslation();
   return (
-    <>
+    <div className={styles.container}>
       <p className={styles.text}>{t("rememberOrder.rules")}</p>
       <Button type="button" onClick={startGameHandler}>
         {t("gamesData.startGame")}
       </Button>
-    </>
+    </div>
   );
 };

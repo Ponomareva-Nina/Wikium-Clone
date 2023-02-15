@@ -1,29 +1,36 @@
-import { FC, PropsWithChildren } from "react";
+import { FC } from "react";
+import { useTranslation } from "react-i18next";
+import styles from "./GameField.module.scss";
+import { LevelInterface } from "../../data";
+import { Button } from "../../../../components/UI";
+import { Card } from "../Card/Card";
+import { CardInterface } from "../types/types";
 
 interface GameFieldProps {
-  level: number;
-  registerCorrectAnswer: () => void;
-  registerMistake: () => void;
+  gameCards: CardInterface[];
+  level: LevelInterface;
+  flipCards: () => void;
+  handleChoice: (card: CardInterface) => void;
 }
 
-export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
-  level,
-  registerCorrectAnswer,
-  registerMistake,
-}) => {
+export const GameField: FC<GameFieldProps> = ({ gameCards, level, flipCards, handleChoice }) => {
+  const { t } = useTranslation();
+
+  const templateStyle = {
+    gridTemplateColumns: `repeat(${level.arrayWidth}, 1fr)`,
+    gridTemplateRows: `repeat(${level.arrayHeight}, 1fr)`,
+  };
+
   return (
-    <>
-      <div
-        role="textbox"
-        tabIndex={-1}
-        onClick={registerCorrectAnswer}
-        onKeyDown={registerCorrectAnswer}
-      >
-        correct {level}
+    <div className={styles.wrapper}>
+      <div className={styles.cards_container} style={templateStyle}>
+        {gameCards.map((card) => {
+          return <Card key={card.id} clickHandler={handleChoice} card={card} />;
+        })}
       </div>
-      <button type="button" onClick={registerMistake}>
-        mistake
-      </button>
-    </>
+      <Button onClick={flipCards} appearance="neutral">
+        {t("rememberOrder.rememberedBtn")}
+      </Button>
+    </div>
   );
 };

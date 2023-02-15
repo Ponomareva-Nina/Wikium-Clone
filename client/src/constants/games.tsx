@@ -8,6 +8,8 @@ import { GameCategories } from "../interfaces/Categories";
 import SearchIcon from "../assets/images/GamesIcons/search-icon.svg";
 import { RememberOrderGame } from "../games/RememberOrderGame/RememberOrder";
 import LampIcon from "../assets/images/GamesIcons/lamp-icon.svg";
+import schemeIcon from "../assets/images/GamesIcons/scheme-icon.svg";
+import pictureIcon from "../assets/images/GamesIcons/picture-icon.svg";
 import CalcIcon from "../assets/images/LessOrMoreIcons/calc.svg";
 import CircleIcon from "../assets/images/LessOrMoreIcons/circle.svg";
 import EyeIcon from "../assets/images/LessOrMoreIcons/eye.svg";
@@ -49,16 +51,28 @@ export const games: Array<GameInterface> = [
   },
   {
     id: GamesId.SECOND,
-    title: "penaltyGame.title",
+    title: "rememberOrder.title",
     gamePage: RememberOrderGame,
     teaserImg: rememberImg,
     category: GameCategories.MEMORY,
     neurons: INITIAL_NEURONS_NUMBER,
-    description: "penaltyGame.description",
+    description: "rememberOrder.description",
     skills: [
-      { title: "First title", description: "First description", icon: CalcIcon },
-      { title: "Second title", description: "Second description", icon: CircleIcon },
-      { title: "Third title", description: "Third description", icon: EyeIcon },
+      {
+        title: "rememberOrder.memorySkill",
+        description: "rememberOrder.memorySkillDescription",
+        icon: schemeIcon,
+      },
+      {
+        title: "rememberOrder.shortMemorySkill",
+        description: "rememberOrder.shortMemorySkillDescription",
+        icon: pictureIcon,
+      },
+      {
+        title: "rememberOrder.attentionSkill",
+        description: "rememberOrder.attentionSkillDescription",
+        icon: SearchIcon,
+      },
     ],
   },
   {
@@ -70,9 +84,21 @@ export const games: Array<GameInterface> = [
     neurons: INITIAL_NEURONS_NUMBER,
     description: "lessOrMoreGame.description",
     skills: [
-      { title: "First title", description: "First description", icon: CalcIcon },
-      { title: "Second title", description: "Second description", icon: CircleIcon },
-      { title: "Third title", description: "Third description", icon: EyeIcon },
+      {
+        title: "lessOrMoreGame.firstSkillTitle",
+        description: "lessOrMoreGame.firstSkillDescription",
+        icon: CalcIcon,
+      },
+      {
+        title: "lessOrMoreGame.secondSkillTitle",
+        description: "lessOrMoreGame.secondSkillDescription",
+        icon: CircleIcon,
+      },
+      {
+        title: "lessOrMoreGame.thirdSkillTitle",
+        description: "lessOrMoreGame.thirdSkillDescription",
+        icon: EyeIcon,
+      },
     ],
   },
 ];
