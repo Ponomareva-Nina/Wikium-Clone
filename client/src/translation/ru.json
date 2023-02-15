@@ -56,28 +56,12 @@
     "logics" : "Логика и мышление",
     "colorMatch": "Цветовод",
     "lessOrMore": "Логическое сравнение",
-<<<<<<< HEAD
     "rememberOrder": "Запомни порядок",
     "startGame": "Начать игру",
-=======
-    "penalty": "Пенальти",
->>>>>>> feat/game_results
     "skillsTitle": "Тренирует:",
     "time": "Время",
     "level": "Уровень",
     "score": "Очки"
-<<<<<<< HEAD
-  },
-  "gameResults": {
-    "playAgain": "Играть заново",
-    "results": "Ваши результаты",
-    "score": "Текущий результат",
-    "correctAnswers": "Правильных ответов",
-    "from": "из",
-    "accuracy": "Точность ответов",
-    "neurons": "Нейронов создано"
-=======
->>>>>>> feat/game_results
   },
   "footer": {
     "about": "О команде",

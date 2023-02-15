@@ -56,28 +56,12 @@
     "logics" : "Logics and thinking",
     "colorMatch": "Color match",
     "lessOrMore": "Less or More",
-<<<<<<< HEAD
     "rememberOrder": "Remember the order",
     "startGame": "Start game",
-=======
-    "penalty": "Penalty",
->>>>>>> feat/game_results
     "skillsTitle": "Trains:",
     "time": "Time",
     "level": "Level",
     "score": "Score"
-<<<<<<< HEAD
-  },
-  "gameResults": {
-    "playAgain": "Play again",
-    "results": "Your results",
-    "score": "Current score",
-    "correctAnswers": "Correct answers",
-    "from": "from",
-    "accuracy": "Accuracy of answers",
-    "neurons": "Neurons created"
-=======
->>>>>>> feat/game_results
   },
   "footer": {
     "about": "About Team",
