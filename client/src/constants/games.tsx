@@ -71,9 +71,21 @@ export const games: Array<GameInterface> = [
     neurons: INITIAL_NEURONS_NUMBER,
     description: "lessOrMoreGame.description",
     skills: [
-      { title: "First title", description: "First description", icon: CalcIcon },
-      { title: "Second title", description: "Second description", icon: CircleIcon },
-      { title: "Third title", description: "Third description", icon: EyeIcon },
+      {
+        title: "lessOrMoreGame.firstSkillTitle",
+        description: "lessOrMoreGame.firstSkillDescription",
+        icon: CalcIcon,
+      },
+      {
+        title: "lessOrMoreGame.secondSkillTitle",
+        description: "lessOrMoreGame.secondSkillDescription",
+        icon: CircleIcon,
+      },
+      {
+        title: "lessOrMoreGame.thirdSkillTitle",
+        description: "lessOrMoreGame.thirdSkillDescription",
+        icon: EyeIcon,
+      },
     ],
   },
 ];

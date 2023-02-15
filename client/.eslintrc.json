@@ -38,6 +38,7 @@
             "classes": true,
             "variables": true,
             "allowNamedExports": false
-        }]
+        }],
+        "@typescript-eslint/no-unused-vars": "warn"
     }
 }
