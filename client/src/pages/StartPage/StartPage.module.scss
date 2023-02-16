@@ -1,0 +1,8 @@
+.container {
+  min-height: 100vh;
+  background-image: url("../../../src/assets/images/StartPage/bg_start_page.png"), linear-gradient(115deg, var(--accent-color), var(--bg-start-color));;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--accent-color);
+}
