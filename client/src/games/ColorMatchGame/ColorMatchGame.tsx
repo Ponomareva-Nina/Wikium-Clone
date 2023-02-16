@@ -15,15 +15,14 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
     setIsGameStarted((prev) => !prev);
   };
 
+  const handlePlayNext = (): void => {
+    playNext();
+  };
+
   return (
     <div className={cn(styles.container, styles.wrapper)}>
       <div className={cn(styles.game_container)}>
-        <Rules
-          onClick={() => {
-            playNext();
-          }}
-          isGameStarted={isGameStarted}
-        />
+        <Rules onClick={handlePlayNext} isGameStarted={isGameStarted} />
         {isGameStarted && (
           // eslint-disable-next-line react/jsx-no-useless-fragment
           <>
