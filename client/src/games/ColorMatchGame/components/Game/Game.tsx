@@ -30,26 +30,25 @@ export const Game: FC<PropsWithChildren<GameProps>> = ({ setIsGameStarted }) => 
     setIsGameFinished(true);
   };
 
+  const isSetLevelTwo =
+    currentLevel === startLevel && correctAnswersSubsequence === LevelUpValues.TO_LEVEL_TWO;
+
+  const isMidleLevel = currentLevel > startLevel && currentLevel < finishLevel;
+
+  const isSetLevelUp =
+    correctAnswersSubsequence % LevelUpValues.TO_LEVEL_THREE === GameValues.INITIAL_GAME_VALUES &&
+    correctAnswersSubsequence !== GameValues.INITIAL_GAME_VALUES;
+
   const handleCorrectAnswers = (): void => {
     setAnswers(answers + 1);
     setCorrectAnswersSubsequence((prev) => prev + 1);
     setCorrectAnswers(correctAnswers + 1);
     setPoints((prev) => prev + LEVEL[currentLevel - 1].points * currentLevel);
-    if (
-      currentLevel === startLevel &&
-      correctAnswersSubsequence === LevelUpValues.TO_LEVEL_TWO &&
-      correctAnswers
-    ) {
+    if (isSetLevelTwo && correctAnswers) {
       setCurrentLevel((prev) => prev + 1);
       setCorrectAnswersSubsequence(GameValues.INITIAL_GAME_VALUES);
     }
-    if (
-      currentLevel > startLevel &&
-      currentLevel < finishLevel &&
-      correctAnswersSubsequence % LevelUpValues.TO_LEVEL_THREE === GameValues.INITIAL_GAME_VALUES &&
-      correctAnswers &&
-      correctAnswersSubsequence !== GameValues.INITIAL_GAME_VALUES
-    ) {
+    if (isMidleLevel && isSetLevelUp && correctAnswers) {
       setCurrentLevel((prev) => prev + 1);
     }
     if (timer.count === 0) endGame();
@@ -84,36 +83,31 @@ export const Game: FC<PropsWithChildren<GameProps>> = ({ setIsGameStarted }) => 
     timer.reset();
   };
 
-  return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
+  return !isGameFinished ? (
     <>
-      {!isGameFinished ? (
-        <>
-          <GameInfoPanel
-            timer={timer.count}
-            currentLevel={currentLevel}
-            maxLevel={finishLevel}
-            score={points}
-            mistakes={false}
-            bonus={false}
-          />
-          <GameField
-            currentLevel={currentLevel}
-            handleCorrectAnswers={handleCorrectAnswers}
-            handleErrorAnswers={handleErrorAnswers}
-          />
-        </>
-      ) : (
-        <div className={cn(styles.result_container)}>
-          <GameResults
-            correctAnswers={correctAnswers}
-            mistakes={answers - correctAnswers}
-            score={points}
-            neurons={points / LEVEL[currentLevel].pointsOneNeuron}
-            newGameHandler={startNewGame}
-          />
-        </div>
-      )}
+      <GameInfoPanel
+        timer={timer.count}
+        currentLevel={currentLevel}
+        maxLevel={finishLevel}
+        score={points}
+        mistakes={false}
+        bonus={false}
+      />
+      <GameField
+        currentLevel={currentLevel}
+        handleCorrectAnswers={handleCorrectAnswers}
+        handleErrorAnswers={handleErrorAnswers}
+      />
     </>
+  ) : (
+    <div className={cn(styles.result_container)}>
+      <GameResults
+        correctAnswers={correctAnswers}
+        mistakes={answers - correctAnswers}
+        score={points}
+        neurons={points / LEVEL[currentLevel].pointsOneNeuron}
+        newGameHandler={startNewGame}
+      />
+    </div>
   );
 };

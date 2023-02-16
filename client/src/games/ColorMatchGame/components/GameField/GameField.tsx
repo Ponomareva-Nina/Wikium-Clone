@@ -8,6 +8,7 @@ import styles from "./GameField.module.scss";
 import incorrectIcon from "../../images/incorrect-icon.svg";
 import correctIcon from "../../images/correct-icon.svg";
 import { TIMEOUT_HALF_SECOND } from "../../../../constants/constants";
+import { Colors } from "../../data";
 
 interface GameFieldProps {
   currentLevel: number;
@@ -20,10 +21,12 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
   handleCorrectAnswers,
   handleErrorAnswers,
 }) => {
-  const [fieldValue, setFieldValue] = useState(<span />);
-  const [fieldColor, setFieldColor] = useState(<span />);
+  const [fieldValue, setFieldValue] = useState<Colors | null>(null);
+  const [fieldColor, setFieldColor] = useState<Colors | null>(null);
   const [isAlert, setIsAlert] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean>(false);
+  const [randomColor, setRandomColor] = useState<string>(getRandom(currentLevel).color);
+  const [randomWord, setRandomWord] = useState<string>(getRandom(currentLevel).word);
   const { t } = useTranslation();
 
   const toogleAlert = () => {
@@ -31,8 +34,7 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
   };
 
   const toogleCorrectAnswer = (value: boolean) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    value ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false);
+    setIsCorrectAnswer(value);
   };
 
   const showAlert = () => {
@@ -42,33 +44,21 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
     }, TIMEOUT_HALF_SECOND);
   };
 
-  const getWord = (): void => {
+  const getWord = (): { resultValue: Colors; resultColor: Colors } => {
     const resultValue = getRandom(currentLevel);
     const resultColor = getRandom(currentLevel);
     setTimeout(() => {
-      setFieldValue(
-        <span
-          id={resultValue.id.toString()}
-          className={cn(styles.text)}
-          style={{ color: getRandom(currentLevel).color }}
-        >
-          {t(resultValue.word)}
-        </span>
-      );
-      setFieldColor(
-        <span
-          id={resultColor.id.toString()}
-          className={cn(styles.text)}
-          style={{ color: resultColor.color }}
-        >
-          {t(getRandom(currentLevel).word)}
-        </span>
-      );
+      setFieldValue(resultValue);
+      setFieldColor(resultColor);
+      setRandomWord(getRandom(currentLevel).word);
+      setRandomColor(getRandom(currentLevel).color);
     }, TIMEOUT_HALF_SECOND);
+    return { resultValue, resultColor };
   };
 
   const checkAnswer = (buttonValue: boolean) => {
-    const answer = fieldValue.props.id === fieldColor.props.id;
+    let answer = false;
+    if (fieldValue && fieldColor) answer = fieldValue.id === fieldColor.id;
     const userAnswer = answer === buttonValue;
     toogleCorrectAnswer(userAnswer);
     if (handleCorrectAnswers && handleErrorAnswers) {
@@ -97,8 +87,28 @@ export const GameField: FC<PropsWithChildren<GameFieldProps>> = ({
             }}
           />
         )}
-        <Field description={t("colorMatchData.value")}>{fieldValue}</Field>
-        <Field description={t("colorMatchData.color")}>{fieldColor}</Field>
+        {fieldValue && fieldColor && (
+          <>
+            <Field description={t("colorMatchData.value")}>
+              <span
+                id={fieldValue.id.toString()}
+                className={cn(styles.text)}
+                style={{ color: randomColor }}
+              >
+                {t(fieldValue.word)}
+              </span>
+            </Field>
+            <Field description={t("colorMatchData.color")}>
+              <span
+                id={fieldColor.id.toString()}
+                className={cn(styles.text)}
+                style={{ color: fieldColor.color }}
+              >
+                {t(randomWord)}
+              </span>
+            </Field>
+          </>
+        )}
       </div>
       <div className={cn(styles.answer_buttons)}>
         <AnswerButton
