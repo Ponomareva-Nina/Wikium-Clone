@@ -32,7 +32,7 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
                 {img}
               </ScreenSaver>
             ) : (
-              <Game />
+              <Game setIsGameStarted={setIsGameStarted} />
             )}
           </>
         )}

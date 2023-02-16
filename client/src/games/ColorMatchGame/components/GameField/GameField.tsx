@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { AnswerButton } from "../../../../components/UI";
 import { getRandom } from "../../utils/utils";
 import { Field } from "./Field/Field";
-import styles from "./GameFiels.module.scss";
+import styles from "./GameField.module.scss";
 import incorrectIcon from "../../images/incorrect-icon.svg";
 import correctIcon from "../../images/correct-icon.svg";
 import { TIMEOUT_HALF_SECOND } from "../../../../constants/constants";
