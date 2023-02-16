@@ -15,9 +15,10 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({ card, clickHandler, ...
   };
 
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div
       {...rest}
-      role="textbox"
+      role="button"
       tabIndex={-1}
       className={cn(styles.card, {
         [styles.card_active]: card.value && card.matched,
@@ -26,7 +27,6 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({ card, clickHandler, ...
         [styles.card_solved]: card.solved,
       })}
       onClick={handleClick}
-      onKeyDown={() => {}}
     >
       {card.value && (card.matched || card.error) ? card.value : ""}
     </div>
