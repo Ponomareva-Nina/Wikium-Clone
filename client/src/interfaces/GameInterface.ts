@@ -16,3 +16,8 @@ export interface GameInterface {
   description: string;
   skills: Skill[];
 }
+
+export interface GameItem {
+  game: GameInterface;
+  attempts: number;
+}
