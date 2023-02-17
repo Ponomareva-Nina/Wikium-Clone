@@ -19,7 +19,7 @@ export const CategoryChart: FC<CategoryChartProps> = ({ trains }) => {
   const logicsColor = "rgb(245, 166, 35)";
 
   // TO DO: These constants below may identified with help of useState (and might be calculated from trains array)
-  const memory = 40;
+  const memory = 25;
   const concentration = 60;
   const logics = 20;
   const totalNeurons = memory + concentration + logics;

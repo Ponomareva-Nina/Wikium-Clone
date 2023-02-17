@@ -34,7 +34,7 @@ export const AllTrainsChart: FC<AllTrainsChartProps> = ({ trains }) => {
         <span>{t("StatisticsPage.total")}</span> {allTrainsNumber}
       </div>
       <div className={styles.sort}>
-        <p>Сначала популярные</p>
+        <p>{t("StatisticsPage.ascending")}</p>
         <button className={styles.sort__btn} type="button">
           <img src={sortIcon} alt="" />
         </button>
