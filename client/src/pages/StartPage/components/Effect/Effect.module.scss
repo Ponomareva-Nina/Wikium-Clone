@@ -1,0 +1,38 @@
+.section {
+  min-height: 100vh;
+  padding: 7rem 0 9rem;
+}
+
+.effect {
+  background-color: var(--bg-auxiliary-color);
+}
+
+.section_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.effect_description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.start_title {
+  font-size: 3.6rem;
+  text-align: center;
+}
+
+.start_subtitle {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.wrapper {
+    max-width: 110rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+  }

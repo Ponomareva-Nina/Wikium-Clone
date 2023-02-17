@@ -60,6 +60,9 @@
 
 .logo_container {
     align-self: flex-start;
+    @media screen and (max-width: 700px) {
+        align-self: center;
+    }
 }
 
 .central_container {
@@ -74,6 +77,9 @@
 }
 
 .title_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     text-align: center;
 }
 
