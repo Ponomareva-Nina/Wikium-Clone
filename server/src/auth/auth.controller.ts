@@ -61,7 +61,6 @@ export class AuthController {
     response.clearCookie('refreshToken');
   }
 
-  @UseGuards(JwtAuthGuard)
   @HttpCode(200)
   @Get('refresh')
   async refresh(
