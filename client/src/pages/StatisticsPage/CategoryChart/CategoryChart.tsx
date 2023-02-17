@@ -4,6 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 import { useTranslation } from "react-i18next";
 import { GameItem } from "../../../interfaces/GameInterface";
 import styles from "./CategoryChart.module.scss";
+import { CategoryItem } from "./CategoryItem/CategoryItem";
 
 interface CategoryChartProps {
   trains: GameItem[] | null;
@@ -17,10 +18,11 @@ export const CategoryChart: FC<CategoryChartProps> = ({ trains }) => {
   const concentrationColor = "rgb(143, 74, 249)";
   const logicsColor = "rgb(245, 166, 35)";
 
-  // TO DO: These constants below may identified with help of useState
+  // TO DO: These constants below may identified with help of useState (and might be calculated from trains array)
   const memory = 40;
-  const concentration = 20;
+  const concentration = 60;
   const logics = 20;
+  const totalNeurons = memory + concentration + logics;
 
   const data = {
     labels: [],
@@ -42,23 +44,24 @@ export const CategoryChart: FC<CategoryChartProps> = ({ trains }) => {
         <Doughnut className={styles.canvas} data={data} />
       </div>
       <div className={styles.detailed_info}>
-        <ul>
-          <li className={styles.category}>
-            <span className={styles.color_indicator} style={{ backgroundColor: memoryColor }} />
-            {t("gamesData.memory")}
-          </li>
-          <li className={styles.category}>
-            <span
-              className={styles.color_indicator}
-              style={{ backgroundColor: concentrationColor }}
-            />
-            {t("gamesData.concentration")}
-          </li>
-          <li className={styles.category}>
-            <span className={styles.color_indicator} style={{ backgroundColor: logicsColor }} />
-            {t("gamesData.logics")}
-          </li>
-        </ul>
+        <CategoryItem
+          color={memoryColor}
+          title="gamesData.memory"
+          neurons={memory}
+          totalNeuronsNumber={totalNeurons}
+        />
+        <CategoryItem
+          color={concentrationColor}
+          title="gamesData.concentration"
+          neurons={concentration}
+          totalNeuronsNumber={totalNeurons}
+        />
+        <CategoryItem
+          color={logicsColor}
+          title="gamesData.logics"
+          neurons={logics}
+          totalNeuronsNumber={totalNeurons}
+        />
       </div>
     </div>
   );

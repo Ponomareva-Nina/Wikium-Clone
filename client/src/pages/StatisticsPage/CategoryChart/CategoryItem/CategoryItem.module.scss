@@ -1,0 +1,31 @@
+.color_indicator {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--auxiliary-color);
+}
+.category {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.category_top_section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+.progress_bar {
+  width: 100%;
+  height: 1rem;
+  border: 1px solid var(--auxiliary-color);
+  border-radius: 1rem;
+}
+.neurons {
+  align-self: flex-end;
+}
