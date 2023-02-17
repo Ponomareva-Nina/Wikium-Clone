@@ -4,3 +4,4 @@ export const ACCOUNT_ACTIVE_LINK_COLOR = "var(--popup-contrast-color)";
 export const YEAR = 2023;
 export const RS_LINK = "https://rs.school/";
 export const SCORE_INITIAL_VALUE = 20;
+export const NEURONS_ON_LEVEL = 2000;
