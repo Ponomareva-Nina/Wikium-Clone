@@ -1,167 +1,166 @@
 {
-    "startPage": {
-      "effect": "The effect of trainings",
-      "effectSecription": "Our simulators are based on the methods neuropsychologists, which have proven their effectiveness in the course of many experiments and scientific works.",
-      "reactDescription": "to the reaction rate per week",
-      "focusDescription": "to focus on tasks for 1 month",
-      "attentionDescription": "attention to trifles and details in 2 months",
-      "memoryDescription": "to memory in 2-3 weeks",
-      "benefit": "Who can use our trains?",
-      "synapse": "You need to increase the number of synapses",
-      "synapseSubtitle": "Synapse is a point of contact between two neurons",
-      "synapseDescriptionOne": "The number of neurons and synapses, as well as their quality, determine the intellectual potential - the flexibility of the mind, memory, creativity, talent",
-      "synapseDescriptionTwoBold": "Brain train",
-      "synapseDescriptionTwo": " is the process of creating, strengthening or restoring lost neural (synaptic) connections",
-      "synapseDescriptionThree": "The process of creating new neurons in science is called neurogenesis",
-      "synapseScheme": "Diagram of neural connections",
-      "addingNewSynapse": "Receiving new information, as well as special training, form new synapses",
-      "decision": "It is up to you to decide how actively they will be created!"
-    },
-    "menu": {
-      "language": "Change language",
-      "theme": "Change theme"
-    },
-    "authPage": {
-      "title": "Log In",
-      "username": "Email",
-      "password": "Password",
-      "submitBtnText": "Log in",
-      "registerLink": "Register",
-      "newUserText": "New user? ",
-      "registerSugguestionText": " and start training your brain right now."
-    },
-    "registerPage": {
-      "title": "Registration",
-      "username": "Email",
-      "password": "Password",
-      "submitBtnText": "Register",
-      "loginLink": "Log in",
-      "haveAccount": "Already have an account? ",
-      "loginSugguestionText": " and continue training your brain right now."
-    },
-    "gamesPage": {
-      "title": "Games by categories",
-      "concentrationTitle": "Concentration",
-      "memoryTitle": "Memorization",
-      "logicsTitle": "Logics and thinking",
-      "todayGame": "Game of the day",
-      "concentrationDescription": "The ability to stay focused on what is important and not be distracted by extraneous factors.",
-      "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
-      "logicsDescription": "The ability to think logically, analyze, and find consistent patterns.",
-      "time": "Time",
-      "level": "Level",
-      "points": "Points",
-      "bonus": "Bonus"
-    },
-    "navigation": {
-      "program": "Training program",
-      "game": "Brain games",
-      "duel": "Duels",
-      "course": "Courses",
-      "stat": "Stats",
-      "achievement": "Achievements",
-      "account": "Account settings",
-      "logout": "Log out"
-    },
-    "logo": {
-      "title": "Wikium clone",
-      "alt": "Wikium - train brains"
-    },
-    "account": {
-      "avatar": "user photo"
-    },
-    "gamesData": {
-      "concentration": "Concentration",
-      "memory": "Memorization",
-      "logics": "Logics and thinking",
-      "colorMatch": "Color match",
-      "lessOrMore": "Less or More",
-      "rememberOrder": "Remember the order",
-      "startGame": "Start game",
-      "skillsTitle": "Trains:",
-      "time": "Time",
-      "level": "Level",
-      "score": "Score",
-      "bonus": "Bonus",
-      "mistakes": "Mistakes"
-    },
-    "footer": {
-      "about": "About Team",
-      "rsLogoAlt": "Link to RSSchool"
-    },
-    "gameLayout": {
-      "startExercise": "Start exercise",
-      "descriptionTitle": "But in practice?"
-    },
-    "lessOrMoreGame": {
-      "description": "This game helps to develop quick counting skills, improves the speed of analysis and quick decision making.",
-      "title": "Less or More",
-      "firstSkillTitle": "Counting and Boolean Operations",
-      "firstSkillDescription": "Making calculations in your head will be easier",
-      "secondSkillTitle": "Verbal logic",
-      "secondSkillDescription": "It will become easier to navigate texts",
-      "thirdSkillTitle": "Attention",
-      "thirdSkillDescription": "It will make it easier for you to finish what you started",
-      "rules": "You must determine which number is greater and click on the button with the correct answer: «left», «right» or «equal». As you go through, arithmetic expressions will be shown to you. You need to compare them and indicate which one more.",
-      "left": "Left",
-      "right": "Right",
-      "equal": "Equal"
-    },
-    "rememberOrder": {
-      "description": "This simulator is aimed at the formation of memory function. During training, the amount of attention increases and the accuracy and speed of memorization improves; increases the duration of information storage and noise immunity. Such skills can be useful in consciously remembering something in everyday life in a time-limited environment. For example, driving theory, speech for public speaking, remembering the names of strangers during business acquaintances or the necessary information at conferences, etc.",
-      "title": "Remember the order",
-      "memorySkill": "Memory function",
-      "memorySkillDescription": "Eliminate the phrase 'I forgot' from your vocabulary",
-      "shortMemorySkill": "Short-term memorization",
-      "shortMemorySkillDescription": "You can quickly memorize any amount of information",
-      "attentionSkill": "Attention function",
-      "attentionSkillDescription": "Stop making mistakes caused by distraction",
-      "rules": "Remember the numbers and click on them in ascending order",
-      "rememberedBtn": "I remembered"
-    },
-
-    "ColorMatchGame": {
-      "description": "The simulator helps to develop visual thinking and attention. These skills will be useful in sports, work and even in problematic situations, when it is important to keep calm. Training develops creativity, helping to create bright projects.",
-      "title": "Color match",
-      "attentionSkill": "Attention function",
-      "attentionSkillDescription": "Stop making mistakes caused by distraction",
-      "visualPerceptionSkill": "Visual perception",
-      "visualPerceptionSkillDescription": "You can quickly find the main ideas in texts",
-      "creativeThinkSkill": "Visual and imaginative thinking",
-      "creativeThinkSkillDescription": "Can come up with outlandish ideas",
-      "rules": "Does the name of the color on the left card match the color of the text on the right card?"
-    },
-    "colorMatchData": {
-      "red": "Red",
-      "blue": "Blue",
-      "green": "Green",
-      "black": "Black",
-      "orange": "Orange",
-      "color": "Color",
-      "value": "Value"
-    },
-    "answerBurrons": {
-      "yes": "Yes",
-      "no": "No"
-    },
-    "infoPanel": {
-      "time": "time",
-      "level": "level",
-      "score": "score"
-    },
-    "gameResults": {
-      "playAgain": "Play again",
-      "results": "Your results",
-      "score": "Current score",
-      "correctAnswers": "Correct answers",
-      "from": "from",
-      "accuracy": "Accuracy of answers",
-      "neurons": "Neurons created"
-    },
-    "header": {
-      "title": "Train your brain with pleasure",
-      "description": "Develop memory, attention and thinking with our simulators",
-      "start": "Start train",
-      "haveAccount": "I already have an account"
-    }
+  "startPage": {
+    "effect": "The effect of trainings",
+    "effectSecription": "Our simulators are based on the methods neuropsychologists, which have proven their effectiveness in the course of many experiments and scientific works.",
+    "reactDescription": "to the reaction rate per week",
+    "focusDescription": "to focus on tasks for 1 month",
+    "attentionDescription": "attention to trifles and details in 2 months",
+    "memoryDescription": "to memory in 2-3 weeks",
+    "benefit": "Who can use our trains?",
+    "synapse": "You need to increase the number of synapses",
+    "synapseSubtitle": "Synapse is a point of contact between two neurons",
+    "synapseDescriptionOne": "The number of neurons and synapses, as well as their quality, determine the intellectual potential - the flexibility of the mind, memory, creativity, talent",
+    "synapseDescriptionTwoBold": "Brain train",
+    "synapseDescriptionTwo": " is the process of creating, strengthening or restoring lost neural (synaptic) connections",
+    "synapseDescriptionThree": "The process of creating new neurons in science is called neurogenesis",
+    "synapseScheme": "Diagram of neural connections",
+    "addingNewSynapse": "Receiving new information, as well as special training, form new synapses",
+    "decision": "It is up to you to decide how actively they will be created!"
+  },
+  "menu": {
+    "language": "Change language",
+    "theme": "Change theme"
+  },
+  "authPage": {
+    "title": "Log In",
+    "username": "Email",
+    "password": "Password",
+    "submitBtnText": "Log in",
+    "registerLink": "Register",
+    "newUserText": "New user? ",
+    "registerSugguestionText": " and start training your brain right now."
+  },
+  "registerPage": {
+    "title": "Registration",
+    "username": "Email",
+    "password": "Password",
+    "submitBtnText": "Register",
+    "loginLink": "Log in",
+    "haveAccount": "Already have an account? ",
+    "loginSugguestionText": " and continue training your brain right now."
+  },
+  "gamesPage": {
+    "title": "Games by categories",
+    "concentrationTitle": "Concentration",
+    "memoryTitle": "Memorization",
+    "logicsTitle": "Logics and thinking",
+    "todayGame": "Game of the day",
+    "concentrationDescription": "The ability to stay focused on what is important and not be distracted by extraneous factors.",
+    "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
+    "logicsDescription": "The ability to think logically, analyze, and find consistent patterns.",
+    "time": "Time",
+    "level": "Level",
+    "points": "Points",
+    "bonus": "Bonus"
+  },
+  "navigation": {
+    "program": "Training program",
+    "game": "Brain games",
+    "duel": "Duels",
+    "course": "Courses",
+    "stat": "Stats",
+    "achievement": "Achievements",
+    "account": "Account settings",
+    "logout": "Log out"
+  },
+  "logo": {
+    "title": "Wikium clone",
+    "alt": "Wikium - train brains"
+  },
+  "account": {
+    "avatar": "user photo"
+  },
+  "gamesData": {
+    "concentration": "Concentration",
+    "memory": "Memorization",
+    "logics": "Logics and thinking",
+    "colorMatch": "Color match",
+    "lessOrMore": "Less or More",
+    "rememberOrder": "Remember the order",
+    "startGame": "Start game",
+    "skillsTitle": "Trains:",
+    "time": "Time",
+    "level": "Level",
+    "score": "Score",
+    "bonus": "Bonus",
+    "mistakes": "Mistakes"
+  },
+  "footer": {
+    "about": "About Team",
+    "rsLogoAlt": "Link to RSSchool"
+  },
+  "gameLayout": {
+    "startExercise": "Start exercise",
+    "descriptionTitle": "But in practice?"
+  },
+  "lessOrMoreGame": {
+    "description": "This game helps to develop quick counting skills, improves the speed of analysis and quick decision making.",
+    "title": "Less or More",
+    "firstSkillTitle": "Counting and Boolean Operations",
+    "firstSkillDescription": "Making calculations in your head will be easier",
+    "secondSkillTitle": "Verbal logic",
+    "secondSkillDescription": "It will become easier to navigate texts",
+    "thirdSkillTitle": "Attention",
+    "thirdSkillDescription": "It will make it easier for you to finish what you started",
+    "rules": "You must determine which number is greater and click on the button with the correct answer: «left», «right» or «equal». As you go through, arithmetic expressions will be shown to you. You need to compare them and indicate which one more.",
+    "left": "Left",
+    "right": "Right",
+    "equal": "Equal"
+  },
+  "rememberOrder": {
+    "description": "This simulator is aimed at the formation of memory function. During training, the amount of attention increases and the accuracy and speed of memorization improves; increases the duration of information storage and noise immunity. Such skills can be useful in consciously remembering something in everyday life in a time-limited environment. For example, driving theory, speech for public speaking, remembering the names of strangers during business acquaintances or the necessary information at conferences, etc.",
+    "title": "Remember the order",
+    "memorySkill": "Memory function",
+    "memorySkillDescription": "Eliminate the phrase 'I forgot' from your vocabulary",
+    "shortMemorySkill": "Short-term memorization",
+    "shortMemorySkillDescription": "You can quickly memorize any amount of information",
+    "attentionSkill": "Attention function",
+    "attentionSkillDescription": "Stop making mistakes caused by distraction",
+    "rules": "Remember the numbers and click on them in ascending order",
+    "rememberedBtn": "I remembered"
+  },
+  "ColorMatchGame": {
+    "description": "The simulator helps to develop visual thinking and attention. These skills will be useful in sports, work and even in problematic situations, when it is important to keep calm. Training develops creativity, helping to create bright projects.",
+    "title": "Color match",
+    "attentionSkill": "Attention function",
+    "attentionSkillDescription": "Stop making mistakes caused by distraction",
+    "visualPerceptionSkill": "Visual perception",
+    "visualPerceptionSkillDescription": "You can quickly find the main ideas in texts",
+    "creativeThinkSkill": "Visual and imaginative thinking",
+    "creativeThinkSkillDescription": "Can come up with outlandish ideas",
+    "rules": "Does the name of the color on the left card match the color of the text on the right card?"
+  },
+  "colorMatchData": {
+    "red": "Red",
+    "blue": "Blue",
+    "green": "Green",
+    "black": "Black",
+    "orange": "Orange",
+    "color": "Color",
+    "value": "Value"
+  },
+  "answerBurrons": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "infoPanel": {
+    "time": "time",
+    "level": "level",
+    "score": "score"
+  },
+  "gameResults": {
+    "playAgain": "Play again",
+    "results": "Your results",
+    "score": "Current score",
+    "correctAnswers": "Correct answers",
+    "from": "from",
+    "accuracy": "Accuracy of answers",
+    "neurons": "Neurons created"
+  },
+  "header": {
+    "title": "Train your brain with pleasure",
+    "description": "Develop memory, attention and thinking with our simulators",
+    "start": "Start train",
+    "haveAccount": "I already have an account"
+  }
 }
