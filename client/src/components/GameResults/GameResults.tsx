@@ -45,7 +45,7 @@ export const GameResults: FC<GameResultsProps> = ({
       value: `${((correctAnswers / totalAnswers) * 100).toFixed(2)}%`,
     },
     {
-      title: "gameResults.neurons",
+      title: "gameResults.neuronsCreated",
       value: neurons,
     },
   ];
@@ -64,7 +64,7 @@ export const GameResults: FC<GameResultsProps> = ({
         label: "Neurons",
         data: [currentLevelNeurons, neuronsToTheNextLevel],
         backgroundColor: ["rgba(96, 57, 170, 1)", "rgba(222, 222, 222, 1)"],
-        borderColor: ["#333333"],
+        borderColor: ["#9e9e9e"],
         borderWidth: 1,
         cutout: "90%",
       },
@@ -89,9 +89,11 @@ export const GameResults: FC<GameResultsProps> = ({
         <div className={styles.chart}>
           <Doughnut className={styles.canvas} data={data} />
           <div className={styles.chart__info}>
-            <span>{level} уровень</span>
+            <span className={styles.level}>
+              {level} {t("gameResults.level")}
+            </span>
             <span>
-              {userNeurons} из {maxNeuronsOnLevel} нейронов
+              {userNeurons} {t("gameResults.from")} {maxNeuronsOnLevel} {t("gameResults.neurons")}
             </span>
           </div>
         </div>

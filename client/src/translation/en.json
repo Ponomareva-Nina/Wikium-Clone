@@ -114,6 +114,8 @@
     "correctAnswers": "Correct answers",
     "from": "from",
     "accuracy": "Accuracy of answers",
-    "neurons": "Neurons created"
+    "neuronsCreated": "Neurons created",
+    "level": "level",
+    "neurons": "neurons"
   }
 }
