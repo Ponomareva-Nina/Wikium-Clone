@@ -29,10 +29,13 @@
     "concentrationTitle": "Concentration",
     "memoryTitle": "Memorization",
     "logicsTitle": "Logics and thinking",
-    "todayGame": "Game of the day",
-    "concentrationDescription": "The ability to stay focused on what is important and not be distracted by extraneous factors.",
+    "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
     "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
-    "logicsDescription": "The ability to think logically, analyze, and find consistent patterns."
+    "logicsDescription": "The ability to think logically, analyze, and find consistent patterns.",
+    "time": "Time",
+    "level": "Level",
+    "points": "Points",
+    "bonus": "Bonus"
   },
   "navigation": {
     "program": "Training program",
@@ -54,11 +57,17 @@
   "gamesData": {
     "concentration": "Concentration",
     "memory": "Memorization",
-    "logics": "Logics and thinking",
+    "logics" : "Logics and thinking",
     "colorMatch": "Color match",
     "lessOrMore": "Less or More",
-    "penalty": "Penalty",
-    "skillsTitle": "Train:"
+    "rememberOrder": "Remember the order",
+    "startGame": "Start game",
+    "skillsTitle": "Trains:",
+    "time": "Time",
+    "level": "Level",
+    "score": "Score",
+    "bonus": "Bonus",
+    "mistakes": "Mistakes"
   },
   "footer": {
     "about": "About Team",
@@ -70,11 +79,29 @@
   },
   "lessOrMoreGame": {
     "description": "This game helps to develop quick counting skills, improves the speed of analysis and quick decision making.",
-    "title": "Less or More"
+    "title": "Less or More",
+    "firstSkillTitle": "Counting and Boolean Operations",
+    "firstSkillDescription": "Making calculations in your head will be easier",
+    "secondSkillTitle": "Verbal logic",
+    "secondSkillDescription": "It will become easier to navigate texts",
+    "thirdSkillTitle": "Attention",
+    "thirdSkillDescription": "It will make it easier for you to finish what you started",
+    "rules": "You must determine which number is greater and click on the button with the correct answer: «left», «right» or «equal». As you go through, arithmetic expressions will be shown to you. You need to compare them and indicate which one more.",
+    "left": "Left",
+    "right": "Right",
+    "equal": "Equal"
   },
-  "penaltyGame": {
-    "description": "to do description",
-    "title": "Penalty"
+  "rememberOrder": {
+    "description": "This simulator is aimed at the formation of memory function. During training, the amount of attention increases and the accuracy and speed of memorization improves; increases the duration of information storage and noise immunity. Such skills can be useful in consciously remembering something in everyday life in a time-limited environment. For example, driving theory, speech for public speaking, remembering the names of strangers during business acquaintances or the necessary information at conferences, etc.",
+    "title": "Remember the order",
+    "memorySkill": "Memory function",
+    "memorySkillDescription": "Eliminate the phrase 'I forgot' from your vocabulary",
+    "shortMemorySkill": "Short-term memorization",
+    "shortMemorySkillDescription": "You can quickly memorize any amount of information",
+    "attentionSkill": "Attention function",
+    "attentionSkillDescription": "Stop making mistakes caused by distraction",
+    "rules": "Remember the numbers and click on them in ascending order",
+    "rememberedBtn": "I remembered"
   },
   "colorMatchGame": {
     "description": "to do description",
@@ -104,5 +131,14 @@
     "newPassword": "New password",
     "password": "Password",
     "newPasswordRepeat": "New password repeat"
+   },
+  "gameResults": {
+    "playAgain": "Play again",
+    "results": "Your results",
+    "score": "Current score",
+    "correctAnswers": "Correct answers",
+    "from": "from",
+    "accuracy": "Accuracy of answers",
+    "neurons": "Neurons created"
   }
 }

@@ -3,13 +3,19 @@
   white-space: nowrap;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
-  text-transform: capitalize;
   border: 2px solid var(--bg-btn-color);
   min-width: fit-content;
-  background: transparent;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1.4rem;
+  text-transform: capitalize;
+  transition: all .3s ease;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 3px 0px var(--popup-shadow-color);
+  }
 }
 
 .standart {
@@ -40,4 +46,10 @@
 .ghost {
   border: none;
   color: var(--accent-color);
+}
+.neutral {
+  background-color: var(--bg-neutral);
+  text-transform: none;
+  color: var(--font-main-color);
+  border: 1px solid var(--auxiliary-color);
 }

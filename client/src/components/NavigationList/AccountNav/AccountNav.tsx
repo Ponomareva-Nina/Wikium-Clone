@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren, useState } from "react";
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import { NavigationItem } from "../NavigationItem/NavigationItem";
@@ -6,26 +6,34 @@ import styles from "./AccountNav.module.scss";
 import { LANGUAGES } from "../../../translation/types";
 import { Button } from "../../UI/Button/Button";
 import { THEME } from "../../UserMenu/types";
+import sunIcon from "../../../assets/images/Menu/sun.svg";
+import moonIcon from "../../../assets/images/Menu/moon.svg";
 
 const root = document.querySelector(":root") as HTMLElement;
+const currentTheme = localStorage.getItem("theme") || THEME.LIGHT;
+root.className = currentTheme;
 
 interface AccountNavProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   isOpenAccPopup?: boolean;
   onClick?: () => void;
 }
 
-const setThemeLight = () => {
-  localStorage.setItem("theme", THEME.LIGHT);
-  root.className = THEME.LIGHT;
-};
-
-const setThemeDark = () => {
-  localStorage.setItem("theme", THEME.DARK);
-  root.className = THEME.DARK;
-};
-
 export const AccountNav: FC<PropsWithChildren<AccountNavProps>> = ({ onClick, isOpenAccPopup }) => {
   const { t, i18n } = useTranslation();
+  const [activeThemeBtn, setActiveThemeBtn] = useState(currentTheme || THEME.LIGHT);
+
+  const setThemeLight = () => {
+    localStorage.setItem("theme", THEME.LIGHT);
+    root.className = THEME.LIGHT;
+    setActiveThemeBtn(THEME.LIGHT);
+  };
+
+  const setThemeDark = () => {
+    localStorage.setItem("theme", THEME.DARK);
+    root.className = THEME.DARK;
+    setActiveThemeBtn(THEME.DARK);
+  };
+
   return (
     <div className={cn(styles.container)}>
       <NavigationItem to="/account" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
@@ -52,11 +60,19 @@ export const AccountNav: FC<PropsWithChildren<AccountNavProps>> = ({ onClick, is
 
       <div className={styles.item}>
         <p className={cn(styles.btn_description)}>{t("menu.theme")}:</p>
-        <Button btnSize="standart" onClick={setThemeLight}>
-          {THEME.LIGHT}
+        <Button
+          appearance={activeThemeBtn === THEME.LIGHT ? "normal" : "inactive"}
+          btnSize="small"
+          onClick={setThemeLight}
+        >
+          <img src={sunIcon} alt={THEME.DARK} />
         </Button>
-        <Button btnSize="standart" onClick={setThemeDark}>
-          {THEME.DARK}
+        <Button
+          btnSize="small"
+          appearance={activeThemeBtn === THEME.DARK ? "normal" : "inactive"}
+          onClick={setThemeDark}
+        >
+          <img src={moonIcon} alt={THEME.DARK} />
         </Button>
       </div>
 
