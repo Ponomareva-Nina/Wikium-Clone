@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from "react";
 import styles from "./AllTrainsChart.module.scss";
 import sortIcon from "../../../assets/images/Statistics/sort-icon.svg";
 import { GameItem } from "../../../interfaces/GameInterface";
+import { TrainItem } from "./TrainItem/TrainItem";
 
 interface AllTrainsChartProps {
   trains: GameItem[] | null;
@@ -36,7 +37,11 @@ export const AllTrainsChart: FC<AllTrainsChartProps> = ({ trains }) => {
           <img src={sortIcon} alt="" />
         </button>
       </div>
-      <div className={styles.games_list}>items</div>
+      <div className={styles.games_list}>
+        {trains?.map((train) => {
+          return <TrainItem key={train.game.id} train={train} />;
+        })}
+      </div>
     </>
   );
 };

@@ -12,6 +12,9 @@ import { RememberOrderGame } from "../games/RememberOrderGame/RememberOrder";
 import CalcIcon from "../assets/images/LessOrMoreIcons/calc.svg";
 import CircleIcon from "../assets/images/LessOrMoreIcons/circle.svg";
 import EyeIcon from "../assets/images/LessOrMoreIcons/eye.svg";
+import colorMatchIcon from "../assets/images/GamesIcons/color-match-icon.svg";
+import lessOrMoreIcon from "../assets/images/GamesIcons/more-and-less-icon.svg";
+import rememberOrderIcon from "../assets/images/GamesIcons/remember-order-icon.svg";
 
 export const enum GamesId {
   FIRST,
@@ -30,6 +33,7 @@ export const games: Array<GameInterface> = [
     category: GameCategories.CONCENTRATION,
     neurons: INITIAL_NEURONS_NUMBER,
     description: "colorMatchGame.description",
+    gameIcon: colorMatchIcon,
     skills: [
       { title: "First title", description: "First description", icon: CalcIcon },
       { title: "Second title", description: "Second description", icon: CircleIcon },
@@ -44,6 +48,7 @@ export const games: Array<GameInterface> = [
     category: GameCategories.MEMORY,
     neurons: INITIAL_NEURONS_NUMBER,
     description: "rememberOrder.description",
+    gameIcon: rememberOrderIcon,
     skills: [
       {
         title: "rememberOrder.memorySkill",
@@ -70,6 +75,7 @@ export const games: Array<GameInterface> = [
     category: GameCategories.LOGICS,
     neurons: INITIAL_NEURONS_NUMBER,
     description: "lessOrMoreGame.description",
+    gameIcon: lessOrMoreIcon,
     skills: [
       {
         title: "lessOrMoreGame.firstSkillTitle",
