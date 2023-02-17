@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Input, Select } from "../../UI";
 import { Option } from "../../UI/Select/Select";
@@ -54,9 +54,12 @@ export const CommonInfo = () => {
   const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
 
   return (
-    <div className={styles.wrapper}>
+    <form onSubmit={submitHandler} className={styles.wrapper}>
       <div className={styles.head}>
         <h2>{t("accountPage.commonInfo")}</h2>
         <Button onClick={editOrSaveHandler} appearance="ghost">
@@ -117,6 +120,6 @@ export const CommonInfo = () => {
           )}
         </li>
       </ul>
-    </div>
+    </form>
   );
 };

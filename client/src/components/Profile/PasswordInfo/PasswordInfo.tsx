@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Input } from "../../UI";
 import styles from "./PasswordInfo.module.scss";
@@ -23,14 +23,20 @@ export const PasswordInfo = () => {
       setIsEdit((prev) => !prev);
       return;
     }
+    // TODO save information logic
     setIsEdit((prev) => !prev);
   };
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className={styles.wrapper}>
+    <form onSubmit={submitHandler} className={styles.wrapper}>
       <div className={styles.head}>
         <h2>{t("accountPage.password")}</h2>
         <Button onClick={editOrSaveHandler} appearance="ghost">
@@ -59,6 +65,6 @@ export const PasswordInfo = () => {
           </>
         )}
       </ul>
-    </div>
+    </form>
   );
 };
