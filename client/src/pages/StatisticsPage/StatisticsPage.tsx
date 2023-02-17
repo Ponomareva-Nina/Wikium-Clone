@@ -1,14 +1,17 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
+import cn from "classnames";
 import styles from "./StatisticsPage.module.scss";
 import { games } from "../../constants/games";
 import { Statistics } from "../../interfaces/Statistics";
 import { AllTrainsChart } from "./AllTrainsChart/AllTrainsChart";
 import { GameItem } from "../../interfaces/GameInterface";
+import { CategoryChart } from "./CategoryChart/CategoryChart";
 
 export const StatisticsPage = () => {
   const { t } = useTranslation();
-  // TO DO: Get data from server (Statistics[{ gameId; category; date; neurons]) instead of statistics below
+  // TO DO: Get data from server (Statistics[{ gameId; category; date; neurons]) instead of userNeuronsTotalNumber and statistics below
+
   const statistics: Statistics = [
     {
       gameId: 1,
@@ -56,7 +59,20 @@ export const StatisticsPage = () => {
   }, [statisticsData]);
 
   return (
-    <div className="wrapper">
+    <div className={cn("wrapper", styles.container)}>
+      <div className={styles.period_bar}>
+        <p className={styles.title}>{t("StatisticsPage.progress")}</p>
+        <ul className={styles.periods}>
+          <li className={styles.period_active}>{t("StatisticsPage.day")}</li>
+          <li className={styles.period}>{t("StatisticsPage.week")}</li>
+          <li className={styles.period}>{t("StatisticsPage.month")}</li>
+        </ul>
+      </div>
+
+      <div className={styles.chart}>
+        <CategoryChart trains={trainsForPeriod} />
+      </div>
+
       <div className={styles.chart}>
         <AllTrainsChart trains={trainsForPeriod} />
       </div>

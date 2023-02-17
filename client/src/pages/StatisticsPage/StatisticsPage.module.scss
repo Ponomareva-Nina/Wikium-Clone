@@ -1,7 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 .chart {
   padding: 2rem;
   background-color: var(--bg-popup-color);
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+.period_bar {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.title {
+  font-weight: bold;
+}
+.periods {
+  display: flex;
+  gap: 2rem;
+}
+.period {
+  color: var(--auxiliary-color);
+  &:hover {
+    cursor: pointer;
+    color: var(--font-main-color);
+  }
+}
+.period_active {
+  color: var(--font-main-color);
+  border-bottom: 2px solid var(--accent-color);
+  pointer-events: none;
 }
