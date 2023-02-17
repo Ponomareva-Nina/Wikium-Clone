@@ -10,15 +10,20 @@ import { BREAKPOINT } from "../../constants/constants";
 interface UserMenuProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   isOpenAccPopup?: boolean;
   onClick?: () => void;
+  logoutHandler?: () => void;
 }
 
-export const UserMenu: FC<PropsWithChildren<UserMenuProps>> = ({ isOpenAccPopup, onClick }) => {
+export const UserMenu: FC<PropsWithChildren<UserMenuProps>> = ({
+  isOpenAccPopup,
+  onClick,
+  logoutHandler,
+}) => {
   const { width } = useViewport();
 
   return (
     <div className={isOpenAccPopup ? styles.container__open : styles.container}>
       {width <= BREAKPOINT && <NavigationList onClick={onClick} isOpenAccPopup={isOpenAccPopup} />}
-      <AccountNav onClick={onClick} isOpenAccPopup={isOpenAccPopup} />
+      <AccountNav logoutHandler={logoutHandler} onClick={onClick} isOpenAccPopup={isOpenAccPopup} />
     </div>
   );
 };

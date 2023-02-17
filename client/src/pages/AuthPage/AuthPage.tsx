@@ -4,19 +4,29 @@ import { Link } from "react-router-dom";
 import { Button, Input } from "../../components/UI";
 import { Form } from "../../components";
 import { inputHandler } from "../../utils/inputHandler";
+import { useActions } from "../../store/redux-hooks";
 
 export const AuthPage = () => {
   const { t } = useTranslation();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useActions();
+
+  const submitFormHandler = (): void => {
+    const data = {
+      email,
+      password,
+    };
+    login(data);
+  };
 
   return (
-    <Form title={t("authPage.title") || ""} appearance="fit-width">
+    <Form formHandler={submitFormHandler} title={t("authPage.title") || ""} appearance="fit-width">
       <Input
         type="email"
-        value={username}
+        value={email}
         required
-        onChange={(e) => inputHandler(e, setUsername)}
+        onChange={(e) => inputHandler(e, setEmail)}
         autoComplete="on"
         placeholder={t("authPage.username") || ""}
       />
