@@ -4,8 +4,8 @@ import styles from "./Button.module.scss";
 
 interface ButtonProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  btnSize?: "small" | "standart" | "large";
-  appearance?: "normal" | "inactive" | "neutral";
+  btnSize?: "small" | "standart" | "large" | "huge";
+  appearance?: "normal" | "inactive" | "neutral" | "initial";
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({
