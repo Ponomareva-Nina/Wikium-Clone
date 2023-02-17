@@ -15,7 +15,7 @@ import arrow from "../../assets/images/StartPage/arrow-down.svg";
 export const Header: FC<PropsWithChildren> = () => {
   // TODO: add function to check if user login
 
-  const [isAuth, setIsAuth] = useState<boolean>(false);
+  const [isAuth, setIsAuth] = useState<boolean>(true);
   const { t } = useTranslation();
   const { width } = useViewport();
 

@@ -44,7 +44,6 @@
     "concentrationTitle": "Concentration",
     "memoryTitle": "Memorization",
     "logicsTitle": "Logics and thinking",
-    "todayGame": "Game of the day",
     "concentrationDescription": "The ability to stay focused on what is important and not be distracted by extraneous factors.",
     "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
     "logicsDescription": "The ability to think logically, analyze, and find consistent patterns.",
@@ -148,6 +147,31 @@
     "level": "level",
     "score": "score"
   },
+  "accountPage": {
+    "levelInfoDesc": "Dial [number] neurons to go to the next level",
+    "level": "Level",
+    "neurons": "Neurons",
+    "name": "Name",
+    "surname": "Surname",
+    "gender": "Gender",
+    "birthday": "Birthday",
+    "education": "Education",
+    "commonInfo": "Common information",
+    "edit": "Edit",
+    "save": "Save",
+    "notIndicated": "No indicated",
+    "male": "Male",
+    "female": "Female",
+    "initial": "Initial",
+    "average": "Average",
+    "higher": "Higher",
+    "candidateOfSciences": "Candidate of sciences",
+    "doctorDegree": "Doctor degree",
+    "download": "Download",
+    "newPassword": "New password",
+    "password": "Password",
+    "newPasswordRepeat": "New password repeat"
+   },
   "gameResults": {
     "playAgain": "Play again",
     "results": "Your results",
@@ -155,7 +179,9 @@
     "correctAnswers": "Correct answers",
     "from": "from",
     "accuracy": "Accuracy of answers",
-    "neurons": "Neurons created"
+    "neuronsCreated": "Neurons created",
+    "level": "level",
+    "neurons": "neurons"
   },
   "header": {
     "title": "Train your brain with pleasure",
