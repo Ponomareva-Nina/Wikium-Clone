@@ -29,11 +29,13 @@ export const AllTrainsChart: FC<AllTrainsChartProps> = ({ trains }) => {
 
   return (
     <>
-      <div>{t("StatisticsPage.allTrains")}</div>
-      <div>{allTrainsNumber}</div>
-      <div>
+      <div className={styles.title}>{t("StatisticsPage.allTrains")}</div>
+      <div className={styles.trains_number}>
+        <span>{t("StatisticsPage.total")}</span> {allTrainsNumber}
+      </div>
+      <div className={styles.sort}>
         <p>Сначала популярные</p>
-        <button className={styles.sort_btn} type="button">
+        <button className={styles.sort__btn} type="button">
           <img src={sortIcon} alt="" />
         </button>
       </div>

@@ -1,4 +1,11 @@
-.sort_btn {
+.sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.sort__btn {
   outline: none;
   width: 3rem;
   height: 3rem;
@@ -7,4 +14,29 @@
   align-items: center;
   background: #e5e5e5;
   border-radius: 50%;
+}
+
+.games_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.trains_number {
+  & span {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--auxiliary-color);
+    line-height: 100%;
+  }
+  display: flex;
+  flex-direction: column;
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 110%;
 }

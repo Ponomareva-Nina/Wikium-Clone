@@ -1,3 +1,7 @@
 .chart {
+  padding: 2rem;
   background-color: var(--bg-popup-color);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
