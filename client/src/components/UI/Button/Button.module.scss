@@ -1,7 +1,7 @@
 .btn {
   transition: 0.2s;
   white-space: nowrap;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 1rem;
   border: 2px solid var(--bg-btn-color);
   min-width: fit-content;
@@ -19,7 +19,7 @@
 }
 
 .standart {
-  width: 12rem
+  width: 12rem;
 }
 
 .small {
@@ -43,6 +43,10 @@
   color: var(--auxiliary-color);
 }
 
+.ghost {
+  border: none;
+  color: var(--accent-color);
+}
 .neutral {
   background-color: var(--bg-neutral);
   text-transform: none;
