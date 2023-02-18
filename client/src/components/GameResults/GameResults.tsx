@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../UI";
 import { ResultItem } from "./ResultItem.tsx/ResultItem";
 import styles from "./GameResults.module.scss";
+import { NeuronsChart } from "./ResultItem.tsx/NeuronsChart/NeuronsChart";
 
 interface GameResultsProps {
   correctAnswers: number;
@@ -40,24 +41,30 @@ export const GameResults: FC<GameResultsProps> = ({
       value: `${((correctAnswers / totalAnswers) * 100).toFixed(2)}%`,
     },
     {
-      title: "gameResults.neurons",
+      title: "gameResults.neuronsCreated",
       value: neurons,
     },
   ];
+
+  // TO DO: Get number of neurons gained by user from server and save it to userNeurons instead of random number below:
+  const userNeurons = 3228;
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>{t("gameResults.results")}</div>
       <div className={styles.info}>
-        {results.map((result) => {
-          return (
-            <ResultItem
-              key={result.title}
-              resultTitle={t(result.title)}
-              resultValue={result.value}
-            />
-          );
-        })}
+        <div className={styles.list}>
+          {results.map((result) => {
+            return (
+              <ResultItem
+                key={result.title}
+                resultTitle={t(result.title)}
+                resultValue={result.value}
+              />
+            );
+          })}
+        </div>
+        <NeuronsChart userNeurons={userNeurons} />
       </div>
       <Button onClick={newGameHandler}>{t("gameResults.playAgain")}</Button>
     </div>

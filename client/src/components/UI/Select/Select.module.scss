@@ -1,0 +1,13 @@
+.select {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--input-bg-color);
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  border: none;
+}
+
+.error,
+input:invalid {
+  border: 1px solid var(--error-color);
+}

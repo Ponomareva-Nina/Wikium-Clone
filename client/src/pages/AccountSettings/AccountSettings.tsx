@@ -1,3 +1,11 @@
+import cn from "classnames";
+import { Profile } from "../../components/Profile/Profile";
+import styles from "./AccountSettings.module.scss";
+
 export const AccountSettings = () => {
-  return <h1>Account Page</h1>;
+  return (
+    <div className={cn("wrapper", styles.containers)}>
+      <Profile />
+    </div>
+  );
 };
