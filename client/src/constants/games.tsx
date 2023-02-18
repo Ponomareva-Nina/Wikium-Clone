@@ -33,7 +33,7 @@ export const games: Array<GameInterface> = [
     teaserImg: colorMatchImg,
     category: GameCategories.CONCENTRATION,
     neurons: INITIAL_NEURONS_NUMBER,
-    description: "colorMatchGame.description",
+    description: "ColorMatchGame.description",
     gameIcon: colorMatchIcon,
     skills: [
       {
