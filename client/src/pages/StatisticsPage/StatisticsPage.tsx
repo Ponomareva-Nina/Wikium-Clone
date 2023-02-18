@@ -26,8 +26,8 @@ export const StatisticsPage = () => {
       neurons: 180,
     },
     {
-      gameId: 1,
-      category: "memory",
+      gameId: 2,
+      category: "logics",
       date: new Date(),
       neurons: 120,
     },

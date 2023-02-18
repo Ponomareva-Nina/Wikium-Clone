@@ -41,7 +41,10 @@ export const AllTrainsChart: FC<AllTrainsChartProps> = ({ trains }) => {
       </div>
       <div className={styles.games_list}>
         {trains?.map((train) => {
-          return <TrainItem key={train.game.id} train={train} />;
+          if (train.attempts > 0) {
+            return <TrainItem key={train.game.id} train={train} />;
+          }
+          return null;
         })}
       </div>
     </>
