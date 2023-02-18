@@ -11,7 +11,7 @@ import { BREAKPOINT } from "../../constants/constants";
 import { useAppSelector } from "../../store/redux-hooks";
 
 export const Header: FC<PropsWithChildren> = () => {
-  const { entity: user } = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.entity);
   const navigate = useNavigate();
 
   const { width } = useViewport();

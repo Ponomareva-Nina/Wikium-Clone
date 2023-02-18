@@ -12,7 +12,7 @@ import {
 import { useTranslation } from "react-i18next";
 import noneAvatar from "../../../assets/images/Avatar/none_avatar.svg";
 import { User } from "../../../interfaces/User";
-import { useActions, useAppSelector } from "../../../store/redux-hooks";
+import { useActions } from "../../../store/redux-hooks";
 import { UserMenu } from "../UserMenu";
 import styles from "./Account.module.scss";
 

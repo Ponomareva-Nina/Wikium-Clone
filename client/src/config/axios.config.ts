@@ -40,10 +40,11 @@ authAxiosInstance.interceptors.response.use(
       if (
         error.response.status === 401 &&
         error.config !== undefined &&
-        error.config_isRetry !== true
+        error.config._isRetry !== true
       ) {
         // eslint-disable-next-line no-underscore-dangle
         originalRequest._isRetry = true;
+        console.log(originalRequest);
         try {
           const response = await axios.get<AuthResponse>(`${API_URL}auth/refresh`, {
             withCredentials: true,

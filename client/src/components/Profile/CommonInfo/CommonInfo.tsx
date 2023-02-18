@@ -1,5 +1,7 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { User } from "../../../interfaces/User";
+import { useActions } from "../../../store/redux-hooks";
 import { Button, Input, Select } from "../../UI";
 import { Option } from "../../UI/Select/Select";
 import styles from "./CommonInfo.module.scss";
@@ -8,7 +10,7 @@ interface FormData {
   name: string;
   surname: string;
   gender: string;
-  birthday: string;
+  birthDay: string;
   education: string;
 }
 
@@ -16,7 +18,7 @@ const initialData: FormData = {
   name: "",
   surname: "",
   gender: "",
-  birthday: "",
+  birthDay: "",
   education: "",
 };
 
@@ -33,9 +35,21 @@ const educationOptions: Option[] = [
   { value: "doctorDegree", title: "accountPage.doctorDegree" },
 ];
 
-export const CommonInfo = () => {
+interface CommonInfoProps {
+  user: User;
+}
+
+export const CommonInfo: FC<CommonInfoProps> = ({ user }) => {
   const [isEdit, setIsEdit] = useState(false);
-  const [formData, setFormData] = useState<FormData>(initialData);
+  const { updateUserInformation } = useActions();
+  const [formData, setFormData] = useState<FormData>({
+    name: user.name,
+    surname: user.surname,
+    gender: user.gender,
+    education: user.education,
+    birthDay: user.birthDay,
+  });
+
   const { t } = useTranslation();
 
   const educationTitle = educationOptions.find(
@@ -48,12 +62,14 @@ export const CommonInfo = () => {
       setIsEdit((prev) => !prev);
       return;
     }
+    updateUserInformation({ _id: user._id, ...formData });
     setIsEdit((prev) => !prev);
   };
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
@@ -100,9 +116,9 @@ export const CommonInfo = () => {
         <li>
           <span>{t("accountPage.birthday")}</span>
           {!isEdit ? (
-            <span>{formData.birthday || t("accountPage.notIndicated")}</span>
+            <span>{formData.birthDay || t("accountPage.notIndicated")}</span>
           ) : (
-            <Input value={formData.birthday} name="birthday" type="date" onChange={changeHandler} />
+            <Input value={formData.birthDay} name="birthDay" type="date" onChange={changeHandler} />
           )}
         </li>
         <li>

@@ -1,6 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { User } from "../../interfaces/User";
-import { checkAuth, login, logout, register } from "./user.actions";
+import {
+  checkAuth,
+  login,
+  logout,
+  register,
+  updateUserAvatar,
+  updateUserInformation,
+} from "./user.actions";
 
 interface UserState {
   entity: User | null;
@@ -43,6 +50,12 @@ export const userSlice = createSlice({
       .addCase(checkAuth.rejected, (state) => {
         state.entity = null;
         state.isLoading = false;
+      })
+      .addCase(updateUserInformation.fulfilled, (state, action) => {
+        state.entity = action.payload;
+      })
+      .addCase(updateUserAvatar.fulfilled, (state, action) => {
+        state.entity = { ...(state.entity as User), avatar: action.payload };
       });
   },
 });

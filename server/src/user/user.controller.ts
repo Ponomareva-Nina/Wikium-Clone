@@ -1,3 +1,4 @@
+import { UpdatePasswordDto } from './dto/update-password.dto';
 import { JwtAuthGuard } from './../auth/guards/jwt.guard';
 import {
   Controller,
@@ -32,7 +33,7 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @UseInterceptors(FilesInterceptor('files[]'))
-  @Post('avatar/:id')
+  @Patch('avatar/:id')
   updateAvatar(
     @Param('id') id: string,
     @UploadedFiles() files: Express.Multer.File[],
@@ -44,5 +45,14 @@ export class UserController {
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.updateById(id, updateUserDto);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('password/:id')
+  changePassword(
+    @Param('id') id: string,
+    @Body() passwordData: UpdatePasswordDto,
+  ) {
+    return this.userService.updatePassword(id, passwordData);
   }
 }

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { User } from "../../interfaces/User";
 import AuthService from "../../api-services/auth.service";
 import { API_URL } from "../../config/axios.config";
 import { AuthResponse } from "../../interfaces/AuthResponse";
@@ -9,6 +10,7 @@ import {
   saveTokenToLocalStorage,
   saveUserToLocalStorage,
 } from "../../utils/auth.utils";
+import UserService from "../../api-services/user.service";
 
 interface AuthRequest {
   email: string;
@@ -79,6 +81,61 @@ export const checkAuth = createAsyncThunk<AuthResponse>("auth/check", async (_, 
       return response.data;
     }
     throw new Error("Invalid API_URL");
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return apiThunk.rejectWithValue(error.response?.data.message);
+    }
+    return apiThunk.rejectWithValue("Error");
+  }
+});
+
+export const changeUserPassword = createAsyncThunk<
+  void,
+  { _id: string; oldPassword: string; newPassword: string }
+>("user/password", async ({ _id, oldPassword, newPassword }, apiThunk) => {
+  try {
+    const response = await UserService.changePassword(_id, { oldPassword, newPassword });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return apiThunk.rejectWithValue(error.response?.data.message);
+    }
+    return apiThunk.rejectWithValue("Error");
+  }
+});
+
+export const updateUserInformation = createAsyncThunk<
+  User,
+  {
+    _id: string;
+    name: string;
+    surname: string;
+    gender: string;
+    birthDay: string;
+    education: string;
+  }
+>("user/update", async (userData, apiThunk) => {
+  try {
+    const response = await UserService.updateInformation(userData._id, userData);
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return apiThunk.rejectWithValue(error.response?.data.message);
+    }
+    return apiThunk.rejectWithValue("Error");
+  }
+});
+
+export const updateUserAvatar = createAsyncThunk<
+  string,
+  {
+    _id: string;
+    files: FileList;
+  }
+>("user/avatar", async (userData, apiThunk) => {
+  try {
+    const response = await UserService.updateAvatar(userData._id, userData.files);
+    return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       return apiThunk.rejectWithValue(error.response?.data.message);

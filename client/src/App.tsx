@@ -21,7 +21,7 @@ function App() {
     if (accessToken !== null) {
       checkAuth();
     }
-  }, [checkAuth]);
+  }, []);
 
   if (isLoading) {
     return (

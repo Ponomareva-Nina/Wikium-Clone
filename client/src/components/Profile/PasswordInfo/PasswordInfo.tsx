@@ -1,21 +1,29 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, FC } from "react";
 import { useTranslation } from "react-i18next";
+import { User } from "../../../interfaces/User";
+import { useActions } from "../../../store/redux-hooks";
 import { Button, Input } from "../../UI";
 import styles from "./PasswordInfo.module.scss";
 
 interface FormData {
   password: string;
   newPasswords: string;
+  newPasswordsRepeat: string;
 }
 
 const initialData: FormData = {
   password: "",
   newPasswords: "",
+  newPasswordsRepeat: "",
 };
+interface PasswordInfoProps {
+  user: User;
+}
 
-export const PasswordInfo = () => {
+export const PasswordInfo: FC<PasswordInfoProps> = ({ user }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [formData, setFormData] = useState<FormData>(initialData);
+  const { changeUserPassword } = useActions();
   const { t } = useTranslation();
 
   const editOrSaveHandler = () => {
@@ -23,8 +31,17 @@ export const PasswordInfo = () => {
       setIsEdit((prev) => !prev);
       return;
     }
-    // TODO save information logic
-    setIsEdit((prev) => !prev);
+    if (formData.newPasswords === formData.newPasswordsRepeat) {
+      changeUserPassword({
+        _id: user._id,
+        oldPassword: formData.password,
+        newPassword: formData.newPasswords,
+      });
+      setIsEdit((prev) => !prev);
+      setFormData(initialData);
+    } else {
+      window.alert("New password and repeat new password  are different");
+    }
   };
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -47,20 +64,24 @@ export const PasswordInfo = () => {
         <li>
           <span>{t("accountPage.password")}</span>
           {!isEdit ? (
-            <span>{formData.password || "********"} </span>
+            <span>********</span>
           ) : (
-            <Input value={formData.password} name="name" onChange={changeHandler} />
+            <Input value={formData.password} name="password" onChange={changeHandler} />
           )}
         </li>
         {isEdit && (
           <>
             <li>
               <span>{t("accountPage.newPassword")}</span>
-              <Input value={formData.password} name="name" onChange={changeHandler} />
+              <Input value={formData.newPasswords} name="newPasswords" onChange={changeHandler} />
             </li>
             <li>
               <span>{t("accountPage.newPasswordRepeat")}</span>
-              <Input value={formData.password} name="name" onChange={changeHandler} />
+              <Input
+                value={formData.newPasswordsRepeat}
+                name="newPasswordsRepeat"
+                onChange={changeHandler}
+              />
             </li>
           </>
         )}
