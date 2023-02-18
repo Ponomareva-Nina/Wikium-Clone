@@ -7,6 +7,7 @@ import {
   register,
   updateUserAvatar,
   updateUserInformation,
+  addAttempt,
 } from "./user.actions";
 
 interface UserState {
@@ -56,6 +57,9 @@ export const userSlice = createSlice({
       })
       .addCase(updateUserAvatar.fulfilled, (state, action) => {
         state.entity = { ...(state.entity as User), avatar: action.payload };
+      })
+      .addCase(addAttempt.fulfilled, (state, action) => {
+        state.entity = { ...(state.entity as User), statistics: action.payload.statistics };
       });
   },
 });

@@ -7,6 +7,7 @@ import { AllTrainsChart } from "./AllTrainsChart/AllTrainsChart";
 import { GameItem } from "../../interfaces/GameInterface";
 import { CategoryChart } from "./CategoryChart/CategoryChart";
 import { useAppSelector } from "../../store/redux-hooks";
+import { GameCategories } from "../../interfaces/Categories";
 
 export const StatisticsPage = () => {
   const { t } = useTranslation();
@@ -14,6 +15,18 @@ export const StatisticsPage = () => {
   const statistics = useAppSelector((state) => state.user.entity!.statistics);
 
   const [trainsForPeriod, setTrainsForPeriod] = useState<null | GameItem[]>(null);
+
+  const memory = statistics
+    .filter((attempt) => attempt.category === GameCategories.MEMORY)
+    .reduce((acc, attempt) => acc + attempt.neurons, 0);
+  const concentration = statistics
+    .filter((attempt) => attempt.category === GameCategories.CONCENTRATION)
+    .reduce((acc, attempt) => acc + attempt.neurons, 0);
+  const logics = statistics
+    .filter((attempt) => attempt.category === GameCategories.LOGICS)
+    .reduce((acc, attempt) => acc + attempt.neurons, 0);
+
+  const totalNeurons = memory + concentration + logics;
 
   useEffect(() => {
     const allTrains = games.map((game) => {
@@ -43,7 +56,12 @@ export const StatisticsPage = () => {
       </div>
 
       <div className={styles.chart}>
-        <CategoryChart trains={trainsForPeriod} />
+        <CategoryChart
+          memory={memory}
+          concentration={concentration}
+          logics={logics}
+          totalNeurons={totalNeurons}
+        />
       </div>
 
       <div className={styles.chart}>

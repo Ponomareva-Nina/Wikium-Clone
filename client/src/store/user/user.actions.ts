@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { User } from "../../interfaces/User";
+import { GameAttempt, User } from "../../interfaces/User";
 import AuthService from "../../api-services/auth.service";
 import { API_URL } from "../../config/axios.config";
 import { AuthResponse } from "../../interfaces/AuthResponse";
@@ -135,6 +135,21 @@ export const updateUserAvatar = createAsyncThunk<
 >("user/avatar", async (userData, apiThunk) => {
   try {
     const response = await UserService.updateAvatar(userData._id, userData.files);
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return apiThunk.rejectWithValue(error.response?.data.message);
+    }
+    return apiThunk.rejectWithValue("Error");
+  }
+});
+
+export const addAttempt = createAsyncThunk<
+  { _id: string; statistics: GameAttempt[] },
+  { _id: string; attempt: GameAttempt }
+>("user/attempt", async (attemptData, apiThunk) => {
+  try {
+    const response = await UserService.addAttempt(attemptData._id, attemptData.attempt);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {

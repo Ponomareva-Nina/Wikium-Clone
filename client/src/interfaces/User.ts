@@ -12,7 +12,7 @@ export interface User {
 
 export interface GameAttempt {
   gameId: number;
-  category: "memory" | "logic" | "attention";
+  category: string;
   date: string;
   neurons: number;
 }

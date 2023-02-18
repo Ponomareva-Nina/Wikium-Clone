@@ -1,4 +1,5 @@
 import { AxiosResponse } from "axios";
+import { GameAttempt } from "../interfaces/Statistics";
 import { authAxiosInstance } from "../config/axios.config";
 import { User } from "../interfaces/User";
 
@@ -12,6 +13,16 @@ export default class UserService {
     passwordData: { oldPassword: string; newPassword: string }
   ): Promise<AxiosResponse<void>> {
     return authAxiosInstance.patch<void>(`user/password/${id}`, passwordData);
+  }
+
+  static async addAttempt(
+    id: string,
+    attempt: GameAttempt
+  ): Promise<AxiosResponse<{ _id: string; statistics: GameAttempt[] }>> {
+    return authAxiosInstance.post<{ _id: string; statistics: GameAttempt[] }>(
+      `user/attempt/${id}`,
+      attempt
+    );
   }
 
   static async updateAvatar(id: string, files: FileList): Promise<AxiosResponse<string>> {

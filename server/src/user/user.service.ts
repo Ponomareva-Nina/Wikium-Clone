@@ -2,7 +2,7 @@ import { UpdatePasswordDto } from './dto/update-password.dto';
 import { ConfigService } from '@nestjs/config';
 import { FileService } from './../file/file.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { User, UserDocument } from './entities/user.entity';
+import { User, UserDocument, Statistic } from './entities/user.entity';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -91,5 +91,15 @@ export class UserService {
     const salt = await genSalt(10);
     const hashedPassword = await hash(passwordData.newPassword, salt);
     await this.userModel.findByIdAndUpdate(_id, { password: hashedPassword });
+  }
+
+  async addAttempt(_id: string, attempt: Statistic) {
+    return await this.userModel.findOneAndUpdate(
+      { _id },
+      {
+        $push: { statistics: attempt },
+      },
+      { new: true, projection: { statistics: 1 } },
+    );
   }
 }

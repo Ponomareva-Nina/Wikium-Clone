@@ -7,11 +7,9 @@ export class Statistic {
   @Prop()
   category: 'memory' | 'logic' | 'attention';
   @Prop()
-  level: number;
+  neurons: number;
   @Prop()
-  countNeurons: number;
-  @Prop([Date])
-  attempts: Date[];
+  date: string;
 }
 
 export type UserDocument = HydratedDocument<User>;

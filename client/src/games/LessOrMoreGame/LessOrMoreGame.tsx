@@ -1,7 +1,8 @@
 import { useCallback, useMemo, useState } from "react";
 import { GameResults } from "../../components";
+import { GameCategories } from "../../interfaces/Categories";
 import { GameStatus, ResultData } from "../../interfaces/GameInterface";
-import { useAppSelector } from "../../store/redux-hooks";
+import { useActions, useAppSelector } from "../../store/redux-hooks";
 
 import GamePage from "./components/GamePage/GamePage";
 import { RulesGamePage } from "./components/RulesGamePage/RulesGamePage";
@@ -11,24 +12,27 @@ import styles from "./LessOrMoreGame.module.scss";
 export const LessOrMoreGame = () => {
   const [gameStatus, setGameStatus] = useState<GameStatus>("init");
   const [resultData, setResultData] = useState<ResultData | null>(null);
-  const userStatistics = useAppSelector((state) => state.user.entity!.statistics);
-
+  const user = useAppSelector((state) => state.user.entity);
+  const { addAttempt } = useActions();
   const neurons = useMemo(() => {
-    return userStatistics.reduce((acc, stat) => acc + stat.neurons, 0);
-  }, [userStatistics]);
+    return user!.statistics.reduce((acc, stat) => acc + stat.neurons, 0);
+  }, [user?.statistics]);
 
   const startTraining = () => {
     setGameStatus("started");
   };
 
   const finishGame = (result: ResultData) => {
+    addAttempt({
+      _id: user!._id,
+      attempt: {
+        gameId: 3,
+        category: GameCategories.LOGICS,
+        date: new Date().toISOString(),
+        neurons: result.neurons,
+      },
+    });
     setGameStatus("finish");
-    // const statistics = {
-    //   id: 1,
-    //   category: GameCategories.MEMORY,
-    //   countAttempt: new Date(),
-    //   neurons: neuronsRef.current,
-    // };
     setResultData(result);
   };
 

@@ -1,3 +1,4 @@
+import { Statistic } from './entities/user.entity';
 import { UpdatePasswordDto } from './dto/update-password.dto';
 import { JwtAuthGuard } from './../auth/guards/jwt.guard';
 import {
@@ -54,5 +55,11 @@ export class UserController {
     @Body() passwordData: UpdatePasswordDto,
   ) {
     return this.userService.updatePassword(id, passwordData);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('attempt/:id')
+  addAttempt(@Param('id') id: string, @Body() attempt: Statistic) {
+    return this.userService.addAttempt(id, attempt);
   }
 }
