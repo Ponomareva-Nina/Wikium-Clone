@@ -22,3 +22,15 @@ export interface GameItem {
   game: GameInterface;
   attempts: number;
 }
+
+export type GameStatus = "started" | "finish" | "init";
+export interface ResultData {
+  correctAnswers: number;
+  mistakes: number;
+  score: number;
+  neurons: number;
+}
+
+export interface GameProps {
+  finishGame: (resultData: ResultData) => void;
+}

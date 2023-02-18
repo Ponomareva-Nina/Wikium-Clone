@@ -3,49 +3,22 @@ import { useEffect, useState } from "react";
 import cn from "classnames";
 import styles from "./StatisticsPage.module.scss";
 import { games } from "../../constants/games";
-import { Statistics } from "../../interfaces/Statistics";
 import { AllTrainsChart } from "./AllTrainsChart/AllTrainsChart";
 import { GameItem } from "../../interfaces/GameInterface";
 import { CategoryChart } from "./CategoryChart/CategoryChart";
+import { useAppSelector } from "../../store/redux-hooks";
 
 export const StatisticsPage = () => {
   const { t } = useTranslation();
-  // TO DO: Get data from server (Statistics[{ gameId; category; date; neurons]) instead of userNeuronsTotalNumber and statistics below
 
-  const statistics: Statistics = [
-    {
-      gameId: 1,
-      category: "memory",
-      date: new Date(),
-      neurons: 240,
-    },
-    {
-      gameId: 0,
-      category: "concentration",
-      date: new Date(),
-      neurons: 180,
-    },
-    {
-      gameId: 2,
-      category: "logics",
-      date: new Date(),
-      neurons: 120,
-    },
-    {
-      gameId: 1,
-      category: "memory",
-      date: new Date(),
-      neurons: 120,
-    },
-  ];
+  const statistics = useAppSelector((state) => state.user.entity!.statistics);
 
-  const [statisticsData, setStatisticsData] = useState(statistics);
   const [trainsForPeriod, setTrainsForPeriod] = useState<null | GameItem[]>(null);
 
   useEffect(() => {
     const allTrains = games.map((game) => {
       let attempts = 0;
-      statisticsData.forEach((item) => {
+      statistics.forEach((item) => {
         if (item.gameId === game.id) {
           attempts += 1;
         }
@@ -56,7 +29,7 @@ export const StatisticsPage = () => {
       };
     });
     setTrainsForPeriod(allTrains);
-  }, [statisticsData]);
+  }, [statistics]);
 
   return (
     <div className={cn("wrapper", styles.container)}>

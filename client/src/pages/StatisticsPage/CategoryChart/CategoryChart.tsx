@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { useTranslation } from "react-i18next";
 import { GameItem } from "../../../interfaces/GameInterface";
 import styles from "./CategoryChart.module.scss";
 import { CategoryItem } from "./CategoryItem/CategoryItem";
@@ -13,7 +12,6 @@ interface CategoryChartProps {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const CategoryChart: FC<CategoryChartProps> = ({ trains }) => {
-  const { t } = useTranslation();
   const memoryColor = "rgb(0, 211, 164)";
   const concentrationColor = "rgb(143, 74, 249)";
   const logicsColor = "rgb(245, 166, 35)";

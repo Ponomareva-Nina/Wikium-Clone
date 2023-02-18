@@ -1,74 +1,73 @@
 .account_container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    justify-content: flex-start;
-    align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .account_descr {
-   font-size: 1.1rem;
-    text-align: right;
-    color: var(--font-secondary-color);
+  font-size: 1.1rem;
+  text-align: right;
+  color: var(--font-secondary-color);
 }
 
 .account_btn {
-    width: 6.3rem;
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    background: transparent;
+  width: 6.3rem;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  background: transparent;
 
-    &:hover {
-        &::after {
-            border-bottom-color: var(--font-secondary-color);
-        }
-    }
-
+  &:hover {
     &::after {
-        content: "";
-        position: absolute;
-        right: 6px;
-        top: calc(50% - 2px);
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-bottom: 5px solid rgba(255, 255, 255, 0.5);
-        transition: transform 0.2s;
-        transform: rotate(180deg);
+      border-bottom-color: var(--font-secondary-color);
     }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: calc(50% - 2px);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.2s;
+    transform: rotate(180deg);
+  }
 }
 
 .avatar_photo {
-    width: 3.6rem;
-    height: 3.6rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
 }
 
 .account_btn__active {
-
-    &:hover {
-        &::after {
-            border-bottom-color: var(--font-secondary-color);
-        }
-    }
-
+  &:hover {
     &::after {
-        transform: rotate(360deg);
+      border-bottom-color: var(--font-secondary-color);
     }
+  }
+
+  &::after {
+    transform: rotate(360deg);
+  }
 }
 
-
 .menu_acc {
-    width: 100%;
-    padding-bottom: 1rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1rem
+  width: 100%;
+  padding-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .account_btn_menu {
-    background: transparent;
+  background: transparent;
 }
