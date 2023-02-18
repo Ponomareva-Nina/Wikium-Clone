@@ -13,10 +13,6 @@ export class UpdateUserDto {
   education?: string;
   @IsString()
   avatar?: string;
-  @IsNumber()
-  level?: number;
-  @IsNumber()
-  neurons?: number;
   @IsString()
   refreshToken?: string;
 }

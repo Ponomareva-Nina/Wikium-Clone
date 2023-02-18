@@ -167,5 +167,17 @@
     "neuronsCreated": "Neurons created",
     "level": "level",
     "neurons": "neurons"
+  },
+  "StatisticsPage": {
+    "allTrains": "Completed trainings",
+    "times": "time(s)",
+    "total": "Total",
+    "progress": "My progress",
+    "day": "Per day",
+    "week": "Per week",
+    "month": "Per month",
+    "neurons": "neurons",
+    "ascending": "In ascending order",
+    "descending": "In  descending order"
   }
 }

@@ -168,6 +168,18 @@
     "neuronsCreated": "Нейронов создано",
     "level": "уровень",
     "neurons": "нейронов"
+  },
+  "StatisticsPage": {
+    "allTrains": "Тренажеров пройдено",
+    "times": "раз(а)",
+    "total": "Всего",
+    "progress": "Моя статистика",
+    "day": "За день",
+    "week": "За неделю",
+    "month": "За месяц",
+    "neurons": "нейронов",
+    "ascending": "По убыванию",
+    "descending": "По возрастанию"
   }
 }
 

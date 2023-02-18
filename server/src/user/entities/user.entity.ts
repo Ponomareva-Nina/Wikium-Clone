@@ -29,10 +29,6 @@ export class User {
   education: string;
   @Prop({ default: '' })
   avatar: string;
-  @Prop({ default: 0 })
-  level: number;
-  @Prop({ default: 0 })
-  neurons: number;
   @Prop([Statistic])
   statistics: Statistic[];
   @Prop({ unique: true })
