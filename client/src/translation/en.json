@@ -29,7 +29,7 @@
     "concentrationTitle": "Concentration",
     "memoryTitle": "Memorization",
     "logicsTitle": "Logics and thinking",
-    "concentrationDescription" : "The ability to stay focused on what is important and not be distracted by extraneous factors.",
+    "concentrationDescription": "The ability to stay focused on what is important and not be distracted by extraneous factors.",
     "memoryDescription": "Memorization of meaning and correlation of information elements. The ability to reproduce images in memory.",
     "logicsDescription": "The ability to think logically, analyze, and find consistent patterns.",
     "time": "Time",
@@ -57,7 +57,7 @@
   "gamesData": {
     "concentration": "Concentration",
     "memory": "Memorization",
-    "logics" : "Logics and thinking",
+    "logics": "Logics and thinking",
     "colorMatch": "Color match",
     "lessOrMore": "Less or More",
     "rememberOrder": "Remember the order",
@@ -103,10 +103,60 @@
     "rules": "Remember the numbers and click on them in ascending order",
     "rememberedBtn": "I remembered"
   },
-  "colorMatchGame": {
-    "description": "to do description",
-    "title": "Color match"
+  "ColorMatchGame": {
+    "description": "The simulator helps to develop visual thinking and attention. These skills will be useful in sports, work and even in problematic situations, when it is important to keep calm. Training develops creativity, helping to create bright projects.",
+    "title": "Color match",
+    "attentionSkill": "Attention function",
+    "attentionSkillDescription": "Stop making mistakes caused by distraction",
+    "visualPerceptionSkill": "Visual perception",
+    "visualPerceptionSkillDescription": "You can quickly find the main ideas in texts",
+    "creativeThinkSkill": "Visual and imaginative thinking",
+    "creativeThinkSkillDescription": "Can come up with outlandish ideas",
+    "rules": "Does the name of the color on the left card match the color of the text on the right card?"
   },
+  "colorMatchData": {
+    "red": "Red",
+    "blue": "Blue",
+    "green": "Green",
+    "black": "Black",
+    "orange": "Orange",
+    "color": "Color",
+    "value": "Value"
+  },
+  "answerBurrons": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "infoPanel": {
+    "time": "time",
+    "level": "level",
+    "score": "score"
+  },
+  "accountPage": {
+    "levelInfoDesc": "Dial [number] neurons to go to the next level",
+    "level": "Level",
+    "neurons": "Neurons",
+    "name": "Name",
+    "surname": "Surname",
+    "gender": "Gender",
+    "birthday": "Birthday",
+    "education": "Education",
+    "commonInfo": "Common information",
+    "edit": "Edit",
+    "save": "Save",
+    "notIndicated": "No indicated",
+    "male": "Male",
+    "female": "Female",
+    "initial": "Initial",
+    "average": "Average",
+    "higher": "Higher",
+    "candidateOfSciences": "Candidate of sciences",
+    "doctorDegree": "Doctor degree",
+    "download": "Download",
+    "newPassword": "New password",
+    "password": "Password",
+    "newPasswordRepeat": "New password repeat"
+   },
   "gameResults": {
     "playAgain": "Play again",
     "results": "Your results",

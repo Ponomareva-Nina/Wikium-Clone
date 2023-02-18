@@ -6,7 +6,7 @@
   --font-secondary-color: white;
   --auxiliary-color: #797979;
   --inactive-bg-color: #aaaaaa;
-  --color-link-inactive: rgba(255,255,255, 0.6);
+  --color-link-inactive: rgba(255, 255, 255, 0.6);
   --error-color: #b90101;
   --success-color: #006600;
   --bg-neutral: rgba(255, 255, 255, 0.4);
@@ -14,18 +14,18 @@
   --popup-contrast-color: black;
   --popup-link-inactive: rgba(0, 0, 0, 0.6);
   --popup-shadow-color: rgb(0 0 0 / 10%);
-  --input-bg-color: rgb(232, 240, 254);
- }
+  --input-bg-color: #f7f5fa;
+}
 
 :root[class="dark"] {
   --bg-page: #2a282c;
-  --bg-btn-color: #fdc10a; 
+  --bg-btn-color: #fdc10a;
   --accent-color: #8f4af9;
   --font-main-color: white;
   --font-secondary-color: black;
   --auxiliary-color: #b3b3b3;
   --inactive-bg-color: #aaaaaa;
-  --color-link-inactive: rgba(0,0,0, 0.6);
+  --color-link-inactive: rgba(0, 0, 0, 0.6);
   --error-color: #b90101;
   --success-color: #006600;
   --bg-neutral: rgba(255, 255, 255, 0.4);
@@ -33,7 +33,5 @@
   --popup-contrast-color: black;
   --popup-link-inactive: rgba(0, 0, 0, 0.6);
   --popup-shadow-color: rgb(0 0 0 / 10%);
-  --input-bg-color: rgb(232, 240, 254);
+  --input-bg-color: #f7f5fa;
 }
-
-

@@ -5,10 +5,11 @@ import colorMatchImg from "../assets/images/GamesPage/color-match.svg";
 import rememberImg from "../assets/images/GamesPage/remember-order.svg";
 import moreAndLessImg from "../assets/images/GamesPage/more-and-less.svg";
 import { GameCategories } from "../interfaces/Categories";
+import SearchIcon from "../assets/images/GamesIcons/search-icon.svg";
+import { RememberOrderGame } from "../games/RememberOrderGame/RememberOrder";
+import LampIcon from "../assets/images/GamesIcons/lamp-icon.svg";
 import schemeIcon from "../assets/images/GamesIcons/scheme-icon.svg";
 import pictureIcon from "../assets/images/GamesIcons/picture-icon.svg";
-import searchIcon from "../assets/images/GamesIcons/search-icon.svg";
-import { RememberOrderGame } from "../games/RememberOrderGame/RememberOrder";
 import CalcIcon from "../assets/images/LessOrMoreIcons/calc.svg";
 import CircleIcon from "../assets/images/LessOrMoreIcons/circle.svg";
 import EyeIcon from "../assets/images/LessOrMoreIcons/eye.svg";
@@ -27,7 +28,7 @@ const INITIAL_NEURONS_NUMBER = 5;
 export const games: Array<GameInterface> = [
   {
     id: GamesId.FIRST,
-    title: "colorMatchGame.title",
+    title: "ColorMatchGame.title",
     gamePage: ColorMatchGame,
     teaserImg: colorMatchImg,
     category: GameCategories.CONCENTRATION,
@@ -35,9 +36,21 @@ export const games: Array<GameInterface> = [
     description: "colorMatchGame.description",
     gameIcon: colorMatchIcon,
     skills: [
-      { title: "First title", description: "First description", icon: CalcIcon },
-      { title: "Second title", description: "Second description", icon: CircleIcon },
-      { title: "Third title", description: "Third description", icon: EyeIcon },
+      {
+        title: "ColorMatchGame.attentionSkill",
+        description: "ColorMatchGame.attentionSkillDescription",
+        icon: SearchIcon,
+      },
+      {
+        title: "ColorMatchGame.visualPerceptionSkill",
+        description: "ColorMatchGame.visualPerceptionSkillDescription",
+        icon: EyeIcon,
+      },
+      {
+        title: "ColorMatchGame.creativeThinkSkill",
+        description: "ColorMatchGame.creativeThinkSkillDescription",
+        icon: LampIcon,
+      },
     ],
   },
   {
@@ -63,7 +76,7 @@ export const games: Array<GameInterface> = [
       {
         title: "rememberOrder.attentionSkill",
         description: "rememberOrder.attentionSkillDescription",
-        icon: searchIcon,
+        icon: SearchIcon,
       },
     ],
   },
