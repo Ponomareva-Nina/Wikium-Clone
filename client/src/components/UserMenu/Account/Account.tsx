@@ -7,9 +7,11 @@ import {
   useState,
   useEffect,
   useRef,
+  useMemo,
 } from "react";
 import { useTranslation } from "react-i18next";
 import noneAvatar from "../../../assets/images/Avatar/none_avatar.svg";
+import { User } from "../../../interfaces/User";
 import { useActions, useAppSelector } from "../../../store/redux-hooks";
 import { UserMenu } from "../UserMenu";
 import styles from "./Account.module.scss";
@@ -17,17 +19,20 @@ import styles from "./Account.module.scss";
 interface AccountProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   isOpenMenu?: boolean;
+  user: User;
 }
 
 export const Account: FC<PropsWithChildren<AccountProps>> = ({
   children,
+  user,
   ...rest
 }: AccountProps) => {
-  const user = useAppSelector((state) => state.user.entity);
   const [isOpenAccPopup, setIsOpenAccPopup] = useState(false);
   const { t } = useTranslation();
   const { logout } = useActions();
-
+  const neurons = useMemo(() => {
+    return user.statistics.reduce((acc, stat) => acc + stat.neurons, 0);
+  }, [user]);
   const handleAccountClick = (): void => {
     setIsOpenAccPopup((prev) => !prev);
   };
@@ -56,7 +61,7 @@ export const Account: FC<PropsWithChildren<AccountProps>> = ({
     <div ref={logoRef} className={cn(styles.account_container)}>
       <div>
         <p className={cn(styles.account_descr)}>{user?.name || user?.email}</p>
-        <p className={cn(styles.account_descr)}>{0}</p>
+        <p className={cn(styles.account_descr)}>{neurons}</p>
       </div>
       <button
         type="button"
@@ -64,7 +69,11 @@ export const Account: FC<PropsWithChildren<AccountProps>> = ({
         onClick={handleAccountClick}
         {...rest}
       >
-        <img className={cn(styles.avatar_photo)} src={noneAvatar} alt={`${t("user.avatar")}`} />
+        <img
+          className={cn(styles.avatar_photo)}
+          src={user.avatar || noneAvatar}
+          alt={`${t("user.avatar")}`}
+        />
       </button>
       <div ref={menuRef}>
         <UserMenu

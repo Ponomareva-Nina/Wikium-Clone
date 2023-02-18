@@ -5,7 +5,6 @@ export interface User {
   gender: string;
   education: string;
   avatar: string;
-  level: number;
   statistics: GameAttempt[];
   email: string;
 }

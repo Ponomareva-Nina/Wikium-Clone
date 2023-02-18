@@ -33,7 +33,7 @@ export const Header: FC<PropsWithChildren> = () => {
             {t("signIn")}
           </Button>
         )}
-        {user && <Account />}
+        {user && <Account user={user} />}
       </div>
     </header>
   );
