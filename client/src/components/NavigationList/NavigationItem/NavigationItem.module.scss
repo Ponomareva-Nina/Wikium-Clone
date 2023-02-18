@@ -1,7 +1,7 @@
 .nav_item {
     font-size: 1.4rem;
     font-weight: 600;
-    color: inherit;
+    color: var(--color-link-inactive);
 
     &:hover {
         color: var(--font-secondary-color);
@@ -9,8 +9,7 @@
 }
 
 .nav_item_menu {
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.5rem;
     color: inherit;
     &:hover {
         color: var(--popup-contrast-color);

@@ -1,11 +1,13 @@
 .wrapper {
   display: flex;
   gap: 1rem;
-  align-items: center;
+  align-items: flex-start;
+
   .icon {
     width: 2.5rem;
     height: 2.5rem;
-    object-fit: cover;
+    margin-top: .4rem;
+    object-fit: contain;
   }
 
   .content {

@@ -14,9 +14,9 @@
     top: 5rem;
     right: 0;
     background-color: var(--bg-popup-color);
-    color: var(--popup-link-inactive);
+    color: var(--font-main-color);
     box-shadow: 0 8px 8px 0 var(--popup-shadow-color), 0 2px 8px 0 var(--popup-shadow-color);
-
+    
     @media screen and (max-width: 800px) {
       left: 0;
     }

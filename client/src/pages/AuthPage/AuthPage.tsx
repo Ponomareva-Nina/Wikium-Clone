@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, Input } from "../../components/UI";
 import { Form } from "../../components";
 import { inputHandler } from "../../utils/inputHandler";
+import styles from "./AuthPage.module.scss";
 
 export const AuthPage = () => {
   const { t } = useTranslation();
@@ -32,7 +33,9 @@ export const AuthPage = () => {
       <p style={{ textAlign: "center" }}>
         {t("authPage.newUserText")}
         <br />
-        <Link to="/register">{t("authPage.registerLink")}</Link>
+        <Link to="/register">
+          <span className={styles.link}>{t("authPage.registerLink")}</span>
+        </Link>
         {t("authPage.registerSugguestionText")}
       </p>
     </Form>
