@@ -1,10 +1,15 @@
 import cn from "classnames";
+import { FC, PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { Button } from "../../../../components/UI";
 import styles from "./Effect.module.scss";
 
-export const Effect = () => {
+interface EffectProps {
+  isAuth?: boolean;
+}
+
+export const Effect: FC<PropsWithChildren<EffectProps>> = ({ isAuth }) => {
   const { t } = useTranslation();
 
   return (
@@ -15,7 +20,7 @@ export const Effect = () => {
           <p className={cn(styles.start_subtitle)}>{t("startPage.effectSecription")}</p>
         </div>
         <div className={cn(styles.effects_list)} />
-        <NavLink to="/register">
+        <NavLink to={isAuth ? "/games" : "/register"}>
           <Button btnSize="huge" appearance="initial">
             {t("header.start")}
           </Button>

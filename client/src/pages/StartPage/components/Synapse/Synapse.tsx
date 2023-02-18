@@ -1,10 +1,15 @@
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import { NavLink } from "react-router-dom";
+import { FC, PropsWithChildren } from "react";
 import styles from "./Synapse.module.scss";
 import { Button } from "../../../../components/UI";
 
-export const Synapse = () => {
+interface SynapseProps {
+  isAuth?: boolean;
+}
+
+export const Synapse: FC<PropsWithChildren<SynapseProps>> = ({ isAuth }) => {
   const { t } = useTranslation();
 
   return (
@@ -37,7 +42,7 @@ export const Synapse = () => {
         <p>
           <b>{t("startPage.decision")}</b>
         </p>
-        <NavLink to="/register">
+        <NavLink to={isAuth ? "/games" : "/register"}>
           <Button btnSize="huge" appearance="initial">
             {t("header.start")}
           </Button>
