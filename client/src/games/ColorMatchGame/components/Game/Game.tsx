@@ -72,7 +72,7 @@ export const Game: FC<PropsWithChildren<GameProps>> = ({ finishGame }) => {
         correctAnswers,
         mistakes: answers - correctAnswers,
         score: points,
-        neurons: points / LEVEL[currentLevel].pointsOneNeuron,
+        neurons: points / LEVEL[currentLevel - 1].pointsOneNeuron,
       });
     }
   }, [timer]);
