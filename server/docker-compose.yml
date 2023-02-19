@@ -15,7 +15,6 @@ services:
     command: npm run start:dev
     ports:
       - 4400:4400
-      - 4500:443
     restart: always
   api-prod:
     container_name: wikium_clone_api_prod
@@ -33,5 +32,4 @@ services:
     command: npm run start:prod
     ports:
       - 4400:4400
-      - 4500:443
     restart: always

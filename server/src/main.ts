@@ -4,10 +4,6 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as cookieParser from 'cookie-parser';
 import * as fs from 'fs';
-import { ExpressAdapter } from '@nestjs/platform-express';
-import * as http from 'http';
-import * as https from 'https';
-import * as express from 'express';
 
 async function bootstrap() {
   const httpsOptions = {
@@ -15,8 +11,7 @@ async function bootstrap() {
     cert: fs.readFileSync(__dirname + '/../secrets/cert.pem'),
   };
 
-  const server = express();
-  const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
+  const app = await NestFactory.create(AppModule, { httpsOptions });
 
   app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix('api');
@@ -40,8 +35,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api/docs', app, document);
 
-  await app.init();
-  http.createServer(server).listen(4400);
-  https.createServer(httpsOptions, server).listen(443);
+  await app.listen(4400);
 }
 bootstrap();
