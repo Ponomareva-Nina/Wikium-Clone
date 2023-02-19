@@ -2,7 +2,7 @@ import { UpdatePasswordDto } from './dto/update-password.dto';
 import { ConfigService } from '@nestjs/config';
 import { FileService } from './../file/file.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { User, UserDocument, Statistic } from './entities/user.entity';
+import { User, UserDocument, Attempt } from './entities/user.entity';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -22,7 +22,10 @@ export class UserService {
   }
 
   findAll() {
-    return this.userModel.find({}, { password: 0, refreshToken: 0 });
+    return this.userModel.find(
+      {},
+      { refreshToken: 0, updatedAt: 0, password: 0, createdAt: 0, _v: 0 },
+    );
   }
 
   findOne(dto: Partial<User>) {
@@ -33,7 +36,7 @@ export class UserService {
     return this.userModel.findById(id);
   }
 
-  updateById(id: string, updateUserDto: UpdateUserDto) {
+  updateById(id: string, updateUserDto: Omit<UpdateUserDto, 'refreshToken'>) {
     return this.userModel.findByIdAndUpdate(id, updateUserDto, {
       new: true,
       projection: {
@@ -93,7 +96,7 @@ export class UserService {
     await this.userModel.findByIdAndUpdate(_id, { password: hashedPassword });
   }
 
-  async addAttempt(_id: string, attempt: Statistic) {
+  async addAttempt(_id: string, attempt: Attempt) {
     return await this.userModel.findOneAndUpdate(
       { _id },
       {

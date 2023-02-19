@@ -1,4 +1,4 @@
-import { Statistic } from './entities/user.entity';
+import { Attempt, User } from './entities/user.entity';
 import { UpdatePasswordDto } from './dto/update-password.dto';
 import { JwtAuthGuard } from './../auth/guards/jwt.guard';
 import {
@@ -15,23 +15,34 @@ import {
 import { UserService } from './user.service';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
-
+import {
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+  OmitType,
+  PickType,
+} from '@nestjs/swagger';
+@ApiTags('User')
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @ApiOperation({ summary: 'Get all users' })
+  @ApiResponse({
+    status: 200,
+    type: [OmitType(User, ['refreshToken', 'password'])],
+  })
   @UseGuards(JwtAuthGuard)
   @Get()
   findAll() {
     return this.userService.findAll();
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findById(id);
-  }
-
+  @ApiOperation({ summary: 'Upload new user avatar' })
+  @ApiResponse({
+    status: 200,
+    type: String,
+  })
   @UseGuards(JwtAuthGuard)
   @UseInterceptors(FilesInterceptor('files[]'))
   @Patch('avatar/:id')
@@ -42,24 +53,41 @@ export class UserController {
     return this.userService.updateAvatar(id, files);
   }
 
+  @ApiOperation({ summary: 'Update user information' })
+  @ApiResponse({
+    status: 200,
+    type: OmitType(User, ['refreshToken', 'password']),
+  })
   @UseGuards(JwtAuthGuard)
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  updateInformation(
+    @Param('id') id: string,
+    @Body() updateUserDto: UpdateUserDto,
+  ) {
     return this.userService.updateById(id, updateUserDto);
   }
 
+  @ApiOperation({ summary: 'Change user password' })
+  @ApiResponse({
+    status: 200,
+  })
   @UseGuards(JwtAuthGuard)
   @Patch('password/:id')
   changePassword(
     @Param('id') id: string,
     @Body() passwordData: UpdatePasswordDto,
   ) {
-    return this.userService.updatePassword(id, passwordData);
+    this.userService.updatePassword(id, passwordData);
   }
 
+  @ApiOperation({ summary: 'Add user attempt' })
+  @ApiResponse({
+    status: 200,
+    type: PickType(User, ['_id', 'statistics']),
+  })
   @UseGuards(JwtAuthGuard)
   @Post('attempt/:id')
-  addAttempt(@Param('id') id: string, @Body() attempt: Statistic) {
+  addAttempt(@Param('id') id: string, @Body() attempt: Attempt) {
     return this.userService.addAttempt(id, attempt);
   }
 }
