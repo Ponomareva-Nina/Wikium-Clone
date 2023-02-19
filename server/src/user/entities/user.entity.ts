@@ -27,7 +27,6 @@ export type UserDocument = HydratedDocument<User>;
 @Schema({ timestamps: true })
 export class User {
   @ApiProperty({ example: 'adhfa767a47ah47f4oa7', description: 'User id' })
-  @Prop()
   _id: Types.ObjectId;
 
   @ApiProperty({ example: 'Ivan', description: 'User name' })

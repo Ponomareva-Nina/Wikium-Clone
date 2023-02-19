@@ -71,23 +71,23 @@ export class UserController {
   @ApiResponse({
     status: 200,
   })
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Patch('password/:id')
   changePassword(
     @Param('id') id: string,
     @Body() passwordData: UpdatePasswordDto,
   ) {
-    this.userService.updatePassword(id, passwordData);
+    return this.userService.updatePassword(id, passwordData);
   }
 
   @ApiOperation({ summary: 'Add user attempt' })
   @ApiResponse({
     status: 200,
-    type: PickType(User, ['_id', 'statistics']),
+    type: PickType(User, ['statistics']),
   })
   @UseGuards(JwtAuthGuard)
   @Post('attempt/:id')
-  addAttempt(@Param('id') id: string, @Body() attempt: Attempt) {
-    return this.userService.addAttempt(id, attempt);
+  async addAttempt(@Param('id') id: string, @Body() attempt: Attempt) {
+    return await this.userService.addAttempt(id, attempt);
   }
 }

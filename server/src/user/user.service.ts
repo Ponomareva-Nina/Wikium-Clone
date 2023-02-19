@@ -78,6 +78,7 @@ export class UserService {
 
   async updatePassword(_id: string, passwordData: UpdatePasswordDto) {
     const user = await this.findById(_id);
+
     if (!user) {
       throw new BadRequestException('User not found');
     }
@@ -86,7 +87,6 @@ export class UserService {
       passwordData.oldPassword,
       user.password,
     );
-
     if (!isValidPassword) {
       throw new BadRequestException('Old password is wrong');
     }
@@ -94,11 +94,12 @@ export class UserService {
     const salt = await genSalt(10);
     const hashedPassword = await hash(passwordData.newPassword, salt);
     await this.userModel.findByIdAndUpdate(_id, { password: hashedPassword });
+    return null;
   }
 
   async addAttempt(_id: string, attempt: Attempt) {
     return await this.userModel.findOneAndUpdate(
-      { _id },
+      { _id: new Types.ObjectId(_id) },
       {
         $push: { statistics: attempt },
       },
