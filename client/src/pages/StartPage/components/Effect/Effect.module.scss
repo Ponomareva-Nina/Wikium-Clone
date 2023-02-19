@@ -45,20 +45,43 @@
   text-align: center;
 
   @media screen and (max-width: 1200px) {
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
 
   @media screen and (max-width: 750px) {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
+  }
+}
+
+@keyframes title {
+  0% {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
 .start_subtitle {
   font-size: 1.6rem;
   text-align: center;
+  animation: subtitle .4s ease-in .2s;
 
   @media screen and (max-width: 750px) {
     font-size: 1.4rem;
+  }
+}
+
+@keyframes subtitle {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -79,6 +102,7 @@
 .effect_item {
   padding: 1rem;
   text-align: center;
+  animation: item 1s ease-in .2s;
 
   &_title {
     font-size: 5rem;
@@ -90,9 +114,33 @@
   }
 }
 
+@keyframes item {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .effect_item_description {
   @media screen and (max-width: 900px) {
     font-size: 1.3rem;
+  }
+}
+
+.btn_container {
+  animation: btn .5s ease-in;
+}
+
+@keyframes btn {
+  0% {
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 

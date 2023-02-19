@@ -18,23 +18,25 @@ export const Effect: FC<PropsWithChildren<EffectProps>> = ({ isAuth }) => {
       <div className={cn(styles.wrapper, styles.section_container)}>
         <div className={cn(styles.effect_description)}>
           <h2 className={cn(styles.start_title)}>{t("startPage.effect")}</h2>
-          <p className={cn(styles.start_subtitle)}>{t("startPage.effectSecription")}</p>
+          <p className={cn(styles.start_subtitle)}>{t("startPage.effectDecription")}</p>
         </div>
         <div className={cn(styles.effects_list)}>
           {EFFECTS.map((effect) => (
-            <div className={cn(styles.effect_item)}>
+            <div className={cn(styles.effect_item)} key={effect.id}>
               <p className={cn(styles.effect_item_title)} style={{ color: `${effect.color}` }}>
                 {effect.text}
               </p>
-              <p className={cn(styles.effect_item_description)}>{effect.description}</p>
+              <p className={cn(styles.effect_item_description)}>{t(effect.description)}</p>
             </div>
           ))}
         </div>
-        <NavLink to={isAuth ? "/games" : "/register"}>
-          <Button btnSize="huge" appearance="initial">
-            {t("header.start")}
-          </Button>
-        </NavLink>
+        <div className={cn(styles.btn_container)}>
+          <NavLink to={isAuth ? "/games" : "/register"}>
+            <Button btnSize="huge" appearance="initial">
+              {t("header.start")}
+            </Button>
+          </NavLink>
+        </div>
       </div>
     </section>
   );

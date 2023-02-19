@@ -1,4 +1,5 @@
 interface EffectsInterface {
+  id: number;
   color: string;
   text: string;
   description: string;
@@ -6,23 +7,27 @@ interface EffectsInterface {
 
 export const EFFECTS: Array<EffectsInterface> = [
   {
+    id: 1,
     color: "#27a8e0",
     text: "+17%",
-    description: "к скорости реакции за неделю",
+    description: "startPage.reactDescription",
   },
   {
+    id: 2,
     color: "#b47cfc",
     text: "x1,6",
-    description: "к фокусировке на задачах за 1 месяц",
+    description: "startPage.focusDescription",
   },
   {
+    id: 3,
     color: "#ec5956",
     text: "x2,1",
-    description: "к вниманию к мелочам и деталям за 2 месяца",
+    description: "startPage.attentionDescription",
   },
   {
+    id: 4,
     color: "#23b175",
     text: "+19%",
-    description: "к памяти за 2–3 недели",
+    description: "startPage.memoryDescription",
   },
 ];

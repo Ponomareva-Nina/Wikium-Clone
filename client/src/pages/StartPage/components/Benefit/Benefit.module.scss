@@ -39,7 +39,29 @@
 }
 
 .start_title {
+  font-size: 3.6rem;
   text-align: center;
+  animation: title .4s ease-in;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    font-size: 2.5rem;
+  }
+}
+
+@keyframes title {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(00);
+    opacity: 1;
+  }
 }
 
 .benefits_list {

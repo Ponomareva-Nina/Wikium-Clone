@@ -12,13 +12,13 @@ export const Benefit = () => {
         <h2 className={cn(styles.start_title)}>{t("startPage.benefit")}</h2>
         <div className={cn(styles.benefits_list)}>
           {BENEFITS.map((benefit) => (
-            <div className={cn(styles.benefit_item)}>
+            <div className={cn(styles.benefit_item)} key={benefit.id}>
               <img src={benefit.img} alt={benefit.age} />
-              <h3 className={cn(styles.age_title)}>{benefit.age}</h3>
+              <h3 className={cn(styles.age_title)}>{t(benefit.age)}</h3>
               <ul className={cn(styles.item_description)}>
                 {benefit.list.map((item) => (
-                  <li>
-                    <p>{item}</p>
+                  <li key={benefit.id + Math.random()}>
+                    <p>{t(item)}</p>
                   </li>
                 ))}
               </ul>

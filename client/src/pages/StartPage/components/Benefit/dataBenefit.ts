@@ -3,6 +3,7 @@ import middleAge from "../../../../assets/images/StartPage/middle.svg";
 import oldAge from "../../../../assets/images/StartPage/old.svg";
 
 interface BenefitsInterface {
+  id: number;
   img: string;
   age: string;
   list: Array<string>;
@@ -10,25 +11,25 @@ interface BenefitsInterface {
 
 export const BENEFITS: Array<BenefitsInterface> = [
   {
+    id: 1,
     img: youngAge,
-    age: "Младший возраст",
-    list: ["Улучшить обучаемость в учебных заведениях", "Профилактика синдрома дефицита внимания"],
+    age: "startPage.benefitYoung",
+    list: ["startPage.benefitYoungFirst", "startPage.benefitYoungSecond"],
   },
   {
+    id: 2,
     img: middleAge,
-    age: "Средний возраст",
+    age: "startPage.benefitMidle",
     list: [
-      "Повысить личную продуктивность, эффективность",
-      "Делать меньше ошибок и недочетов на работе",
-      "Держать мозг в тонусе в течение дня",
+      "startPage.benefitMidleFirst",
+      "startPage.benefitMidleSecond",
+      "startPage.benefitMidleThird",
     ],
   },
   {
+    id: 3,
     img: oldAge,
-    age: "Пожилой возраст",
-    list: [
-      "Дольше сохранять остроту и ясность ума",
-      "Профилактика возрастных заболеваний, вызванных снижением интеллектуальной нагрузки",
-    ],
+    age: "startPage.benefitOld",
+    list: ["startPage.benefitOldFirst", "startPage.benefitOldSecond"],
   },
 ];
