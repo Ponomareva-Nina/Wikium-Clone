@@ -18,28 +18,28 @@ export const Synapse: FC<PropsWithChildren<SynapseProps>> = ({ isAuth }) => {
         <h2 className={cn(styles.start_title)}>{t("startPage.synapse")}</h2>
         <div className={cn(styles.synapse_container)}>
           <div className={cn(styles.synapse_descr_container)}>
-            <div>
-              <p className={cn(styles.content, styles.title_content)}>
-                {t("startPage.synapseSubtitle")}
-              </p>
-              <span className={cn(styles.title_content_line)} />
-            </div>
-            <p className={cn(styles.content)}>{t("startPage.synapseDescriptionOne")}</p>
-            <p className={cn(styles.content)}>
-              <b>{t("startPage.synapseDescriptionTwoBold")}</b>
-              {t("startPage.synapseDescriptionTwo")}
+            <p className={cn(styles.content, styles.title_content)}>
+              {t("startPage.synapseSubtitle")}
             </p>
-            <p className={cn(styles.content)}>{t("startPage.synapseDescriptionThree")}</p>
-          </div>
-          <div className={cn(styles.synapse_img_container)}>
-            <div className={cn(styles.synapse_img)} />
-            <p>{t("startPage.synapseScheme")}</p>
+            <span className={cn(styles.title_content_line)} />
+            <div className={cn(styles.content_container)}>
+              <p className={cn(styles.content)}>{t("startPage.synapseDescriptionOne")}</p>
+              <p className={cn(styles.content)}>
+                <b>{t("startPage.synapseDescriptionTwoBold")}</b>
+                {t("startPage.synapseDescriptionTwo")}
+              </p>
+              <p className={cn(styles.content)}>{t("startPage.synapseDescriptionThree")}</p>
+            </div>
+            <div className={cn(styles.synapse_img_container)}>
+              <div className={cn(styles.synapse_img)} />
+              <p className={cn(styles.synapse_img_description)}>{t("startPage.synapseScheme")}</p>
+            </div>
           </div>
         </div>
         <div className={cn(styles.highlighted_block)}>
           <p className={cn(styles.highlighted_text)}>{t("startPage.addingNewSynapse")}</p>
         </div>
-        <p>
+        <p className={cn(styles.text_decision)}>
           <b>{t("startPage.decision")}</b>
         </p>
         <NavLink to={isAuth ? "/games" : "/register"}>

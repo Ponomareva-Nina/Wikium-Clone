@@ -1,5 +1,4 @@
 .section {
-  min-height: 100vh;
   padding: 7rem 0 9rem;
 }
 
@@ -7,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
+  gap: 5rem;
 }
 
 .benefit {
@@ -25,6 +24,41 @@
     background-color: var(--bg-auxiliary-color);
     border-radius: 10px;
   }
+}
+
+.start_title {
+  text-align: center;
+}
+
+.benefits_list {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(3, 30%);
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: minmax(27rem, 32rem);
+    gap: 2rem;
+  }
+}
+
+.benefit_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.age_title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #27a8e0;
+}
+
+.item_description {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: initial;
 }
 
 .wrapper {

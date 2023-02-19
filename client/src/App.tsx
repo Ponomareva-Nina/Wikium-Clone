@@ -11,7 +11,7 @@ import { AccountSettings } from "./pages/AccountSettings/AccountSettings";
 import { Team } from "./pages/Team/Team";
 
 function App() {
-  const [isAuth, setIsAuth] = useState<boolean>(false);
+  const [isAuth] = useState<boolean>(false);
 
   return (
     <Layout isAuth={isAuth}>

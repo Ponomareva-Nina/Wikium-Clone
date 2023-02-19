@@ -3,6 +3,7 @@ import { FC, PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { Button } from "../../../../components/UI";
+import { EFFECTS } from "./dataEffect";
 import styles from "./Effect.module.scss";
 
 interface EffectProps {
@@ -19,7 +20,16 @@ export const Effect: FC<PropsWithChildren<EffectProps>> = ({ isAuth }) => {
           <h2 className={cn(styles.start_title)}>{t("startPage.effect")}</h2>
           <p className={cn(styles.start_subtitle)}>{t("startPage.effectSecription")}</p>
         </div>
-        <div className={cn(styles.effects_list)} />
+        <div className={cn(styles.effects_list)}>
+          {EFFECTS.map((effect) => (
+            <div className={cn(styles.effect_item)}>
+              <p className={cn(styles.effect_item_title)} style={{ color: `${effect.color}` }}>
+                {effect.text}
+              </p>
+              <p className={cn(styles.effect_item_description)}>{effect.description}</p>
+            </div>
+          ))}
+        </div>
         <NavLink to={isAuth ? "/games" : "/register"}>
           <Button btnSize="huge" appearance="initial">
             {t("header.start")}
