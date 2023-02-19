@@ -12,7 +12,13 @@ export interface GameInterface {
   gamePage: FC;
   category: GameCategories;
   teaserImg: string;
+  gameIcon: string;
   neurons: number;
   description: string;
   skills: Skill[];
+}
+
+export interface GameItem {
+  game: GameInterface;
+  attempts: number;
 }

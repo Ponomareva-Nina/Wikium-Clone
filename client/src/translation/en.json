@@ -198,5 +198,17 @@
     "description": "Develop memory, attention and thinking with our simulators",
     "start": "Start train",
     "haveAccount": "I already have an account"
+  },
+  "StatisticsPage": {
+    "allTrains": "Completed trainings",
+    "times": "time(s)",
+    "total": "Total",
+    "progress": "My progress",
+    "day": "Per day",
+    "week": "Per week",
+    "month": "Per month",
+    "neurons": "neurons",
+    "ascending": "In ascending order",
+    "descending": "In  descending order"
   }
 }
