@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { useState } from "react";
 import { Layout } from "./layout/Layout";
 import { AuthPage } from "./pages/AuthPage/AuthPage";
 import { GamePage } from "./pages/GamePage/GamePage";
@@ -10,10 +11,12 @@ import { AccountSettings } from "./pages/AccountSettings/AccountSettings";
 import { Team } from "./pages/Team/Team";
 
 function App() {
+  const [isAuth] = useState<boolean>(true);
+
   return (
-    <Layout>
+    <Layout isAuth={isAuth}>
       <Routes>
-        <Route path="/" element={<StartPage />} />
+        <Route path="/" element={<StartPage isAuth={isAuth} />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/games" element={<GamesPage />} />

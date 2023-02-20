@@ -3,20 +3,28 @@ import { FC, PropsWithChildren } from "react";
 import { useViewport } from "../../utils/useViewport";
 import { NavigationList } from "../NavigationList/NavigationList";
 import { Account } from "../UserMenu/Account/Account";
-import { Logo } from "../UI";
 import styles from "./Header.module.scss";
 import { BREAKPOINT } from "../../constants/constants";
+import { Logo } from "../UI";
 
-export const Header: FC<PropsWithChildren> = () => {
-  // TODO: add function to check if user login
-  const auth = true;
+interface HeaderProps {
+  isAuth?: boolean;
+  setIsAuth?: () => void;
+}
 
+export const Header: FC<PropsWithChildren<HeaderProps>> = ({ isAuth, setIsAuth }) => {
   const { width } = useViewport();
 
   return (
     <header className={cn(styles.header)}>
-      {!auth && <Logo />}
-      {auth && (
+      {!isAuth && (
+        <div className={cn(styles.wrapper)}>
+          <div className={cn(styles.logo_container)}>
+            <Logo />
+          </div>
+        </div>
+      )}
+      {isAuth && (
         <div className={cn(styles.header__wrapper, styles.wrapper)}>
           <div className={cn(styles.header_container)}>
             <Logo />

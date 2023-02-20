@@ -33,8 +33,15 @@
     }
 }
 
+.logo_container {
+    align-self: flex-start;
+    @media screen and (max-width: 700px) {
+        align-self: center;
+    }
+}
+
 .wrapper {
     max-width: 110rem;
     padding: 0 2rem;
     margin: 0 auto;
-  }
+}
