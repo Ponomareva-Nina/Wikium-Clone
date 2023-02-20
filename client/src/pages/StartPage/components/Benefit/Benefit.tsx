@@ -17,7 +17,7 @@ export const Benefit = () => {
               <h3 className={cn(styles.age_title)}>{t(benefit.age)}</h3>
               <ul className={cn(styles.item_description)}>
                 {benefit.list.map((item) => (
-                  <li key={benefit.id + Math.random()}>
+                  <li key={item}>
                     <p>{t(item)}</p>
                   </li>
                 ))}

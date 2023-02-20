@@ -1,5 +1,6 @@
 :root[class="light"] {
   --bg-page: #f7f5fa;
+  --bg-complementary: #6039aa;
   --bg-btn-color: #6039aa;
   --accent-color: #6039aa;
   --font-main-color: black;
@@ -14,14 +15,14 @@
   --popup-contrast-color: black;
   --popup-link-inactive: rgba(0, 0, 0, 0.6);
   --popup-shadow-color: rgb(0 0 0 / 10%);
---input-bg-color: #f7f5fa;
+  --input-bg-color: #f7f5fa;
   --bg-start-color: #1c1e33;
-  --btn-auth: #03a9f4;
-  --bg-auxiliary-color: #f2f2f2;
+  --bg-initial-btn-color: #03a9f4;
  }
 
 :root[class="dark"] {
   --bg-page: #2a282c;
+  --bg-complementary: #B3ABFF;
   --bg-btn-color: #fdc10a;
   --accent-color: #8f4af9;
   --font-main-color: white;
@@ -38,6 +39,5 @@
   --popup-shadow-color: rgb(0 0 0 / 10%);
   --input-bg-color: #f7f5fa;
   --bg-start-color: #1c1e33;
-  --btn-auth: #03a9f4;
-  --bg-auxiliary-color: #f2f2f2;
+  --bg-initial-btn-color: #03a9f4;
 }

@@ -37,7 +37,7 @@
 
 .synapse {
   background-image: url("../../../../assets/images/StartPage/bg_synapse-section.png");
-  background-color: var(--bg-auxiliary-color);
+  background-color: var(--bg-page);
 }
 
 .synapse_container {
@@ -75,7 +75,7 @@
     height: 0.6rem;
     grid-column: 1/2;
     margin-bottom: 3rem;
-    background-color: var(--btn-auth);
+    background-color: var(--bg-initial-btn-color);
     border-radius: 0.5rem;
 
     @media screen and (max-width: 750px) {
@@ -137,7 +137,7 @@
   margin: 0 auto;
   padding: 3.3rem 1rem;
   text-align: center;
-  background-color: var(--btn-auth);
+  background-color: var(--bg-initial-btn-color);
 
   @media screen and (max-width: 1200px) {
     padding: 2.5rem 1rem;
