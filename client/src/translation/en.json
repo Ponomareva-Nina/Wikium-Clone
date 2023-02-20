@@ -13,16 +13,17 @@
     "submitBtnText": "Log in",
     "registerLink": "Register",
     "newUserText": "New user? ",
-    "registerSugguestionText": " and start training your brain right now."
+    "registerSuggestionText": " and start training your brain right now."
   },
   "registerPage": {
     "title": "Registration",
     "username": "Email",
     "password": "Password",
     "submitBtnText": "Register",
+    "repeatPassword": "Repeat password",
     "loginLink": "Log in",
     "haveAccount": "Already have an account? ",
-    "loginSugguestionText": " and continue training your brain right now."
+    "loginSuggestionText": " and continue training your brain right now."
   },
   "gamesPage": {
     "title": "Games by categories",
@@ -144,6 +145,7 @@
     "commonInfo": "Common information",
     "edit": "Edit",
     "save": "Save",
+    "cancel": "Cancel",
     "notIndicated": "No indicated",
     "male": "Male",
     "female": "Female",
@@ -156,7 +158,7 @@
     "newPassword": "New password",
     "password": "Password",
     "newPasswordRepeat": "New password repeat"
-   },
+  },
   "gameResults": {
     "playAgain": "Play again",
     "results": "Your results",

@@ -11,8 +11,8 @@ export default class UserService {
   static async changePassword(
     id: string,
     passwordData: { oldPassword: string; newPassword: string }
-  ): Promise<AxiosResponse<void>> {
-    return authAxiosInstance.patch<void>(`user/password/${id}`, passwordData);
+  ): Promise<AxiosResponse> {
+    return authAxiosInstance.patch(`user/password/${id}`, passwordData);
   }
 
   static async addAttempt(

@@ -1,11 +1,7 @@
 import axios from "axios";
 import { AuthResponse } from "../interfaces/AuthResponse";
 
-import {
-  getTokenFromLocalStorage,
-  saveTokenToLocalStorage,
-  saveUserToLocalStorage,
-} from "../utils/auth.utils";
+import { getTokenFromLocalStorage, saveTokenToLocalStorage } from "../utils/auth.utils";
 
 export const API_URL = process.env.REACT_APP_API_URL;
 
@@ -44,15 +40,14 @@ authAxiosInstance.interceptors.response.use(
       ) {
         // eslint-disable-next-line no-underscore-dangle
         originalRequest._isRetry = true;
-        console.log(originalRequest);
         try {
           const response = await axios.get<AuthResponse>(`${API_URL}auth/refresh`, {
             withCredentials: true,
           });
           saveTokenToLocalStorage(response.data.accessToken);
-          saveUserToLocalStorage(response.data.user);
           return await authAxiosInstance.request(originalRequest);
         } catch (err) {
+          // eslint-disable-next-line
           console.log("Auth err");
         }
       }

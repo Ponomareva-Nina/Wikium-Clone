@@ -2,7 +2,7 @@ import cn from "classnames";
 import { FC, PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { useViewport } from "../../utils/useViewport";
+import { useViewport } from "../../hooks/useViewport";
 import { NavigationList } from "../NavigationList/NavigationList";
 import { Account } from "../UserMenu/Account/Account";
 import { Button, Logo } from "../UI";

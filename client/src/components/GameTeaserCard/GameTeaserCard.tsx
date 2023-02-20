@@ -9,17 +9,17 @@ interface GameTeaserCardProps {
   game?: GameInterface;
 }
 
-export const GameTeaserCard: FC<PropsWithChildren<GameTeaserCardProps>> = ({
-  game,
-  children,
-  ...rest
-}) => {
+export const GameTeaserCard: FC<PropsWithChildren<GameTeaserCardProps>> = ({ game, children }) => {
   const { t } = useTranslation();
   if (game) {
     return (
       <Link to={`/games/${game.id}`}>
-        <div {...rest} className={cn(styles.card)}>
-          <img src={game.teaserImg} className={cn(styles.image)} alt="" />
+        <div className={cn(styles.card)}>
+          <img
+            src={game.teaserImg}
+            className={cn(styles.image)}
+            alt={t(game.title) || game.title}
+          />
           <h3 className={cn(styles.title)}>{t(game.title)}</h3>
           <p className={cn(styles.category)}>{t(`gamesData.${game.category}`)}</p>
           {children}

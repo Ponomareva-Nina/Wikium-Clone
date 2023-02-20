@@ -3,7 +3,7 @@ import cn from "classnames";
 import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
 import { NavigationItem } from "./NavigationItem/NavigationItem";
 import styles from "./NavigationList.module.scss";
-import { useViewport } from "../../utils/useViewport";
+import { useViewport } from "../../hooks/useViewport";
 import { BREAKPOINT } from "../../constants/constants";
 
 interface NavListProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {

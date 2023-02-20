@@ -4,12 +4,7 @@ import { GameAttempt, User } from "../../interfaces/User";
 import AuthService from "../../api-services/auth.service";
 import { API_URL } from "../../config/axios.config";
 import { AuthResponse } from "../../interfaces/AuthResponse";
-import {
-  removeTokenFromLocalStorage,
-  removeUserFromLocalStorage,
-  saveTokenToLocalStorage,
-  saveUserToLocalStorage,
-} from "../../utils/auth.utils";
+import { removeTokenFromLocalStorage, saveTokenToLocalStorage } from "../../utils/auth.utils";
 import UserService from "../../api-services/user.service";
 
 interface AuthRequest {
@@ -24,7 +19,6 @@ export const login = createAsyncThunk<AuthResponse, AuthRequest>(
       const response = await AuthService.login(email, password);
 
       saveTokenToLocalStorage(response.data.accessToken);
-      saveUserToLocalStorage(response.data.user);
 
       return response.data;
     } catch (error) {
@@ -43,7 +37,6 @@ export const register = createAsyncThunk<AuthResponse, AuthRequest>(
       const response = await AuthService.register(email, password);
 
       saveTokenToLocalStorage(response.data.accessToken);
-      saveUserToLocalStorage(response.data.user);
 
       return response.data;
     } catch (error) {
@@ -59,7 +52,6 @@ export const logout = createAsyncThunk("auth/logout", async (_, apiThunk) => {
   try {
     await AuthService.logout();
     removeTokenFromLocalStorage();
-    removeUserFromLocalStorage();
   } catch (error) {
     if (axios.isAxiosError(error)) {
       return apiThunk.rejectWithValue(error.response?.data.message);
@@ -76,7 +68,6 @@ export const checkAuth = createAsyncThunk<AuthResponse>("auth/check", async (_, 
       });
 
       saveTokenToLocalStorage(response.data.accessToken);
-      saveUserToLocalStorage(response.data.user);
 
       return response.data;
     }
@@ -98,9 +89,9 @@ export const changeUserPassword = createAsyncThunk<
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      return apiThunk.rejectWithValue(error.response?.data.message);
+      return apiThunk.rejectWithValue(error.response);
     }
-    return apiThunk.rejectWithValue("Error");
+    return apiThunk.rejectWithValue("Old password is wrong");
   }
 });
 

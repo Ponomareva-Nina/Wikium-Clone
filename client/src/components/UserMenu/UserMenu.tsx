@@ -3,7 +3,7 @@ import { AccountNav } from "../UI";
 
 import styles from "./UserMenu.module.scss";
 import { NavigationList } from "../NavigationList/NavigationList";
-import { useViewport } from "../../utils/useViewport";
+import { useViewport } from "../../hooks/useViewport";
 import { BREAKPOINT } from "../../constants/constants";
 
 interface UserMenuProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

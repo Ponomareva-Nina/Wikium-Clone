@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, FormEvent, FC } from "react";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 import { User } from "../../../interfaces/User";
 import { useAppDispatch } from "../../../store/redux-hooks";
 import { changeUserPassword } from "../../../store/user/user.actions";
@@ -27,6 +28,11 @@ export const PasswordInfo: FC<PasswordInfoProps> = ({ user }) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
+  const cancelHandler = () => {
+    setIsEdit(false);
+    setFormData(initialData);
+  };
+
   const editOrSaveHandler = () => {
     if (!isEdit) {
       setIsEdit((prev) => !prev);
@@ -38,11 +44,20 @@ export const PasswordInfo: FC<PasswordInfoProps> = ({ user }) => {
         oldPassword: formData.password,
         newPassword: formData.newPasswords,
       };
-      dispatch(changeUserPassword(passwordData));
+
+      toast.promise(dispatch(changeUserPassword(passwordData)).unwrap(), {
+        pending: "Update password...",
+        success: "Update password is success",
+        error: {
+          render({ data }) {
+            return `${data}`;
+          },
+        },
+      });
       setIsEdit((prev) => !prev);
       setFormData(initialData);
     } else {
-      window.alert("New password and repeat new password  are different");
+      toast.error("New password and repeat new password  are different");
     }
   };
 
@@ -58,9 +73,16 @@ export const PasswordInfo: FC<PasswordInfoProps> = ({ user }) => {
     <form onSubmit={submitHandler} className={styles.wrapper}>
       <div className={styles.head}>
         <h2>{t("accountPage.password")}</h2>
-        <Button onClick={editOrSaveHandler} appearance="ghost">
-          {!isEdit ? t("accountPage.edit") : t("accountPage.save")}
-        </Button>
+        <div className={styles["btn-group"]}>
+          {isEdit && (
+            <Button onClick={cancelHandler} appearance="ghost">
+              {t("accountPage.cancel")}
+            </Button>
+          )}
+          <Button onClick={editOrSaveHandler} appearance="ghost">
+            {!isEdit ? t("accountPage.edit") : t("accountPage.save")}
+          </Button>
+        </div>
       </div>
       <ul className={styles.list}>
         <li>
@@ -68,18 +90,29 @@ export const PasswordInfo: FC<PasswordInfoProps> = ({ user }) => {
           {!isEdit ? (
             <span>********</span>
           ) : (
-            <Input value={formData.password} name="password" onChange={changeHandler} />
+            <Input
+              type="password"
+              value={formData.password}
+              name="password"
+              onChange={changeHandler}
+            />
           )}
         </li>
         {isEdit && (
           <>
             <li>
               <span>{t("accountPage.newPassword")}</span>
-              <Input value={formData.newPasswords} name="newPasswords" onChange={changeHandler} />
+              <Input
+                type="password"
+                value={formData.newPasswords}
+                name="newPasswords"
+                onChange={changeHandler}
+              />
             </li>
             <li>
               <span>{t("accountPage.newPasswordRepeat")}</span>
               <Input
+                type="password"
                 value={formData.newPasswordsRepeat}
                 name="newPasswordsRepeat"
                 onChange={changeHandler}

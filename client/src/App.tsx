@@ -1,21 +1,26 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { Layout } from "./layout/Layout";
-import { AuthPage } from "./pages/AuthPage/AuthPage";
-import { GamePage } from "./pages/GamePage/GamePage";
-import { GamesPage } from "./pages/GamesPage/GamesPage";
-import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
-import { StartPage } from "./pages/StartPage/StartPage";
-import { StatisticsPage } from "./pages/StatisticsPage/StatisticsPage";
-import { AccountSettings } from "./pages/AccountSettings/AccountSettings";
-import { Team } from "./pages/Team/Team";
+
+import {
+  StartPage,
+  AuthPage,
+  RegistrationPage,
+  GamesPage,
+  GamePage,
+  StatisticsPage,
+  AccountSettings,
+  Team,
+} from "./pages";
+
 import { useAppDispatch, useAppSelector } from "./store/redux-hooks";
-import { getTokenFromLocalStorage } from "./utils/auth.utils";
 import { checkAuth } from "./store/user/user.actions";
+import { getTokenFromLocalStorage } from "./utils/auth.utils";
 
 function App() {
   const { entity: user, isLoading } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     const accessToken = getTokenFromLocalStorage();
     if (accessToken !== null) {
