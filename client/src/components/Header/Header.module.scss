@@ -11,7 +11,7 @@
     height: 6rem;
     @include flex-row();
     justify-content: center;
-    background-color: var(--bg-complementary-color);
+    background-color: var(--bg-complementary);
 
     &__wrapper {
         width: 100%;
