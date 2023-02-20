@@ -12,7 +12,8 @@ import {
 import { useTranslation } from "react-i18next";
 import noneAvatar from "../../../assets/images/Avatar/none_avatar.svg";
 import { User } from "../../../interfaces/User";
-import { useActions } from "../../../store/redux-hooks";
+import { useAppDispatch } from "../../../store/redux-hooks";
+import { logout } from "../../../store/user/user.actions";
 import { UserMenu } from "../UserMenu";
 import styles from "./Account.module.scss";
 
@@ -29,7 +30,7 @@ export const Account: FC<PropsWithChildren<AccountProps>> = ({
 }: AccountProps) => {
   const [isOpenAccPopup, setIsOpenAccPopup] = useState(false);
   const { t } = useTranslation();
-  const { logout } = useActions();
+  const dispatch = useAppDispatch();
   const neurons = useMemo(() => {
     return user.statistics.reduce((acc, stat) => acc + stat.neurons, 0);
   }, [user]);
@@ -38,7 +39,7 @@ export const Account: FC<PropsWithChildren<AccountProps>> = ({
   };
 
   const logoutHandler = (): void => {
-    logout();
+    dispatch(logout());
   };
 
   const logoRef = useRef<HTMLDivElement | null>(null);

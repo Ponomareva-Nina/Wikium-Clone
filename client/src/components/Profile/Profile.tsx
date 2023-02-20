@@ -5,15 +5,16 @@ import styles from "./Profile.module.scss";
 import { CommonInfo } from "./CommonInfo/CommonInfo";
 import { InputFile } from "../UI/InputFile/InputFile";
 import { PasswordInfo } from "./PasswordInfo/PasswordInfo";
-import { useActions, useAppSelector } from "../../store/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../store/redux-hooks";
 import { NEURONS_ON_LEVEL } from "../../constants/constants";
 import { User } from "../../interfaces/User";
+import { updateUserAvatar } from "../../store/user/user.actions";
 
 export const Profile = () => {
   const user = useAppSelector((state) => state.user.entity) as User;
-  const { updateUserAvatar } = useActions();
+  const dispatch = useAppDispatch();
   const uploadFileHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    updateUserAvatar({ files: e.target.files as FileList, _id: user._id });
+    dispatch(updateUserAvatar({ files: e.target.files as FileList, _id: user._id }));
   };
 
   const neurons = useMemo(() => {

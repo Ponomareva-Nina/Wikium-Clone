@@ -7,7 +7,8 @@ import { ScreenSaverCounter } from "../../components/UI/ScreenSaver/types/types"
 import { useCounter } from "../../hooks/useCounter";
 import { GameCategories } from "../../interfaces/Categories";
 import { GameStatus, ResultData } from "../../interfaces/GameInterface";
-import { useActions, useAppSelector } from "../../store/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../store/redux-hooks";
+import { addAttempt } from "../../store/user/user.actions";
 import styles from "./ColorMatchGame.module.scss";
 import { Game } from "./components/Game/Game";
 import { Rules } from "./components/Rules/Rules";
@@ -17,8 +18,7 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
   const [gameStatus, setGameStatus] = useState<GameStatus>("init");
   const [resultData, setResultData] = useState<ResultData | null>(null);
   const user = useAppSelector((state) => state.user.entity);
-
-  const { addAttempt } = useActions();
+  const dispatch = useAppDispatch();
   const neurons = useMemo(() => {
     return user!.statistics.reduce((acc, stat) => acc + stat.neurons, 0);
   }, [user?.statistics]);
@@ -29,7 +29,7 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
 
   const finishGame = (result: ResultData) => {
     setGameStatus("finish");
-    addAttempt({
+    const newAttempt = {
       _id: user!._id,
       attempt: {
         gameId: 1,
@@ -37,7 +37,8 @@ export const ColorMatchGame: FC<PropsWithChildren> = () => {
         date: new Date().toISOString(),
         neurons: result.neurons,
       },
-    });
+    };
+    dispatch(addAttempt(newAttempt));
     setResultData(result);
   };
 

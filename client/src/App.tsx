@@ -9,17 +9,17 @@ import { StartPage } from "./pages/StartPage/StartPage";
 import { StatisticsPage } from "./pages/StatisticsPage/StatisticsPage";
 import { AccountSettings } from "./pages/AccountSettings/AccountSettings";
 import { Team } from "./pages/Team/Team";
-import { useActions, useAppSelector } from "./store/redux-hooks";
+import { useAppDispatch, useAppSelector } from "./store/redux-hooks";
 import { getTokenFromLocalStorage } from "./utils/auth.utils";
+import { checkAuth } from "./store/user/user.actions";
 
 function App() {
-  const { checkAuth } = useActions();
   const { entity: user, isLoading } = useAppSelector((state) => state.user);
-
+  const dispatch = useAppDispatch();
   useEffect(() => {
     const accessToken = getTokenFromLocalStorage();
     if (accessToken !== null) {
-      checkAuth();
+      dispatch(checkAuth());
     }
   }, []);
 

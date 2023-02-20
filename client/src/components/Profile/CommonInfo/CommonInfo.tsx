@@ -1,7 +1,8 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { User } from "../../../interfaces/User";
-import { useActions } from "../../../store/redux-hooks";
+import { useAppDispatch } from "../../../store/redux-hooks";
+import { updateUserInformation } from "../../../store/user/user.actions";
 import { Button, Input, Select } from "../../UI";
 import { Option } from "../../UI/Select/Select";
 import styles from "./CommonInfo.module.scss";
@@ -41,7 +42,7 @@ interface CommonInfoProps {
 
 export const CommonInfo: FC<CommonInfoProps> = ({ user }) => {
   const [isEdit, setIsEdit] = useState(false);
-  const { updateUserInformation } = useActions();
+  const dispatch = useAppDispatch();
   const [formData, setFormData] = useState<FormData>({
     name: user.name,
     surname: user.surname,
@@ -62,7 +63,7 @@ export const CommonInfo: FC<CommonInfoProps> = ({ user }) => {
       setIsEdit((prev) => !prev);
       return;
     }
-    updateUserInformation({ _id: user._id, ...formData });
+    dispatch(updateUserInformation({ _id: user._id, ...formData }));
     setIsEdit((prev) => !prev);
   };
 

@@ -4,20 +4,21 @@ import { Link } from "react-router-dom";
 import { Button, Input } from "../../components/UI";
 import { Form } from "../../components";
 import { inputHandler } from "../../utils/inputHandler";
-import { useActions } from "../../store/redux-hooks";
+import { useAppDispatch } from "../../store/redux-hooks";
+import { register } from "../../store/user/user.actions";
 
 export const RegistrationPage = () => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { register } = useActions();
+  const dispatch = useAppDispatch();
 
   const submitFormHandler = (): void => {
     const data = {
       email,
       password,
     };
-    register(data);
+    dispatch(register(data));
   };
 
   return (

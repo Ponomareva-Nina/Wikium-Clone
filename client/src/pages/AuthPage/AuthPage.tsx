@@ -4,20 +4,23 @@ import { Link } from "react-router-dom";
 import { Button, Input } from "../../components/UI";
 import { Form } from "../../components";
 import { inputHandler } from "../../utils/inputHandler";
-import { useActions } from "../../store/redux-hooks";
+import { useAppDispatch } from "../../store/redux-hooks";
+import { login } from "../../store/user/user.actions";
 
 export const AuthPage = () => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useActions();
+  const dispatch = useAppDispatch();
 
   const submitFormHandler = (): void => {
     const data = {
       email,
       password,
     };
-    login(data);
+    dispatch(login(data))
+      .unwrap()
+      .catch((err) => window.alert(err));
   };
 
   return (

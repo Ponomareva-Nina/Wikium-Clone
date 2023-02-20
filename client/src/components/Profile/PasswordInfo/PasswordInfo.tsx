@@ -1,7 +1,8 @@
 import { useState, ChangeEvent, FormEvent, FC } from "react";
 import { useTranslation } from "react-i18next";
 import { User } from "../../../interfaces/User";
-import { useActions } from "../../../store/redux-hooks";
+import { useAppDispatch } from "../../../store/redux-hooks";
+import { changeUserPassword } from "../../../store/user/user.actions";
 import { Button, Input } from "../../UI";
 import styles from "./PasswordInfo.module.scss";
 
@@ -23,7 +24,7 @@ interface PasswordInfoProps {
 export const PasswordInfo: FC<PasswordInfoProps> = ({ user }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [formData, setFormData] = useState<FormData>(initialData);
-  const { changeUserPassword } = useActions();
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   const editOrSaveHandler = () => {
@@ -32,11 +33,12 @@ export const PasswordInfo: FC<PasswordInfoProps> = ({ user }) => {
       return;
     }
     if (formData.newPasswords === formData.newPasswordsRepeat) {
-      changeUserPassword({
+      const passwordData = {
         _id: user._id,
         oldPassword: formData.password,
         newPassword: formData.newPasswords,
-      });
+      };
+      dispatch(changeUserPassword(passwordData));
       setIsEdit((prev) => !prev);
       setFormData(initialData);
     } else {

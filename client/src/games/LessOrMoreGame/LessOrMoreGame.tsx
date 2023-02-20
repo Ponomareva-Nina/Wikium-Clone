@@ -1,8 +1,9 @@
-import { useCallback, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { GameResults } from "../../components";
 import { GameCategories } from "../../interfaces/Categories";
 import { GameStatus, ResultData } from "../../interfaces/GameInterface";
-import { useActions, useAppSelector } from "../../store/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../store/redux-hooks";
+import { addAttempt } from "../../store/user/user.actions";
 
 import GamePage from "./components/GamePage/GamePage";
 import { RulesGamePage } from "./components/RulesGamePage/RulesGamePage";
@@ -13,7 +14,9 @@ export const LessOrMoreGame = () => {
   const [gameStatus, setGameStatus] = useState<GameStatus>("init");
   const [resultData, setResultData] = useState<ResultData | null>(null);
   const user = useAppSelector((state) => state.user.entity);
-  const { addAttempt } = useActions();
+
+  const dispatch = useAppDispatch();
+
   const neurons = useMemo(() => {
     return user!.statistics.reduce((acc, stat) => acc + stat.neurons, 0);
   }, [user?.statistics]);
@@ -23,7 +26,7 @@ export const LessOrMoreGame = () => {
   };
 
   const finishGame = (result: ResultData) => {
-    addAttempt({
+    const newAttempt = {
       _id: user!._id,
       attempt: {
         gameId: 3,
@@ -31,7 +34,8 @@ export const LessOrMoreGame = () => {
         date: new Date().toISOString(),
         neurons: result.neurons,
       },
-    });
+    };
+    dispatch(addAttempt(newAttempt));
     setGameStatus("finish");
     setResultData(result);
   };
