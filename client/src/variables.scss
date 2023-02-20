@@ -18,14 +18,14 @@
   --bg-start-color: #1c1e33;
   --btn-auth: #03a9f4;
   --bg-auxiliary-color: #f2f2f2;
-  --border-color: #aaaaaa; // цвет бордеров (графики и т.д...)
+  --border-color: #aaaaaa; // цвет бордеров (графики/кнопки/инпуты и т.д...)
  }
 
 :root[class="dark"] {
-  --bg-page: linear-gradient(90deg, rgba(35,33,38,1) 0%, rgba(40,36,55,1) 100%);
-  --bg-complementary: #B3ABFF;
-  --bg-btn-color: #AD83FA;
-  --accent-color: #AD83FA;
+  --bg-page:  radial-gradient(circle, rgba(38,34,40,1) 0%, rgba(50,51,55,1) 100%);
+  --bg-complementary: linear-gradient(90deg, rgba(193,139,255,1) 0%, rgba(179,171,255,1) 100%);
+  --bg-btn-color: #C18BFF;
+  --accent-color: #C18BFF;
   --font-main-color: #edecfd;
   --font-secondary-color: black;
   --auxiliary-color: #d4d4d4;
@@ -34,7 +34,7 @@
   --error-color: #b90101;
   --success-color: #006600;
   --bg-neutral: rgba(39, 39, 42, 0.4);
-  --bg-popup-color: #312f3b;
+  --bg-popup-color: #1F2027;
   --popup-contrast-color: #edecfd;
   --popup-shadow-color: rgba(0, 0, 0, 0.5);
   --input-bg-color: #dfdfdf;
