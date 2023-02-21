@@ -1,12 +1,13 @@
 .header_start {
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     padding: 4rem 1rem 10rem;
-    background-image: url("../../../../assets/images/StartPage/bg_start_page.png"), linear-gradient(115deg, var(--accent-color), var(--bg-start-color));;
+    background: url("../../../../assets/images/StartPage/bg_start_page.png"), var(--bg-intro);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: var(--accent-color);
+    position: relative;
+    top: -2.8rem;
 
     @media screen and (max-width: 700px) {
         padding: 2rem 1rem 5rem;;
@@ -21,13 +22,6 @@
     }
 }
 
-.logo_container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .central_container {
     min-height: 30%;
     padding: 6rem 0 1rem;
@@ -36,7 +30,7 @@
     align-items: center;
     gap: 10rem;
     justify-content: space-between;
-    color: var(--font-secondary-color)
+    color: var(--font-intro-color);
 }
 
 .title_container {

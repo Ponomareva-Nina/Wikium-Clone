@@ -21,10 +21,6 @@ export const Train: FC<PropsWithChildren<TrainProps>> = ({ isAuth }) => {
   return (
     <div className={cn(styles.header_start)}>
       <div className={cn(styles.wrapper, styles.header_start__wrapper)}>
-        <div className={cn(styles.logo_container)}>
-          <Logo />
-          <div>Theme/Lang</div>
-        </div>
         <div className={cn(styles.central_container)}>
           <div className={cn(styles.title_container)}>
             <h1 className={cn(styles.title)}>{t("header.title")}</h1>
