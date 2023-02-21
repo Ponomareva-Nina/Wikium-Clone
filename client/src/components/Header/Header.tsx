@@ -21,6 +21,7 @@ export const Header: FC<PropsWithChildren<HeaderProps>> = ({ isAuth, setIsAuth }
         <div className={cn(styles.wrapper)}>
           <div className={cn(styles.logo_container)}>
             <Logo />
+            <div>Theme/lang</div>
           </div>
         </div>
       )}

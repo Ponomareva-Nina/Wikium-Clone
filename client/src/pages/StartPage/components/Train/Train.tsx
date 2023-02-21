@@ -8,7 +8,11 @@ import { Button, Logo } from "../../../../components/UI";
 import styles from "./Train.module.scss";
 import arrow from "../../../../assets/images/StartPage/arrow-down.svg";
 
-export const Train: FC<PropsWithChildren> = () => {
+interface TrainProps {
+  isAuth?: boolean;
+}
+
+export const Train: FC<PropsWithChildren<TrainProps>> = ({ isAuth }) => {
   const listPage = (): void => {
     const startPage = document.getElementById("startPage");
     if (startPage) startPage.scrollIntoView({ behavior: "smooth" });
@@ -19,6 +23,7 @@ export const Train: FC<PropsWithChildren> = () => {
       <div className={cn(styles.wrapper, styles.header_start__wrapper)}>
         <div className={cn(styles.logo_container)}>
           <Logo />
+          <div>Theme/Lang</div>
         </div>
         <div className={cn(styles.central_container)}>
           <div className={cn(styles.title_container)}>
@@ -26,14 +31,16 @@ export const Train: FC<PropsWithChildren> = () => {
             <p className={cn(styles.subtitle)}>{t("header.description")}</p>
           </div>
           <div className={cn(styles.buttons_container)}>
-            <NavLink to="/register">
+            <NavLink to={isAuth ? "/games" : "/register"}>
               <Button btnSize="huge" appearance="initial">
                 {t("header.start")}
               </Button>
             </NavLink>
-            <NavLink to="/auth" className={cn(styles.link)}>
-              {t("header.haveAccount")}
-            </NavLink>
+            {!isAuth && (
+              <NavLink to="/auth" className={cn(styles.link)}>
+                {t("header.haveAccount")}
+              </NavLink>
+            )}
           </div>
         </div>
         <button onClick={listPage} className={cn(styles.link_bottom)} type="button">

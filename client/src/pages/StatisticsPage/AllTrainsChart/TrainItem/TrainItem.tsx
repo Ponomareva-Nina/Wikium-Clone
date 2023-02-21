@@ -15,7 +15,7 @@ export const TrainItem: FC<TrainItemProps> = ({ train }) => {
     <div className={styles.item}>
       <img className={styles.icon} src={train.game.gameIcon} alt="" />
       <Link to={`/games/${train.game.id}`}>
-        <p>{t(train.game.title)}</p>
+        <p className={styles.link}>{t(train.game.title)}</p>
       </Link>
       <p className={styles.times}>
         {train.attempts} {t("StatisticsPage.times")}

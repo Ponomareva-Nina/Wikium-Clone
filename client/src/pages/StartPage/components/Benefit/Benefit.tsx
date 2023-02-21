@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import styles from "./Benefit.module.scss";
 import { BENEFITS } from "./dataBenefit";
+import { BenefitsList } from "./components/BenefitsList";
 
 export const Benefit = () => {
   const { t } = useTranslation();
@@ -15,13 +16,7 @@ export const Benefit = () => {
             <div className={cn(styles.benefit_item)} key={benefit.id}>
               <img src={benefit.img} alt={benefit.age} />
               <h3 className={cn(styles.age_title)}>{t(benefit.age)}</h3>
-              <ul className={cn(styles.item_description)}>
-                {benefit.list.map((item) => (
-                  <li key={item}>
-                    <p>{t(item)}</p>
-                  </li>
-                ))}
-              </ul>
+              <BenefitsList benefits={benefit.list} />
             </div>
           ))}
         </div>

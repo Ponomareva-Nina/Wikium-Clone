@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../UI";
 import { ResultItem } from "./ResultItem.tsx/ResultItem";
 import styles from "./GameResults.module.scss";
-import { NeuronsChart } from "./ResultItem.tsx/NeuronsChart/NeuronsChart";
+import { NeuronsChart } from "./NeuronsChart/NeuronsChart";
 
 interface GameResultsProps {
   correctAnswers: number;
