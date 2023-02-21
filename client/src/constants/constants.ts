@@ -9,3 +9,7 @@ export const NUMBER_ZERO = 0;
 export const NUMBER_ONE = 1;
 export const SCORE_INITIAL_VALUE = 20;
 export const NEURONS_ON_LEVEL = 2000;
+export const GITHUB_NINA = "https://github.com/Ponomareva-Nina";
+export const GITHUB_SERGEY = "https://github.com/reznichenkosa";
+export const GITHUB_VLADIMIR = "https://github.com/VladimirM89";
+export const LINK_BLANK = "_blank";

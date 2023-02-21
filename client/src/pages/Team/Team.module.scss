@@ -1,0 +1,33 @@
+.wrapper {
+  max-width: 110rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.team_wrapper {
+  padding: 4rem 1rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--font-main-color);
+}
+
+.members_container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(30rem, 31%));
+  justify-content: space-between;
+  gap: 1rem;
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: minmax(30rem, 55rem);
+    justify-content: center;
+    gap: 3rem
+  }
+}
+

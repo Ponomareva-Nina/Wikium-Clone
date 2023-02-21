@@ -1,0 +1,34 @@
+.member {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--bg-popup-color);
+}
+
+.photo {
+  width: 25rem;
+  height: 25rem;
+
+  @media screen and (max-width: 500px) {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+.name {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--font-main-color);
+}
+
+.role {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.descriprion {
+  text-align: center;
+}

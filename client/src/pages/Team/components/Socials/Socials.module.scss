@@ -1,0 +1,25 @@
+.socials_container {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &__github {
+    background-image: url("../../../../assets/images/Team/github.svg");
+  }
+
+  &__inst {
+    background-image: url("../../../../assets/images/Team/instagram.svg");
+  }
+
+  &__twitter {
+    background-image: url("../../../../assets/images/Team/twitter.svg");
+  }
+}
