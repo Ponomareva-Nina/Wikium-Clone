@@ -12,9 +12,77 @@
   align-items: center;
 }
 
+.options {
+  position: absolute;
+  top: calc(100% + .5rem);
+  right: 0;
+  display: none;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  gap: .5rem;
+  background: var(--bg-popup-color);
+  border-radius: .5rem;
+  box-shadow: 0 2px 5px var(--popup-shadow-color);
+}
+
+.options_open {
+  display: flex;
+}
+
+.option {
+ text-transform: capitalize;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+
+  & img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.custom_select {
+  width: 5rem;
+  position: relative;
+
+  .select_field {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    align-items: center;
+    text-transform: capitalize;
+    color: var(--font-secondary-color);
+    background-color: transparent;
+    outline: none;
+    & img {
+      width: 3rem;
+      height: 3rem;
+    }
+    &:hover {
+      cursor: pointer;
+      & .arrow {
+        border-color: var(--font-secondary-color) transparent transparent transparent;
+      } 
+    }
+    & .arrow {
+      width: 0;
+      height: 0;
+      margin-top: 5px;
+      border: 5px solid transparent;
+      border-color: var(--auxiliary-color) transparent transparent transparent;
+      &:hover {
+        cursor: pointer;
+        border-color: var(--font-secondary-color) transparent transparent transparent;
+      }
+    }
+  }
+}
+
 .theme_btn {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: transparent;
   outline: none;
   background-size: contain;

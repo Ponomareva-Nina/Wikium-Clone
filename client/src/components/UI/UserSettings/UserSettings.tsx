@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import { THEME } from "./types";
 import { LANGUAGES } from "../../../translation/types";
-import { Button } from "../Button/Button";
+import ruFlag from "../../../assets/images/Menu/ru-flag.svg";
+import enFlag from "../../../assets/images/Menu/us-flag.svg";
 import styles from "./UserSettings.module.scss";
 
 const root = document.querySelector(":root") as HTMLElement;
@@ -15,6 +16,7 @@ interface UserSettingsProps {}
 export const UserSettings: FC<UserSettingsProps> = () => {
   const { t, i18n } = useTranslation();
   const [activeThemeBtn, setActiveThemeBtn] = useState(currentTheme || THEME.LIGHT);
+  const [selectIsOpen, setSelectIsOpen] = useState(false);
 
   const setThemeLight = () => {
     localStorage.setItem("theme", THEME.LIGHT);
@@ -28,23 +30,30 @@ export const UserSettings: FC<UserSettingsProps> = () => {
     setActiveThemeBtn(THEME.DARK);
   };
 
+  const toggleLanguageSelect = () => {
+    setSelectIsOpen(!selectIsOpen);
+  };
+
   return (
     <div className={styles.container}>
-      <div className={styles.item}>
-        <Button
-          btnSize="small"
-          onClick={() => i18n.changeLanguage(LANGUAGES.EN)}
-          appearance={i18n.resolvedLanguage === LANGUAGES.EN ? "normal" : "inactive"}
-        >
-          {LANGUAGES.EN}
-        </Button>
-        <Button
-          btnSize="small"
-          onClick={() => i18n.changeLanguage(LANGUAGES.RU)}
-          appearance={i18n.resolvedLanguage === LANGUAGES.RU ? "normal" : "inactive"}
-        >
-          {LANGUAGES.RU}
-        </Button>
+      <div className={cn(styles.item, styles.custom_select)}>
+        <button type="button" className={styles.select_field} onClick={toggleLanguageSelect}>
+          <img
+            src={i18n.language === LANGUAGES.RU ? ruFlag : enFlag}
+            alt={t("menu.language") || ""}
+          />
+          <span className={styles.arrow} />
+        </button>
+        <ul className={selectIsOpen ? cn(styles.options, styles.options_open) : styles.options}>
+          <li className={styles.option}>
+            <img src={enFlag} alt={LANGUAGES.EN} />
+            {LANGUAGES.EN}
+          </li>
+          <li className={styles.option}>
+            <img src={ruFlag} alt={LANGUAGES.RU} />
+            {LANGUAGES.RU}
+          </li>
+        </ul>
       </div>
 
       <div className={styles.item}>
