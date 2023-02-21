@@ -1,10 +1,10 @@
+import { useTranslation } from "react-i18next";
 import cn from "classnames";
-import { t } from "i18next";
 import { NavLink } from "react-router-dom";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ReactSVG } from "react-svg";
 import { FC, PropsWithChildren } from "react";
-import { Button, Logo } from "../../../../components/UI";
+import { Button } from "../../../../components/UI";
 import styles from "./Train.module.scss";
 import arrow from "../../../../assets/images/StartPage/arrow-down.svg";
 
@@ -13,6 +13,7 @@ interface TrainProps {
 }
 
 export const Train: FC<PropsWithChildren<TrainProps>> = ({ isAuth }) => {
+  const { t } = useTranslation();
   const listPage = (): void => {
     const startPage = document.getElementById("startPage");
     if (startPage) startPage.scrollIntoView({ behavior: "smooth" });
