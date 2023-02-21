@@ -17,6 +17,7 @@
         width: 100%;
         @include flex-row();
         justify-content: space-between;
+        gap: 2rem;
 
         @media screen and (max-width: 800px) {
             flex-direction: row-reverse;

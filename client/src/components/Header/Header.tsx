@@ -6,6 +6,7 @@ import { Account } from "../UserMenu/Account/Account";
 import styles from "./Header.module.scss";
 import { BREAKPOINT } from "../../constants/constants";
 import { Logo } from "../UI";
+import { UserSettings } from "../UI/UserSettings/UserSettings";
 
 interface HeaderProps {
   isAuth?: boolean;
@@ -21,7 +22,7 @@ export const Header: FC<PropsWithChildren<HeaderProps>> = ({ isAuth, setIsAuth }
         <div className={cn(styles.wrapper)}>
           <div className={cn(styles.logo_container)}>
             <Logo />
-            <div>Theme/lang</div>
+            <UserSettings />
           </div>
         </div>
       )}
@@ -31,6 +32,7 @@ export const Header: FC<PropsWithChildren<HeaderProps>> = ({ isAuth, setIsAuth }
             <Logo />
             {width > BREAKPOINT && <NavigationList />}
           </div>
+          <UserSettings />
           <Account />
         </div>
       )}
