@@ -34,14 +34,14 @@
 }
 
 .logo_container {
-    align-self: flex-start;
-    @media screen and (max-width: 700px) {
-        align-self: center;
-    }
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .wrapper {
-    max-width: 110rem;
+    width: 110rem;
     padding: 0 2rem;
     margin: 0 auto;
 }

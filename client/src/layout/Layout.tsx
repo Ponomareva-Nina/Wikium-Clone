@@ -12,7 +12,7 @@ export const Layout: FC<PropsWithChildren<LayoutProps>> = ({ children, isAuth })
 
   return (
     <>
-      {isAuth || loaction.pathname !== "/" ? <Header isAuth={isAuth} /> : <Train />}
+      {loaction.pathname !== "/" ? <Header isAuth={isAuth} /> : <> </>}
       <main>{children}</main>
       <Footer />
     </>

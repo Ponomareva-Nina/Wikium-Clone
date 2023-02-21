@@ -22,10 +22,10 @@
 }
 
 .logo_container {
-    align-self: flex-start;
-    @media screen and (max-width: 700px) {
-        align-self: center;
-    }
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .central_container {
@@ -71,7 +71,7 @@
 }
 
 .link {
-    color: var(--btn-auth);
+    color: var(--bg-initial-btn-color);
     font-size: 1.6rem;
 
     &:hover {

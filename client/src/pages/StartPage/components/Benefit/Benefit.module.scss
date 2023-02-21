@@ -22,7 +22,7 @@
 }
 
 .benefit {
-  background-color: var(--bg-page);
+  background-color: var(--bg-popup-color);
 }
 
 .benefit_container {
@@ -33,7 +33,7 @@
     content: "";
     width: 160px;
     height: 5px;
-    background-color: var(--bg-auxiliary-color);
+    background-color: var(--bg-page);
     border-radius: 10px;
   }
 }
@@ -87,13 +87,6 @@
   font-size: 2rem;
   font-weight: 600;
   color: #27a8e0;
-}
-
-.item_description {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  list-style: initial;
 }
 
 .wrapper {
