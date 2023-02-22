@@ -4,18 +4,14 @@ import { Benefit } from "./components/Benefit/Benefit";
 import { Synapse } from "./components/Synapse/Synapse";
 import { Train } from "./components/Train/Train";
 
-interface StartPageProps {
-  isAuth?: boolean;
-}
-
-export const StartPage: FC<PropsWithChildren<StartPageProps>> = ({ isAuth }) => {
+export const StartPage: FC<PropsWithChildren> = () => {
   return (
     <>
-      <Train isAuth={isAuth} />
+      <Train />
       <div id="startPage">
-        <Effect isAuth={isAuth} />
+        <Effect />
         <Benefit />
-        <Synapse isAuth={isAuth} />
+        <Synapse />
       </div>
     </>
   );

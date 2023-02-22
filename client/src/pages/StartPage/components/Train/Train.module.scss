@@ -1,7 +1,7 @@
-.header_start {
+.section {
     height: 90vh;
     width: 100%;
-    padding: 4rem 1rem 10rem;
+    padding: 4rem 1rem 9rem;
     background: url("../../../../assets/images/StartPage/bg_start_page.png"), var(--bg-intro);
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,8 +9,8 @@
     position: relative;
     top: -2.8rem;
 
-    @media screen and (max-width: 700px) {
-        padding: 2rem 1rem 5rem;;
+    @media screen and (max-width: 750px) {
+        padding: 2rem 0 4rem;
     }
 
     &__wrapper {
@@ -31,6 +31,10 @@
     gap: 10rem;
     justify-content: space-between;
     color: var(--font-intro-color);
+
+    @media screen and (max-width: 750px) {
+        padding: 4rem 0 1rem;
+    }
 }
 
 .title_container {

@@ -4,12 +4,10 @@ import { NavLink } from "react-router-dom";
 import { FC, PropsWithChildren } from "react";
 import styles from "./Synapse.module.scss";
 import { Button } from "../../../../components/UI";
+import { useAppSelector } from "../../../../store/redux-hooks";
 
-interface SynapseProps {
-  isAuth?: boolean;
-}
-
-export const Synapse: FC<PropsWithChildren<SynapseProps>> = ({ isAuth }) => {
+export const Synapse: FC<PropsWithChildren> = () => {
+  const user = useAppSelector((state) => state.user.entity!);
   const { t } = useTranslation();
 
   return (
@@ -42,7 +40,7 @@ export const Synapse: FC<PropsWithChildren<SynapseProps>> = ({ isAuth }) => {
         <p className={cn(styles.text_decision)}>
           <b>{t("startPage.decision")}</b>
         </p>
-        <NavLink to={isAuth ? "/games" : "/register"}>
+        <NavLink to={user ? "/games" : "/register"}>
           <Button btnSize="huge" appearance="initial">
             {t("header.start")}
           </Button>
