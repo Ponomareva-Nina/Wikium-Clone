@@ -30,20 +30,38 @@ export class AuthService {
       password: hashedPassword,
     });
 
-    const tokens = await this.issueTokenPair(
-      String(newUser._id),
-      newUser.email,
-    );
+    const {
+      _id,
+      email,
+      name,
+      surname,
+      birthDay,
+      gender,
+      education,
+      avatar,
+      statistics,
+    } = newUser;
+
+    const tokens = await this.issueTokenPair(String(_id), newUser.email);
 
     await this.userService.update(
-      { _id: newUser._id },
+      { _id },
       {
         refreshToken: tokens.refreshToken,
       },
     );
-
     return {
-      user: { email: newUser.email },
+      user: {
+        _id,
+        email,
+        name,
+        surname,
+        birthDay,
+        gender,
+        education,
+        avatar,
+        statistics,
+      },
       ...tokens,
     };
   }
@@ -58,8 +76,29 @@ export class AuthService {
         refreshToken: tokens.refreshToken,
       },
     );
+    const {
+      _id,
+      email,
+      name,
+      surname,
+      birthDay,
+      gender,
+      education,
+      avatar,
+      statistics,
+    } = user;
     return {
-      user: { email: user.email },
+      user: {
+        _id,
+        email,
+        name,
+        surname,
+        birthDay,
+        gender,
+        education,
+        avatar,
+        statistics,
+      },
       ...tokens,
     };
   }
@@ -92,8 +131,29 @@ export class AuthService {
         },
       );
 
+      const {
+        _id,
+        email,
+        name,
+        surname,
+        birthDay,
+        gender,
+        education,
+        avatar,
+        statistics,
+      } = user;
       return {
-        user: { email: user.email },
+        user: {
+          _id,
+          email,
+          name,
+          surname,
+          birthDay,
+          gender,
+          education,
+          avatar,
+          statistics,
+        },
         ...tokens,
       };
     } catch (e) {

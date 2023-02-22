@@ -7,7 +7,6 @@ interface CounterProps {
 
 export const useCounter = ({ isReverse, initialValue }: CounterProps) => {
   const [count, setCount] = useState<number>(isReverse ? initialValue : 0);
-  const reset = () => setCount(initialValue || 0);
 
   useEffect(() => {
     let intervalId: null | NodeJS.Timer = null;
@@ -31,5 +30,5 @@ export const useCounter = ({ isReverse, initialValue }: CounterProps) => {
     };
   }, [count]);
 
-  return { count, reset };
+  return count;
 };

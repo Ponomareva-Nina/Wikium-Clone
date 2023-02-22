@@ -39,6 +39,7 @@
             "classes": true,
             "variables": true,
             "allowNamedExports": false
-        }]
+        }],
+        "no-underscore-dangle": ["off"]
     }
 }

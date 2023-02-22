@@ -7,6 +7,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
   }
 
   .list {

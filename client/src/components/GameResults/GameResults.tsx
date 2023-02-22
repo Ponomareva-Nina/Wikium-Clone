@@ -4,12 +4,11 @@ import { Button } from "../UI";
 import { ResultItem } from "./ResultItem.tsx/ResultItem";
 import styles from "./GameResults.module.scss";
 import { NeuronsChart } from "./NeuronsChart/NeuronsChart";
+import { ResultData } from "../../interfaces/GameInterface";
 
 interface GameResultsProps {
-  correctAnswers: number;
-  mistakes: number;
-  score: number;
-  neurons: number;
+  resultData: ResultData;
+  userNeurons: number;
   newGameHandler: () => void;
 }
 
@@ -18,13 +17,8 @@ interface Result {
   value: string | number;
 }
 
-export const GameResults: FC<GameResultsProps> = ({
-  correctAnswers = 0,
-  mistakes = 0,
-  score = 0,
-  neurons = 0,
-  newGameHandler,
-}) => {
+export const GameResults: FC<GameResultsProps> = ({ resultData, newGameHandler, userNeurons }) => {
+  const { mistakes, correctAnswers, neurons, score } = resultData;
   const { t } = useTranslation();
   const totalAnswers = mistakes + correctAnswers;
   const results: Result[] = [
@@ -38,16 +32,13 @@ export const GameResults: FC<GameResultsProps> = ({
     },
     {
       title: "gameResults.accuracy",
-      value: `${((correctAnswers / totalAnswers) * 100).toFixed(2)}%`,
+      value: `${((correctAnswers / totalAnswers) * 100 || 0).toFixed(2)}%`,
     },
     {
       title: "gameResults.neuronsCreated",
       value: neurons,
     },
   ];
-
-  // TO DO: Get number of neurons gained by user from server and save it to userNeurons instead of random number below:
-  const userNeurons = 3228;
 
   return (
     <div className={styles.wrapper}>
