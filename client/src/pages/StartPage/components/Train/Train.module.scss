@@ -65,11 +65,11 @@
 }
 
 .link {
-    color: var(--bg-initial-btn-color);
+    color: var(--color-link-inactive);
     font-size: 1.6rem;
 
     &:hover {
-        text-decoration: underline;
+        color: var(--font-secondary-color);
     }
 }
 

@@ -1,14 +1,10 @@
 import { FC, PropsWithChildren } from "react";
 import { Footer, Header } from "../components";
 
-interface LayoutProps {
-  isAuth?: boolean;
-}
-
-export const Layout: FC<PropsWithChildren<LayoutProps>> = ({ children, isAuth }) => {
+export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
-      <Header isAuth={isAuth} />
+      <Header />
       <main>{children}</main>
       <Footer />
     </>

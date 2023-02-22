@@ -19,7 +19,8 @@
 }
 
 .standart {
-  width: 12rem;
+  min-width: 12rem;
+  max-width: max-content;
   text-transform: uppercase;
 }
 

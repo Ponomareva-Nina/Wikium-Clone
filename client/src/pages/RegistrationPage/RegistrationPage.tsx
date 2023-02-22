@@ -1,9 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
 import { useAppDispatch } from "../../store/redux-hooks";
 import { register } from "../../store/user/user.actions";
 
@@ -94,7 +92,7 @@ export const RegistrationPage = () => {
         <Link to="/auth">
           <span className={styles.link}>{t("registerPage.loginLink")}</span>
         </Link>
-        {t("registerPage.loginSugguestionText")}
+        {t("registerPage.loginSuggestionText")}
       </p>
     </Form>
   );
