@@ -8,17 +8,23 @@
 }
 
 .account_descr {
-  font-size: 1.1rem;
-  text-align: right;
-  color: var(--font-secondary-color);
+    font-size: 1.2rem;
+    text-align: right;
+    color: var(--font-secondary-color);
 }
 
 .account_btn {
-  width: 6.3rem;
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  background: transparent;
+    width: 6rem;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    background: transparent;
+
+    &:hover {
+        &::after {
+            border-bottom-color: var(--font-secondary-color);
+        }
+    }
 
   &:hover {
     &::after {

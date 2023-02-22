@@ -39,7 +39,6 @@ export const NavigationItem: FC<PropsWithChildren<NavItemProps>> = ({
         to={to}
         className={cn(!isOpenAccPopup ? styles.nav_item : styles.nav_item_menu)}
         target={target}
-        // className={cn(styles.nav_item)}
         onClick={onClick}
         style={{
           color: getMatchColor(),

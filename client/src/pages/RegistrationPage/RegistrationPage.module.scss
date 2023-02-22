@@ -1,0 +1,11 @@
+.link {
+  color: var(--accent-color);
+
+  &:hover {
+    color: var(--font-main-color);
+  }
+
+  &:visited {
+    color: var(--accent-color);
+  }
+}

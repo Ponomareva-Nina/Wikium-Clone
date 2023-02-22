@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
-import { AccountNav } from "../UI";
+import { AccountNav } from "../NavigationList/AccountNav/AccountNav";
 
 import styles from "./UserMenu.module.scss";
 import { NavigationList } from "../NavigationList/NavigationList";

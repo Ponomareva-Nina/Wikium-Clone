@@ -1,10 +1,35 @@
 {
   "startPage": {
-    "title": "Start Page"
+    "effect": "The effect of trainings",
+    "effectSecription": "Our simulators are based on the methods neuropsychologists, which have proven their effectiveness in the course of many experiments and scientific works.",
+    "reactDescription": "to the reaction rate per week",
+    "focusDescription": "to focus on tasks for 1 month",
+    "attentionDescription": "attention to trifles and details in 2 months",
+    "memoryDescription": "to memory in 2-3 weeks",
+    "benefit": "Who can use our trains?",
+    "benefitYoung": "Young age",
+    "benefitYoungFirst": "Improve learning in educational institutions",
+    "benefitYoungSecond": "Prevention of Attention Deficit Disorder",
+    "benefitMidle": "Average age",
+    "benefitMidleFirst": "Increase personal productivity, efficiency",
+    "benefitMidleSecond": "Make fewer mistakes and shortcomings at work",
+    "benefitMidleThird": "Keep your mind active throughout the day",
+    "benefitOld": "Elderly age",
+    "benefitOldFirst": "Keep your mind sharp and clear longer",
+    "benefitOldSecond": "Prevention of age-related diseases caused by a decrease in intellectual load",
+    "synapse": "You need to increase the number of synapses",
+    "synapseSubtitle": "Synapse is a point of contact between two neurons",
+    "synapseDescriptionOne": "The number of neurons and synapses, as well as their quality, determine the intellectual potential - the flexibility of the mind, memory, creativity, talent",
+    "synapseDescriptionTwoBold": "Brain train",
+    "synapseDescriptionTwo": " is the process of creating, strengthening or restoring lost neural (synaptic) connections",
+    "synapseDescriptionThree": "The process of creating new neurons in science is called neurogenesis",
+    "synapseScheme": "Diagram of neural connections",
+    "addingNewSynapse": "Receiving new information, as well as special training, form new synapses",
+    "decision": "It is up to you to decide how actively they will be created!"
   },
   "menu": {
     "language": "Change language",
-    "theme": "Change theme"
+    "theme": "Theme"
   },
   "authPage": {
     "title": "Log In",
@@ -49,8 +74,8 @@
     "logout": "Log out"
   },
   "logo": {
-    "title": "Wikium clone",
-    "alt": "Wikium - train brains"
+    "title": "Brain train",
+    "alt": "Brain train"
   },
   "account": {
     "avatar": "user photo"
@@ -169,6 +194,12 @@
     "neuronsCreated": "Neurons created",
     "level": "level",
     "neurons": "neurons"
+  },
+  "header": {
+    "title": "Train your brain with pleasure",
+    "description": "Improve memory, attention and thinking with our simulators",
+    "start": "Start train",
+    "haveAccount": "I already have an account"
   },
   "StatisticsPage": {
     "allTrains": "Completed trainings",

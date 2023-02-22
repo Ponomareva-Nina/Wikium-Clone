@@ -1,13 +1,12 @@
 import { ChangeEvent, useState } from "react";
-
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAppDispatch } from "../../store/redux-hooks";
 import { login } from "../../store/user/user.actions";
-
 import { Button, Input } from "../../components/UI";
 import { Form } from "../../components";
+import styles from "./AuthPage.module.scss";
 
 interface AuthFormData {
   email: string;
@@ -64,7 +63,9 @@ export const AuthPage = () => {
       <p style={{ textAlign: "center" }}>
         {t("authPage.newUserText")}
         <br />
-        <Link to="/register">{t("authPage.registerLink")}</Link>
+        <Link to="/register">
+          <span className={styles.link}>{t("authPage.registerLink")}</span>
+        </Link>
         {t("authPage.registerSuggestionText")}
       </p>
     </Form>

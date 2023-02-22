@@ -1,14 +1,13 @@
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
 import { useAppDispatch } from "../../store/redux-hooks";
 import { register } from "../../store/user/user.actions";
 
 import { Button, Input } from "../../components/UI";
 import { Form } from "../../components";
+import styles from "./RegistrationPage.module.scss";
 
 interface RegistrationFormData {
   email: string;
@@ -90,7 +89,9 @@ export const RegistrationPage = () => {
       <p style={{ textAlign: "center" }}>
         {t("registerPage.haveAccount")}
         <br />
-        <Link to="/auth">{t("registerPage.loginLink")}</Link>
+        <Link to="/auth">
+          <span className={styles.link}>{t("registerPage.loginLink")}</span>
+        </Link>
         {t("registerPage.loginSuggestionText")}
       </p>
     </Form>

@@ -1,0 +1,151 @@
+.section {
+  padding: 7rem 0 9rem;
+
+  @media screen and (max-width: 750px) {
+    padding: 2rem 0 4rem;
+  }
+}
+
+.effect {
+  background-color: var(--bg-page);
+}
+
+.section_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem;
+
+  @media screen and (max-width: 1200px) {
+    gap: 4rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    gap: 2rem;
+  }
+}
+
+.effect_description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+
+  @media screen and (max-width: 1200px) {
+    gap: 3rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    gap: 1.5rem;
+  }
+}
+
+.start_title {
+  font-size: 3.6rem;
+  text-align: center;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    font-size: 2.5rem;
+  }
+}
+
+@keyframes title {
+  0% {
+    transform: translateY(-2rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.start_subtitle {
+  font-size: 1.6rem;
+  text-align: center;
+  animation: subtitle .4s ease-in .2s;
+
+  @media screen and (max-width: 750px) {
+    font-size: 1.4rem;
+  }
+}
+
+@keyframes subtitle {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.effects_list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(17rem, 1fr));
+  gap: 1.5rem;
+
+  @media screen and (max-width: 750px) {
+    grid-template-columns: repeat(2, minmax(17rem, 25rem));
+  }
+  @media screen and (max-width: 400px) {
+    grid-template-columns: repeat(1, minmax(17rem, 25rem));
+    gap: 1.2rem;
+  }
+}
+
+.effect_item {
+  padding: 1rem;
+  text-align: center;
+  animation: item 1s ease-in .2s;
+
+  &_title {
+    font-size: 5rem;
+    font-weight: 600;
+
+    @media screen and (max-width: 900px) {
+      font-size: 4rem;
+    }
+  }
+}
+
+@keyframes item {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.effect_item_description {
+  @media screen and (max-width: 900px) {
+    font-size: 1.3rem;
+  }
+}
+
+.btn_container {
+  animation: btn .5s ease-in;
+}
+
+@keyframes btn {
+  0% {
+    transform: translateY(10rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.wrapper {
+    max-width: 110rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+  }

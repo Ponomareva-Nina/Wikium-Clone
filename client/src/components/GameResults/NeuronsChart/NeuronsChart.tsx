@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { NEURONS_ON_LEVEL } from "../../../../constants/constants";
+import { NEURONS_ON_LEVEL } from "../../../constants/constants";
 import styles from "./NeuronsChart.module.scss";
 
 interface NeuronsChartProps {

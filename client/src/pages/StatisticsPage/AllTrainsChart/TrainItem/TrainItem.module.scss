@@ -9,3 +9,10 @@
 .times {
  margin-left: auto;
 }
+.link {
+  color: var(--accent-color);
+
+  &:hover {
+    color: var(--popup-contrast-color);
+  }
+}

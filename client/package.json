@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ponomareva-nina.github.io/Wikium-Clone",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
@@ -24,6 +25,7 @@
     "react-router-dom": "^6.8.0",
     "react-scripts": "^5.0.1",
     "react-toastify": "^9.1.1",
+    "react-visibility-sensor": "^5.1.1",
     "sass": "^1.57.1",
     "web-vitals": "^2.1.4"
   },

@@ -11,15 +11,20 @@
     height: 6rem;
     @include flex-row();
     justify-content: center;
-    background-color: var(--accent-color);
+    background: var(--bg-complementary);
 
     &__wrapper {
         width: 100%;
         @include flex-row();
         justify-content: space-between;
+        gap: 2rem;
 
         @media screen and (max-width: 800px) {
             flex-direction: row-reverse;
+        }
+
+        @media screen and (max-width: 400px) {
+            gap: 1rem;
         }
     }
 }
@@ -33,8 +38,19 @@
     }
 }
 
+.logo_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .wrapper {
-    max-width: 110rem;
+    width: 110rem;
     padding: 0 2rem;
     margin: 0 auto;
-  }
+
+    @media screen and (max-width: 800px) {
+        padding: 0 1rem;
+    }
+}

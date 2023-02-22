@@ -23,6 +23,7 @@ export const CategoryChart: FC<CategoryChartProps> = ({
   const memoryColor = "rgb(0, 211, 164)";
   const concentrationColor = "rgb(143, 74, 249)";
   const logicsColor = "rgb(245, 166, 35)";
+  const borderColor = "#313131";
 
   const data = {
     labels: [],
@@ -31,7 +32,7 @@ export const CategoryChart: FC<CategoryChartProps> = ({
         label: "Neurons",
         data: [memory, concentration, logics],
         backgroundColor: [memoryColor, concentrationColor, logicsColor],
-        borderColor: ["#b3b3b3"],
+        borderColor: [borderColor],
         borderWidth: 1,
         cutout: "50%",
       },
