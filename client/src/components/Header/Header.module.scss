@@ -22,6 +22,10 @@
         @media screen and (max-width: 800px) {
             flex-direction: row-reverse;
         }
+
+        @media screen and (max-width: 400px) {
+            gap: 1rem;
+        }
     }
 }
 
@@ -45,4 +49,8 @@
     width: 110rem;
     padding: 0 2rem;
     margin: 0 auto;
+
+    @media screen and (max-width: 800px) {
+        padding: 0 1rem;
+    }
 }

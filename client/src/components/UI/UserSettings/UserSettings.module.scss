@@ -2,6 +2,10 @@
   display: flex;
   gap: 2rem;
   margin-left: auto;
+
+  @media screen and (max-width: 800px) {
+    gap: 1rem;
+  }
 }
 
 .item {
@@ -95,7 +99,6 @@
 .arrow_active {
   transform: rotate(360deg);
 }
-
 
 .theme_btn {
   width: 2.5rem;

@@ -1,6 +1,6 @@
 :root[class="light"] {
   --bg-page: #f7f5fa;  // фон основной страницы
-  --bg-complementary: linear-gradient(90deg, rgba(69,59,104,1) 42%, rgba(62,84,172,1) 100%); // яркий комплементарный фон (для хэдэра/футера/декоративных компонентов)
+  --bg-complementary: linear-gradient(90deg, #453b68 42%, rgba(62,84,172,1) 100%); // яркий комплементарный фон (для хэдэра/футера/декоративных компонентов)
   --bg-btn-color: #3E54AC; // фон кнопки (основной)
   --accent-color: #3E54AC; // цвет шрифра акцентный - для заголовков и элементов на которые обращаем внимание пользователя
   --font-main-color: black; // основной цвет шрифта
@@ -25,11 +25,11 @@
 :root[class="dark"] {
   --bg-page: radial-gradient(circle, rgba(38,34,40,1) 0%, rgba(50,51,55,1) 100%);
   --bg-complementary: linear-gradient(90deg, #b0b8d4 40%, rgba(218,172,104,1) 70%);
-  --bg-btn-color: #e6b959;
+  --bg-btn-color: #b0b8d4;
   --accent-color: #ebac54;
   --font-main-color: #edecfd;
   --font-secondary-color: black;
-  --auxiliary-color: #d4d4d4;
+  --auxiliary-color: #b3b3b3;
   --inactive-bg-color: #aaaaaa;
   --color-link-inactive: #3e3e41;
   --error-color: #b90101;

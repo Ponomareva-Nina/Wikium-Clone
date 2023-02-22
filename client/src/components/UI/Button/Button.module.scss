@@ -51,8 +51,11 @@
 
 .ghost {
   border: none;
+  box-shadow: 0 0 5px var(--popup-shadow-color);
   color: var(--accent-color);
+  background-color: var(--bg-neutral);
 }
+
 .neutral {
   background-color: var(--bg-neutral);
   text-transform: none;

@@ -12,17 +12,21 @@
   .list {
     display: flex;
     flex-direction: column;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
     gap: 1rem;
+    background: var(--bg-page);
+    box-shadow: 2px 2px 5px var(--popup-shadow-color);
 
     li {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
-      color: var(--auxiliary-color);
+      color: var(--font-main-color);
       font-size: 1.5rem;
 
       span:last-child {
-        color: black;
+        color: var(--auxiliary-color);
       }
     }
   }
