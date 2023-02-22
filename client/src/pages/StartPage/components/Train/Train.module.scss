@@ -65,11 +65,13 @@
 }
 
 .link {
-    color: var(--color-link-inactive);
+    color: var(--bg-auxiliary-color);
     font-size: 1.6rem;
+    transition: all .3s ease;
 
     &:hover {
-        color: var(--font-secondary-color);
+        transform: translateY(-2px);
+        border-bottom: 1px solid var(--accent-color);
     }
 }
 
