@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   margin-left: auto;
 }
 
@@ -14,6 +14,7 @@
 
 .options {
   position: absolute;
+  z-index: 2;
   top: calc(100% + .5rem);
   right: 0;
   display: none;
@@ -34,15 +35,22 @@
  display: flex;
  align-items: center;
  gap: 1rem;
+ background-color: transparent;
+ outline: none;
+ color: var(--font-main-color);
 
   & img {
     width: 3rem;
     height: 3rem;
+    filter: drop-shadow(0px 0px 1px var(--auxiliary-color));
+  }
+
+  &:hover {
+    transform: scale(105%); 
   }
 }
 
 .custom_select {
-  width: 5rem;
   position: relative;
 
   .select_field {
@@ -50,35 +58,44 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    gap: .5rem;
+    gap: .7rem;
     align-items: center;
     text-transform: capitalize;
     color: var(--font-secondary-color);
     background-color: transparent;
     outline: none;
+
     & img {
       width: 3rem;
       height: 3rem;
     }
+  
     &:hover {
       cursor: pointer;
       & .arrow {
-        border-color: var(--font-secondary-color) transparent transparent transparent;
+        border-bottom-color: var(--font-secondary-color);
       } 
-    }
-    & .arrow {
-      width: 0;
-      height: 0;
-      margin-top: 5px;
-      border: 5px solid transparent;
-      border-color: var(--auxiliary-color) transparent transparent transparent;
-      &:hover {
-        cursor: pointer;
-        border-color: var(--font-secondary-color) transparent transparent transparent;
-      }
     }
   }
 }
+
+.arrow {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s;
+  transform: rotate(180deg);
+  
+  &:hover {
+    cursor: pointer;
+    border-bottom-color: var(--font-secondary-color);
+  }
+}
+
+.arrow_active {
+  transform: rotate(360deg);
+}
+
 
 .theme_btn {
   width: 2.5rem;
@@ -88,7 +105,11 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  // transition: all .5s ease;
+  transition: all .3s ease;
+
+  &:hover {
+    filter: contrast(150%) saturate(200%);
+  }
 }
 
 .dark {

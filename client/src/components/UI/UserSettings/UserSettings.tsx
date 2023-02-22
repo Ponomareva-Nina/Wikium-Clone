@@ -1,4 +1,5 @@
-import { FC, useState } from "react";
+//* eslint-disable jsx-a11y/click-events-have-key-events */
+import { FC, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import { THEME } from "./types";
@@ -17,6 +18,8 @@ export const UserSettings: FC<UserSettingsProps> = () => {
   const { t, i18n } = useTranslation();
   const [activeThemeBtn, setActiveThemeBtn] = useState(currentTheme || THEME.LIGHT);
   const [selectIsOpen, setSelectIsOpen] = useState(false);
+  const LangOptionsRef = useRef<HTMLUListElement | null>(null);
+  const LangButtonRef = useRef<HTMLDivElement | null>(null);
 
   const setThemeLight = () => {
     localStorage.setItem("theme", THEME.LIGHT);
@@ -30,28 +33,58 @@ export const UserSettings: FC<UserSettingsProps> = () => {
     setActiveThemeBtn(THEME.DARK);
   };
 
-  const toggleLanguageSelect = () => {
+  const handleSelectLangClick = () => {
     setSelectIsOpen(!selectIsOpen);
   };
 
+  const setLanguageEn = () => {
+    i18n.changeLanguage(LANGUAGES.EN);
+    setSelectIsOpen(false);
+  };
+
+  const setLanguageRu = () => {
+    i18n.changeLanguage(LANGUAGES.RU);
+    setSelectIsOpen(false);
+  };
+
+  useEffect(() => {
+    const handler = (event: MouseEvent) => {
+      const target = event.target as HTMLButtonElement;
+      if (LangButtonRef.current && LangOptionsRef.current) {
+        if (!LangButtonRef.current.contains(target) && !LangOptionsRef.current.contains(target)) {
+          setSelectIsOpen(false);
+        }
+      }
+    };
+    document.body.addEventListener("mousedown", handler);
+    return () => document.body.removeEventListener("mousedown", handler);
+  }, []);
+
   return (
     <div className={styles.container}>
-      <div className={cn(styles.item, styles.custom_select)}>
-        <button type="button" className={styles.select_field} onClick={toggleLanguageSelect}>
+      <div ref={LangButtonRef} className={cn(styles.item, styles.custom_select)}>
+        <button type="button" className={styles.select_field} onClick={handleSelectLangClick}>
           <img
             src={i18n.language === LANGUAGES.RU ? ruFlag : enFlag}
             alt={t("menu.language") || ""}
           />
-          <span className={styles.arrow} />
+          <span className={selectIsOpen ? cn(styles.arrow, styles.arrow_active) : styles.arrow} />
         </button>
-        <ul className={selectIsOpen ? cn(styles.options, styles.options_open) : styles.options}>
-          <li className={styles.option}>
-            <img src={enFlag} alt={LANGUAGES.EN} />
-            {LANGUAGES.EN}
+        <ul
+          ref={LangOptionsRef}
+          className={selectIsOpen ? cn(styles.options, styles.options_open) : styles.options}
+        >
+          <li>
+            <button type="button" className={styles.option} onClick={setLanguageEn}>
+              <img src={enFlag} alt={LANGUAGES.EN} />
+              {LANGUAGES.EN}
+            </button>
           </li>
-          <li className={styles.option}>
-            <img src={ruFlag} alt={LANGUAGES.RU} />
-            {LANGUAGES.RU}
+          <li>
+            <button type="button" className={styles.option} onClick={setLanguageRu}>
+              <img src={ruFlag} alt={LANGUAGES.RU} />
+              {LANGUAGES.RU}
+            </button>
           </li>
         </ul>
       </div>
