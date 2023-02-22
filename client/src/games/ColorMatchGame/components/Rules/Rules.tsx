@@ -5,17 +5,17 @@ import { Button } from "../../../../components/UI";
 import styles from "./Rules.module.scss";
 
 interface RulesProps {
-  isGameStarted: boolean;
+  isGameInit: boolean;
   onClick: () => void;
 }
 
-export const Rules: FC<PropsWithChildren<RulesProps>> = ({ isGameStarted, onClick }) => {
+export const Rules: FC<PropsWithChildren<RulesProps>> = ({ isGameInit, onClick }) => {
   const { t } = useTranslation();
 
   return (
     <div className={cn(styles.container)}>
       <p className={cn(styles.description)}>{t("ColorMatchGame.rules")}</p>
-      {!isGameStarted && <Button onClick={onClick}>{t("gamesData.startGame")}</Button>}
+      {isGameInit && <Button onClick={onClick}>{t("gamesData.startGame")}</Button>}
     </div>
   );
 };

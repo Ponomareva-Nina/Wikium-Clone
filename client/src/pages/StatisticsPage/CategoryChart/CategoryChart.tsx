@@ -1,28 +1,28 @@
 import { FC } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { useTranslation } from "react-i18next";
 import { GameItem } from "../../../interfaces/GameInterface";
 import styles from "./CategoryChart.module.scss";
 import { CategoryItem } from "./CategoryItem/CategoryItem";
 
 interface CategoryChartProps {
-  trains: GameItem[] | null;
+  memory: number;
+  concentration: number;
+  logics: number;
+  totalNeurons: number;
 }
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const CategoryChart: FC<CategoryChartProps> = ({ trains }) => {
-  const { t } = useTranslation();
+export const CategoryChart: FC<CategoryChartProps> = ({
+  memory,
+  concentration,
+  logics,
+  totalNeurons,
+}) => {
   const memoryColor = "rgb(0, 211, 164)";
   const concentrationColor = "rgb(143, 74, 249)";
   const logicsColor = "rgb(245, 166, 35)";
-
-  // TO DO: These constants below may identified with help of useState (and might be calculated from trains array)
-  const memory = 25;
-  const concentration = 60;
-  const logics = 20;
-  const totalNeurons = memory + concentration + logics;
 
   const data = {
     labels: [],

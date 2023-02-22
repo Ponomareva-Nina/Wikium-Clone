@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { useCounter } from "../../../../../hooks/useCounter";
 
 import { ControlPanel } from "./ControlPanel/ControlPanel";
@@ -18,8 +18,14 @@ import { AnswerVars, Expressions } from "../../../types/game-data.interface";
 import { getRandomExpressionsByLevel } from "../../../utils/randomizer.util";
 
 import styles from "./GameField.module.scss";
+import { ResultData } from "../../../../../interfaces/GameInterface";
+import { SCORE_INITIAL_VALUE } from "../../../../../constants/constants";
 
-export const GameField = () => {
+interface GameFieldProps {
+  finishGame: (resultData: ResultData) => void;
+}
+
+export const GameField: FC<GameFieldProps> = ({ finishGame }) => {
   const timer = useCounter({ isReverse: true, initialValue: 60 });
   const [level, setLevel] = useState<number>(1);
   const [points, setPoint] = useState<number>(0);
@@ -45,6 +51,7 @@ export const GameField = () => {
       if (correctAnswerCountRef.current > MIN_CORRECT_ANSWER) {
         correctAnswerCountRef.current -= 1;
       }
+      setPoint((prevValue) => prevValue - level * COUNT_POINT);
       setAnswerCheck("incorrect");
     }
 
@@ -76,9 +83,24 @@ export const GameField = () => {
     correctAnswerRef.current = gameData.correctAnswer;
   }, []);
 
+  useEffect(() => {
+    if (timer === 0) {
+      const neurons = points / SCORE_INITIAL_VALUE;
+
+      const resultData = {
+        correctAnswers: correctAnswerCountRef.current,
+        mistakes: answerCountRef.current - correctAnswerCountRef.current,
+        score: points,
+        neurons,
+      };
+
+      finishGame(resultData);
+    }
+  }, [timer]);
+
   return (
     <div className={styles.wrapper}>
-      <TopPanel timer={timer.count} points={points} level={level} />
+      <TopPanel timer={timer} points={points} level={level} />
       <div className={styles.contents}>
         {answerCheck && (
           <img className={styles["check-icon"]} src={checkIcons[answerCheck]} alt="checkIcon" />

@@ -1,5 +1,10 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
+import { User } from "../../../interfaces/User";
+import { useAppDispatch } from "../../../store/redux-hooks";
+import { updateUserInformation } from "../../../store/user/user.actions";
+import { getLocaleDateFromString } from "../../../utils/date.util";
 import { Button, Input, Select } from "../../UI";
 import { Option } from "../../UI/Select/Select";
 import styles from "./CommonInfo.module.scss";
@@ -8,7 +13,7 @@ interface FormData {
   name: string;
   surname: string;
   gender: string;
-  birthday: string;
+  birthDay: string;
   education: string;
 }
 
@@ -16,7 +21,7 @@ const initialData: FormData = {
   name: "",
   surname: "",
   gender: "",
-  birthday: "",
+  birthDay: "",
   education: "",
 };
 
@@ -33,38 +38,82 @@ const educationOptions: Option[] = [
   { value: "doctorDegree", title: "accountPage.doctorDegree" },
 ];
 
-export const CommonInfo = () => {
+interface CommonInfoProps {
+  user: User;
+}
+
+export const CommonInfo: FC<CommonInfoProps> = ({ user }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [formData, setFormData] = useState<FormData>(initialData);
-  const { t } = useTranslation();
+
+  const dispatch = useAppDispatch();
+  const { t, i18n } = useTranslation();
+  const currentLocale = i18n.language === "en" ? "en-EN" : "ru-RU";
 
   const educationTitle = educationOptions.find(
     (option) => option.value === formData.education
   )?.title;
+
   const genderTitle = genderOptions.find((option) => option.value === formData.gender)?.title;
+
+  const cancelHandler = () => {
+    setIsEdit(false);
+  };
 
   const editOrSaveHandler = () => {
     if (!isEdit) {
       setIsEdit((prev) => !prev);
       return;
     }
-    setIsEdit((prev) => !prev);
+    const newUserData = { _id: user._id, ...formData };
+    toast.promise(
+      dispatch(updateUserInformation(newUserData))
+        .unwrap()
+        .finally(() => setIsEdit((prev) => !prev)),
+      {
+        pending: "Update information...",
+        success: "Update information is success",
+        error: {
+          render({ data }) {
+            return `${data}`;
+          },
+        },
+      }
+    );
   };
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    setFormData({
+      name: user.name,
+      surname: user.surname,
+      gender: user.gender,
+      education: user.education,
+      birthDay: user.birthDay,
+    });
+  }, [isEdit, user]);
 
   return (
     <form onSubmit={submitHandler} className={styles.wrapper}>
       <div className={styles.head}>
         <h2>{t("accountPage.commonInfo")}</h2>
-        <Button onClick={editOrSaveHandler} appearance="ghost">
-          {!isEdit ? t("accountPage.edit") : t("accountPage.save")}
-        </Button>
+        <div className={styles["btn-group"]}>
+          {isEdit && (
+            <Button onClick={cancelHandler} appearance="ghost">
+              {t("accountPage.cancel")}
+            </Button>
+          )}
+          <Button onClick={editOrSaveHandler} appearance="ghost">
+            {!isEdit ? t("accountPage.edit") : t("accountPage.save")}
+          </Button>
+        </div>
       </div>
       <ul className={styles.list}>
         <li>
@@ -100,9 +149,18 @@ export const CommonInfo = () => {
         <li>
           <span>{t("accountPage.birthday")}</span>
           {!isEdit ? (
-            <span>{formData.birthday || t("accountPage.notIndicated")}</span>
+            <span>
+              {getLocaleDateFromString(formData.birthDay, currentLocale) ||
+                t("accountPage.notIndicated")}
+            </span>
           ) : (
-            <Input value={formData.birthday} name="birthday" type="date" onChange={changeHandler} />
+            <Input
+              value={formData.birthDay}
+              name="birthDay"
+              max="2019-01-01"
+              type="date"
+              onChange={changeHandler}
+            />
           )}
         </li>
         <li>
