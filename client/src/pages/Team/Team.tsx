@@ -8,7 +8,9 @@ export const Team = () => {
   const { t } = useTranslation();
   return (
     <div className={cn(styles.team_container)}>
-      <div className={cn(styles.line)} />
+      <div className={cn(styles.line_container)}>
+        <div className={cn(styles.line)} />
+      </div>
       <div className={cn(styles.wrapper, styles.team_wrapper)}>
         <p className={cn(styles.title)}>{t("team.title")}</p>
         <div className={cn(styles.members_container)}>

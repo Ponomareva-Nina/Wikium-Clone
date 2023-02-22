@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import cn from "classnames";
 import { FC, PropsWithChildren } from "react";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { ReactSVG } from "react-svg";
 import styles from "./Socials.module.scss";
 import { LINK_BLANK } from "../../../../constants/constants";
+import { SOCIALS } from "./dataSocial";
 
 interface SocialsProps {
   link: string;
@@ -11,15 +14,15 @@ interface SocialsProps {
 export const Socials: FC<PropsWithChildren<SocialsProps>> = ({ link }) => {
   return (
     <ul className={cn(styles.socials_container)}>
-      <li className={cn(styles.icon, styles.icon__github)}>
-        <Link to={link} target={LINK_BLANK} />
-      </li>
-      <li className={cn(styles.icon, styles.icon__inst)}>
-        <Link to={link} target={LINK_BLANK} />
-      </li>
-      <li className={cn(styles.icon, styles.icon__twitter)}>
-        <Link to={link} target={LINK_BLANK} />
-      </li>
+      {SOCIALS.map((social) => (
+        <li>
+          <Link to={link} target={LINK_BLANK}>
+            <span className={cn(styles.icon)}>
+              <ReactSVG src={social} />
+            </span>
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 };
