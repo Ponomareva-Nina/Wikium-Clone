@@ -1,13 +1,13 @@
 :root[class="light"] {
   --bg-page: #f7f5fa;  // фон основной страницы
-  --bg-complementary: linear-gradient(115deg, #6039aa, #29213f); // яркий комплементарный фон (для хэдэра/футера/декоративных компонентов)
-  --bg-btn-color: #9962FF; // фон кнопки (основной)
-  --accent-color: #6039aa; // цвет шрифра акцентный - для заголовков и элементов на которые обращаем внимание пользователя
+  --bg-complementary: linear-gradient(90deg, #453b68 42%, rgba(62,84,172,1) 100%); // яркий комплементарный фон (для хэдэра/футера/декоративных компонентов)
+  --bg-btn-color: #3E54AC; // фон кнопки (основной)
+  --accent-color: #3E54AC; // цвет шрифра акцентный - для заголовков и элементов на которые обращаем внимание пользователя
   --font-main-color: black; // основной цвет шрифта
   --font-secondary-color: white; // второстеменный цвет шрифта (используется для элементов с фоном bg-compelemntary)
   --auxiliary-color: #797979; // цвет шрифта для вспомогательных или неактивных элементов без фона
   --inactive-bg-color: #aaaaaa; // цвет фона для неактивных элементов / инпутов / кнопок
-  --color-link-inactive: #c2bfbf; // цвет неактивных ссылок в хэдэре/футере
+  --color-link-inactive: #ccccc5; // цвет неактивных ссылок в хэдэре/футере
   --error-color: #b90101; 
   --success-color: #006600;
   --bg-neutral: rgba(255, 255, 255, 0.4); // нейтральный полупрозрачный фон (кнопки / декоративные элементы)
@@ -15,31 +15,33 @@
   --popup-contrast-color: black; // цвет шрифта для элементов, которым установлен фон --bg-popup-color
   --popup-shadow-color: rgb(0 0 0 / 10%); // цвет для эффекта тени
   --input-bg-color: #f7f5fa; // цвет для полей инпутов
-  --bg-start-color: #1c1e33;
-  --bg-initial-btn-color: #03a9f4;
+  --bg-initial-btn-color: #3E54AC;
   --bg-auxiliary-color: #f2f2f2;
-  --border-color: #aaaaaa; // цвет бордеров (графики и т.д...)
+  --border-color: #aaaaaa; // цвет бордеров (графики/кнопки/инпуты и т.д...)
+  --font-intro-color: #ffffff;
+  --bg-intro: linear-gradient(90deg, #443C68, #1e1c22);
  }
 
 :root[class="dark"] {
-  --bg-page: linear-gradient(90deg, rgba(35,33,38,1) 0%, rgba(40,36,55,1) 100%);
-  --bg-complementary: #B3ABFF;
-  --bg-btn-color: #AD83FA;
-  --accent-color: #AD83FA;
+  --bg-page: radial-gradient(circle, rgba(38,34,40,1) 0%, rgba(50,51,55,1) 100%);
+  --bg-complementary: linear-gradient(90deg, #b0b8d4 40%, rgba(218,172,104,1) 70%);
+  --bg-btn-color: #b0b8d4;
+  --accent-color: #ebac54;
   --font-main-color: #edecfd;
   --font-secondary-color: black;
-  --auxiliary-color: #d4d4d4;
+  --auxiliary-color: #b3b3b3;
   --inactive-bg-color: #aaaaaa;
   --color-link-inactive: #3e3e41;
   --error-color: #b90101;
   --success-color: #006600;
   --bg-neutral: rgba(39, 39, 42, 0.4);
-  --bg-popup-color: #312f3b;
+  --bg-popup-color: #1F2027;
   --popup-contrast-color: #edecfd;
   --popup-shadow-color: rgba(0, 0, 0, 0.5);
   --input-bg-color: #dfdfdf;
-  --bg-start-color: #1c1e33;
-  --bg-initial-btn-color: #03a9f4;
+  --bg-initial-btn-color: #ebac54;
   --bg-auxiliary-color: #f2f2f2;
   --border-color: #313131;
+  --font-intro-color: #ffffff;
+  --bg-intro: linear-gradient(90deg, #2c2c2c, #1F2027);
 }

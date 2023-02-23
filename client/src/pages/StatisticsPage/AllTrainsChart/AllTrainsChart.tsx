@@ -14,24 +14,17 @@ export const AllTrainsChart: FC<AllTrainsChartProps> = ({ trains }) => {
 
   const [allTrainsNumber, setAllTrainsNumber] = useState(0);
 
-  const updateTrainsNumber = () => {
-    const trainsNumber = trains
-      ?.map((item) => {
-        return item.attempts;
-      })
-      .reduce((prev, next) => prev + next);
-    setAllTrainsNumber(trainsNumber || 0);
-  };
-
-  useEffect(() => {
-    updateTrainsNumber();
-  }, [trains]);
+  const trainsNumber = trains
+    ?.map((item) => {
+      return item.attempts;
+    })
+    .reduce((prev, next) => prev + next, 0);
 
   return (
     <>
       <div className={styles.title}>{t("StatisticsPage.allTrains")}</div>
       <div className={styles.trains_number}>
-        <span>{t("StatisticsPage.total")}</span> {allTrainsNumber}
+        <span>{t("StatisticsPage.total")}</span> {trainsNumber}
       </div>
       <div className={styles.sort}>
         <p>{t("StatisticsPage.ascending")}</p>

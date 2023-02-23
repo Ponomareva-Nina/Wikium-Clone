@@ -7,26 +7,39 @@ import {
   useState,
   useEffect,
   useRef,
+  useMemo,
 } from "react";
 import { useTranslation } from "react-i18next";
 import noneAvatar from "../../../assets/images/Avatar/none_avatar.svg";
+import { User } from "../../../interfaces/User";
+import { useAppDispatch } from "../../../store/redux-hooks";
+import { logout } from "../../../store/user/user.actions";
 import { UserMenu } from "../UserMenu";
 import styles from "./Account.module.scss";
 
 interface AccountProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   isOpenMenu?: boolean;
+  user: User;
 }
 
 export const Account: FC<PropsWithChildren<AccountProps>> = ({
   children,
+  user,
   ...rest
 }: AccountProps) => {
   const [isOpenAccPopup, setIsOpenAccPopup] = useState(false);
   const { t } = useTranslation();
-
+  const dispatch = useAppDispatch();
+  const neurons = useMemo(() => {
+    return user.statistics.reduce((acc, stat) => acc + stat.neurons, 0);
+  }, [user]);
   const handleAccountClick = (): void => {
     setIsOpenAccPopup((prev) => !prev);
+  };
+
+  const logoutHandler = (): void => {
+    dispatch(logout());
   };
 
   const logoRef = useRef<HTMLDivElement | null>(null);
@@ -48,8 +61,8 @@ export const Account: FC<PropsWithChildren<AccountProps>> = ({
   return (
     <div ref={logoRef} className={cn(styles.account_container)}>
       <div>
-        <p className={cn(styles.account_descr)}>Name</p>
-        <p className={cn(styles.account_descr)}>Neurons</p>
+        <p className={cn(styles.account_descr)}>{user?.name || user?.email}</p>
+        <p className={cn(styles.account_descr)}>{neurons}</p>
       </div>
       <button
         type="button"
@@ -57,10 +70,18 @@ export const Account: FC<PropsWithChildren<AccountProps>> = ({
         onClick={handleAccountClick}
         {...rest}
       >
-        <img className={cn(styles.avatar_photo)} src={noneAvatar} alt={`${t("user.avatar")}`} />
+        <img
+          className={cn(styles.avatar_photo)}
+          src={user.avatar || noneAvatar}
+          alt={`${t("user.avatar")}`}
+        />
       </button>
       <div ref={menuRef}>
-        <UserMenu isOpenAccPopup={isOpenAccPopup} onClick={handleAccountClick} />
+        <UserMenu
+          logoutHandler={logoutHandler}
+          isOpenAccPopup={isOpenAccPopup}
+          onClick={handleAccountClick}
+        />
       </div>
     </div>
   );

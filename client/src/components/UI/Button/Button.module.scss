@@ -2,7 +2,7 @@
   transition: 0.2s;
   white-space: nowrap;
   padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   border: 2px solid var(--bg-btn-color);
   min-width: fit-content;
   text-transform: capitalize;
@@ -19,11 +19,14 @@
 }
 
 .standart {
-  width: 12rem;
+  min-width: 12rem;
+  max-width: max-content;
+  text-transform: uppercase;
 }
 
 .small {
   min-width: 2.5rem;
+  border-radius: 1rem;
 }
 
 .large {
@@ -49,8 +52,11 @@
 
 .ghost {
   border: none;
+  box-shadow: 0 0 5px var(--popup-shadow-color);
   color: var(--accent-color);
+  background-color: var(--bg-neutral);
 }
+
 .neutral {
   background-color: var(--bg-neutral);
   text-transform: none;
@@ -64,7 +70,7 @@
   font-size: 1.4rem;
   background-color: var(--bg-initial-btn-color);
   border-color: var(--bg-initial-btn-color);
-  border-radius: 5rem;
   text-transform: uppercase;
   color: var(--font-secondary-color);
+  font-weight: 600;
 }

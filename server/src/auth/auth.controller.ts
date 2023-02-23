@@ -1,3 +1,4 @@
+import { LoginResponseDto } from './dto/login-response.dto';
 import { JwtAuthGuard } from './guards/jwt.guard';
 import { REFRESH_TOKEN_EXPIRE } from './auth.constants';
 import {
@@ -13,11 +14,18 @@ import {
 import { Response, Request } from 'express';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
-
+import { ApiOperation, ApiResponse, ApiTags, OmitType } from '@nestjs/swagger';
+import { User } from 'src/user/entities/user.entity';
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @ApiOperation({ summary: 'User register' })
+  @ApiResponse({
+    status: 200,
+    type: LoginResponseDto,
+  })
   @Post('register')
   async register(
     @Body() dto: AuthDto,
@@ -34,6 +42,11 @@ export class AuthController {
     };
   }
 
+  @ApiOperation({ summary: 'User login' })
+  @ApiResponse({
+    status: 200,
+    type: LoginResponseDto,
+  })
   @HttpCode(200)
   @Post('login')
   async login(
@@ -51,6 +64,9 @@ export class AuthController {
     };
   }
 
+  @ApiOperation({ summary: 'User logout' })
+  @ApiResponse({ status: 200 })
+  @UseGuards(JwtAuthGuard)
   @Get('logout')
   async logout(
     @Req() request: Request,
@@ -61,7 +77,8 @@ export class AuthController {
     response.clearCookie('refreshToken');
   }
 
-  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'User token refresh' })
+  @ApiResponse({ status: 200 })
   @HttpCode(200)
   @Get('refresh')
   async refresh(

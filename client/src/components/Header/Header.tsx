@@ -1,37 +1,36 @@
 import cn from "classnames";
 import { FC, PropsWithChildren } from "react";
-import { useViewport } from "../../utils/useViewport";
+import { useViewport } from "../../hooks/useViewport";
 import { NavigationList } from "../NavigationList/NavigationList";
 import { Account } from "../UserMenu/Account/Account";
+import { Logo } from "../UI";
 import styles from "./Header.module.scss";
 import { BREAKPOINT } from "../../constants/constants";
-import { Logo } from "../UI";
+import { useAppSelector } from "../../store/redux-hooks";
+import { UserSettings } from "../UI/UserSettings/UserSettings";
 
-interface HeaderProps {
-  isAuth?: boolean;
-  setIsAuth?: () => void;
-}
-
-export const Header: FC<PropsWithChildren<HeaderProps>> = ({ isAuth, setIsAuth }) => {
+export const Header: FC<PropsWithChildren> = () => {
+  const user = useAppSelector((state) => state.user.entity);
   const { width } = useViewport();
 
   return (
     <header className={cn(styles.header)}>
-      {!isAuth && (
+      {!user && (
         <div className={cn(styles.wrapper)}>
           <div className={cn(styles.logo_container)}>
             <Logo />
-            <div>Theme/lang</div>
+            <UserSettings />
           </div>
         </div>
       )}
-      {isAuth && (
+      {user && (
         <div className={cn(styles.header__wrapper, styles.wrapper)}>
           <div className={cn(styles.header_container)}>
             <Logo />
-            {width > BREAKPOINT && <NavigationList />}
+            {user && width > BREAKPOINT && <NavigationList />}
           </div>
-          <Account />
+          <UserSettings />
+          <Account user={user} />
         </div>
       )}
     </header>

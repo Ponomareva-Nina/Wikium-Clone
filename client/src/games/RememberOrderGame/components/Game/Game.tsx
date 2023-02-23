@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { GameField } from "../GameField/GameField";
 import styles from "./Game.module.scss";
 import { Levels, levelsData } from "../../data";
@@ -6,16 +6,14 @@ import { createCardsArray } from "../../utils";
 import { CardInterface, CardProps } from "../types/types";
 import { SCORE_INITIAL_VALUE } from "../../../../constants/constants";
 import { useCounter } from "../../../../hooks/useCounter";
-import { GameResults } from "../../../../components";
-import { GameCategories } from "../../../../interfaces/Categories";
 import { GameInfoPanel } from "../../../../components/GameInfoPanel/GameInfoPanel";
+import { GameProps } from "../../../../interfaces/GameInterface";
 
 const firstLevel = levelsData[Levels.FIRST].level;
 const lastLevel = levelsData[Levels.LAST].level;
 const firstAnswer = 1;
 
-export const Game = () => {
-  const [isGameStarted, setIsGameStarted] = useState(true);
+export const Game: FC<GameProps> = ({ finishGame }) => {
   const [level, setLevel] = useState(firstLevel);
   const [cardsData, setCardsData] = useState<CardInterface[]>([]);
   const [scoreCount, setScoreCount] = useState<number>(0);
@@ -28,32 +26,17 @@ export const Game = () => {
   const levelTimeoutIdRef = useRef<NodeJS.Timer | null>(null);
   const neuronsRef = useRef<number>(0);
 
-  const startNewGame = () => {
-    setIsGameStarted(true);
-    setLevel(firstLevel);
-    setScoreCount(0);
-    totalAnswersCountRef.current = 0;
-    mistakesCountRef.current = 0;
-    matchedAnswersOnLevelRef.current = 0;
-    scoreConstantRef.current = SCORE_INITIAL_VALUE;
-    correctAnswerRef.current = firstAnswer;
-    neuronsRef.current = 0;
-    timer.reset();
-  };
-
   const endGame = () => {
     neuronsRef.current = scoreCount / SCORE_INITIAL_VALUE;
 
-    // TO DO: send statistics info to server
-
-    const statistics = {
-      id: 1,
-      category: GameCategories.MEMORY,
-      countAttempt: new Date(),
+    const resultData = {
+      correctAnswers: totalAnswersCountRef.current,
+      mistakes: mistakesCountRef.current,
+      score: scoreCount,
       neurons: neuronsRef.current,
     };
 
-    setIsGameStarted(false);
+    finishGame(resultData);
   };
 
   const generateNewCards = () => {
@@ -149,48 +132,36 @@ export const Game = () => {
       if (card.value === levelsData[level].cards) {
         updateCardProperty(card.id, CardProps.SOLVED);
         disableCards();
-        if (timer.count === 0) {
-          endGame();
-        }
       }
     } else {
       updateCardProperty(card.id, CardProps.ERROR);
       disableCards();
       registerMistake();
-      if (timer.count === 0) {
-        endGame();
-      }
     }
   };
 
+  useEffect(() => {
+    if (timer === 0) {
+      endGame();
+    }
+  }, [timer]);
+
   return (
     <div className={styles.container}>
-      {isGameStarted ? (
-        <>
-          <GameInfoPanel
-            timer={timer.count}
-            currentLevel={level}
-            maxLevel={lastLevel}
-            score={scoreCount}
-            mistakes={false}
-            bonus={false}
-          />
-          <GameField
-            level={levelsData[level]}
-            gameCards={cardsData}
-            flipCards={flipCards}
-            handleChoice={handleChoice}
-          />
-        </>
-      ) : (
-        <GameResults
-          correctAnswers={totalAnswersCountRef.current}
-          mistakes={mistakesCountRef.current}
-          score={scoreCount}
-          neurons={neuronsRef.current}
-          newGameHandler={startNewGame}
-        />
-      )}
+      <GameInfoPanel
+        timer={timer}
+        currentLevel={level}
+        maxLevel={lastLevel}
+        score={scoreCount}
+        mistakes={false}
+        bonus={false}
+      />
+      <GameField
+        level={levelsData[level]}
+        gameCards={cardsData}
+        flipCards={flipCards}
+        handleChoice={handleChoice}
+      />
     </div>
   );
 };

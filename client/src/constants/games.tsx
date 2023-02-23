@@ -18,9 +18,9 @@ import lessOrMoreIcon from "../assets/images/GamesIcons/more-and-less-icon.svg";
 import rememberOrderIcon from "../assets/images/GamesIcons/remember-order-icon.svg";
 
 export const enum GamesId {
-  FIRST,
-  SECOND,
-  THIRD,
+  FIRST = 1,
+  SECOND = 2,
+  THIRD = 3,
 }
 
 const INITIAL_NEURONS_NUMBER = 5;

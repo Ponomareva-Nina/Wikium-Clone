@@ -3,15 +3,17 @@ import { FC, PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { Button } from "../../../../components/UI";
+import { useAppSelector } from "../../../../store/redux-hooks";
 import { EFFECTS } from "./dataEffect";
 import styles from "./Effect.module.scss";
 
-interface EffectProps {
-  isAuth?: boolean;
-}
+// interface EffectProps {
+//   isAuth?: boolean;
+// }
 
-export const Effect: FC<PropsWithChildren<EffectProps>> = ({ isAuth }) => {
+export const Effect: FC<PropsWithChildren> = () => {
   const { t } = useTranslation();
+  const user = useAppSelector((state) => state.user.entity!);
 
   return (
     <section className={cn(styles.section, styles.effect)}>
@@ -31,7 +33,7 @@ export const Effect: FC<PropsWithChildren<EffectProps>> = ({ isAuth }) => {
           ))}
         </div>
         <div className={cn(styles.btn_container)}>
-          <NavLink to={isAuth ? "/games" : "/register"}>
+          <NavLink to={user ? "/games" : "/register"}>
             <Button btnSize="huge" appearance="initial">
               {t("header.start")}
             </Button>

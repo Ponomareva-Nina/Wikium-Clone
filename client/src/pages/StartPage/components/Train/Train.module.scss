@@ -1,15 +1,16 @@
-.header_start {
-    height: 100vh;
+.section {
+    height: 90vh;
     width: 100%;
-    padding: 4rem 1rem 10rem;
-    background-image: url("../../../../assets/images/StartPage/bg_start_page.png"), linear-gradient(115deg, var(--accent-color), var(--bg-start-color));;
+    padding: 4rem 1rem 9rem;
+    background: url("../../../../assets/images/StartPage/bg_start_page.png"), var(--bg-intro);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: var(--accent-color);
+    position: relative;
+    top: -2.8rem;
 
-    @media screen and (max-width: 700px) {
-        padding: 2rem 1rem 5rem;;
+    @media screen and (max-width: 750px) {
+        padding: 2rem 0 4rem;
     }
 
     &__wrapper {
@@ -21,13 +22,6 @@
     }
 }
 
-.logo_container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .central_container {
     min-height: 30%;
     padding: 6rem 0 1rem;
@@ -36,7 +30,11 @@
     align-items: center;
     gap: 10rem;
     justify-content: space-between;
-    color: var(--font-secondary-color)
+    color: var(--font-intro-color);
+
+    @media screen and (max-width: 750px) {
+        padding: 4rem 0 1rem;
+    }
 }
 
 .title_container {
@@ -71,11 +69,13 @@
 }
 
 .link {
-    color: var(--bg-initial-btn-color);
+    color: var(--bg-auxiliary-color);
     font-size: 1.6rem;
+    transition: all .3s ease;
 
     &:hover {
-        text-decoration: underline;
+        transform: translateY(-2px);
+        border-bottom: 1px solid var(--accent-color);
     }
 }
 
@@ -85,17 +85,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--font-secondary-color);
+    border: 1px solid var(--auxiliary-color);
     border-radius: 5rem;
     animation: float 3s ease-in-out infinite;
     background-color: transparent;
 
     &:hover {
-        background-color: var(--font-secondary-color);
+        background-color: var(--accent-color);
 
         & svg {
-
-            fill: var(--auxiliary-color);
+            fill: var(--font-secondary-color);
         }
     }
 
@@ -103,9 +102,7 @@
         width: 1.5rem;
         height:1.5rem;
         display: block;
-        fill: var(--font-secondary-color);
-
-
+        fill: var(--auxiliary-color);
     }
 };
 

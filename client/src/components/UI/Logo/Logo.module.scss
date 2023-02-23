@@ -12,6 +12,11 @@
 
 .img_link {
     width: 4.5rem;
+    filter: drop-shadow(1px 1px 1px var(--auxiliary-color)) saturate(120%);
+    
+    @media screen and (max-width: 400px) {
+       display: none;
+    }
 }
 
 .title {
@@ -19,6 +24,8 @@
     text-align: center;
     font-weight: 600;
     font-size: 1.5rem;
-    line-height: 100%;
+    line-height: 90%;
     color: var(--font-secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }

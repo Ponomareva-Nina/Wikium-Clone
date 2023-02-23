@@ -6,15 +6,15 @@ import { Button } from "../../../../components/UI";
 import styles from "./RulesGamePage.module.scss";
 
 interface RulesGamePageProps {
-  startTrainHandler: () => void;
+  startTraining: () => void;
 }
 
-export const RulesGamePage: FC<RulesGamePageProps> = ({ startTrainHandler }) => {
+export const RulesGamePage: FC<RulesGamePageProps> = ({ startTraining }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <div>{t("lessOrMoreGame.rules")}</div>
-      <Button onClick={startTrainHandler}>{t("gameLayout.startExercise")}</Button>
+      <Button onClick={startTraining}>{t("gameLayout.startExercise")}</Button>
     </div>
   );
 };

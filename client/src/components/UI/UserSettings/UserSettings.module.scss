@@ -1,0 +1,158 @@
+.container {
+  display: flex;
+  gap: 2rem;
+  margin-left: auto;
+
+  @media screen and (max-width: 800px) {
+    gap: 1rem;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.options {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + .5rem);
+  right: 0;
+  display: none;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  gap: .5rem;
+  background: var(--bg-popup-color);
+  border-radius: .5rem;
+  box-shadow: 0 2px 5px var(--popup-shadow-color);
+}
+
+.options_open {
+  display: flex;
+}
+
+.option {
+ text-transform: capitalize;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+ background-color: transparent;
+ outline: none;
+ color: var(--font-main-color);
+
+  & img {
+    width: 3rem;
+    height: 3rem;
+    filter: drop-shadow(0px 0px 1px var(--auxiliary-color));
+  }
+
+  &:hover {
+    transform: scale(105%); 
+  }
+}
+
+.custom_select {
+  position: relative;
+
+  .select_field {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: .7rem;
+    align-items: center;
+    text-transform: capitalize;
+    color: var(--font-secondary-color);
+    background-color: transparent;
+    outline: none;
+
+    & img {
+      width: 3rem;
+      height: 3rem;
+    }
+  
+    &:hover {
+      cursor: pointer;
+      & .arrow {
+        border-bottom-color: var(--font-secondary-color);
+      } 
+    }
+  }
+}
+
+.arrow {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s;
+  transform: rotate(180deg);
+  
+  &:hover {
+    cursor: pointer;
+    border-bottom-color: var(--font-secondary-color);
+  }
+}
+
+.arrow_active {
+  transform: rotate(360deg);
+}
+
+.theme_btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: transparent;
+  outline: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all .3s ease;
+
+  &:hover {
+    filter: contrast(150%) saturate(200%);
+  }
+}
+
+.dark {
+  background-image: url("../../../assets/images/Menu/moon.svg");
+}
+
+.light {
+  background-image: url("../../../assets/images/Menu/sun.svg");
+}
+
+.roll_right {
+  animation: roll-right .5s ease;
+}
+
+.roll_left {
+  animation: roll-left .5s ease;
+}
+
+@keyframes roll-right {
+  from {
+    transform: scale(0);
+    transform: rotate(0deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes roll-left {
+  from {
+    opacity: 0;
+    transform: scale(0);
+    transform: rotate(0deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    transform: rotate(-180deg);
+  }
+}
