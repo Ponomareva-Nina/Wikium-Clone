@@ -7,6 +7,7 @@ import { ReactSVG } from "react-svg";
 import styles from "./MemberCard.module.scss";
 import { MembersInterface } from "./dataMembers";
 import github from "../../../../assets/images/Team/github.svg";
+import { LINK_BLANK } from "../../../../constants/constants";
 
 interface MemberCardsProps {
   member: MembersInterface;
@@ -29,7 +30,7 @@ export const MemberCard: FC<PropsWithChildren<MemberCardsProps>> = ({ member }) 
       </div>
       <p className={cn(styles.descriprion)}>{t(member.description)}</p>
       <div>
-        <Link to={member.githubLink} target="_blank" className={cn(styles.socials_container)}>
+        <Link to={member.githubLink} target={LINK_BLANK} className={cn(styles.socials_container)}>
           <span className={cn(styles.icon)}>
             <ReactSVG src={github} />
           </span>

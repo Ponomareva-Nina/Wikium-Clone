@@ -215,7 +215,11 @@
   },
   "team": {
     "title": "Our Team",
-    "description": "Hello! This small application with simulators for the development of attention, memory and thinking is an RS Clone team educational project (RS Clone is a link to the task). We used wikium.com as a reference. The stack of technologies used: React, Typescript, Nest.js, SASS, MongoDB was used as a database.",
+    "descriptionPartOne": "Hello! This small application with simulators for the development of attention, memory and thinking is an ",
+    "linkToTask" : "RS Clone",
+    "descriptionPartTwo" : " team educational project. We used ",
+    "linkToOriginal" : "wikium.com",
+    "descriptionPartThree" : " as a reference. The stack of technologies used: React, Typescript, Nest.js, SASS, MongoDB was used as a database.",
     "photo": "Teammate photo",
     "nameFirst": "Vladimir",
     "roleFirst": "frontend-developer",

@@ -13,3 +13,6 @@ export const GITHUB_NINA = "https://github.com/Ponomareva-Nina";
 export const GITHUB_SERGEY = "https://github.com/reznichenkosa";
 export const GITHUB_VLADIMIR = "https://github.com/VladimirM89";
 export const LINK_BLANK = "_blank";
+export const LINK_TASK =
+  "https://github.com/rolling-scopes-school/tasks/blob/master/tasks/rsclone/rsclone.md";
+export const LINK_ORIGINAL = "https://wikium.com";
