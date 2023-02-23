@@ -60,7 +60,7 @@ export const Account: FC<PropsWithChildren<AccountProps>> = ({
 
   return (
     <div ref={logoRef} className={cn(styles.account_container)}>
-      <div>
+      <div className={cn(styles.account_content)}>
         <p className={cn(styles.account_descr)}>{user?.name || user?.email}</p>
         <p className={cn(styles.account_descr)}>{neurons}</p>
       </div>

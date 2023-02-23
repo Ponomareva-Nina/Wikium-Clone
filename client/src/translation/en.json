@@ -215,15 +215,21 @@
   },
   "team": {
     "title": "Our Team",
+    "description": "Hello! This small application with simulators for the development of attention, memory and thinking is an RS Clone team educational project (RS Clone is a link to the task). We used wikium.com as a reference. The stack of technologies used: React, Typescript, Nest.js, SASS, MongoDB was used as a database.",
     "photo": "Teammate photo",
     "nameFirst": "Vladimir",
-    "roleFirst": "Frontend developer",
-    "descriptionFirst": "Разработал стартовую страницу, футер, хедер, меню пользователя, игру 'Сравни цвета'",
+    "roleFirst": "frontend-developer",
+    "roleFirstDescription": "A.k.a. Jedi adaptive layout, thanks to which the application is available on a smartphone.",
+    "descriptionFirst": "Implemented the \"ColorMatch Game\", user menu, start page and page about team. ",
     "nameSecond": "Nina",
-    "roleSecond": "Frontend developer",
-    "descriptionSecond": "Разработала страницы регистрации/авторизации, страницу статичтики, игру 'Замони порядок'",
+    "roleSecond": "frontend-developer, team-lead",
+    "roleSecondDescription": "A.k.a. Sith designer. Created a theme for those on the dark side.",
+    "descriptionSecond": "Ensured the search and organization work of the team, updating the backlog and maintaining the kanban board. Implemented the simulator \"Remember the order\", the statistics and achievements pages. ",
     "nameThird": "Sergey",
-    "roleThird": "Fullstack developer",
-    "descriptionThird": "Разработал бэкенд, страницу личного кабинета, игру 'Больше / меньше'"
+    "roleThird": "fullstack-developer, tech-lead",
+    "roleThirdDescription": "A.k.a. Master of React-Redux, always ready to help.",
+    "descriptionThird": "Developed the server part of the application and organized its connection with the front. Supervised the work of the team in the technical part and the solution of the most complex tasks. Implemented the \"Logical Comparison\" simulator, user's personal account.",
+    "quote": " \"The more we learn, the better we realize how much we don't know.\" ",
+    "quoteAuthor": " Yoda"
   }
 }

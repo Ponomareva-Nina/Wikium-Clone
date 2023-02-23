@@ -26,6 +26,10 @@ export const AccountNav: FC<PropsWithChildren<AccountNavProps>> = ({
       <NavigationItem to="/" onClick={logoutHandler} isOpenAccPopup={isOpenAccPopup}>
         {t("navigation.logout")}
       </NavigationItem>
+
+      <NavigationItem to="/team" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
+        {t("footer.about")}
+      </NavigationItem>
     </div>
   );
 };

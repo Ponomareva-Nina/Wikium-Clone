@@ -7,6 +7,12 @@
   align-items: center;
 }
 
+.account_content {
+  @media screen and (max-width: 450px) {
+    display: none;
+  }
+}
+
 .account_descr {
     font-size: 1.2rem;
     text-align: right;

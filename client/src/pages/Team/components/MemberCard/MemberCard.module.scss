@@ -3,8 +3,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 3rem;
   background-color: var(--bg-popup-color);
+
+  @media screen and (max-width: 450px) {
+    padding: 3rem 1.5rem;
+  }
 }
 
 .photo {
@@ -18,17 +23,64 @@
 }
 
 .name {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: var(--font-main-color);
 }
 
+.role_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.role_content {
+  display: flex;
+  gap: 1rem;
+}
+
 .role {
-  font-size: 1.8rem;
+  min-height: 5rem;
+  font-size: 2.1rem;
   font-weight: 600;
+  text-align: center;
   color: var(--accent-color);
 }
 
+.role_description {
+  font-size: 1.4rem;
+}
+
 .descriprion {
+  min-height: 21rem;
   text-align: center;
+
+  @media screen and (max-width: 950px) {
+    min-height: fit-content;
+  }
+}
+
+.socials_container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+    & svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: var(--accent-color);
+      vertical-align: middle;
+    }
+}
+
+.nickname {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--font-main-color);
 }

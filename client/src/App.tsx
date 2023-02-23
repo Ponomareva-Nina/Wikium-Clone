@@ -44,6 +44,7 @@ function App() {
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/team" element={<Team />} />
         </Routes>
       </Layout>
     );

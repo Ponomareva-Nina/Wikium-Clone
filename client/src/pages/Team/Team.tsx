@@ -13,10 +13,15 @@ export const Team = () => {
       </div>
       <div className={cn(styles.wrapper, styles.team_wrapper)}>
         <p className={cn(styles.title)}>{t("team.title")}</p>
+        <p className={cn(styles.descriprion)}>{t("team.description")}</p>
         <div className={cn(styles.members_container)}>
           {MEMBERS.map((member) => (
             <MemberCard member={member} key={member.id} />
           ))}
+        </div>
+        <div className={cn(styles.quote_container)}>
+          <p className={cn(styles.quote)}>{t("team.quote")}</p>
+          <p className={cn(styles.quote_author)}>{t("team.quoteAuthor")}</p>
         </div>
       </div>
     </div>

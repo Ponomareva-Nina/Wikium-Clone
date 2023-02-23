@@ -14,11 +14,11 @@
   width: 100%;
   height: 25rem;
   position: absolute;
-  top: 25%;
+  top: 31%;
   background-color: var(--accent-color);
 
-  @media screen and (max-width: 900px) {
-    top: 11%;
+  @media screen and (max-width: 950px) {
+    top: 19%;
     height: 30rem;
   }
 }
@@ -33,9 +33,10 @@
   grid-column: 1/2;
   z-index: 2;
   grid-row: 1/2;
-  padding: 4rem 1rem 6rem;
+  padding: 4rem 1rem 0 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 3rem;
 }
 
@@ -46,16 +47,47 @@
   color: var(--font-main-color);
 }
 
+.descriprion {
+  width: 80%;
+  font-size: 1.8rem;
+
+  @media screen and (max-width: 950px) {
+    width: 90%;
+  }
+}
+
 .members_container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(30rem, 31%));
+  grid-template-columns: repeat(3, minmax(28rem, 31%));
   justify-content: space-between;
   gap: 1rem;
 
-  @media screen and (max-width: 900px) {
-    grid-template-columns: minmax(30rem, 55rem);
+  @media screen and (max-width: 950px) {
+    grid-template-columns: minmax(25rem, 55rem);
     justify-content: center;
     gap: 3rem
   }
 }
+
+.quote_container {
+  padding-top: 4rem;
+
+  @media screen and (max-width: 600px) {
+    padding-top: 2rem;
+  }
+}
+
+.quote {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+
+  &_author {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+  }
+}
+
 
