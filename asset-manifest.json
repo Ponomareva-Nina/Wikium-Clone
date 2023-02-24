@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Wikium-Clone/static/css/main.0a990c4b.css",
-    "main.js": "/Wikium-Clone/static/js/main.7ee1b160.js",
+    "main.js": "/Wikium-Clone/static/js/main.b32bd9b8.js",
     "static/media/bg_start_page.png": "/Wikium-Clone/static/media/bg_start_page.65334a36885078659d01.png",
     "static/media/color-match-bg.png": "/Wikium-Clone/static/media/color-match-bg.e77cf78f1e621ed3a4f6.png",
     "static/media/color-match.svg": "/Wikium-Clone/static/media/color-match.107310f762c34a3c31b5bed2d5623d7b.svg",
@@ -44,10 +44,10 @@
     "static/media/sort-icon.svg": "/Wikium-Clone/static/media/sort-icon.fd3f11656d6f9fa3dcf805531f2fa082.svg",
     "static/media/ans_btn.svg": "/Wikium-Clone/static/media/ans_btn.72da99059ffe584a4be3.svg",
     "main.0a990c4b.css.map": "/Wikium-Clone/static/css/main.0a990c4b.css.map",
-    "main.7ee1b160.js.map": "/Wikium-Clone/static/js/main.7ee1b160.js.map"
+    "main.b32bd9b8.js.map": "/Wikium-Clone/static/js/main.b32bd9b8.js.map"
   },
   "entrypoints": [
     "static/css/main.0a990c4b.css",
-    "static/js/main.7ee1b160.js"
+    "static/js/main.b32bd9b8.js"
   ]
 }
