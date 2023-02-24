@@ -4,6 +4,7 @@ export const getTimeFromSecond = (second: number): string => {
 };
 
 export const getLocaleDateFromString = (date: string, locale = "ru-RU") => {
+  if (!date) return null;
   return new Date(date).toLocaleDateString(locale, {
     year: "numeric",
     month: "long",

@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef, useState } from "react";
-import { useCounter } from "../../../../../hooks/useCounter";
+import { useCounter } from "../../../../hooks/useCounter";
 
 import { ControlPanel } from "./ControlPanel/ControlPanel";
 import { ExpressionCard } from "./ExpressionCard/ExpressionCard";
@@ -11,15 +11,15 @@ import {
   MIN_CORRECT_ANSWER,
   initialExpressionsValue,
   checkIcons,
-} from "../../../constants/initial.constants";
+} from "../../constants/initial.constants";
 
-import { AnswerVars, Expressions } from "../../../types/game-data.interface";
+import { AnswerVars, Expressions } from "../../types/game-data.interface";
 
-import { getRandomExpressionsByLevel } from "../../../utils/randomizer.util";
+import { getRandomExpressionsByLevel } from "../../utils/randomizer.util";
 
 import styles from "./GameField.module.scss";
-import { ResultData } from "../../../../../interfaces/GameInterface";
-import { SCORE_INITIAL_VALUE } from "../../../../../constants/constants";
+import { ResultData } from "../../../../interfaces/GameInterface";
+import { SCORE_INITIAL_VALUE } from "../../../../constants/constants";
 
 interface GameFieldProps {
   finishGame: (resultData: ResultData) => void;
@@ -51,7 +51,9 @@ export const GameField: FC<GameFieldProps> = ({ finishGame }) => {
       if (correctAnswerCountRef.current > MIN_CORRECT_ANSWER) {
         correctAnswerCountRef.current -= 1;
       }
-      setPoint((prevValue) => prevValue - level * COUNT_POINT);
+      setPoint((prevValue) =>
+        prevValue - level * COUNT_POINT > 0 ? prevValue - level * COUNT_POINT : 0
+      );
       setAnswerCheck("incorrect");
     }
 
@@ -63,6 +65,19 @@ export const GameField: FC<GameFieldProps> = ({ finishGame }) => {
 
     const newLevel = Math.ceil((correctAnswerCountRef.current + 1) / 5);
     setLevel(newLevel);
+
+    if (timer === 0) {
+      const neurons = points / SCORE_INITIAL_VALUE;
+
+      const resultData = {
+        correctAnswers: correctAnswerCountRef.current,
+        mistakes: answerCountRef.current - correctAnswerCountRef.current,
+        score: points,
+        neurons,
+      };
+
+      finishGame(resultData);
+    }
 
     const gameData = getRandomExpressionsByLevel(newLevel);
 
@@ -82,21 +97,6 @@ export const GameField: FC<GameFieldProps> = ({ finishGame }) => {
     });
     correctAnswerRef.current = gameData.correctAnswer;
   }, []);
-
-  useEffect(() => {
-    if (timer === 0) {
-      const neurons = points / SCORE_INITIAL_VALUE;
-
-      const resultData = {
-        correctAnswers: correctAnswerCountRef.current,
-        mistakes: answerCountRef.current - correctAnswerCountRef.current,
-        score: points,
-        neurons,
-      };
-
-      finishGame(resultData);
-    }
-  }, [timer]);
 
   return (
     <div className={styles.wrapper}>

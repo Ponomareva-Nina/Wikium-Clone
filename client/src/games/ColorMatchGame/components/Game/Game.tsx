@@ -1,12 +1,9 @@
-import { FC, PropsWithChildren, useEffect, useState } from "react";
-import cn from "classnames";
-import { GameResults } from "../../../../components";
+import { FC, PropsWithChildren, useState } from "react";
 import { GameInfoPanel } from "../../../../components/GameInfoPanel/GameInfoPanel";
 import { useCounter } from "../../../../hooks/useCounter";
 import { LEVEL, LevelNumber } from "../../data";
 import { GameValues, LevelUpValues } from "../../types/types";
 import { GameField } from "../GameField/GameField";
-import styles from "./Game.module.scss";
 import { ResultData } from "../../../../interfaces/GameInterface";
 
 interface GameProps {
@@ -35,6 +32,17 @@ export const Game: FC<PropsWithChildren<GameProps>> = ({ finishGame }) => {
     correctAnswersSubsequence % LevelUpValues.TO_LEVEL_THREE === GameValues.INITIAL_GAME_VALUES &&
     correctAnswersSubsequence !== GameValues.INITIAL_GAME_VALUES;
 
+  const endGame = () => {
+    if (timer === 0) {
+      finishGame({
+        correctAnswers,
+        mistakes: answers - correctAnswers,
+        score: points,
+        neurons: points / LEVEL[currentLevel - 1].pointsOneNeuron,
+      });
+    }
+  };
+
   const handleCorrectAnswers = (): void => {
     setAnswers(answers + 1);
     setCorrectAnswersSubsequence((prev) => prev + 1);
@@ -47,6 +55,7 @@ export const Game: FC<PropsWithChildren<GameProps>> = ({ finishGame }) => {
     if (isMidleLevel && isSetLevelUp && correctAnswers) {
       setCurrentLevel((prev) => prev + 1);
     }
+    endGame();
   };
 
   const handleErrorAnswers = (): void => {
@@ -64,18 +73,8 @@ export const Game: FC<PropsWithChildren<GameProps>> = ({ finishGame }) => {
     } else {
       setCurrentLevel(startLevel);
     }
+    endGame();
   };
-
-  useEffect(() => {
-    if (timer === 0) {
-      finishGame({
-        correctAnswers,
-        mistakes: answers - correctAnswers,
-        score: points,
-        neurons: points / LEVEL[currentLevel - 1].pointsOneNeuron,
-      });
-    }
-  }, [timer]);
 
   return (
     <>

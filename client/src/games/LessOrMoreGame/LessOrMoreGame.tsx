@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
-import { GameResults } from "../../components";
+import { GameResults, StartGamePage } from "../../components";
 import { GameCategories } from "../../interfaces/Categories";
 import { GameStatus, ResultData } from "../../interfaces/GameInterface";
 import { useAppDispatch, useAppSelector } from "../../store/redux-hooks";
 import { addAttempt } from "../../store/user/user.actions";
+import { GameField } from "./components/GameField/GameField";
 
-import GamePage from "./components/GamePage/GamePage";
 import { RulesGamePage } from "./components/RulesGamePage/RulesGamePage";
 
 import styles from "./LessOrMoreGame.module.scss";
@@ -42,7 +42,11 @@ export const LessOrMoreGame = () => {
 
   return (
     <div className={styles.wrapper}>
-      {gameStatus === "started" && <GamePage finishGame={finishGame} />}
+      {gameStatus === "started" && (
+        <StartGamePage>
+          <GameField finishGame={finishGame} />
+        </StartGamePage>
+      )}
       {gameStatus === "init" && <RulesGamePage startTraining={startTraining} />}
       {gameStatus === "finish" && resultData && (
         <GameResults userNeurons={neurons} resultData={resultData} newGameHandler={startTraining} />

@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAppDispatch } from "../../store/redux-hooks";
 import { register } from "../../store/user/user.actions";
@@ -25,6 +25,7 @@ export const RegistrationPage = () => {
   const [authFormData, setAuthFormData] = useState<RegistrationFormData>(initialFormData);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const formInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setAuthFormData((prevValue) => ({ ...prevValue, [e.target.name]: e.target.value }));
@@ -41,7 +42,12 @@ export const RegistrationPage = () => {
     };
     toast.promise(dispatch(register(data)).unwrap(), {
       pending: "Registration...",
-      success: "Registration is success",
+      success: {
+        render() {
+          navigate("/account");
+          return "Registration is success";
+        },
+      },
       error: {
         render({ data: errData }) {
           return `${errData}`;
