@@ -9,14 +9,13 @@ import enFlag from "../../../assets/images/Menu/us-flag.svg";
 import styles from "./UserSettings.module.scss";
 
 const root = document.querySelector(":root") as HTMLElement;
-const currentTheme = localStorage.getItem("theme") || THEME.LIGHT;
-root.className = currentTheme;
+root.className = localStorage.getItem("theme") || THEME.LIGHT;
 
 interface UserSettingsProps {}
 
 export const UserSettings: FC<UserSettingsProps> = () => {
   const { t, i18n } = useTranslation();
-  const [activeThemeBtn, setActiveThemeBtn] = useState(currentTheme || THEME.LIGHT);
+  const [activeThemeBtn, setActiveThemeBtn] = useState(localStorage.getItem("theme"));
   const [selectIsOpen, setSelectIsOpen] = useState(false);
   const LangOptionsRef = useRef<HTMLUListElement | null>(null);
   const LangButtonRef = useRef<HTMLDivElement | null>(null);

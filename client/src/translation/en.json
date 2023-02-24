@@ -211,7 +211,9 @@
     "month": "Per month",
     "neurons": "neurons",
     "ascending": "In ascending order",
-    "descending": "In  descending order"
+    "descending": "In  descending order",
+    "noInfo": "It seems that you have no completed trainings for the specified period.",
+    "startBtn": "Start training"
   },
   "team": {
     "title": "Our Team",

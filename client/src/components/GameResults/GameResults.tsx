@@ -5,8 +5,10 @@ import { ResultItem } from "./ResultItem.tsx/ResultItem";
 import styles from "./GameResults.module.scss";
 import { NeuronsChart } from "./NeuronsChart/NeuronsChart";
 import { ResultData } from "../../interfaces/GameInterface";
+import { GamesId, gameImages } from "../../constants/games";
 
 interface GameResultsProps {
+  id: GamesId;
   resultData: ResultData;
   userNeurons: number;
   newGameHandler: () => void;
@@ -17,10 +19,16 @@ interface Result {
   value: string | number;
 }
 
-export const GameResults: FC<GameResultsProps> = ({ resultData, newGameHandler, userNeurons }) => {
+export const GameResults: FC<GameResultsProps> = ({
+  id,
+  resultData,
+  newGameHandler,
+  userNeurons,
+}) => {
   const { mistakes, correctAnswers, neurons, score } = resultData;
   const { t } = useTranslation();
   const totalAnswers = mistakes + correctAnswers;
+  const headerImg = gameImages.find((item) => item.id === id)?.lineImage;
   const results: Result[] = [
     {
       title: "gameResults.score",
@@ -42,7 +50,9 @@ export const GameResults: FC<GameResultsProps> = ({ resultData, newGameHandler, 
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.header}>{t("gameResults.results")}</div>
+      <div className={styles.header} style={{ backgroundImage: `url(${headerImg})` }}>
+        <span className={styles.header__title}>{t("gameResults.results")}</span>
+      </div>
       <div className={styles.info}>
         <div className={styles.list}>
           {results.map((result) => {

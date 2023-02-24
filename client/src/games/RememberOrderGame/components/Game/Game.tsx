@@ -132,15 +132,17 @@ export const Game: FC<GameProps> = ({ finishGame }) => {
       if (card.value === levelsData[level].cards) {
         updateCardProperty(card.id, CardProps.SOLVED);
         disableCards();
+        if (timer === 0) {
+          endGame();
+        }
       }
     } else {
       updateCardProperty(card.id, CardProps.ERROR);
       disableCards();
       registerMistake();
-    }
-
-    if (timer === 0) {
-      endGame();
+      if (timer === 0) {
+        endGame();
+      }
     }
   };
 
