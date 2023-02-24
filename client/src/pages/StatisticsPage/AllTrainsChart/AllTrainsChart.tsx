@@ -5,6 +5,10 @@ import sortIcon from "../../../assets/images/Statistics/sort-icon.svg";
 import { GameItem } from "../../../interfaces/GameInterface";
 import { TrainItem } from "./TrainItem/TrainItem";
 
+enum SortOption {
+  ASC = "ASC",
+  DESC = "DESC",
+}
 interface AllTrainsChartProps {
   trains: GameItem[];
 }
@@ -12,7 +16,7 @@ interface AllTrainsChartProps {
 export const AllTrainsChart: FC<AllTrainsChartProps> = ({ trains }) => {
   const { t } = useTranslation();
 
-  const [sort, setSort] = useState<"ASC" | "DESC">("DESC");
+  const [sort, setSort] = useState<SortOption>(SortOption.DESC);
 
   const trainsNumber = trains
     ?.map((item) => {
@@ -28,7 +32,7 @@ export const AllTrainsChart: FC<AllTrainsChartProps> = ({ trains }) => {
   });
 
   const setSortHandler = () => {
-    setSort((prevVal) => (prevVal === "ASC" ? "DESC" : "ASC"));
+    setSort((prevVal) => (prevVal === SortOption.ASC ? SortOption.DESC : SortOption.ASC));
   };
 
   return (
