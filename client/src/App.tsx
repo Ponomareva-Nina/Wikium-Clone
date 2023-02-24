@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { Loader } from "./components/UI";
 import { Layout } from "./layout/Layout";
 
@@ -21,13 +21,14 @@ import { getTokenFromLocalStorage } from "./utils/auth.utils";
 function App() {
   const { entity: user, isLoading } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
     const accessToken = getTokenFromLocalStorage();
     if (accessToken !== null) {
       dispatch(checkAuth())
         .unwrap()
-        .then(() => navigate("/stats"))
+        .then(() => navigate({ pathname }))
         .catch(() => navigate("/"));
     }
   }, []);
@@ -63,7 +64,7 @@ function App() {
         <Route path="/stats" element={<StatisticsPage />} />
         <Route path="/account" element={<AccountSettings />} />
         <Route path="/team" element={<Team />} />
-        <Route path="*" element={<h1>Not Found</h1>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>
   );

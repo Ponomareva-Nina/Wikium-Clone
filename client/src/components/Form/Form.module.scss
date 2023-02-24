@@ -14,7 +14,8 @@
 }
 
 .fit-width {
-  width: max-content;
+  min-width: fit-content;
+  max-width: max-content;
 }
 
 .full-width {

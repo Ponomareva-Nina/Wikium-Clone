@@ -5,7 +5,7 @@ import styles from "./GamesPage.module.scss";
 import concentration from "../../assets/images/GamesPage/concentration.svg";
 import logics from "../../assets/images/GamesPage/logics.svg";
 import memory from "../../assets/images/GamesPage/memory.svg";
-import { games } from "../../constants/games";
+import { games } from "../../constants/gamesData";
 import { GameCategories } from "../../interfaces/Categories";
 
 const concentrationGames = games.filter((game) => game.category === GameCategories.CONCENTRATION);

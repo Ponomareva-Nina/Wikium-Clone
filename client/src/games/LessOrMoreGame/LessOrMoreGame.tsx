@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { GameResults, StartGamePage } from "../../components";
+import { GamesId } from "../../constants/games";
 import { GameCategories } from "../../interfaces/Categories";
 import { GameStatus, ResultData } from "../../interfaces/GameInterface";
 import { useAppDispatch, useAppSelector } from "../../store/redux-hooks";
@@ -49,7 +50,12 @@ export const LessOrMoreGame = () => {
       )}
       {gameStatus === "init" && <RulesGamePage startTraining={startTraining} />}
       {gameStatus === "finish" && resultData && (
-        <GameResults userNeurons={neurons} resultData={resultData} newGameHandler={startTraining} />
+        <GameResults
+          id={GamesId.THIRD}
+          userNeurons={neurons}
+          resultData={resultData}
+          newGameHandler={startTraining}
+        />
       )}
     </div>
   );
