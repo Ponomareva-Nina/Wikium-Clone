@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Wikium-Clone/static/css/main.0a990c4b.css",
-    "main.js": "/Wikium-Clone/static/js/main.9fd624d2.js",
+    "main.js": "/Wikium-Clone/static/js/main.1639b992.js",
     "static/media/bg_start_page.png": "/Wikium-Clone/static/media/bg_start_page.65334a36885078659d01.png",
     "static/media/color-match-bg.png": "/Wikium-Clone/static/media/color-match-bg.e77cf78f1e621ed3a4f6.png",
     "static/media/color-match.svg": "/Wikium-Clone/static/media/color-match.107310f762c34a3c31b5bed2d5623d7b.svg",
@@ -38,16 +38,16 @@
     "static/media/incorrect.svg": "/Wikium-Clone/static/media/incorrect.a118e9c61a86a45ffb27e884f6769a23.svg",
     "static/media/incorrect-icon.svg": "/Wikium-Clone/static/media/incorrect-icon.d0ad8f096157ab0bebbc09cf1febd830.svg",
     "static/media/correct.svg": "/Wikium-Clone/static/media/correct.274cbc5550750a8404b80fc7bb5918e4.svg",
-    "index.html": "/Wikium-Clone/index.html",
     "static/media/correct-icon.svg": "/Wikium-Clone/static/media/correct-icon.eb0fa31ddf522587778f1d4fa00acbde.svg",
     "static/media/arrow-down.svg": "/Wikium-Clone/static/media/arrow-down.257271694730d4ac7d7a055c511050c6.svg",
+    "index.html": "/Wikium-Clone/index.html",
     "static/media/sort-icon.svg": "/Wikium-Clone/static/media/sort-icon.fd3f11656d6f9fa3dcf805531f2fa082.svg",
     "static/media/ans_btn.svg": "/Wikium-Clone/static/media/ans_btn.72da99059ffe584a4be3.svg",
     "main.0a990c4b.css.map": "/Wikium-Clone/static/css/main.0a990c4b.css.map",
-    "main.9fd624d2.js.map": "/Wikium-Clone/static/js/main.9fd624d2.js.map"
+    "main.1639b992.js.map": "/Wikium-Clone/static/js/main.1639b992.js.map"
   },
   "entrypoints": [
     "static/css/main.0a990c4b.css",
-    "static/js/main.9fd624d2.js"
+    "static/js/main.1639b992.js"
   ]
 }
