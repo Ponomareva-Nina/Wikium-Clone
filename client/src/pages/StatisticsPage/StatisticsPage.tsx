@@ -1,10 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import cn from "classnames";
 import styles from "./StatisticsPage.module.scss";
 import { games } from "../../constants/games";
 import { AllTrainsChart } from "./AllTrainsChart/AllTrainsChart";
-import { GameItem } from "../../interfaces/GameInterface";
 import { CategoryChart } from "./CategoryChart/CategoryChart";
 import { useAppSelector } from "../../store/redux-hooks";
 import { GameCategories } from "../../interfaces/Categories";
@@ -44,6 +43,7 @@ export const StatisticsPage = () => {
     .reduce((acc, attempt) => acc + attempt.neurons, 0);
 
   const totalNeurons = memory + concentration + logics;
+
   const allTrains = games.map((game) => {
     let attempts = 0;
     statisticsPerPeriod.forEach((item) => {

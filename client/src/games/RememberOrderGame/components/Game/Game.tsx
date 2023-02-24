@@ -138,13 +138,11 @@ export const Game: FC<GameProps> = ({ finishGame }) => {
       disableCards();
       registerMistake();
     }
-  };
 
-  useEffect(() => {
     if (timer === 0) {
       endGame();
     }
-  }, [timer]);
+  };
 
   return (
     <div className={styles.container}>

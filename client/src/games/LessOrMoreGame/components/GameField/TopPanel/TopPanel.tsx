@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { getTimeFromSecond } from "../../../../../../utils/date.util";
+import { getTimeFromSecond } from "../../../../../utils/date.util";
 import styles from "./TopPanel.module.scss";
 
 interface TopPanelProps {

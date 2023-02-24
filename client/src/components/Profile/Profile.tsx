@@ -32,7 +32,7 @@ export const Profile = () => {
     return user!.statistics.reduce((acc, stat) => acc + stat.neurons, 0);
   }, [user]);
 
-  const currentLevel = Math.floor(neurons / NEURONS_ON_LEVEL);
+  const currentLevel = Math.ceil(neurons / NEURONS_ON_LEVEL);
   const needNeurons = NEURONS_ON_LEVEL - (neurons % NEURONS_ON_LEVEL);
   const progressPercent = ((neurons % NEURONS_ON_LEVEL) * 100) / NEURONS_ON_LEVEL;
 

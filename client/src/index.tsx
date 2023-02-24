@@ -15,7 +15,7 @@ root.render(
   <Provider store={store}>
     <HashRouter>
       <ToastContainer
-        position="top-right"
+        position="bottom-left"
         autoClose={5000}
         newestOnTop={false}
         closeOnClick
