@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import cn from "classnames";
 import styles from "./StatisticsPage.module.scss";
-import { games } from "../../constants/games";
+import { games } from "../../constants/gamesData";
 import { AllTrainsChart } from "./AllTrainsChart/AllTrainsChart";
 import { CategoryChart } from "./CategoryChart/CategoryChart";
 import { useAppSelector } from "../../store/redux-hooks";

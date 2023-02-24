@@ -7,6 +7,7 @@ import { GameCategories } from "../../interfaces/Categories";
 import { useAppDispatch, useAppSelector } from "../../store/redux-hooks";
 import { addAttempt } from "../../store/user/user.actions";
 import { Game } from "./components/Game/Game";
+import { GamesId } from "../../constants/games";
 
 export const RememberOrderGame = () => {
   const [gameStatus, setGameStatus] = useState<GameStatus>("init");
@@ -47,7 +48,12 @@ export const RememberOrderGame = () => {
       )}
       {gameStatus === "init" && <RememberOrderRules startGameHandler={startTraining} />}
       {gameStatus === "finish" && resultData && (
-        <GameResults userNeurons={neurons} resultData={resultData} newGameHandler={startTraining} />
+        <GameResults
+          id={GamesId.SECOND}
+          userNeurons={neurons}
+          resultData={resultData}
+          newGameHandler={startTraining}
+        />
       )}
     </div>
   );

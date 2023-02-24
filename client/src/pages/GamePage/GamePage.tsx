@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { games } from "../../constants/games";
+import { games } from "../../constants/gamesData";
 import { GameLayout } from "../../layout/GameLayout/GameLayout";
 
 export const GamePage = () => {
