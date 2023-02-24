@@ -7,6 +7,7 @@ import { AllTrainsChart } from "./AllTrainsChart/AllTrainsChart";
 import { CategoryChart } from "./CategoryChart/CategoryChart";
 import { useAppSelector } from "../../store/redux-hooks";
 import { GameCategories } from "../../interfaces/Categories";
+import { Placeholder } from "./Placeholder/Placeholder";
 
 type Period = "perDay" | "perWeak" | "perMonth";
 
@@ -96,18 +97,23 @@ export const StatisticsPage = () => {
         </ul>
       </div>
 
-      <div className={styles.chart}>
-        <CategoryChart
-          memory={memory}
-          concentration={concentration}
-          logics={logics}
-          totalNeurons={totalNeurons}
-        />
-      </div>
+      {!totalNeurons && <Placeholder />}
 
-      <div className={styles.chart}>
-        <AllTrainsChart trains={allTrains} />
-      </div>
+      {totalNeurons > 0 && (
+        <>
+          <div className={styles.chart}>
+            <CategoryChart
+              memory={memory}
+              concentration={concentration}
+              logics={logics}
+              totalNeurons={totalNeurons}
+            />
+          </div>
+          <div className={styles.chart}>
+            <AllTrainsChart trains={allTrains} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
