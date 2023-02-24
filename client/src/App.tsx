@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Loader } from "./components/UI";
 import { Layout } from "./layout/Layout";
 
 import {
@@ -20,18 +21,21 @@ import { getTokenFromLocalStorage } from "./utils/auth.utils";
 function App() {
   const { entity: user, isLoading } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
   useEffect(() => {
     const accessToken = getTokenFromLocalStorage();
     if (accessToken !== null) {
-      dispatch(checkAuth());
+      dispatch(checkAuth())
+        .unwrap()
+        .then(() => navigate("/stats"))
+        .catch(() => navigate("/"));
     }
   }, []);
 
   if (isLoading) {
     return (
       <Layout>
-        <h1>Loading...</h1>
+        <Loader />
       </Layout>
     );
   }

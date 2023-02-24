@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Button } from "../../../../../../components/UI";
-import { AnswerVars } from "../../../../types/game-data.interface";
+import { Button } from "../../../../../components/UI";
+import { AnswerVars } from "../../../types/game-data.interface";
 
 import styles from "./ControlPanel.module.scss";
 

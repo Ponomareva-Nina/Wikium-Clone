@@ -20,13 +20,14 @@
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
-  background-size: cover
+  background-size: cover;
 }
 
 .answer_buttons {
   display: flex;
   gap: 0.5rem;
   order: 1;
+  margin-bottom: 2rem;
 }
 
 @keyframes appear {

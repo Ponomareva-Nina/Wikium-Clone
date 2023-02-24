@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAppDispatch } from "../../store/redux-hooks";
 import { login } from "../../store/user/user.actions";
@@ -22,6 +22,7 @@ export const AuthPage = () => {
   const [authFormData, setAuthFormData] = useState<AuthFormData>(initialFormData);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const formInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setAuthFormData((prevValue) => ({ ...prevValue, [e.target.name]: e.target.value }));
@@ -30,7 +31,12 @@ export const AuthPage = () => {
   const submitFormHandler = (): void => {
     toast.promise(dispatch(login(authFormData)).unwrap(), {
       pending: "Authentication...",
-      success: "Authentication is success",
+      success: {
+        render() {
+          navigate("/games");
+          return "Authentication is success";
+        },
+      },
       error: {
         render({ data }) {
           return `${data}`;

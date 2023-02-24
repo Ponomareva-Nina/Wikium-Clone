@@ -1,12 +1,12 @@
 import { useMemo, useState } from "react";
-import { Game } from "./components/Game/Game";
 import styles from "./RememberOrder.module.scss";
 import { RememberOrderRules } from "./components/Rules/Rules";
-import { GameResults } from "../../components";
+import { GameResults, StartGamePage } from "../../components";
 import { GameStatus, ResultData } from "../../interfaces/GameInterface";
 import { GameCategories } from "../../interfaces/Categories";
 import { useAppDispatch, useAppSelector } from "../../store/redux-hooks";
 import { addAttempt } from "../../store/user/user.actions";
+import { Game } from "./components/Game/Game";
 
 export const RememberOrderGame = () => {
   const [gameStatus, setGameStatus] = useState<GameStatus>("init");
@@ -40,7 +40,11 @@ export const RememberOrderGame = () => {
 
   return (
     <div className={styles.game_container}>
-      {gameStatus === "started" && <Game finishGame={finishGame} />}
+      {gameStatus === "started" && (
+        <StartGamePage>
+          <Game finishGame={finishGame} />
+        </StartGamePage>
+      )}
       {gameStatus === "init" && <RememberOrderRules startGameHandler={startTraining} />}
       {gameStatus === "finish" && resultData && (
         <GameResults userNeurons={neurons} resultData={resultData} newGameHandler={startTraining} />
