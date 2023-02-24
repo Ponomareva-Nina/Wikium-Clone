@@ -21,12 +21,12 @@ export const MemberCard: FC<PropsWithChildren<MemberCardsProps>> = ({ member }) 
       <p className={cn(styles.name)}>{t(member.name)}</p>
       <div className={cn(styles.role_container)}>
         <p className={cn(styles.role)}>{t(member.role)}</p>
-        <p className={cn(styles.role_content)}>
+        <div className={cn(styles.role_content)}>
           <span className={cn(styles.icon)}>
             <ReactSVG src={member.roleIcon} />
           </span>
           <span className={cn(styles.role_description)}>{t(member.roleDescription)}</span>
-        </p>
+        </div>
       </div>
       <p className={cn(styles.descriprion)}>{t(member.description)}</p>
       <div>

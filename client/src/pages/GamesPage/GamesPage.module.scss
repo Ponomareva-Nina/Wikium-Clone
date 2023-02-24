@@ -3,6 +3,10 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
+
+  @media screen and (max-width: 650px) {
+    gap: 3rem;
+  }
 }
 
 .page_title {

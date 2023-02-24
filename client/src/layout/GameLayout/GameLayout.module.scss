@@ -3,6 +3,12 @@
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
   min-height: 50rem;
+
+  @media screen and (max-width: 850px) {
+    max-width: 65rem;
+    grid-template-columns: minmax(30rem, 65rem);
+    justify-content: center;
+  }
 }
 
 .left {
@@ -12,6 +18,10 @@
   border-radius: 0.5rem;
   border: none;
   box-shadow: 0 2px 3px var(--popup-shadow-color);
+
+  @media screen and (max-width: 550px) {
+    padding: 1rem;
+  }
 }
 
 .right {
