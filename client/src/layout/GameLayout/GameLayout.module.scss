@@ -7,7 +7,7 @@
   @media screen and (max-width: 850px) {
     max-width: 65rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: minmax(50rem, 1fr);
     justify-content: center;
   }
 }
@@ -19,6 +19,10 @@
   border-radius: 0.5rem;
   border: none;
   box-shadow: 0 2px 3px var(--popup-shadow-color);
+
+  @media screen and (max-width: 450px) {
+    padding: 1rem;
+  }
 }
 
 .right {

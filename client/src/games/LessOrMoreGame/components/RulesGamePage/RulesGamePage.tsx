@@ -13,7 +13,7 @@ export const RulesGamePage: FC<RulesGamePageProps> = ({ startTraining }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.wrapper}>
-      <div>{t("lessOrMoreGame.rules")}</div>
+      <div className={styles.rules}>{t("lessOrMoreGame.rules")}</div>
       <Button onClick={startTraining}>{t("gameLayout.startExercise")}</Button>
     </div>
   );
