@@ -10,14 +10,26 @@
   &:hover {
     box-shadow: 3px 4px 8px var(--popup-shadow-color);
   }
+
+  @media screen and (max-width: 650px) {
+    padding: 1rem;
+  }
 }
 
 .title {
   font-size: 2rem;
+
+  @media screen and (max-width: 650px) {
+    font-size: 1.7rem;
+  }
 }
 
 .category {
-  color: var(--auxiliary-color)
+  color: var(--auxiliary-color);
+
+  @media screen and (max-width: 650px) {
+    font-size: 1.4rem;
+  }
 }
 
 .image {

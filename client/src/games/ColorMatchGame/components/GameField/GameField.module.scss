@@ -21,6 +21,10 @@
   align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media screen and (max-width: 520px) {
+    top: 37%;
+  }
 }
 
 .answer_buttons {

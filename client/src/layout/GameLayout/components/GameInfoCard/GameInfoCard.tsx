@@ -19,7 +19,7 @@ export const GameInfoCard: FC<GameInfoCardProps> = ({ startGameHandler, game }) 
         style={{ background: `url(${game.teaserImg}) center/cover no-repeat` }}
       >
         <div className={styles["game-info"]}>
-          <h3>{t(game.title)}</h3>
+          <h3 className={styles.title}>{t(game.title)}</h3>
           <div>{t(`gamesData.${game.category}`)}</div>
         </div>
       </div>
