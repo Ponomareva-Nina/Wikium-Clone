@@ -2,6 +2,13 @@
   width: 35%;
   max-height: 100%;
   position: relative;
+
+  @media screen and (max-width: 580px) {
+    width: 16rem;
+    display: flex;
+    justify-content: center;
+    order: -1;
+  }
 }
 .chart__info {
   position: absolute;

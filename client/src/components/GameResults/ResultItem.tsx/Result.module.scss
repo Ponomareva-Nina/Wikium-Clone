@@ -2,10 +2,11 @@
   width: 100%;
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
 .result__item {
-  width: 60%; 
+  width: 60%;
   color: var(--auxiliary-color);
 }
 
