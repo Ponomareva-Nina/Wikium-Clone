@@ -1,6 +1,5 @@
 import { FC, PropsWithChildren } from "react";
 import cn from "classnames";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { ReactSVG } from "react-svg";
 import styles from "./GameCategory.module.scss";
 import { GameInterface } from "../../interfaces/GameInterface";

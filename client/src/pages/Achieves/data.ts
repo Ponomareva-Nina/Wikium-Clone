@@ -1,5 +1,6 @@
 import helloImg from "../../assets/images/Achieves/friends.png";
 import discovererImg from "../../assets/images/Achieves/discoverer.png";
+import explorerImg from "../../assets/images/Achieves/explorer.png";
 import { AchieveInterface, AchievesId } from "./types";
 
 export const achieves: AchieveInterface[] = [
@@ -21,8 +22,8 @@ export const achieves: AchieveInterface[] = [
     id: AchievesId.EXPLORER,
     name: "achieves.explorer",
     description: "achieves.explorerInfo",
-    isOpen: false,
-    image: "",
+    isOpen: true,
+    image: explorerImg,
   },
   {
     id: AchievesId.SHELDON,
