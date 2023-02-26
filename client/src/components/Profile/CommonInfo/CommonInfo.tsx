@@ -103,7 +103,7 @@ export const CommonInfo: FC<CommonInfoProps> = ({ user }) => {
   return (
     <form onSubmit={submitHandler} className={styles.wrapper}>
       <div className={styles.head}>
-        <h2>{t("accountPage.commonInfo")}</h2>
+        <h2 className={styles.head_title}>{t("accountPage.commonInfo")}</h2>
         <div className={styles["btn-group"]}>
           {isEdit && (
             <Button onClick={cancelHandler} appearance="ghost">
