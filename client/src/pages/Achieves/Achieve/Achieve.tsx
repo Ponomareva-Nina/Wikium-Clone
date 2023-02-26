@@ -11,12 +11,12 @@ import closeIcon from "../../../assets/images/Achieves/close-icon.svg";
 
 interface AchieveProps {
   achieve: AchieveInterface;
+  isAchieveOpen: boolean;
 }
 
-export const Achieve: FC<AchieveProps> = ({ achieve }) => {
+export const Achieve: FC<AchieveProps> = ({ achieve, isAchieveOpen }) => {
   const { t } = useTranslation();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
   const toggleDescription = () => {
     setIsPopupOpen(!isPopupOpen);
   };
@@ -27,8 +27,8 @@ export const Achieve: FC<AchieveProps> = ({ achieve }) => {
         onClick={toggleDescription}
         className={isPopupOpen ? cn(styles.container, styles.container_open) : styles.container}
       >
-        <img src={achieve.isOpen ? achieve.image : placeholder} alt={achieve.name} />
-        <p className={achieve.isOpen ? cn(styles.name, styles.name_open) : styles.name}>
+        <img src={isAchieveOpen ? achieve.image : placeholder} alt={achieve.name} />
+        <p className={isAchieveOpen ? cn(styles.name, styles.name_open) : styles.name}>
           {t(achieve.name)}
         </p>
       </div>
@@ -37,7 +37,7 @@ export const Achieve: FC<AchieveProps> = ({ achieve }) => {
           <ReactSVG src={closeIcon} />
         </button>
         <p> {t(achieve.name)}</p>
-        <img src={achieve.isOpen ? achieve.image : placeholder} alt={achieve.name} />
+        <img src={isAchieveOpen ? achieve.image : placeholder} alt={achieve.name} />
         <p className={styles.popup__title}>{t("achieves.howToGet")}</p>
         <p>{t(achieve.description)}</p>
       </div>

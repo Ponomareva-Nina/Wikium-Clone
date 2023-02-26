@@ -19,6 +19,5 @@ export interface AchieveInterface {
   id: AchievesId;
   name: string;
   description: string;
-  isOpen: boolean;
   image: string;
 }
