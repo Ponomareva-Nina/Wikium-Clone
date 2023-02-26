@@ -71,7 +71,8 @@
     "stat": "Stats",
     "achievement": "Achievements",
     "account": "Account settings",
-    "logout": "Log out"
+    "logout": "Log out",
+    "achieves": "My achieves"
   },
   "logo": {
     "title": "Brain train",
@@ -239,7 +240,7 @@
     "quoteAuthor": " Yoda"
   },
   "achieves": {
-    "pageTitle": "Your achievements",
+    "pageTitle": "My achievements",
     "friends": "Good friends",
     "howToGet": "To get an achievement you should",
     "friendsInfo": "Fill the information about yourself in your profile",

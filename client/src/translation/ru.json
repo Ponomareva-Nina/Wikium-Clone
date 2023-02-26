@@ -72,7 +72,8 @@
     "stat": "Статистика",
     "achievement": "Достижения",
     "account": "Личный кабинет",
-    "logout": "Выйти"
+    "logout": "Выйти",
+    "achieves": "Мои достижения"
   },
   "logo": {
     "title": "Brain train",
