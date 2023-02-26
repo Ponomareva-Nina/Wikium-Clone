@@ -9,10 +9,25 @@
   max-width: 80rem;
   margin: 0 auto;
   gap: 4rem;
+
+  @media screen and (max-width: 600px) {
+    padding: 3rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 1.5rem;
+  }
+
   .info {
     display: flex;
     gap: 2rem;
     align-items: center;
+
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+
+    }
+
     .avatar {
       display: flex;
       flex-direction: column;

@@ -1,6 +1,7 @@
 .item {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 .icon {
   width: 3rem;
@@ -9,6 +10,12 @@
 .times {
  margin-left: auto;
 }
+.times_text {
+  @media screen and (max-width: 430px) {
+    display: none;
+  }
+}
+
 .link {
   color: var(--accent-color);
 

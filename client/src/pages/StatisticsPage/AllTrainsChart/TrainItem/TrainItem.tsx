@@ -18,7 +18,8 @@ export const TrainItem: FC<TrainItemProps> = ({ train }) => {
         <p className={styles.link}>{t(train.game.title)}</p>
       </Link>
       <p className={styles.times}>
-        {train.attempts} {t("StatisticsPage.times")}
+        <span>{train.attempts} </span>
+        <span className={styles.times_text}>{t("StatisticsPage.times")}</span>
       </p>
     </div>
   );
