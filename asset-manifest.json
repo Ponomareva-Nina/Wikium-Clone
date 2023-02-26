@@ -1,15 +1,22 @@
 {
   "files": {
-    "main.css": "/Wikium-Clone/static/css/main.0a990c4b.css",
-    "main.js": "/Wikium-Clone/static/js/main.1639b992.js",
+    "main.css": "/Wikium-Clone/static/css/main.6c22ca6b.css",
+    "main.js": "/Wikium-Clone/static/js/main.e64b8098.js",
     "static/media/bg_start_page.png": "/Wikium-Clone/static/media/bg_start_page.65334a36885078659d01.png",
     "static/media/color-match-bg.png": "/Wikium-Clone/static/media/color-match-bg.e77cf78f1e621ed3a4f6.png",
     "static/media/color-match.svg": "/Wikium-Clone/static/media/color-match.107310f762c34a3c31b5bed2d5623d7b.svg",
     "static/media/order-game-bg.svg": "/Wikium-Clone/static/media/order-game-bg.e4d9caa067b699950b10.svg",
     "static/media/remember-order.svg": "/Wikium-Clone/static/media/remember-order.b2680edfaf57b5e85e60e18d84a57eeb.svg",
+    "static/media/thinker.png": "/Wikium-Clone/static/media/thinker.693c3a364132ab6d965d.png",
+    "static/media/sheldon.png": "/Wikium-Clone/static/media/sheldon.b09f3b941df754125a3b.png",
+    "static/media/flow.png": "/Wikium-Clone/static/media/flow.ff411d2d8b1e9c5c5341.png",
+    "static/media/friends.png": "/Wikium-Clone/static/media/friends.4cb1533b90a615aa9769.png",
+    "static/media/routine.png": "/Wikium-Clone/static/media/routine.8ab4d5a4702b3f90585c.png",
     "static/media/bg_synapse-section.png": "/Wikium-Clone/static/media/bg_synapse-section.7852fe586d1e71712c96.png",
     "static/media/neuro.svg": "/Wikium-Clone/static/media/neuro.e722b9396710db2b972c.svg",
     "static/media/kimono.svg": "/Wikium-Clone/static/media/kimono.cc66449323e77a33729ef516c92e3a9b.svg",
+    "static/media/resource.png": "/Wikium-Clone/static/media/resource.d6eb3de349639851a54e.png",
+    "static/media/mnemonist.png": "/Wikium-Clone/static/media/mnemonist.a9cc0c96d02761b0bbe3.png",
     "static/media/color-match-icon.svg": "/Wikium-Clone/static/media/color-match-icon.8e721f5e68963bcb52eec69b84643213.svg",
     "static/media/middle.svg": "/Wikium-Clone/static/media/middle.dc98ac3901104a7bb9173ac9c144b773.svg",
     "static/media/rslogo.svg": "/Wikium-Clone/static/media/rslogo.7ad75edeb51c655b9c2c265bf3156604.svg",
@@ -22,6 +29,7 @@
     "static/media/us-flag.svg": "/Wikium-Clone/static/media/us-flag.6bfa3fc5dead5ace487f6cc7b35e269b.svg",
     "static/media/moon.svg": "/Wikium-Clone/static/media/moon.a36b0d760469a301b985.svg",
     "static/media/more-and-less-icon.svg": "/Wikium-Clone/static/media/more-and-less-icon.ae66281b0aab780ebdfa50670ee08273.svg",
+    "static/media/unknown.svg": "/Wikium-Clone/static/media/unknown.827d2b94220f78275ad5c97890cea0d7.svg",
     "static/media/memory.svg": "/Wikium-Clone/static/media/memory.9321d6dd9eab1849a17e194941fe7db5.svg",
     "static/media/logics.svg": "/Wikium-Clone/static/media/logics.296fc87f6b7532a45ea9434e5674588d.svg",
     "static/media/lamp-icon.svg": "/Wikium-Clone/static/media/lamp-icon.bac410c9b35d44221283fd61a700fdf2.svg",
@@ -43,11 +51,12 @@
     "index.html": "/Wikium-Clone/index.html",
     "static/media/sort-icon.svg": "/Wikium-Clone/static/media/sort-icon.fd3f11656d6f9fa3dcf805531f2fa082.svg",
     "static/media/ans_btn.svg": "/Wikium-Clone/static/media/ans_btn.72da99059ffe584a4be3.svg",
-    "main.0a990c4b.css.map": "/Wikium-Clone/static/css/main.0a990c4b.css.map",
-    "main.1639b992.js.map": "/Wikium-Clone/static/js/main.1639b992.js.map"
+    "static/media/close-icon.svg": "/Wikium-Clone/static/media/close-icon.95da4426a60f96a471748f736db01dbb.svg",
+    "main.6c22ca6b.css.map": "/Wikium-Clone/static/css/main.6c22ca6b.css.map",
+    "main.e64b8098.js.map": "/Wikium-Clone/static/js/main.e64b8098.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a990c4b.css",
-    "static/js/main.1639b992.js"
+    "static/css/main.6c22ca6b.css",
+    "static/js/main.e64b8098.js"
   ]
 }
