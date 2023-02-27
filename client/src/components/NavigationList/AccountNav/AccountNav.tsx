@@ -23,12 +23,16 @@ export const AccountNav: FC<PropsWithChildren<AccountNavProps>> = ({
         {t("navigation.account")}
       </NavigationItem>
 
-      <NavigationItem to="/" onClick={logoutHandler} isOpenAccPopup={isOpenAccPopup}>
-        {t("navigation.logout")}
+      <NavigationItem to="/achieves" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
+        {t("navigation.achieves")}
       </NavigationItem>
 
       <NavigationItem to="/team" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
         {t("footer.about")}
+      </NavigationItem>
+
+      <NavigationItem to="/" onClick={logoutHandler} isOpenAccPopup={isOpenAccPopup}>
+        {t("navigation.logout")}
       </NavigationItem>
     </div>
   );

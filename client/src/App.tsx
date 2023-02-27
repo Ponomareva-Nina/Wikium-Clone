@@ -13,6 +13,7 @@ import {
   AccountSettings,
   Team,
 } from "./pages";
+import { AchievesPage } from "./pages/Achieves/Achieves";
 
 import { useAppDispatch, useAppSelector } from "./store/redux-hooks";
 import { checkAuth } from "./store/user/user.actions";
@@ -64,6 +65,7 @@ function App() {
         <Route path="/stats" element={<StatisticsPage />} />
         <Route path="/account" element={<AccountSettings />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/achieves" element={<AchievesPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>

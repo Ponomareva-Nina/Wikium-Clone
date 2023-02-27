@@ -16,3 +16,8 @@ export const LINK_BLANK = "_blank";
 export const LINK_TASK =
   "https://github.com/rolling-scopes-school/tasks/blob/master/tasks/rsclone/rsclone.md";
 export const LINK_ORIGINAL = "https://wikium.com";
+export const WEEK_PERIOD = 7;
+export const HABIT_CHALLENGE_PERIOD = 21;
+export const GAMES_TO_FIRST_ACHIEVE = 10;
+export const GAMES_TO_SECOND_ACHIEVE = 30;
+export const GAMES_TO_THIRD_ACHIEVE = 50;
