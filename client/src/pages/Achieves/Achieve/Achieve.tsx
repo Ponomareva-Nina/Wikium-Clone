@@ -18,7 +18,7 @@ export const Achieve: FC<AchieveProps> = ({ achieve, isAchieveOpen }) => {
   const { t } = useTranslation();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const toggleDescription = () => {
-    setIsPopupOpen(!isPopupOpen);
+    setIsPopupOpen((prev) => !prev);
   };
 
   return (

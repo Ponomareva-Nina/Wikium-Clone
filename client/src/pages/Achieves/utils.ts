@@ -17,58 +17,31 @@ export const checkIsAchieveOpen = (user: User | null, achieveId: AchievesId) => 
         return checkExplorerAchieve(stats);
 
       case AchievesId.SHELDON:
-        if (countMemoryAttemts(stats) >= 10) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= 10;
 
       case AchievesId.FLASH:
-        if (countMemoryAttemts(stats) >= 30) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= 30;
 
       case AchievesId.MNEMONIST:
-        if (countMemoryAttemts(stats) >= 50) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= 50;
 
       case AchievesId.FLOW:
-        if (countConcentrationAttemts(stats) >= 10) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= 10;
 
       case AchievesId.RESOURCE:
-        if (countConcentrationAttemts(stats) >= 30) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= 30;
 
       case AchievesId.MOMENT:
-        if (countConcentrationAttemts(stats) >= 50) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= 50;
 
       case AchievesId.BATMAN:
-        if (countLogicsAttemts(stats) >= 10) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= 10;
 
       case AchievesId.INTELLECTUAL:
-        if (countLogicsAttemts(stats) >= 30) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= 30;
 
       case AchievesId.THINKER:
-        if (countLogicsAttemts(stats) >= 50) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= 50;
 
       case AchievesId.WEEK:
         if (countDaysInARow(stats) >= 7) {
@@ -130,19 +103,9 @@ function checkExplorerAchieve(statistics: GameAttempt[]) {
   return false;
 }
 
-function countMemoryAttemts(statistics: GameAttempt[]) {
-  const memory = statistics.filter((item) => item.category === GameCategories.MEMORY);
-  return memory.length;
-}
-
-function countLogicsAttemts(statistics: GameAttempt[]) {
-  const logics = statistics.filter((item) => item.category === GameCategories.LOGICS);
-  return logics.length;
-}
-
-function countConcentrationAttemts(statistics: GameAttempt[]) {
-  const concentration = statistics.filter((item) => item.category === GameCategories.CONCENTRATION);
-  return concentration.length;
+function countAttemtsOnCategory(statistics: GameAttempt[], category: GameCategories) {
+  const attemptsNumber = statistics.filter((item) => item.category === category);
+  return attemptsNumber.length;
 }
 
 function countDaysInARow(statistics: GameAttempt[]) {
