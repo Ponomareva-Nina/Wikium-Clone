@@ -71,7 +71,8 @@
     "stat": "Stats",
     "achievement": "Achievements",
     "account": "Account settings",
-    "logout": "Log out"
+    "logout": "Log out",
+    "achieves": "My achievements"
   },
   "logo": {
     "title": "Brain train",
@@ -240,5 +241,37 @@
     "descriptionThird": "Developed the server part of the application and organized its connection with the front. Supervised the work of the team in the technical part and the solution of the most complex tasks. Implemented the \"Logical Comparison\" simulator, user's personal account.",
     "quote": " \"The more we learn, the better we realize how much we don't know.\" ",
     "quoteAuthor": " Yoda"
+  },
+  "achieves": {
+    "pageTitle": "My achievements",
+    "friends": "Good friends",
+    "howToGet": "To get an achievement you should",
+    "friendsInfo": "Fill the information about yourself in your profile",
+    "discoverer": "Discoverer",
+    "discovererInfo": "Check out all our trainers",
+    "explorer": "Explorer",
+    "explorerInfo": "Complete 5 trainers in each category",
+    "sheldonCooper": "Sheldon Cooper",
+    "sheldonCooperInfo": "Complete 10 games for memorization",
+    "flashDrive": "Memoryman",
+    "flashDriveInfo": "Complete 30 games for memorization",
+    "mnemonist": "Mnemonist",
+    "mnemonistInfo": "Complete 50 games for memorization",
+    "onTheFlow": "On the flow",
+    "onTheFlowInfo": "Complete 10 games for сoncentration",
+    "inResource": "Mr.Concentraton",
+    "inResourceInfo": "Complete 30 games for сoncentration",
+    "inMoment": "Vigilant",
+    "inMomentInfo": "Complete 30 games for сoncentration",
+    "batman": "I am Batman",
+    "batmanInfo": "Complete 10 games for logics",
+    "intellectual": "Intellectual",
+    "intellectualInfo": "Complete 30 games for logics",
+    "thinker": "Thinker",
+    "thinkerInfo": "Complete 50 games for logics",
+    "weekChallenge": "Week challenge",
+    "weekChallengeInfo": "Complete trainings 7 days in a row",
+    "matterOfHabit": "Matter of habit",
+    "matterOfHabitInfo": "Complete trainings 21 days in a row"
   }
 }
