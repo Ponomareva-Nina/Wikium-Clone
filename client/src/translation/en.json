@@ -114,7 +114,9 @@
     "thirdSkillDescription": "It will make it easier for you to finish what you started",
     "rules": "You must determine which number is greater and click on the button with the correct answer: «left», «right» or «equal». As you go through, arithmetic expressions will be shown to you. You need to compare them and indicate which one more.",
     "left": "Left",
+    "top": "Top",
     "right": "Right",
+    "bottom": "Bottom",
     "equal": "Equal"
   },
   "rememberOrder": {
@@ -138,7 +140,8 @@
     "visualPerceptionSkillDescription": "You can quickly find the main ideas in texts",
     "creativeThinkSkill": "Visual and imaginative thinking",
     "creativeThinkSkillDescription": "Can come up with outlandish ideas",
-    "rules": "Does the name of the color on the left card match the color of the text on the right card?"
+    "rulesLeft": "Does the name of the color on the left card match the color of the text on the right card?",
+    "rulesTop": "Does the name of the color on the top card match the color of the text on the bottom card?"
   },
   "colorMatchData": {
     "red": "Red",
