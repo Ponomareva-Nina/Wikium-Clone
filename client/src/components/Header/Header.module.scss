@@ -33,6 +33,14 @@
     @include flex-row();
     gap: 4rem;
 
+    @media screen and (max-width: 900px) {
+        gap: 3rem;
+    }
+
+    @media screen and (max-width: 850px) {
+        gap: 2rem;
+    }
+
     @media screen and (max-width: 800px) {
         gap: 0;
     }
