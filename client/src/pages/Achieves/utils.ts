@@ -1,3 +1,10 @@
+import {
+  GAMES_TO_FIRST_ACHIEVE,
+  GAMES_TO_SECOND_ACHIEVE,
+  GAMES_TO_THIRD_ACHIEVE,
+  HABIT_CHALLENGE_PERIOD,
+  WEEK_PERIOD,
+} from "../../constants/constants";
 import { GameCategories } from "../../interfaces/Categories";
 import { GameAttempt, User } from "../../interfaces/User";
 import { AchievesId } from "./types";
@@ -17,70 +24,43 @@ export const checkIsAchieveOpen = (user: User | null, achieveId: AchievesId) => 
         return checkExplorerAchieve(stats);
 
       case AchievesId.SHELDON:
-        if (countMemoryAttemts(stats) >= 10) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= GAMES_TO_FIRST_ACHIEVE;
 
       case AchievesId.FLASH:
-        if (countMemoryAttemts(stats) >= 30) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= GAMES_TO_SECOND_ACHIEVE;
 
       case AchievesId.MNEMONIST:
-        if (countMemoryAttemts(stats) >= 50) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= GAMES_TO_THIRD_ACHIEVE;
 
       case AchievesId.FLOW:
-        if (countConcentrationAttemts(stats) >= 10) {
-          return true;
-        }
-        return false;
+        return (
+          countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= GAMES_TO_FIRST_ACHIEVE
+        );
 
       case AchievesId.RESOURCE:
-        if (countConcentrationAttemts(stats) >= 30) {
-          return true;
-        }
-        return false;
+        return (
+          countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= GAMES_TO_SECOND_ACHIEVE
+        );
 
       case AchievesId.MOMENT:
-        if (countConcentrationAttemts(stats) >= 50) {
-          return true;
-        }
-        return false;
+        return (
+          countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= GAMES_TO_THIRD_ACHIEVE
+        );
 
       case AchievesId.BATMAN:
-        if (countLogicsAttemts(stats) >= 10) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= GAMES_TO_FIRST_ACHIEVE;
 
       case AchievesId.INTELLECTUAL:
-        if (countLogicsAttemts(stats) >= 30) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= GAMES_TO_SECOND_ACHIEVE;
 
       case AchievesId.THINKER:
-        if (countLogicsAttemts(stats) >= 50) {
-          return true;
-        }
-        return false;
+        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= GAMES_TO_THIRD_ACHIEVE;
 
       case AchievesId.WEEK:
-        if (countDaysInARow(stats) >= 7) {
-          return true;
-        }
-        return false;
+        return countDaysInARow(stats) >= WEEK_PERIOD;
 
       case AchievesId.HABIT:
-        if (countDaysInARow(stats) >= 21) {
-          return true;
-        }
-        return false;
+        return countDaysInARow(stats) >= HABIT_CHALLENGE_PERIOD;
 
       default:
         return false;
@@ -99,14 +79,11 @@ function checkFriendAchieve(user: User) {
 
 function checkDiscovererAchieve(statistics: GameAttempt[]) {
   const categories = statistics.map((item) => item.category);
-  if (
+  return (
     categories.includes(GameCategories.CONCENTRATION) &&
     categories.includes(GameCategories.MEMORY) &&
     categories.includes(GameCategories.LOGICS)
-  ) {
-    return true;
-  }
-  return false;
+  );
 }
 
 function checkExplorerAchieve(statistics: GameAttempt[]) {
@@ -124,45 +101,46 @@ function checkExplorerAchieve(statistics: GameAttempt[]) {
       memory += 1;
     }
   });
-  if (memory >= 5 && concentration >= 5 && logics >= 5) {
-    return true;
-  }
-  return false;
+
+  return memory >= 5 && concentration >= 5 && logics >= 5;
 }
 
-function countMemoryAttemts(statistics: GameAttempt[]) {
-  const memory = statistics.filter((item) => item.category === GameCategories.MEMORY);
-  return memory.length;
-}
-
-function countLogicsAttemts(statistics: GameAttempt[]) {
-  const logics = statistics.filter((item) => item.category === GameCategories.LOGICS);
-  return logics.length;
-}
-
-function countConcentrationAttemts(statistics: GameAttempt[]) {
-  const concentration = statistics.filter((item) => item.category === GameCategories.CONCENTRATION);
-  return concentration.length;
+function countAttemtsOnCategory(statistics: GameAttempt[], category: GameCategories) {
+  const attemptsNumber = statistics.filter((item) => item.category === category);
+  return attemptsNumber.length;
 }
 
 function countDaysInARow(statistics: GameAttempt[]) {
   const dates = statistics.map((item) => item.date);
   let maxDaysInARow = 1;
   dates.reduce((prevDate, nextDate) => {
-    const date1 = new Date(prevDate);
-    const date2 = new Date(nextDate);
-    if (Math.abs(date2.getDate() - date1.getDate()) === 1) {
+    if (
+      getDateDifference(prevDate, nextDate) === 1 ||
+      (isSaturday(prevDate) && isSunday(nextDate))
+    ) {
       maxDaysInARow += 1;
     }
-    if (date1.getDate() === 6) {
-      if (date2.getDate() === 0) {
-        maxDaysInARow += 1;
-      }
-    }
-    if (Math.abs(date1.getDate() - date2.getDate()) > 1) {
+
+    if (getDateDifference(prevDate, nextDate) > 1) {
       maxDaysInARow = 1;
     }
     return nextDate;
   });
   return maxDaysInARow;
+}
+
+function getDateDifference(prevDate: string, nextDate: string): number {
+  const date1 = new Date(prevDate);
+  const date2 = new Date(nextDate);
+  return Math.abs(date2.getDate() - date1.getDate());
+}
+
+function isSaturday(date: string): boolean {
+  const dayOfWeek = new Date(date);
+  return dayOfWeek.getDate() === 6;
+}
+
+function isSunday(date: string): boolean {
+  const dayOfWeek = new Date(date);
+  return dayOfWeek.getDate() === 0;
 }
