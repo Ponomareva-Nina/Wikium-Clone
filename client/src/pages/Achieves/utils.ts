@@ -1,3 +1,10 @@
+import {
+  GAMES_TO_FIRST_ACHIEVE,
+  GAMES_TO_SECOND_ACHIEVE,
+  GAMES_TO_THIRD_ACHIEVE,
+  HABIT_CHALLENGE_PERIOD,
+  WEEK_PERIOD,
+} from "../../constants/constants";
 import { GameCategories } from "../../interfaces/Categories";
 import { GameAttempt, User } from "../../interfaces/User";
 import { AchievesId } from "./types";
@@ -17,43 +24,43 @@ export const checkIsAchieveOpen = (user: User | null, achieveId: AchievesId) => 
         return checkExplorerAchieve(stats);
 
       case AchievesId.SHELDON:
-        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= 10;
+        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= GAMES_TO_FIRST_ACHIEVE;
 
       case AchievesId.FLASH:
-        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= 30;
+        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= GAMES_TO_SECOND_ACHIEVE;
 
       case AchievesId.MNEMONIST:
-        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= 50;
+        return countAttemtsOnCategory(stats, GameCategories.MEMORY) >= GAMES_TO_THIRD_ACHIEVE;
 
       case AchievesId.FLOW:
-        return countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= 10;
+        return (
+          countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= GAMES_TO_FIRST_ACHIEVE
+        );
 
       case AchievesId.RESOURCE:
-        return countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= 30;
+        return (
+          countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= GAMES_TO_SECOND_ACHIEVE
+        );
 
       case AchievesId.MOMENT:
-        return countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= 50;
+        return (
+          countAttemtsOnCategory(stats, GameCategories.CONCENTRATION) >= GAMES_TO_THIRD_ACHIEVE
+        );
 
       case AchievesId.BATMAN:
-        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= 10;
+        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= GAMES_TO_FIRST_ACHIEVE;
 
       case AchievesId.INTELLECTUAL:
-        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= 30;
+        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= GAMES_TO_SECOND_ACHIEVE;
 
       case AchievesId.THINKER:
-        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= 50;
+        return countAttemtsOnCategory(stats, GameCategories.LOGICS) >= GAMES_TO_THIRD_ACHIEVE;
 
       case AchievesId.WEEK:
-        if (countDaysInARow(stats) >= 7) {
-          return true;
-        }
-        return false;
+        return countDaysInARow(stats) >= WEEK_PERIOD;
 
       case AchievesId.HABIT:
-        if (countDaysInARow(stats) >= 21) {
-          return true;
-        }
-        return false;
+        return countDaysInARow(stats) >= HABIT_CHALLENGE_PERIOD;
 
       default:
         return false;
@@ -94,10 +101,8 @@ function checkExplorerAchieve(statistics: GameAttempt[]) {
       memory += 1;
     }
   });
-  if (memory >= 5 && concentration >= 5 && logics >= 5) {
-    return true;
-  }
-  return false;
+
+  return memory >= 5 && concentration >= 5 && logics >= 5;
 }
 
 function countAttemtsOnCategory(statistics: GameAttempt[], category: GameCategories) {
