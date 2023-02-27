@@ -72,14 +72,11 @@ function checkFriendAchieve(user: User) {
 
 function checkDiscovererAchieve(statistics: GameAttempt[]) {
   const categories = statistics.map((item) => item.category);
-  if (
+  return (
     categories.includes(GameCategories.CONCENTRATION) &&
     categories.includes(GameCategories.MEMORY) &&
     categories.includes(GameCategories.LOGICS)
-  ) {
-    return true;
-  }
-  return false;
+  );
 }
 
 function checkExplorerAchieve(statistics: GameAttempt[]) {
@@ -112,20 +109,33 @@ function countDaysInARow(statistics: GameAttempt[]) {
   const dates = statistics.map((item) => item.date);
   let maxDaysInARow = 1;
   dates.reduce((prevDate, nextDate) => {
-    const date1 = new Date(prevDate);
-    const date2 = new Date(nextDate);
-    if (Math.abs(date2.getDate() - date1.getDate()) === 1) {
+    if (
+      getDateDifference(prevDate, nextDate) === 1 ||
+      (isSaturday(prevDate) && isSunday(nextDate))
+    ) {
       maxDaysInARow += 1;
     }
-    if (date1.getDate() === 6) {
-      if (date2.getDate() === 0) {
-        maxDaysInARow += 1;
-      }
-    }
-    if (Math.abs(date1.getDate() - date2.getDate()) > 1) {
+
+    if (getDateDifference(prevDate, nextDate) > 1) {
       maxDaysInARow = 1;
     }
     return nextDate;
   });
   return maxDaysInARow;
+}
+
+function getDateDifference(prevDate: string, nextDate: string): number {
+  const date1 = new Date(prevDate);
+  const date2 = new Date(nextDate);
+  return Math.abs(date2.getDate() - date1.getDate());
+}
+
+function isSaturday(date: string): boolean {
+  const dayOfWeek = new Date(date);
+  return dayOfWeek.getDate() === 6;
+}
+
+function isSunday(date: string): boolean {
+  const dayOfWeek = new Date(date);
+  return dayOfWeek.getDate() === 0;
 }
