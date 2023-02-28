@@ -28,6 +28,9 @@ export const NavigationList: FC<PropsWithChildren<NavListProps>> = ({
         <NavigationItem to="/stats" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
           {t("navigation.stat")}
         </NavigationItem>
+        <NavigationItem to="/achieves" onClick={onClick} isOpenAccPopup={isOpenAccPopup}>
+          {t("navigation.achieves")}
+        </NavigationItem>
       </ul>
     </nav>
   );

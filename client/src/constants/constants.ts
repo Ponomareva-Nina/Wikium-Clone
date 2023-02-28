@@ -16,6 +16,8 @@ export const LINK_BLANK = "_blank";
 export const LINK_TASK =
   "https://github.com/rolling-scopes-school/tasks/blob/master/tasks/rsclone/rsclone.md";
 export const LINK_ORIGINAL = "https://wikium.com";
+export const BREAKPOINT_COLORMATCH_GAME = 560;
+export const BREAKPOINT_LESS_OR_MORE_GAME = 650;
 export const WEEK_PERIOD = 7;
 export const HABIT_CHALLENGE_PERIOD = 21;
 export const GAMES_TO_FIRST_ACHIEVE = 10;
