@@ -70,11 +70,8 @@ export const checkIsAchieveOpen = (user: User | null, achieveId: AchievesId) => 
   }
 };
 
-function checkFriendAchieve(user: User) {
-  if (user.name && user.surname && user.gender && user.birthDay && user.education) {
-    return true;
-  }
-  return false;
+function checkFriendAchieve({ name, surname, gender, birthDay, education }: User) {
+  return Boolean(name && surname && gender && birthDay && education);
 }
 
 function checkDiscovererAchieve(statistics: GameAttempt[]) {
