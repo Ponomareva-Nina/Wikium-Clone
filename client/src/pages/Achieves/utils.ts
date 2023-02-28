@@ -10,7 +10,7 @@ import { GameAttempt, User } from "../../interfaces/User";
 import { AchievesId } from "./types";
 
 export const checkIsAchieveOpen = (user: User | null, achieveId: AchievesId) => {
-  if (user && user.statistics.length !== 0) {
+  if (user && user.statistics.length) {
     const stats = user.statistics;
 
     switch (achieveId) {
