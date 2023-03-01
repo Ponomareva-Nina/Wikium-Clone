@@ -33,10 +33,12 @@ export const GameField: FC<GameFieldProps> = ({ finishGame }) => {
   const [answerCheck, setAnswerCheck] = useState<"correct" | "incorrect" | null>(null);
   const correctAnswerRef = useRef<string>("");
   const correctAnswerCountRef = useRef<number>(0);
+  const allCorrectAnswerCountRef = useRef<number>(0);
   const answerCountRef = useRef<number>(0);
   const timeoutIdRef = useRef<NodeJS.Timer | null>(null);
 
   const setAnswerHandler = (answer: AnswerVars) => {
+    let pointsCount: number = 0;
     if (timeoutIdRef.current) {
       clearTimeout(timeoutIdRef.current);
     }
@@ -45,7 +47,9 @@ export const GameField: FC<GameFieldProps> = ({ finishGame }) => {
       if (correctAnswerCountRef.current < MAX_CORRECT_ANSWER) {
         correctAnswerCountRef.current += 1;
       }
+      allCorrectAnswerCountRef.current += 1;
       setPoint((prevValue) => prevValue + level * COUNT_POINT);
+      pointsCount = points + level * COUNT_POINT;
       setAnswerCheck("correct");
     } else {
       if (correctAnswerCountRef.current > MIN_CORRECT_ANSWER) {
@@ -54,6 +58,7 @@ export const GameField: FC<GameFieldProps> = ({ finishGame }) => {
       setPoint((prevValue) =>
         prevValue - level * COUNT_POINT > 0 ? prevValue - level * COUNT_POINT : 0
       );
+      pointsCount = points - level * COUNT_POINT > 0 ? points - level * COUNT_POINT : 0;
       setAnswerCheck("incorrect");
     }
 
@@ -67,12 +72,12 @@ export const GameField: FC<GameFieldProps> = ({ finishGame }) => {
     setLevel(newLevel);
 
     if (timer === 0) {
-      const neurons = points / SCORE_INITIAL_VALUE;
+      const neurons = pointsCount / SCORE_INITIAL_VALUE;
 
       const resultData = {
-        correctAnswers: correctAnswerCountRef.current,
-        mistakes: answerCountRef.current - correctAnswerCountRef.current,
-        score: points,
+        correctAnswers: allCorrectAnswerCountRef.current,
+        mistakes: answerCountRef.current - allCorrectAnswerCountRef.current,
+        score: pointsCount,
         neurons,
       };
 

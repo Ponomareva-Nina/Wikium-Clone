@@ -14,8 +14,7 @@ import {
 import { Response, Request } from 'express';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
-import { ApiOperation, ApiResponse, ApiTags, OmitType } from '@nestjs/swagger';
-import { User } from 'src/user/entities/user.entity';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 @ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
@@ -33,6 +32,8 @@ export class AuthController {
   ) {
     const data = await this.authService.register(dto);
     response.cookie('refreshToken', data.refreshToken, {
+      secure: true,
+      sameSite: 'none',
       maxAge: REFRESH_TOKEN_EXPIRE,
       httpOnly: true,
     });
@@ -55,6 +56,8 @@ export class AuthController {
   ) {
     const data = await this.authService.login(dto);
     response.cookie('refreshToken', data.refreshToken, {
+      secure: true,
+      sameSite: 'none',
       maxAge: REFRESH_TOKEN_EXPIRE,
       httpOnly: true,
     });
@@ -89,8 +92,10 @@ export class AuthController {
     const data = await this.authService.refreshTokens({ refreshToken });
     response.clearCookie('refreshToken');
     response.cookie('refreshToken', data.refreshToken, {
+      secure: true,
       maxAge: REFRESH_TOKEN_EXPIRE,
       httpOnly: true,
+      sameSite: 'none',
     });
     return {
       user: data.user,
