@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useState } from "react";
+import { FC, PropsWithChildren, useRef, useState } from "react";
 import { GameInfoPanel } from "../../../../components/GameInfoPanel/GameInfoPanel";
 import { useCounter } from "../../../../hooks/useCounter";
 import { LEVEL, LevelNumber } from "../../data";
@@ -15,8 +15,8 @@ export const Game: FC<PropsWithChildren<GameProps>> = ({ finishGame }) => {
   const finishLevel = LEVEL[LevelNumber.THREE].level;
 
   const [points, setPoints] = useState<number>(GameValues.INITIAL_GAME_VALUES);
-  const [answers, setAnswers] = useState<number>(GameValues.INITIAL_GAME_VALUES);
-  const [correctAnswers, setCorrectAnswers] = useState<number>(GameValues.INITIAL_GAME_VALUES);
+  const answersRef = useRef<number>(GameValues.INITIAL_GAME_VALUES);
+  const correctAnswersRef = useRef<number>(GameValues.INITIAL_GAME_VALUES);
   const [correctAnswersSubsequence, setCorrectAnswersSubsequence] = useState<number>(
     GameValues.INITIAL_GAME_VALUES
   );
@@ -34,9 +34,10 @@ export const Game: FC<PropsWithChildren<GameProps>> = ({ finishGame }) => {
 
   const endGame = () => {
     if (timer === 0) {
+      const correctAnswers = correctAnswersRef.current;
       finishGame({
         correctAnswers,
-        mistakes: answers - correctAnswers,
+        mistakes: answersRef.current - correctAnswersRef.current,
         score: points,
         neurons: points / LEVEL[currentLevel - 1].pointsOneNeuron,
       });
@@ -44,22 +45,22 @@ export const Game: FC<PropsWithChildren<GameProps>> = ({ finishGame }) => {
   };
 
   const handleCorrectAnswers = (): void => {
-    setAnswers(answers + 1);
+    answersRef.current += 1;
     setCorrectAnswersSubsequence((prev) => prev + 1);
-    setCorrectAnswers(correctAnswers + 1);
+    correctAnswersRef.current += 1;
     setPoints((prev) => prev + LEVEL[currentLevel - 1].points * currentLevel);
-    if (isSetLevelTwo && correctAnswers) {
+    if (isSetLevelTwo && correctAnswersRef.current) {
       setCurrentLevel((prev) => prev + 1);
       setCorrectAnswersSubsequence(GameValues.INITIAL_GAME_VALUES);
     }
-    if (isMidleLevel && isSetLevelUp && correctAnswers) {
+    if (isMidleLevel && isSetLevelUp && correctAnswersRef.current) {
       setCurrentLevel((prev) => prev + 1);
     }
     endGame();
   };
 
   const handleErrorAnswers = (): void => {
-    setAnswers((prev) => prev + 1);
+    answersRef.current += 1;
     setCorrectAnswersSubsequence(GameValues.INITIAL_GAME_VALUES);
 
     if (points > 0) {
